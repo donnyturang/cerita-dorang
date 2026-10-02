@@ -3,7 +3,7 @@ title = "Mengapa Tomohon Disebut Kota Bunga?"
 date = 2026-10-02T20:00:00+08:00
 draft = false
 categories = ["Tahukah Anda"]
-tags = ["Tomohon", "Sejarah", "Flora", "Budaya", "populer", "Kota Bunga"]
+tags = ["Tomohon", "Sejarah", "Flora", "Budaya", "Kota Bunga", "sorotan"]
 [cover]
   image = "/images/bunga-tomohon.webp"
   alt = "Ilustrasi bunga di Kota Tomohon"

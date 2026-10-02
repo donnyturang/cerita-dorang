@@ -2,16 +2,16 @@
 
 <div class="dorang-home">
 
-  {{/* SEKSI 1: REKOMENDASI — Hero Horizontal */}}
-  {{- $rekomendasi := where .Site.RegularPages "Params.tags" "intersect" (slice "rekomendasi") }}
-  {{- if $rekomendasi }}
+  {{/* SEKSI 1: SOROTAN — Hero Horizontal */}}
+  {{- $sorotan := where .Site.RegularPages "Params.tags" "intersect" (slice "sorotan") }}
+  {{- if $sorotan }}
   <section class="dorang-section">
-    <h2 class="dorang-section-title">Rekomendasi</h2>
-    {{- range first 1 $rekomendasi }}
+    <h2 class="dorang-section-title">Sorotan</h2>
+    {{- range first 1 $sorotan }}
     <a href="{{ .Permalink }}" class="dorang-hero">
       {{- with .Params.cover.image }}
       <div class="dorang-hero-image">
-        <img src="{{ . }}" alt="{{ $.Params.cover.alt | default $.Title }}" loading="eager">
+        <img src="{{ . | absURL }}" alt="{{ $.Params.cover.alt | default $.Title }}" loading="eager">
       </div>
       {{- end }}
       <div class="dorang-hero-content">
@@ -24,76 +24,17 @@
   </section>
   {{- end }}
 
-  {{/* SEKSI 2: TAHUKAH ANDA — Cascade (1 besar + 4 kecil) */}}
+  {{/* SEKSI 2: TAHUKAH ANDA — Grid 3 Kolom */}}
   {{- $tahukah := where .Site.RegularPages "Params.categories" "intersect" (slice "Tahukah Anda") }}
   {{- if $tahukah }}
   <section class="dorang-section">
     <h2 class="dorang-section-title">Tahukah Anda</h2>
-    {{- with index $tahukah 0 }}
-    <a href="{{ .Permalink }}" class="dorang-cascade-featured">
-      {{- with .Params.cover.image }}
-      <div class="dorang-cascade-image">
-        <img src="{{ . }}" alt="{{ $.Params.cover.alt | default $.Title }}" loading="lazy">
-      </div>
-      {{- end }}
-      <div class="dorang-cascade-content">
-        <h3>{{ .Title }}</h3>
-        <p>{{ .Summary | plainify | truncate 140 }}</p>
-      </div>
-    </a>
-    {{- end }}
-    {{- $rest := after 1 $tahukah }}
-    {{- if $rest }}
-    <div class="dorang-cascade-grid">
-      {{- range first 4 $rest }}
-      <a href="{{ .Permalink }}" class="dorang-card">
-        {{- with .Params.cover.image }}
-        <div class="dorang-card-cover">
-          <img src="{{ . }}" alt="{{ $.Params.cover.alt | default $.Title }}" loading="lazy">
-        </div>
-        {{- end }}
-        <h3 class="dorang-card-title">{{ .Title }}</h3>
-      </a>
-      {{- end }}
-    </div>
-    {{- end }}
-  </section>
-  {{- end }}
-
-  {{/* SEKSI 3: SOSOK — List Horizontal Bertumpuk */}}
-  {{- $sosok := where .Site.RegularPages "Params.categories" "intersect" (slice "Sosok") }}
-  {{- if $sosok }}
-  <section class="dorang-section">
-    <h2 class="dorang-section-title">Sosok</h2>
-    <div class="dorang-list">
-      {{- range first 5 $sosok }}
-      <a href="{{ .Permalink }}" class="dorang-list-item">
-        {{- with .Params.cover.image }}
-        <div class="dorang-list-cover">
-          <img src="{{ . }}" alt="{{ $.Params.cover.alt | default $.Title }}" loading="lazy">
-        </div>
-        {{- end }}
-        <div class="dorang-list-content">
-          <h3 class="dorang-list-title">{{ .Title }}</h3>
-          <p class="dorang-list-summary">{{ .Summary | plainify | truncate 100 }}</p>
-        </div>
-      </a>
-      {{- end }}
-    </div>
-  </section>
-  {{- end }}
-
-  {{/* SEKSI 4: PILIHAN — Grid 3 Kolom */}}
-  {{- $pilihan := where .Site.RegularPages "Params.tags" "intersect" (slice "pilihan") }}
-  {{- if $pilihan }}
-  <section class="dorang-section">
-    <h2 class="dorang-section-title">Pilihan</h2>
     <div class="dorang-grid dorang-grid-3">
-      {{- range first 3 $pilihan }}
+      {{- range first 6 $tahukah }}
       <a href="{{ .Permalink }}" class="dorang-card">
         {{- with .Params.cover.image }}
         <div class="dorang-card-cover">
-          <img src="{{ . }}" alt="{{ $.Params.cover.alt | default $.Title }}" loading="lazy">
+          <img src="{{ . | absURL }}" alt="{{ $.Params.cover.alt | default $.Title }}" loading="lazy">
         </div>
         {{- end }}
         <h3 class="dorang-card-title">{{ .Title }}</h3>
@@ -104,28 +45,30 @@
   </section>
   {{- end }}
 
-  {{/* SEKSI 5: POPULER — Grid 2x2 dengan Nomor */}}
-  {{- $populer := where .Site.RegularPages "Params.tags" "intersect" (slice "populer") }}
-  {{- if $populer }}
+  {{/* SEKSI 3: SOSOK — List Horizontal Bertumpuk */}}
+  {{- $sosok := where .Site.RegularPages "Params.categories" "intersect" (slice "Sosok") }}
+  {{- if $sosok }}
   <section class="dorang-section">
-    <h2 class="dorang-section-title">Populer</h2>
-    <div class="dorang-ranked">
-      {{- range $i, $p := first 4 $populer }}
-      <a href="{{ $p.Permalink }}" class="dorang-ranked-item">
-        <span class="dorang-ranked-number">{{ printf "%02d" (add $i 1) }}</span>
-        {{- with $p.Params.cover.image }}
-        <div class="dorang-ranked-cover">
-          <img src="{{ . }}" alt="{{ $p.Params.cover.alt | default $p.Title }}" loading="lazy">
+    <h2 class="dorang-section-title">Sosok</h2>
+    <div class="dorang-list">
+      {{- range first 6 $sosok }}
+      <a href="{{ .Permalink }}" class="dorang-list-item">
+        {{- with .Params.cover.image }}
+        <div class="dorang-list-cover">
+          <img src="{{ . | absURL }}" alt="{{ $.Params.cover.alt | default $.Title }}" loading="lazy">
         </div>
         {{- end }}
-        <h3 class="dorang-ranked-title">{{ $p.Title }}</h3>
+        <div class="dorang-list-content">
+          <h3 class="dorang-list-title">{{ .Title }}</h3>
+          <p class="dorang-list-summary">{{ .Summary | plainify | truncate 120 }}</p>
+        </div>
       </a>
       {{- end }}
     </div>
   </section>
   {{- end }}
 
-  {{/* LIHAT SEMUA TULISAN — Tautan ke /posts/ */}}
+  {{/* LIHAT SEMUA TULISAN */}}
   <div class="dorang-viewall">
     <a href="{{ "/posts/" | relURL }}" class="dorang-viewall-link">
       Lihat Semua Tulisan <span aria-hidden="true">→</span>
