@@ -348,12 +348,17 @@
    ============================================================ */
 
 .dorang-home {
-  max-width: 900px;
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 0 0 40px;
+  padding: 0 0 60px;
 }
 
-/* Judul seksi */
+/* Lebarkan container PaperMod di homepage */
+body.list:has(.dorang-home) {
+  --main-width: 1100px;
+}
+
+/* ---------------- Judul Seksi ---------------- */
 .dorang-section {
   margin: 3em 0;
 }
@@ -370,9 +375,12 @@
   margin: 0 0 24px;
 }
 
-/* ---------------- HERO (REKOMENDASI) ---------------- */
+/* ============================================================
+   1. REKOMENDASI — Hero Horizontal
+   ============================================================ */
 .dorang-hero {
-  display: block;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
   text-decoration: none;
   color: inherit;
   background: var(--entry);
@@ -389,7 +397,8 @@
 
 .dorang-hero-image {
   width: 100%;
-  aspect-ratio: 16/9;
+  height: 100%;
+  min-height: 340px;
   overflow: hidden;
   background: var(--soft);
 }
@@ -408,7 +417,10 @@
 }
 
 .dorang-hero-content {
-  padding: 24px 28px 26px;
+  padding: 32px 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .dorang-hero-title {
@@ -416,7 +428,7 @@
   font-size: 26px;
   font-weight: 800;
   line-height: 1.25;
-  margin: 0 0 12px;
+  margin: 0 0 14px;
   color: var(--primary);
   letter-spacing: -0.3px;
 }
@@ -426,7 +438,7 @@
   font-size: 16px;
   line-height: 1.65;
   color: var(--content);
-  margin: 0 0 14px;
+  margin: 0 0 18px;
 }
 
 .dorang-hero-meta {
@@ -436,7 +448,159 @@
   color: var(--secondary);
 }
 
-/* ---------------- GRID & CARD ---------------- */
+/* ============================================================
+   2. TAHUKAH ANDA — Cascade (1 besar + 4 kecil)
+   ============================================================ */
+.dorang-cascade-featured {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 24px;
+  text-decoration: none;
+  color: inherit;
+  background: var(--entry);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 14px rgba(44, 62, 80, 0.06);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.dorang-cascade-featured:hover {
+  box-shadow: 0 8px 24px rgba(44, 62, 80, 0.12);
+  transform: translateY(-2px);
+}
+
+.dorang-cascade-image {
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  background: var(--soft);
+}
+
+.dorang-cascade-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  filter: grayscale(100%);
+  transition: filter 0.4s ease;
+}
+
+.dorang-cascade-featured:hover .dorang-cascade-image img {
+  filter: grayscale(0%);
+}
+
+.dorang-cascade-content {
+  padding: 24px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.dorang-cascade-content h3 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1.3;
+  margin: 0 0 10px;
+  color: var(--primary);
+}
+
+.dorang-cascade-content p {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--secondary);
+  margin: 0;
+}
+
+.dorang-cascade-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+/* ============================================================
+   3. SOSOK — List Horizontal Bertumpuk
+   ============================================================ */
+.dorang-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.dorang-list-item {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 22px;
+  text-decoration: none;
+  color: inherit;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--border);
+  transition: padding-left 0.25s ease;
+}
+
+.dorang-list-item:hover {
+  padding-left: 8px;
+}
+
+.dorang-list-item:last-child {
+  border-bottom: none;
+}
+
+.dorang-list-cover {
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  border-radius: 8px;
+  background: var(--soft);
+}
+
+.dorang-list-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  filter: grayscale(100%);
+  transition: filter 0.4s ease, transform 0.4s ease;
+}
+
+.dorang-list-item:hover .dorang-list-cover img {
+  filter: grayscale(0%);
+  transform: scale(1.04);
+}
+
+.dorang-list-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.dorang-list-title {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.3;
+  margin: 0 0 8px;
+  color: var(--primary);
+  letter-spacing: -0.2px;
+}
+
+.dorang-list-item:hover .dorang-list-title {
+  color: var(--accent-dark);
+}
+
+.dorang-list-summary {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--secondary);
+  margin: 0;
+}
+
+/* ============================================================
+   4. PILIHAN — Grid 3 Kolom
+   ============================================================ */
 .dorang-grid {
   display: grid;
   gap: 24px;
@@ -503,52 +667,185 @@
   margin: 0;
 }
 
-/* ---------------- DARK MODE ---------------- */
+/* ============================================================
+   5. POPULER — Grid 2x2 dengan Nomor
+   ============================================================ */
+.dorang-ranked {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.dorang-ranked-item {
+  position: relative;
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  padding: 24px 24px 20px;
+  background: var(--entry);
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  transition: box-shadow 0.3s ease, transform 0.25s ease;
+}
+
+.dorang-ranked-item:hover {
+  box-shadow: 0 6px 20px rgba(44, 62, 80, 0.1);
+  transform: translateY(-2px);
+}
+
+.dorang-ranked-number {
+  display: block;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 36px;
+  font-weight: 900;
+  color: var(--accent);
+  line-height: 1;
+  margin-bottom: 12px;
+  letter-spacing: -1px;
+  opacity: 0.85;
+}
+
+.dorang-ranked-cover {
+  aspect-ratio: 16/9;
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--soft);
+  margin-bottom: 14px;
+}
+
+.dorang-ranked-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  filter: grayscale(100%);
+  transition: filter 0.4s ease;
+}
+
+.dorang-ranked-item:hover .dorang-ranked-cover img {
+  filter: grayscale(0%);
+}
+
+.dorang-ranked-title {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.35;
+  margin: 0;
+  color: var(--primary);
+}
+
+.dorang-ranked-item:hover .dorang-ranked-title {
+  color: var(--accent-dark);
+}
+
+/* ============================================================
+   LIHAT SEMUA TULISAN
+   ============================================================ */
+.dorang-viewall {
+  text-align: center;
+  margin: 4em 0 1em;
+  padding-top: 2em;
+  border-top: 1px solid var(--border);
+}
+
+.dorang-viewall-link {
+  display: inline-block;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent-dark);
+  text-decoration: none;
+  padding: 14px 32px;
+  border: 2px solid var(--accent);
+  border-radius: 999px;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.dorang-viewall-link:hover {
+  background-color: var(--accent);
+  color: #fff;
+}
+
+.dorang-viewall-link span {
+  display: inline-block;
+  margin-left: 6px;
+  transition: transform 0.25s ease;
+}
+
+.dorang-viewall-link:hover span {
+  transform: translateX(4px);
+}
+
+/* ============================================================
+   DARK MODE
+   ============================================================ */
 .dark .dorang-section-title {
   color: #e6e6e6;
   border-bottom-color: #e6e6e6;
 }
 
-.dark .dorang-hero {
+.dark .dorang-hero,
+.dark .dorang-cascade-featured,
+.dark .dorang-ranked-item {
   background: #252525;
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
 }
 
-.dark .dorang-hero:hover {
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
-}
-
 .dark .dorang-hero-title,
-.dark .dorang-card-title {
+.dark .dorang-cascade-content h3,
+.dark .dorang-card-title,
+.dark .dorang-list-title,
+.dark .dorang-ranked-title {
   color: #e6e6e6;
 }
 
-.dark .dorang-card:hover .dorang-card-title {
-  color: var(--accent);
-}
-
 .dark .dorang-hero-summary,
-.dark .dorang-card-summary {
+.dark .dorang-cascade-content p,
+.dark .dorang-card-summary,
+.dark .dorang-list-summary {
   color: #b0b0b0;
 }
 
-/* ---------------- RESPONSIF MOBILE ---------------- */
+.dark .dorang-list-item {
+  border-bottom-color: #3a3a3a;
+}
+
+.dark .dorang-ranked-item {
+  border-color: #3a3a3a;
+}
+
+.dark .dorang-viewall {
+  border-top-color: #3a3a3a;
+}
+
+/* ============================================================
+   RESPONSIF MOBILE
+   ============================================================ */
 @media (max-width: 768px) {
   .dorang-section {
     margin: 2em 0;
   }
+
   .dorang-section-title {
     font-size: 12px;
     letter-spacing: 2.5px;
     padding-bottom: 8px;
     margin-bottom: 18px;
   }
-  .dorang-grid-3 {
+
+  /* REKOMENDASI */
+  .dorang-hero {
     grid-template-columns: 1fr;
-    gap: 22px;
+  }
+  .dorang-hero-image {
+    min-height: 220px;
   }
   .dorang-hero-content {
-    padding: 20px 20px 22px;
+    padding: 22px 22px 24px;
   }
   .dorang-hero-title {
     font-size: 21px;
@@ -556,7 +853,52 @@
   .dorang-hero-summary {
     font-size: 15px;
   }
-  .dorang-card-cover {
-    aspect-ratio: 16/9;
+
+  /* TAHUKAH ANDA */
+  .dorang-cascade-featured {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .dorang-cascade-content {
+    padding: 20px 22px;
+  }
+  .dorang-cascade-content h3 {
+    font-size: 18px;
+  }
+  .dorang-cascade-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  /* SOSOK */
+  .dorang-list-item {
+    grid-template-columns: 110px 1fr;
+    gap: 14px;
+    padding: 16px 0;
+  }
+  .dorang-list-title {
+    font-size: 16px;
+  }
+  .dorang-list-summary {
+    font-size: 13.5px;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* PILIHAN */
+  .dorang-grid-3 {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  /* POPULER */
+  .dorang-ranked {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .dorang-ranked-number {
+    font-size: 28px;
   }
 }
