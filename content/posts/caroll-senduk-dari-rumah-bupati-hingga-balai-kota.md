@@ -3,11 +3,11 @@ title = "Caroll Senduk: Dari Rumah Bupati hingga Balai Kota Tomohon"
 date = 2026-10-02T10:00:00+08:00
 draft = false
 categories = ["Sosok"]
-tags = ["Caroll Senduk", "Tomohon", "Politik Lokal", "Profil"]
+tags = ["Caroll Senduk", "Tomohon", "Politik Lokal", "Profil", "rekomendasi", "pilihan"]
 [cover]
-  image = ""
+  image = "/images/caroll-senduk.webp"
   alt = "Caroll Senduk, Wali Kota Tomohon"
-  caption = "Ilustrasi: Dokumen Pribadi"
+  caption = "Caroll Senduk, Wali Kota Tomohon periode 2019–2024 dan 2024–Sekarang. (Foto: Ist)"
   relative = false
 +++
 

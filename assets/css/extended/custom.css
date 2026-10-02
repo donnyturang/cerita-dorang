@@ -273,3 +273,290 @@
     font-size: 14px;
   }
 }
+
+/* ============================================================
+   COVER IMAGE — Standar CERITA DORANG
+   ============================================================ */
+
+/* Cover di halaman artikel (di bawah judul) */
+.post-single .entry-cover {
+  margin: 2em 0 2.5em;
+  padding: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(44, 62, 80, 0.12);
+  background: var(--soft);
+}
+
+.post-single .entry-cover img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  margin: 0;
+  padding: 0;
+}
+
+/* Caption di bawah gambar */
+.post-single .entry-cover figcaption {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 12.5px;
+  font-style: italic;
+  color: var(--secondary);
+  text-align: center;
+  padding: 12px 16px;
+  background: rgba(196, 154, 108, 0.06);
+  letter-spacing: 0.2px;
+}
+
+/* Efek hover halus */
+.post-single .entry-cover:hover {
+  box-shadow: 0 12px 32px rgba(44, 62, 80, 0.18);
+  transition: box-shadow 0.3s ease;
+}
+
+/* Dark Mode */
+.dark .post-single .entry-cover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+.dark .post-single .entry-cover figcaption {
+  background: rgba(212, 168, 120, 0.08);
+  color: #b0b0b0;
+}
+
+/* Responsif Mobile */
+@media (max-width: 768px) {
+  .post-single .entry-cover {
+    margin: 1.5em 0 2em;
+    border-radius: 8px;
+  }
+  .post-single .entry-cover figcaption {
+    font-size: 11.5px;
+    padding: 10px 12px;
+  }
+}
+
+/* Cover di kartu beranda — aspek rasio konsisten */
+.post-entry .entry-cover {
+  aspect-ratio: 4/3;
+}
+
+/* ============================================================
+   BERANDA DORANG — Seksi Editorial
+   ============================================================ */
+
+.dorang-home {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 0 40px;
+}
+
+/* Judul seksi */
+.dorang-section {
+  margin: 3em 0;
+}
+
+.dorang-section-title {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--primary);
+  padding-bottom: 10px;
+  border-bottom: 3px solid var(--primary);
+  margin: 0 0 24px;
+}
+
+/* ---------------- HERO (REKOMENDASI) ---------------- */
+.dorang-hero {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  background: var(--entry);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 18px rgba(44, 62, 80, 0.08);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.dorang-hero:hover {
+  box-shadow: 0 10px 30px rgba(44, 62, 80, 0.15);
+  transform: translateY(-2px);
+}
+
+.dorang-hero-image {
+  width: 100%;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  background: var(--soft);
+}
+
+.dorang-hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.dorang-hero:hover .dorang-hero-image img {
+  transform: scale(1.03);
+}
+
+.dorang-hero-content {
+  padding: 24px 28px 26px;
+}
+
+.dorang-hero-title {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1.25;
+  margin: 0 0 12px;
+  color: var(--primary);
+  letter-spacing: -0.3px;
+}
+
+.dorang-hero-summary {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--content);
+  margin: 0 0 14px;
+}
+
+.dorang-hero-meta {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-style: italic;
+  font-size: 13px;
+  color: var(--secondary);
+}
+
+/* ---------------- GRID & CARD ---------------- */
+.dorang-grid {
+  display: grid;
+  gap: 24px;
+}
+
+.dorang-grid-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.dorang-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.25s ease;
+}
+
+.dorang-card:hover {
+  transform: translateY(-3px);
+}
+
+.dorang-card-cover {
+  width: 100%;
+  aspect-ratio: 4/3;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--soft);
+  margin-bottom: 14px;
+}
+
+.dorang-card-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  filter: grayscale(100%);
+  transition: filter 0.4s ease, transform 0.4s ease;
+}
+
+.dorang-card:hover .dorang-card-cover img {
+  filter: grayscale(0%);
+  transform: scale(1.04);
+}
+
+.dorang-card-title {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.3;
+  margin: 0 0 6px;
+  color: var(--primary);
+  letter-spacing: -0.2px;
+}
+
+.dorang-card:hover .dorang-card-title {
+  color: var(--accent-dark);
+}
+
+.dorang-card-summary {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--secondary);
+  margin: 0;
+}
+
+/* ---------------- DARK MODE ---------------- */
+.dark .dorang-section-title {
+  color: #e6e6e6;
+  border-bottom-color: #e6e6e6;
+}
+
+.dark .dorang-hero {
+  background: #252525;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
+}
+
+.dark .dorang-hero:hover {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+.dark .dorang-hero-title,
+.dark .dorang-card-title {
+  color: #e6e6e6;
+}
+
+.dark .dorang-card:hover .dorang-card-title {
+  color: var(--accent);
+}
+
+.dark .dorang-hero-summary,
+.dark .dorang-card-summary {
+  color: #b0b0b0;
+}
+
+/* ---------------- RESPONSIF MOBILE ---------------- */
+@media (max-width: 768px) {
+  .dorang-section {
+    margin: 2em 0;
+  }
+  .dorang-section-title {
+    font-size: 12px;
+    letter-spacing: 2.5px;
+    padding-bottom: 8px;
+    margin-bottom: 18px;
+  }
+  .dorang-grid-3 {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+  .dorang-hero-content {
+    padding: 20px 20px 22px;
+  }
+  .dorang-hero-title {
+    font-size: 21px;
+  }
+  .dorang-hero-summary {
+    font-size: 15px;
+  }
+  .dorang-card-cover {
+    aspect-ratio: 16/9;
+  }
+}

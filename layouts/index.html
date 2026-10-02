@@ -1,0 +1,123 @@
+{{- define "main" }}
+
+<div class="dorang-home">
+
+  {{/* ==========================================================
+       SEKSI 1: REKOMENDASI — 1 artikel besar (hero)
+       ========================================================== */}}
+  {{- $rekomendasi := where .Site.RegularPages "Params.tags" "intersect" (slice "rekomendasi") }}
+  {{- if $rekomendasi }}
+  <section class="dorang-section dorang-section-hero">
+    <h2 class="dorang-section-title">Rekomendasi</h2>
+    {{- range first 1 $rekomendasi }}
+    <a href="{{ .Permalink }}" class="dorang-hero">
+      {{- with .Params.cover.image }}
+      <div class="dorang-hero-image">
+        <img src="{{ . | absURL }}" alt="{{ $.Params.cover.alt | default $.Title }}" loading="eager">
+      </div>
+      {{- end }}
+      <div class="dorang-hero-content">
+        <h3 class="dorang-hero-title">{{ .Title }}</h3>
+        <p class="dorang-hero-summary">{{ .Summary | plainify | truncate 180 }}</p>
+        <span class="dorang-hero-meta">{{ .Date.Format "2 January 2006" }} · {{ .ReadingTime }} menit baca</span>
+      </div>
+    </a>
+    {{- end }}
+  </section>
+  {{- end }}
+
+  {{/* ==========================================================
+       SEKSI 2: TAHUKAH ANDA — 3 artikel dari kategori
+       ========================================================== */}}
+  {{- $tahukah := where .Site.RegularPages "Params.categories" "intersect" (slice "Tahukah Anda") }}
+  {{- if $tahukah }}
+  <section class="dorang-section">
+    <h2 class="dorang-section-title">Tahukah Anda</h2>
+    <div class="dorang-grid dorang-grid-3">
+      {{- range first 3 $tahukah }}
+      <a href="{{ .Permalink }}" class="dorang-card">
+        {{- with .Params.cover.image }}
+        <div class="dorang-card-cover">
+          <img src="{{ . | absURL }}" alt="{{ $.Params.cover.alt | default $.Title }}" loading="lazy">
+        </div>
+        {{- end }}
+        <h3 class="dorang-card-title">{{ .Title }}</h3>
+        <p class="dorang-card-summary">{{ .Summary | plainify | truncate 100 }}</p>
+      </a>
+      {{- end }}
+    </div>
+  </section>
+  {{- end }}
+
+  {{/* ==========================================================
+       SEKSI 3: SOSOK — 3 artikel dari kategori
+       ========================================================== */}}
+  {{- $sosok := where .Site.RegularPages "Params.categories" "intersect" (slice "Sosok") }}
+  {{- if $sosok }}
+  <section class="dorang-section">
+    <h2 class="dorang-section-title">Sosok</h2>
+    <div class="dorang-grid dorang-grid-3">
+      {{- range first 3 $sosok }}
+      <a href="{{ .Permalink }}" class="dorang-card">
+        {{- with .Params.cover.image }}
+        <div class="dorang-card-cover">
+          <img src="{{ . | absURL }}" alt="{{ $.Params.cover.alt | default $.Title }}" loading="lazy">
+        </div>
+        {{- end }}
+        <h3 class="dorang-card-title">{{ .Title }}</h3>
+        <p class="dorang-card-summary">{{ .Summary | plainify | truncate 100 }}</p>
+      </a>
+      {{- end }}
+    </div>
+  </section>
+  {{- end }}
+
+  {{/* ==========================================================
+       SEKSI 4: PILIHAN — 3 artikel ber-tag "pilihan"
+       ========================================================== */}}
+  {{- $pilihan := where .Site.RegularPages "Params.tags" "intersect" (slice "pilihan") }}
+  {{- if $pilihan }}
+  <section class="dorang-section">
+    <h2 class="dorang-section-title">Pilihan</h2>
+    <div class="dorang-grid dorang-grid-3">
+      {{- range first 3 $pilihan }}
+      <a href="{{ .Permalink }}" class="dorang-card">
+        {{- with .Params.cover.image }}
+        <div class="dorang-card-cover">
+          <img src="{{ . | absURL }}" alt="{{ $.Params.cover.alt | default $.Title }}" loading="lazy">
+        </div>
+        {{- end }}
+        <h3 class="dorang-card-title">{{ .Title }}</h3>
+        <p class="dorang-card-summary">{{ .Summary | plainify | truncate 100 }}</p>
+      </a>
+      {{- end }}
+    </div>
+  </section>
+  {{- end }}
+
+  {{/* ==========================================================
+       SEKSI 5: POPULER — 3 artikel ber-tag "populer"
+       ========================================================== */}}
+  {{- $populer := where .Site.RegularPages "Params.tags" "intersect" (slice "populer") }}
+  {{- if $populer }}
+  <section class="dorang-section">
+    <h2 class="dorang-section-title">Populer</h2>
+    <div class="dorang-grid dorang-grid-3">
+      {{- range first 3 $populer }}
+      <a href="{{ .Permalink }}" class="dorang-card">
+        {{- with .Params.cover.image }}
+        <div class="dorang-card-cover">
+          <img src="{{ . | absURL }}" alt="{{ $.Params.cover.alt | default $.Title }}" loading="lazy">
+        </div>
+        {{- end }}
+        <h3 class="dorang-card-title">{{ .Title }}</h3>
+        <p class="dorang-card-summary">{{ .Summary | plainify | truncate 100 }}</p>
+      </a>
+      {{- end }}
+    </div>
+  </section>
+  {{- end }}
+
+</div>
+
+{{- end }}
