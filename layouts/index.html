@@ -11,7 +11,7 @@
     <a href="{{ .Permalink }}" class="dorang-hero">
       {{- with .Params.cover.image }}
       <div class="dorang-hero-image">
-        <img src="{{ . | absURL }}" alt="{{ $.Params.cover.alt | default $.Title }}" loading="eager">
+        <img src="{{ . }}" alt="{{ $.Params.cover.alt | default $.Title }}" loading="eager">
       </div>
       {{- end }}
       <div class="dorang-hero-content">
@@ -33,7 +33,7 @@
     <a href="{{ .Permalink }}" class="dorang-cascade-featured">
       {{- with .Params.cover.image }}
       <div class="dorang-cascade-image">
-        <img src="{{ . | absURL }}" alt="{{ $.Params.cover.alt | default $.Title }}" loading="lazy">
+        <img src="{{ . }}" alt="{{ $.Params.cover.alt | default $.Title }}" loading="lazy">
       </div>
       {{- end }}
       <div class="dorang-cascade-content">
@@ -49,7 +49,7 @@
       <a href="{{ .Permalink }}" class="dorang-card">
         {{- with .Params.cover.image }}
         <div class="dorang-card-cover">
-          <img src="{{ . | absURL }}" alt="{{ $.Params.cover.alt | default $.Title }}" loading="lazy">
+          <img src="{{ . }}" alt="{{ $.Params.cover.alt | default $.Title }}" loading="lazy">
         </div>
         {{- end }}
         <h3 class="dorang-card-title">{{ .Title }}</h3>
@@ -70,7 +70,7 @@
       <a href="{{ .Permalink }}" class="dorang-list-item">
         {{- with .Params.cover.image }}
         <div class="dorang-list-cover">
-          <img src="{{ . | absURL }}" alt="{{ $.Params.cover.alt | default $.Title }}" loading="lazy">
+          <img src="{{ . }}" alt="{{ $.Params.cover.alt | default $.Title }}" loading="lazy">
         </div>
         {{- end }}
         <div class="dorang-list-content">
@@ -93,7 +93,7 @@
       <a href="{{ .Permalink }}" class="dorang-card">
         {{- with .Params.cover.image }}
         <div class="dorang-card-cover">
-          <img src="{{ . | absURL }}" alt="{{ $.Params.cover.alt | default $.Title }}" loading="lazy">
+          <img src="{{ . }}" alt="{{ $.Params.cover.alt | default $.Title }}" loading="lazy">
         </div>
         {{- end }}
         <h3 class="dorang-card-title">{{ .Title }}</h3>
@@ -115,7 +115,7 @@
         <span class="dorang-ranked-number">{{ printf "%02d" (add $i 1) }}</span>
         {{- with $p.Params.cover.image }}
         <div class="dorang-ranked-cover">
-          <img src="{{ . | absURL }}" alt="{{ $p.Params.cover.alt | default $p.Title }}" loading="lazy">
+          <img src="{{ . }}" alt="{{ $p.Params.cover.alt | default $p.Title }}" loading="lazy">
         </div>
         {{- end }}
         <h3 class="dorang-ranked-title">{{ $p.Title }}</h3>

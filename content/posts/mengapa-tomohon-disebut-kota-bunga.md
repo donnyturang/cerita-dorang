@@ -303,11 +303,11 @@ Bukan pada banyaknya bunga yang dipajang ketika festival berlangsung.
 
 Melainkan pada kenyataan bahwa jauh sebelum dunia datang untuk melihat bunga-bunga Tomohon, **orang-orang Tomohon telah lebih dahulu hidup bersama bunga.**
 
-## Sumber dan rujukan
-
+{{< referensi >}}
 - Graafland, Nicolaas. *De Minahasa: haar verleden en haar tegenwoordige toestand*. Batavia/Rotterdam, 1867; edisi revisi, Haarlem, 1898.
 - Graafland, Nicolaas. *Inilah Kitab Batja akan Tanah Minahasa*. Rotterdam, 1863/1867.
 - Graafland, Nicolaas. *Minahasa: Masa Lalu dan Masa Kini*. Terjemahan Y. Kullit. Jakarta: Lembaga Perpustakaan Dokumentasi Indonesia & Penerbit Obor, 1991.
 - Renwarin, Paul Richard. *Matuari Wo Tona'as: Kebudayaan Minahasa*. Jakarta: Cahaya Pineleng, 2006.
 - Pemerintah Kota Tomohon. *Dokumen Perencanaan Kota Bunga dan Rencana Induk Pengembangan Pariwisata Daerah (RIPPDA) Kota Tomohon*. Dinas Kebudayaan dan Pariwisata Kota Tomohon, 2008.
 - Undang-Undang Republik Indonesia Nomor 10 Tahun 2003 tentang Pembentukan Kabupaten Minahasa Selatan dan Kota Tomohon di Provinsi Sulawesi Utara.
+{{< /referensi >}}

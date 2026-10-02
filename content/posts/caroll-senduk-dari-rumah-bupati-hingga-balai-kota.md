@@ -7,7 +7,7 @@ tags = ["Caroll Senduk", "Tomohon", "Politik Lokal", "Profil", "rekomendasi", "p
 [cover]
   image = "/images/caroll-senduk.webp"
   alt = "Caroll Senduk, Wali Kota Tomohon"
-  caption = "Caroll Senduk, Wali Kota Tomohon periode 2019–2024 dan 2024–Sekarang. (Foto: Ist)"
+  caption = "Caroll J.A. Senduk"
   relative = false
 +++
 

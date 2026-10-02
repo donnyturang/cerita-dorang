@@ -902,3 +902,371 @@ body.list:has(.dorang-home) {
     font-size: 28px;
   }
 }
+
+/* ============================================================
+   KOTAK REFERENSI — Sumber dan Rujukan
+   ============================================================ */
+.dorang-referensi {
+  position: relative;
+  margin: 2.5em 0 1.5em;
+  padding: 24px 28px 22px;
+  background: linear-gradient(135deg, #fdfcfa 0%, #f8f5f0 100%);
+  border-left: 4px solid var(--accent);
+  border-radius: 0 10px 10px 0;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+  counter-reset: ref-counter;
+}
+
+.dorang-referensi-title {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--accent-dark);
+  margin: 0 0 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(196, 154, 108, 0.3);
+}
+
+.dorang-referensi ul,
+.dorang-referensi ol {
+  padding-left: 20px;
+  margin: 0;
+}
+
+.dorang-referensi li {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: var(--content);
+  margin-bottom: 8px;
+}
+
+.dorang-referensi li:last-child {
+  margin-bottom: 0;
+}
+
+.dorang-referensi em {
+  color: var(--primary);
+}
+
+/* Dark Mode */
+.dark .dorang-referensi {
+  background: linear-gradient(135deg, #232323 0%, #1f1f1f 100%);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+}
+
+.dark .dorang-referensi-title {
+  color: var(--accent);
+  border-bottom-color: rgba(212, 168, 120, 0.35);
+}
+
+.dark .dorang-referensi li {
+  color: #c0c0c0;
+}
+
+.dark .dorang-referensi li::before {
+  color: var(--accent);
+}
+
+.dark .dorang-referensi em {
+  color: #e6e6e6;
+}
+
+/* Responsif Mobile */
+@media (max-width: 600px) {
+  .dorang-referensi {
+    padding: 18px 18px 16px;
+    margin: 2em 0 1.2em;
+  }
+  .dorang-referensi li {
+    font-size: 11.5px;
+    padding-left: 24px;
+  }
+}
+
+/* ============================================================
+   HALAMAN KATEGORI — Kartu dengan Cover
+   ============================================================ */
+.post-entry {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 24px;
+  align-items: flex-start;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+}
+
+.post-entry .entry-cover {
+  width: 200px;
+  aspect-ratio: 4/3;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--soft);
+  margin: 0;
+}
+
+.post-entry .entry-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  filter: grayscale(100%);
+  transition: filter 0.4s ease, transform 0.4s ease;
+}
+
+.post-entry:hover .entry-cover img {
+  filter: grayscale(0%);
+  transform: scale(1.04);
+}
+
+.post-entry .entry-cover figcaption {
+  display: none;
+}
+
+.post-entry .entry-header h2 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 1.25;
+  margin: 0 0 10px;
+  letter-spacing: -0.3px;
+}
+
+.post-entry .entry-header h2 a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.post-entry .entry-header h2 a:hover {
+  color: var(--accent-dark);
+}
+
+.post-entry .entry-content p {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--secondary);
+  margin: 8px 0 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.post-entry .entry-footer {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-style: italic;
+  font-size: 13px;
+  color: var(--secondary);
+  margin-top: 8px;
+}
+
+/* Dark Mode */
+.dark .post-entry {
+  border-bottom-color: #3a3a3a;
+}
+
+.dark .post-entry .entry-header h2 a {
+  color: #e6e6e6;
+}
+
+.dark .post-entry .entry-content p {
+  color: #b0b0b0;
+}
+
+/* Responsif Mobile */
+@media (max-width: 768px) {
+  .post-entry {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 20px 0;
+  }
+  .post-entry .entry-cover {
+    width: 100%;
+    aspect-ratio: 16/9;
+  }
+  .post-entry .entry-header h2 {
+    font-size: 20px;
+  }
+}
+
+/* ============================================================
+   HALAMAN KATEGORI — Kartu Horizontal dengan Cover
+   ============================================================ */
+article.post-entry,
+.post-entry {
+  display: grid !important;
+  grid-template-columns: 200px 1fr !important;
+  grid-template-rows: auto 1fr auto !important;
+  grid-template-areas:
+    "cover header"
+    "cover content"
+    "cover footer" !important;
+  gap: 4px 24px !important;
+  align-items: start !important;
+  padding: 24px 0 !important;
+  border-bottom: 1px solid var(--border) !important;
+  position: relative !important;
+}
+
+/* Cover di kolom kiri, mengisi seluruh tinggi */
+.post-entry .entry-cover {
+  grid-area: cover !important;
+  width: 200px !important;
+  height: 150px !important;
+  border-radius: 8px !important;
+  overflow: hidden !important;
+  background: var(--soft) !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: block !important;
+}
+
+.post-entry .entry-cover img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: top center !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: block !important;
+  filter: grayscale(100%);
+  transition: filter 0.4s ease, transform 0.4s ease;
+}
+
+.post-entry:hover .entry-cover img {
+  filter: grayscale(0%);
+  transform: scale(1.04);
+}
+
+.post-entry .entry-cover figcaption {
+  display: none !important;
+}
+
+/* Header (judul) di kolom kanan atas */
+.post-entry .entry-header {
+  grid-area: header !important;
+  align-self: end !important;
+}
+
+.post-entry .entry-header h2 {
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-size: 22px !important;
+  font-weight: 800 !important;
+  line-height: 1.25 !important;
+  margin: 0 0 8px !important;
+  letter-spacing: -0.3px !important;
+}
+
+.post-entry .entry-header h2 a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.post-entry .entry-header h2 a:hover {
+  color: var(--accent-dark);
+}
+
+/* Konten (ringkasan) di kolom kanan tengah */
+.post-entry .entry-content {
+  grid-area: content !important;
+  margin: 0 !important;
+}
+
+.post-entry .entry-content p {
+  font-family: Georgia, 'Times New Roman', serif !important;
+  font-size: 15px !important;
+  line-height: 1.6 !important;
+  color: var(--secondary) !important;
+  margin: 0 !important;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 3 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+}
+
+/* Footer (tanggal & meta) di kolom kanan bawah */
+.post-entry .entry-footer {
+  grid-area: footer !important;
+  font-family: Georgia, 'Times New Roman', serif !important;
+  font-style: italic !important;
+  font-size: 13px !important;
+  color: var(--secondary) !important;
+  margin: 0 !important;
+  align-self: end !important;
+}
+
+/* Overlay link */
+.post-entry .entry-link {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 2 !important;
+}
+
+/* Dark Mode */
+.dark article.post-entry,
+.dark .post-entry {
+  border-bottom-color: #3a3a3a !important;
+}
+
+.dark .post-entry .entry-header h2 a {
+  color: #e6e6e6;
+}
+
+.dark .post-entry .entry-content p {
+  color: #b0b0b0;
+}
+
+/* Responsif Mobile */
+@media (max-width: 768px) {
+  article.post-entry,
+  .post-entry {
+    grid-template-columns: 1fr !important;
+    grid-template-rows: auto !important;
+    grid-template-areas:
+      "cover"
+      "header"
+      "content"
+      "footer" !important;
+    gap: 12px !important;
+    padding: 20px 0 !important;
+  }
+  .post-entry .entry-cover {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 16/9 !important;
+  }
+  .post-entry .entry-header h2 {
+    font-size: 20px !important;
+  }
+}
+
+/* ============================================================
+   AUTHOR LINK — Nama penulis jadi link ke Tentang Penulis
+   ============================================================ */
+.post-meta .author-link,
+.post-meta a.author-link {
+  color: var(--accent-dark);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.post-meta .author-link:hover,
+.post-meta a.author-link:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+.dark .post-meta .author-link {
+  color: var(--accent);
+}
+
+.dark .post-meta .author-link:hover {
+  color: #f0c896;
+  border-bottom-color: #f0c896;
+}
