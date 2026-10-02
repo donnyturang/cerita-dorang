@@ -1,0 +1,45 @@
+baseURL = 'https://donnyturang.pages.dev/'
+locale = 'id-ID'
+title = 'CERITA DORANG'
+theme = 'PaperMod'
+
+# Pengaturan utama
+[params]
+  description = "Cerita yang Layak untuk Diceritakan"
+  author = "Donny Turang"
+  defaultTheme = "auto"
+  ShowReadingTime = true
+  ShowShareButtons = true
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  ShowToc = true
+  TocOpen = false
+  disableScrollToTop = false
+  comments = false
+  disableAttribution = true
+
+  [params.homeInfoParams]
+    Title = "CERITA DORANG"
+    Content = "Ruang untuk cerita yang tidak dikejar tenggat. Di sini, setiap sosok dan setiap kisah kecil diberi waktu untuk matang — dan layak untuk diceritakan."
+
+# Menu navigasi
+[[menu.main]]
+  name = "Beranda"
+  url = "/"
+  weight = 1
+
+[[menu.main]]
+  name = "Sosok"
+  url = "/categories/sosok/"
+  weight = 2
+
+[[menu.main]]
+  name = "Tahukah Anda"
+  url = "/categories/tahukah-anda/"
+  weight = 3
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true

@@ -1,0 +1,277 @@
+/* ============================================================
+   FOOTER DORANG
+   ============================================================ */
+.footer {
+  padding: 32px 20px 36px;
+  text-align: center;
+  border-top: 1px solid var(--border);
+  font-family: Georgia, 'Times New Roman', serif;
+}
+
+.footer-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 12.5px;
+  letter-spacing: 0.3px;
+  margin-bottom: 18px;
+}
+
+.footer-nav a {
+  color: var(--secondary);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.footer-nav a:hover {
+  color: var(--accent-dark);
+  border-bottom-color: var(--accent-dark);
+}
+
+.footer-sep {
+  color: var(--border);
+  font-size: 14px;
+}
+
+.footer-copyright {
+  display: block;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.8px;
+  color: var(--secondary);
+  text-transform: uppercase;
+}
+
+/* Responsif untuk layar kecil */
+@media (max-width: 600px) {
+  .footer {
+    padding: 24px 14px 28px;
+  }
+  .footer-nav {
+    flex-wrap: nowrap;
+    font-size: 11px;
+    gap: 5px;
+    margin-bottom: 14px;
+  }
+  .footer-copyright {
+    font-size: 10px;
+    letter-spacing: 0.5px;
+  }
+}
+
+/* ============================================================
+   SENTUHAN VISUAL EDITORIAL DORANG
+   ============================================================ */
+
+/* --- 1. Filter Grayscale pada Gambar Sampul --- */
+.post-entry .entry-cover img,
+.entry-cover img {
+  filter: grayscale(100%);
+  transition: filter 0.4s ease, transform 0.4s ease;
+}
+
+.post-entry:hover .entry-cover img,
+.entry-cover:hover img {
+  filter: grayscale(0%);
+  transform: scale(1.04);
+}
+
+/* Gambar sampul di halaman artikel juga grayscale */
+.post-single .entry-cover img {
+  filter: grayscale(100%);
+  transition: filter 0.4s ease;
+}
+
+.post-single .entry-cover:hover img {
+  filter: grayscale(0%);
+}
+
+/* --- 2. Drop Cap pada Paragraf Pertama Artikel --- */
+.post-content > p:first-of-type::first-letter {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 3.8em;
+  font-weight: 700;
+  float: left;
+  line-height: 0.85;
+  margin: 0.05em 0.12em 0 0;
+  color: var(--accent-dark);
+}
+
+/* Drop cap hanya di halaman artikel, bukan halaman statis */
+.page-single .post-content > p:first-of-type::first-letter {
+  font-size: 1em;
+  float: none;
+  margin: 0;
+  color: inherit;
+}
+
+/* --- 3. Divider Artistik --- */
+.post-content hr {
+  border: none;
+  text-align: center;
+  margin: 2.8em auto;
+  height: auto;
+  overflow: visible;
+  position: relative;
+}
+
+.post-content hr::before {
+  content: "❋   ❋   ❋";
+  display: block;
+  color: var(--accent);
+  font-size: 12px;
+  letter-spacing: 0.8em;
+  text-indent: 0.8em;
+  opacity: 0.7;
+}
+
+/* --- 4. Kutipan Pembuka (Home Info) --- */
+.home-info .entry-content {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-style: italic;
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--secondary);
+  max-width: 55ch;
+  margin: 16px auto 0;
+}
+
+.home-info .entry-header h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* --- Detail halus: Blockquote lebih elegan --- */
+.post-content blockquote {
+  border-left: 4px solid var(--accent);
+  padding: 12px 20px;
+  margin: 1.8em 0;
+  font-style: italic;
+  color: var(--content);
+  background-color: rgba(196, 154, 108, 0.06);
+  border-radius: 0 6px 6px 0;
+}
+
+/* Responsif untuk mobile */
+@media (max-width: 768px) {
+  .post-content > p:first-of-type::first-letter {
+    font-size: 3em;
+    margin-right: 0.08em;
+  }
+  .home-info .entry-content {
+    font-size: 16px;
+  }
+}
+
+/* ============================================================
+   CALLOUT — Ajakan ke DORANG Blogger (Versi Elegan)
+   ============================================================ */
+.dorang-callout {
+  position: relative;
+  margin: 2.5em 0 1.5em;
+  padding: 28px 32px 26px;
+  background: linear-gradient(135deg, #fdfcfa 0%, #f8f5f0 100%);
+  border-left: 4px solid var(--accent);
+  border-radius: 0 10px 10px 0;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+  transition: box-shadow 0.3s ease;
+}
+
+.dorang-callout:hover {
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.07);
+}
+
+.dorang-callout-label {
+  display: inline-block;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--accent-dark);
+  background: rgba(196, 154, 108, 0.12);
+  padding: 5px 12px;
+  border-radius: 999px;
+  margin-bottom: 14px;
+}
+
+.dorang-callout-text {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--content);
+  margin: 0 0 18px;
+}
+
+.dorang-callout-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--accent-dark);
+  text-decoration: none;
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 3px;
+  transition: color 0.2s ease, border-color 0.2s ease, gap 0.2s ease;
+}
+
+.dorang-callout-link:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+  gap: 14px;
+}
+
+.dorang-callout-arrow {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.dorang-callout-link:hover .dorang-callout-arrow {
+  transform: translateX(4px);
+}
+
+/* Dark Mode */
+.dark .dorang-callout {
+  background: linear-gradient(135deg, #232323 0%, #1f1f1f 100%);
+  border-left-color: var(--accent);
+}
+
+.dark .dorang-callout-label {
+  background: rgba(212, 168, 120, 0.15);
+  color: var(--accent);
+}
+
+.dark .dorang-callout-text {
+  color: #d0d0d0;
+}
+
+.dark .dorang-callout-link {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+.dark .dorang-callout-link:hover {
+  color: #f0c896;
+  border-bottom-color: #f0c896;
+}
+
+/* Responsif Mobile */
+@media (max-width: 600px) {
+  .dorang-callout {
+    padding: 22px 20px 20px;
+    margin: 2em 0 1.2em;
+  }
+  .dorang-callout-text {
+    font-size: 14px;
+  }
+  .dorang-callout-link {
+    font-size: 14px;
+  }
+}
