@@ -24,6 +24,14 @@ theme = 'PaperMod'
     Title = "CERITA DORANG"
     Content = "Ruang untuk cerita yang tidak dikejar tenggat. Di sini, setiap sosok dan setiap kisah kecil diberi waktu untuk matang — dan layak untuk diceritakan."
 
+
+  [params.assets]
+    favicon = "/favicon.ico"
+    favicon16x16 = "/favicon.ico"
+    favicon32x32 = "/favicon.ico"
+    apple_touch_icon = "/favicon.ico"
+    safari_pinned_tab = "/favicon.ico"
+
 # Menu navigasi
 [[menu.main]]
   name = "Beranda"
