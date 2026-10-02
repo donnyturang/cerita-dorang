@@ -1270,3 +1270,28 @@ article.post-entry,
   color: #f0c896;
   border-bottom-color: #f0c896;
 }
+
+/* ============================================================
+   PERBAIKAN TOMBOL DARK MODE
+   ============================================================ */
+#theme-toggle,
+button#theme-toggle,
+#theme-toggle svg,
+#theme-toggle svg * {
+  pointer-events: auto !important;
+  cursor: pointer !important;
+}
+
+/* Pastikan tombol selalu di lapisan atas */
+#theme-toggle {
+  position: relative !important;
+  z-index: 9999 !important;
+}
+
+/* Area klik yang lebih besar */
+#theme-toggle::before {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+}

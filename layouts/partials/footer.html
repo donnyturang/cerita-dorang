@@ -11,4 +11,47 @@
       &copy; {{ now.Format "2006" }} {{ .Site.Title }}
     </span>
   </div>
+  <script>
+  //<![CDATA[
+  (function(){
+    'use strict';
+
+    // Terapkan tema yang tersimpan saat halaman dimuat
+    try {
+      var saved = localStorage.getItem('pref-theme');
+      var html = document.documentElement;
+      if (saved === 'dark') {
+        html.classList.add('dark');
+        html.setAttribute('data-theme', 'dark');
+      } else if (saved === 'light') {
+        html.classList.remove('dark');
+        html.setAttribute('data-theme', 'light');
+      }
+    } catch(e){}
+
+    // Timpa klik pada tombol theme-toggle
+    document.addEventListener('click', function(e){
+      var btn = e.target && e.target.closest ? e.target.closest('#theme-toggle') : null;
+      if (!btn) return;
+
+      // Hentikan event agar tidak diteruskan ke handler PaperMod
+      e.stopPropagation();
+      e.preventDefault();
+
+      var html = document.documentElement;
+      var isDark = html.classList.contains('dark');
+
+      if (isDark) {
+        html.classList.remove('dark');
+        html.setAttribute('data-theme', 'light');
+        try { localStorage.setItem('pref-theme', 'light'); } catch(err){}
+      } else {
+        html.classList.add('dark');
+        html.setAttribute('data-theme', 'dark');
+        try { localStorage.setItem('pref-theme', 'dark'); } catch(err){}
+      }
+    }, true); // capture phase — eksekusi sebelum handler PaperMod
+  })();
+  //]]>
+  </script>
 </footer>
