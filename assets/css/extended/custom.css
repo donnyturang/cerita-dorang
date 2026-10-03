@@ -1791,3 +1791,113 @@ footer .footer-explore-nav a:hover {
 .dark .toc ul li a:hover {
   color: #c49a6c !important;
 }
+
+/* ============================================================
+   KOTAK REFERENSI — Sumber dan Rujukan
+   ============================================================ */
+.referensi {
+  background: linear-gradient(135deg, #fdfcfa 0%, #f8f5f0 100%) !important;
+  border-left: 4px solid #c49a6c !important;
+  border-radius: 0 10px 10px 0 !important;
+  padding: 22px 26px 18px !important;
+  margin: 32px 0 !important;
+  font-size: 13px !important;
+  line-height: 1.6 !important;
+  color: #333 !important;
+}
+
+.referensi h2 {
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  letter-spacing: 1.5px !important;
+  text-transform: uppercase !important;
+  color: #2c3e50 !important;
+  margin: 0 0 14px !important;
+  padding-bottom: 8px !important;
+  border-bottom: 1px solid #e6e6e6 !important;
+  border-top: none !important;
+}
+
+.referensi ol,
+.referensi ul {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  counter-reset: ref-counter !important;
+}
+
+.referensi ol li,
+.referensi ul li {
+  counter-increment: ref-counter !important;
+  position: relative !important;
+  padding: 0 0 0 28px !important;
+  margin: 0 0 9px !important;
+  font-size: 12.5px !important;
+  line-height: 1.55 !important;
+  color: #333 !important;
+}
+
+.referensi ol li::before,
+.referensi ul li::before {
+  content: counter(ref-counter) "." !important;
+  position: absolute !important;
+  left: 0 !important;
+  top: 0 !important;
+  font-weight: 700 !important;
+  color: #8c6838 !important;
+  width: 22px !important;
+}
+
+.referensi li:last-child {
+  margin-bottom: 0 !important;
+}
+
+.referensi a {
+  color: #8c6838 !important;
+  border-bottom: 1px solid rgba(196, 154, 108, 0.3) !important;
+  text-decoration: none !important;
+}
+
+.referensi a:hover {
+  color: #c49a6c !important;
+  border-bottom-color: #c49a6c !important;
+}
+
+.referensi strong {
+  color: #2c3e50 !important;
+  font-weight: 700 !important;
+}
+
+/* Dark Mode */
+.dark .referensi {
+  background: #252525 !important;
+  border-left-color: #c49a6c !important;
+}
+
+.dark .referensi h2 {
+  color: #e6e6e6 !important;
+  border-bottom-color: #3a3a3a !important;
+}
+
+.dark .referensi ol li,
+.dark .referensi ul li {
+  color: #d0d0d0 !important;
+}
+
+.dark .referensi strong {
+  color: #e6e6e6 !important;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .referensi {
+    padding: 18px 16px !important;
+    margin: 24px 0 !important;
+  }
+  .referensi ol li,
+  .referensi ul li {
+    padding-left: 24px !important;
+    font-size: 12px !important;
+  }
+}
