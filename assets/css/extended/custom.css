@@ -26,11 +26,6 @@
   transition: color 0.2s ease, border-color 0.2s ease;
 }
 
-.footer-nav a:hover {
-  color: var(--accent-dark);
-  border-bottom-color: var(--accent-dark);
-}
-
 .footer-sep {
   color: var(--border);
   font-size: 14px;
@@ -1404,4 +1399,143 @@ button#theme-toggle,
     width: 14px;
     height: 14px;
   }
+}
+
+/* Tagline DORANG */
+.footer-tagline {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-style: italic;
+  font-size: 13px;
+  color: var(--muted);
+  letter-spacing: 0.3px;
+  text-align: center;
+  margin: 0 0 20px;
+}
+
+.footer-nav {
+  margin-bottom: 4px;
+}
+
+/* Dark Mode */
+.dark .footer-tagline {
+  color: #a0a0a0;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .footer-tagline {
+    font-size: 12px;
+    margin-bottom: 16px;
+  }
+}
+
+/* ============================================================
+   FOOTER — HOVER SERAGAM SEMUA TAUTAN
+   ============================================================ */
+.footer-nav a,
+.footer-legal a,
+.footer-brand a {
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.footer-nav a:hover,
+.footer-legal a:hover,
+.footer-brand a:hover {
+  color: var(--accent-dark);
+}
+
+/* Dark Mode */
+.dark .footer-nav a:hover,
+.dark .footer-legal a:hover,
+.dark .footer-brand a:hover {
+  color: var(--accent);
+}
+
+/* ============================================================
+   FOOTER — PAKSA SERAGAM SEMUA TAUTAN (Definitif)
+   ============================================================ */
+.footer-nav a,
+.footer-legal a,
+.footer-brand a,
+.footer-explore-nav a {
+  text-decoration: none !important;
+  border-bottom: none !important;
+  color: var(--muted) !important;
+  transition: color 0.2s ease !important;
+}
+
+.footer-brand a {
+  color: var(--primary) !important;
+  font-family: Georgia, serif !important;
+  font-size: 18px !important;
+  letter-spacing: 2px !important;
+}
+
+.footer-nav a:hover,
+.footer-legal a:hover,
+.footer-brand a:hover,
+.footer-explore-nav a:hover {
+  color: var(--accent-dark) !important;
+  border-bottom: none !important;
+}
+
+/* Dark Mode */
+.dark .footer-nav a,
+.dark .footer-legal a,
+.dark .footer-explore-nav a {
+  color: #a0a0a0 !important;
+}
+
+.dark .footer-brand a {
+  color: #e6e6e6 !important;
+}
+
+.dark .footer-nav a:hover,
+.dark .footer-legal a:hover,
+.dark .footer-brand a:hover,
+.dark .footer-explore-nav a:hover {
+  color: var(--accent) !important;
+}
+
+/* ============================================================
+   FOOTER — PAKSA WARNA HOVER EMAS (Nuklir)
+   ============================================================ */
+footer .footer-nav a,
+footer .footer-legal a,
+footer .footer-explore-nav a {
+  text-decoration: none !important;
+  border-bottom: none !important;
+  color: #666666 !important;
+}
+
+footer .footer-brand a {
+  text-decoration: none !important;
+  border-bottom: none !important;
+  color: #2c3e50 !important;
+}
+
+footer .footer-nav a:hover,
+footer .footer-legal a:hover,
+footer .footer-brand a:hover,
+footer .footer-explore-nav a:hover {
+  color: #8c6838 !important;
+  border-bottom: none !important;
+}
+
+/* Dark Mode */
+.dark footer .footer-nav a,
+.dark footer .footer-legal a,
+.dark footer .footer-explore-nav a {
+  color: #a0a0a0 !important;
+}
+
+.dark footer .footer-brand a {
+  color: #e6e6e6 !important;
+}
+
+.dark footer .footer-nav a:hover,
+.dark footer .footer-legal a:hover,
+.dark footer .footer-brand a:hover,
+.dark footer .footer-explore-nav a:hover {
+  color: #d4a878 !important;
 }

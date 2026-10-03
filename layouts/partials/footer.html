@@ -1,16 +1,35 @@
 <footer class="footer">
   <div class="footer-inner">
 
-    {{/* Baris 1: Tautan Legal */}}
+    {{/* Baris 1: Brand DORANG */}}
+    <div class="footer-brand">
+      <a href="https://donnyturang.blogspot.com/" target="_blank" rel="noopener noreferrer">DORANG</a>
+    </div>
+    <div class="footer-tagline">Cerita yang Layak untuk Diceritakan</div>
+
+    {{/* Baris 2: Menu DORANG */}}
     <nav class="footer-nav">
-      <a href="https://donnyturang.blogspot.com/p/tentang-penulis.html" target="_blank" rel="noopener noreferrer">Tentang Penulis</a>
+      <a href="https://donnyturang.blogspot.com/" target="_blank" rel="noopener noreferrer">Beranda</a>
       <span class="footer-sep">&middot;</span>
-      <a href="https://donnyturang.blogspot.com/p/kebijakan-privasi.html" target="_blank" rel="noopener noreferrer">Kebijakan Privasi</a>
+      <a href="https://donnyturang.blogspot.com/search/label/feature" target="_blank" rel="noopener noreferrer">Feature</a>
       <span class="footer-sep">&middot;</span>
-      <a href="https://donnyturang.blogspot.com/p/persyaratan-layanan.html" target="_blank" rel="noopener noreferrer">Persyaratan Layanan</a>
+      <a href="https://donnyturang.blogspot.com/search/label/opini" target="_blank" rel="noopener noreferrer">Opini</a>
+      <span class="footer-sep">&middot;</span>
+      <a href="https://donnyturang.blogspot.com/search/label/ebook" target="_blank" rel="noopener noreferrer">eBook</a>
+      <span class="footer-sep">&middot;</span>
+      <a href="https://donnyturang.blogspot.com/search/label/Catatan%20Kecil" target="_blank" rel="noopener noreferrer">Catatan Kecil</a>
     </nav>
 
-    {{/* Baris 2: IKUTI DORANG */}}
+    {{/* Baris 3: Tautan Legal */}}
+    <div class="footer-legal">
+      <a href="https://donnyturang.blogspot.com/p/tentang-penulis.html" target="_blank" rel="noopener noreferrer">Tentang Penulis</a>
+      <span class="separator">&middot;</span>
+      <a href="https://donnyturang.blogspot.com/p/kebijakan-privasi.html" target="_blank" rel="noopener noreferrer">Kebijakan Privasi</a>
+      <span class="separator">&middot;</span>
+      <a href="https://donnyturang.blogspot.com/p/persyaratan-layanan.html" target="_blank" rel="noopener noreferrer">Persyaratan Layanan</a>
+    </div>
+
+    {{/* Baris 4: IKUTI DORANG */}}
     <div class="footer-follow">
       <span class="footer-follow-label">Ikuti Dorang</span>
       <ul class="footer-social">
@@ -53,10 +72,10 @@
       </ul>
     </div>
 
-    {{/* Baris 3: Copyright */}}
-    <span class="footer-copyright">
-      &copy; {{ now.Format "2006" }} {{ .Site.Title }}
-    </span>
+    {{/* Baris 5: Hak Cipta */}}
+    <div class="footer-copyright">
+      &copy; {{ now.Format "2006" }} <strong>DORANG</strong>
+    </div>
 
   </div>
 </footer>
