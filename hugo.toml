@@ -2,11 +2,13 @@ baseURL = 'https://ceritadorang.pages.dev/'
 locale = 'id-ID'
 title = 'CERITA DORANG'
 theme = 'PaperMod'
+enableRobotsTXT = true
 
 # Pengaturan utama
 [params]
   description = "Cerita yang Layak untuk Diceritakan"
   author = "Donny Turang"
+  cloudflareAnalytics = "00882764242848bba4713b18b9a610a5"
   authorURL = "https://donnyturang.blogspot.com/p/tentang-penulis.html"
   defaultTheme = "auto"
   ShowReadingTime = true
@@ -19,6 +21,7 @@ theme = 'PaperMod'
   disableScrollToTop = false
   comments = false
   disableAttribution = true
+  TocSide = "right"
 
   [params.homeInfoParams]
     Title = "CERITA DORANG"

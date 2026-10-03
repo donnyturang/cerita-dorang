@@ -1,0 +1,27 @@
+{{- printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\" ?>" | safeHTML }}
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>{{ .Site.Title }}</title>
+    <link>{{ .Permalink }}</link>
+    <description>{{ .Site.Params.description }}</description>
+    <language>{{ .Site.LanguageCode }}</language>
+    <copyright>© {{ now.Year }} {{ .Site.Title }}</copyright>
+    <lastBuildDate>{{ now.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</lastBuildDate>
+    {{ with .Site.Params.author }}<managingEditor>{{ . }}</managingEditor>{{ end }}
+    {{ with .OutputFormats.Get "RSS" }}
+    <atom:link href="{{ .Permalink }}" rel="self" type="application/rss+xml" />
+    {{ end }}
+    {{ range first 20 .Site.RegularPages }}
+    <item>
+      <title>{{ .Title }}</title>
+      <link>{{ .Permalink }}</link>
+      <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</pubDate>
+      <author>{{ .Site.Params.author }}</author>
+      <guid>{{ .Permalink }}</guid>
+      <description>{{ .Summary | html }}</description>
+      <content:encoded>{{ .Content | html }}</content:encoded>
+      {{ range .Params.tags }}<category>{{ . }}</category>{{ end }}
+    </item>
+    {{ end }}
+  </channel>
+</rss>

@@ -1541,3 +1541,193 @@ footer .footer-explore-nav a:hover {
 .dark footer .footer-explore-nav a:hover {
   color: #d4a878 !important;
 }
+
+/* ============================================================
+   HALAMAN 404 KUSTOM
+   ============================================================ */
+.dorang-404 {
+  max-width: 600px;
+  margin: 80px auto;
+  padding: 0 22px;
+  text-align: center;
+}
+
+.dorang-404-code {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 120px;
+  font-weight: 900;
+  line-height: 1;
+  color: var(--accent);
+  margin: 0 0 16px;
+  letter-spacing: -4px;
+  opacity: 0.85;
+}
+
+.dorang-404-title {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 0 0 16px;
+  letter-spacing: -0.3px;
+}
+
+.dorang-404-text {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--secondary);
+  margin: 0 0 32px;
+}
+
+.dorang-404-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.dorang-404-btn {
+  display: inline-block;
+  padding: 11px 24px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #fff;
+  background: var(--accent-dark);
+  border: 2px solid var(--accent-dark);
+  border-radius: 999px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.dorang-404-btn:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.dorang-404-btn-outline {
+  background: transparent;
+  color: var(--accent-dark);
+}
+
+.dorang-404-btn-outline:hover {
+  background: var(--accent-dark);
+  color: #fff;
+}
+
+/* Dark Mode */
+.dark .dorang-404-code { color: var(--accent); }
+.dark .dorang-404-title { color: #e6e6e6; }
+.dark .dorang-404-text { color: #b0b0b0; }
+
+/* Mobile */
+@media (max-width: 600px) {
+  .dorang-404 { margin: 50px auto; }
+  .dorang-404-code { font-size: 80px; margin-bottom: 12px; }
+  .dorang-404-title { font-size: 20px; }
+  .dorang-404-text { font-size: 15px; }
+}
+
+/* ============================================================
+   TOC (Daftar Isi) — Gaya DORANG
+   ============================================================ */
+.details.toc {
+  background: linear-gradient(135deg, #fdfcfa 0%, #f8f5f0 100%);
+  border-left: 4px solid var(--accent);
+  border-radius: 10px;
+  padding: 18px 22px;
+  margin: 24px 0;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+  transition: box-shadow 0.3s ease;
+}
+
+.details.toc:hover {
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.07);
+}
+
+.details.toc summary {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(196, 154, 108, 0.3);
+}
+
+.details.toc .inner {
+  padding-top: 12px;
+}
+
+.details.toc ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  counter-reset: toc-counter;
+}
+
+.details.toc ul li {
+  counter-increment: toc-counter;
+  position: relative;
+  padding: 6px 0 6px 32px;
+  line-height: 1.55;
+  border-bottom: 1px dashed rgba(196, 154, 108, 0.15);
+}
+
+.details.toc ul li:last-child {
+  border-bottom: none;
+}
+
+.details.toc ul li::before {
+  content: counter(toc-counter, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: Georgia, serif;
+  font-size: 11px;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--accent);
+  width: 24px;
+  text-align: right;
+  opacity: 0.85;
+}
+
+.details.toc ul li a {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 14px;
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.details.toc ul li a:hover {
+  color: var(--accent);
+  transform: translateX(3px);
+}
+
+/* Dark Mode */
+.dark .details.toc {
+  background: #252525;
+  border-left-color: var(--accent);
+}
+
+.dark .details.toc summary {
+  color: #e6e6e6;
+  border-bottom-color: rgba(212, 168, 120, 0.35);
+}
+
+.dark .details.toc ul li a {
+  color: #e6e6e6;
+}
+
+.dark .details.toc ul li a:hover {
+  color: var(--accent);
+}
