@@ -78,4 +78,49 @@
     </div>
 
   </div>
+<script>
+(function(){
+  'use strict';
+  var STORAGE_KEY = 'pref-theme';
+  var root = document.documentElement;
+
+  function applyTheme(theme) {
+    root.setAttribute('data-theme', theme === 'dark' ? 'dark' : 'light');
+    try { localStorage.setItem(STORAGE_KEY, theme); } catch(e) {}
+  }
+
+  var initial = null;
+  try { initial = localStorage.getItem(STORAGE_KEY); } catch(e) {}
+  if (!initial && window.matchMedia) {
+    initial = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+  if (!initial) initial = 'light';
+  applyTheme(initial);
+
+  document.addEventListener('click', function(e) {
+    var btn = e.target.closest('#theme-toggle, .theme-toggle, button[aria-label*="theme"], button[aria-label*="Theme"]');
+    if (!btn) return;
+    e.preventDefault();
+    e.stopPropagation();
+    var current = root.getAttribute('data-theme') || 'light';
+    applyTheme(current === 'dark' ? 'light' : 'dark');
+  }, true);
+
+  document.addEventListener('keydown', function(e) {
+    if (e.altKey && (e.key === 't' || e.key === 'T')) {
+      e.preventDefault();
+      var current = root.getAttribute('data-theme') || 'light';
+      applyTheme(current === 'dark' ? 'light' : 'dark');
+    }
+  });
+
+  if (window.matchMedia) {
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+      var stored = null;
+      try { stored = localStorage.getItem(STORAGE_KEY); } catch(err) {}
+      if (!stored) applyTheme(e.matches ? 'dark' : 'light');
+    });
+  }
+})();
+</script>
 </footer>

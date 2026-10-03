@@ -404,10 +404,12 @@ body.list:has(.dorang-home) {
   object-fit: cover;
   object-position: top center;
   display: block;
-  transition: transform 0.5s ease;
+  filter: grayscale(100%);
+  transition: filter 0.4s ease, transform 0.5s ease;
 }
 
 .dorang-hero:hover .dorang-hero-image img {
+  filter: grayscale(0%);
   transform: scale(1.03);
 }
 

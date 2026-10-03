@@ -1,0 +1,71 @@
+{{/* Dark Mode Toggle — Custom override */}}
+<script>
+(function(){
+  'use strict';
+  
+  var STORAGE_KEY = 'pref-theme';
+  var root = document.documentElement;
+  var toggle = document.getElementById('theme-toggle');
+  
+  if (!toggle) return;
+  
+  // Fungsi terapkan tema
+  function applyTheme(theme) {
+    if (theme === 'dark') {
+      root.setAttribute('data-theme', 'dark');
+    } else {
+      root.setAttribute('data-theme', 'light');
+    }
+    // Update localStorage
+    try {
+      localStorage.setItem(STORAGE_KEY, theme);
+    } catch(e) {}
+    
+    // Update tombol jika ada span ikon
+    var sun = toggle.querySelector('.sun');
+    var moon = toggle.querySelector('.moon');
+    if (sun && moon) {
+      sun.style.display = theme === 'dark' ? 'none' : 'block';
+      moon.style.display = theme === 'dark' ? 'block' : 'none';
+    }
+  }
+  
+  // Baca preferensi awal
+  var storedTheme = null;
+  try {
+    storedTheme = localStorage.getItem(STORAGE_KEY);
+  } catch(e) {}
+  
+  var initialTheme = storedTheme;
+  if (!initialTheme) {
+    // Ikuti preferensi OS
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      initialTheme = 'dark';
+    } else {
+      initialTheme = 'light';
+    }
+  }
+  
+  // Terapkan saat halaman dimuat
+  applyTheme(initialTheme);
+  
+  // Event handler untuk tombol
+  toggle.addEventListener('click', function(e){
+    e.preventDefault();
+    var current = root.getAttribute('data-theme');
+    var next = current === 'dark' ? 'light' : 'dark';
+    applyTheme(next);
+  });
+  
+  // Deteksi perubahan preferensi OS
+  if (window.matchMedia) {
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e){
+      var stored = null;
+      try { stored = localStorage.getItem(STORAGE_KEY); } catch(err) {}
+      if (!stored) {
+        applyTheme(e.matches ? 'dark' : 'light');
+      }
+    });
+  }
+})();
+</script>
