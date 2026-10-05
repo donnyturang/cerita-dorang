@@ -1,0 +1,79 @@
+{{ define "main" }}
+
+<article class="post-single">
+
+  {{/* Breadcrumb */}}
+  <nav class="dorang-breadcrumb" aria-label="Breadcrumb">
+    <a href="{{ site.Home.RelPermalink }}">Beranda</a>
+    {{ with .Params.categories }}{{ range first 1 . }}<span class="bc-sep">›</span><a href="/categories/{{ . | urlize }}/">{{ . }}</a>{{ end }}{{ end }}
+    <span class="bc-sep">›</span>
+    <span class="bc-current">{{ .Title }}</span>
+  </nav>
+
+  <h1>{{ .Title }}</h1>
+
+  <p class="post-meta">
+    <small>
+      {{ .Date.Format "2 January 2006" }} · 
+      {{ .ReadingTime }} menit baca · 
+      {{ .Params.author | default "Donny Turang" }}
+    </small>
+  </p>
+
+  {{ with .Params.cover }}{{ with .image }}
+    <figure class="post-cover">
+      <img src="{{ . | absURL }}" alt="{{ $.Params.cover.alt | default $.Title }}">
+      {{ with $.Params.cover.caption }}<figcaption>{{ . }}</figcaption>{{ end }}
+    </figure>
+  {{ end }}{{ end }}
+
+  <div class="post-body">
+    {{ .Content }}
+  </div>
+
+  {{/* Prev / Next */}}
+  {{ if or .PrevInSection .NextInSection }}
+  <nav class="dorang-post-nav" aria-label="Navigasi antar artikel">
+    {{ with .NextInSection }}
+      <a href="{{ .RelPermalink }}" class="dorang-post-nav-link dorang-nav-prev">
+        <span class="dorang-nav-label">← Sebelumnya</span>
+        <span class="dorang-nav-title">{{ .Title }}</span>
+      </a>
+    {{ else }}<span></span>{{ end }}
+    {{ with .PrevInSection }}
+      <a href="{{ .RelPermalink }}" class="dorang-post-nav-link dorang-nav-next">
+        <span class="dorang-nav-label">Berikutnya →</span>
+        <span class="dorang-nav-title">{{ .Title }}</span>
+      </a>
+    {{ else }}<span></span>{{ end }}
+  </nav>
+  {{ end }}
+
+  {{/* Artikel Terkait */}}
+  {{ $related := site.RegularPages.Related . | first 3 }}
+  {{ with $related }}
+  <section class="dorang-related">
+    <h2 class="dorang-related-title">Artikel Terkait</h2>
+    <div class="dorang-grid dorang-related-grid">
+      {{ range . }}
+        <a href="{{ .RelPermalink }}" class="dorang-card">
+          <div class="dorang-card-cover">
+            {{ with .Params.cover.image }}<img src="{{ . | absURL }}" alt="{{ $.Params.cover.alt | default $.Title }}" loading="lazy">{{ else }}<img src="/images/og-default.jpg" alt="{{ .Title }}" loading="lazy">{{ end }}
+          </div>
+          <div class="dorang-card-body">
+            <h3 class="dorang-card-title">{{ .Title }}</h3>
+            <span class="dorang-card-meta">{{ .Date.Format "2 January 2006" }}</span>
+          </div>
+        </a>
+      {{ end }}
+    </div>
+  </section>
+  {{ end }}
+
+  <p class="dorang-post-back">
+    <a href="{{ site.Home.RelPermalink }}">← Kembali ke Beranda</a>
+  </p>
+
+</article>
+
+{{ end }}

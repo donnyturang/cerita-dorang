@@ -1,0 +1,44 @@
+# theme.toml — Metadata Tema DORANG
+# Dibaca oleh Hugo untuk identifikasi tema
+
+name = "DORANG"
+license = "MIT"
+licenselink = "https://github.com/donnyturang/cerita-dorang/blob/main/LICENSE"
+
+description = "Tema editorial kustom untuk CERITA DORANG — Cerita yang Layak untuk Diceritakan."
+
+homepage = "https://ceritadorang.pages.dev/"
+demosite = "https://ceritadorang.pages.dev/"
+
+tags = [
+  "blog",
+  "editorial",
+  "magazine",
+  "minimalis",
+  "dark-mode",
+  "indonesia",
+  "custom"
+]
+
+features = [
+  "beranda editorial 3 seksi",
+  "TOC otomatis dengan nomor emas",
+  "auto-hide header",
+  "dark mode toggle",
+  "kotak referensi otomatis",
+  "callout ke DORANG Blogger",
+  "RSS feed",
+  "robots.txt kustom",
+  "halaman 404 kustom",
+  "Cloudflare Analytics"
+]
+
+# Penulis tema
+[author]
+  name = "Donny Turang"
+  homepage = "https://donnyturang.blogspot.com/"
+
+# Informasi tambahan
+[original]
+  author = "Donny Turang"
+  homepage = "https://ceritadorang.pages.dev/"

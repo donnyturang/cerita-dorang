@@ -1,0 +1,1313 @@
+/* ============================================================
+   TEMA DORANG — CSS Utama
+   Cerita yang Layak untuk Diceritakan
+   ============================================================ */
+
+/* ---------- Variabel Warna ---------- */
+:root {
+  --primary: #2c3e50;
+  --accent: #c49a6c;
+  --accent-dark: #8c6838;
+  --text: #1a1a1a;
+  --muted: #666;
+  --bg: #ffffff;
+  --soft: #f8f5f0;
+  --border: #e6e6e6;
+  --reading: 760px;
+  --max: 1100px;
+}
+
+/* Dark mode */
+[data-theme="dark"] {
+  --text: #e6e6e6;
+  --muted: #a0a0a0;
+  --bg: #1a1a1a;
+  --soft: #252525;
+  --border: #3a3a3a;
+  --primary: #e6e6e6;
+  --accent: #d4a878;
+  --accent-dark: #c49a6c;
+}
+
+/* ---------- Reset Dasar ---------- */
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 18px;
+  line-height: 1.8;
+  overflow-wrap: break-word;
+}
+
+a { color: inherit; text-decoration: none; }
+
+img { max-width: 100%; height: auto; }
+
+/* ---------- Header ---------- */
+.site-header {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: transform 0.35s ease-in-out;
+}
+
+[data-theme="dark"] .site-header {
+  background: rgba(26, 26, 26, 0.95);
+}
+
+.header-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 20px 22px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.header-brand {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-name {
+  font-family: Georgia, serif;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--primary);
+  position: relative;
+  padding-bottom: 6px;
+  display: inline-block;
+  transition: color 0.25s ease;
+}
+
+.brand-name::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 30px;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.brand-name:hover { color: var(--accent); }
+.brand-name:hover::after { width: 100%; }
+
+.brand-tagline {
+  font-style: italic;
+  font-size: 13px;
+  color: var(--muted);
+  letter-spacing: 0.5px;
+  margin-top: 4px;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  font-family: Georgia, serif;
+  font-size: 15px;
+}
+
+.site-nav a {
+  color: var(--primary);
+  position: relative;
+  padding: 6px 0;
+  transition: color 0.25s ease;
+}
+
+.site-nav a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+
+.site-nav a:hover {
+  color: var(--accent);
+}
+
+.site-nav a:hover::after {
+  width: 100%;
+}
+
+#theme-toggle {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+#theme-toggle:hover {
+  border-color: var(--accent);
+  transform: rotate(15deg);
+}
+
+/* ---------- Main Content ---------- */
+.site-main {
+  max-width: var(--reading);
+  margin: 0 auto;
+  padding: 40px 22px 60px;
+}
+
+h1, h2, h3, h4 {
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--primary);
+  line-height: 1.3;
+  margin: 1.5em 0 0.5em;
+}
+
+h1 {
+  font-size: clamp(28px, 5vw, 42px);
+  font-weight: 800;
+  letter-spacing: -0.3px;
+  margin-top: 0;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: 700;
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 8px;
+}
+
+h3 { font-size: 20px; }
+
+p { margin: 0 0 1.2em; }
+
+hr {
+  border: none;
+  text-align: center;
+  margin: 30px 0;
+}
+
+hr::before {
+  content: "❋  ❋  ❋";
+  color: var(--accent);
+  letter-spacing: 8px;
+  font-size: 12px;
+}
+
+/* ---------- Daftar Artikel (Homepage) ---------- */
+.site-main ul {
+  list-style: none;
+  padding: 0;
+}
+
+.site-main ul li {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.site-main ul li a {
+  font-family: Arial, sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--primary);
+  transition: color 0.2s ease;
+}
+
+.site-main ul li a:hover {
+  color: var(--accent-dark);
+}
+
+.site-main ul li small {
+  font-style: italic;
+  font-size: 13px;
+  color: var(--muted);
+  margin-left: 8px;
+}
+
+/* ---------- Blockquote ---------- */
+blockquote {
+  border-left: 4px solid var(--accent);
+  padding: 12px 20px;
+  margin: 1.8em 0;
+  font-style: italic;
+  background: var(--soft);
+  border-radius: 0 6px 6px 0;
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  border-top: 1px solid var(--border);
+  background: var(--soft);
+  padding: 40px 22px 30px;
+  margin-top: 60px;
+}
+
+.footer-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.footer-brand a {
+  font-family: Georgia, serif;
+  font-size: 20px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--primary);
+  transition: color 0.25s ease;
+}
+
+.footer-brand a:hover { color: var(--accent); }
+
+.footer-tagline {
+  font-style: italic;
+  font-size: 13px;
+  color: var(--muted);
+  margin: 6px 0 20px;
+}
+
+.footer-nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 14px;
+  margin-bottom: 18px;
+}
+
+.footer-nav a {
+  color: var(--muted);
+  transition: color 0.2s ease;
+}
+
+.footer-nav a:hover { color: var(--accent-dark); }
+
+.footer-sep {
+  color: var(--border);
+}
+
+.footer-legal {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 12px;
+  font-style: italic;
+  color: var(--muted);
+  margin-bottom: 24px;
+}
+
+.footer-legal a {
+  color: var(--muted);
+  transition: color 0.2s ease;
+}
+
+.footer-legal a:hover { color: var(--accent-dark); }
+
+.footer-follow {
+  border-top: 1px solid var(--border);
+  padding-top: 20px;
+  margin-bottom: 20px;
+}
+
+.footer-follow-label {
+  display: block;
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 14px;
+}
+
+.footer-social {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-social li { margin: 0; }
+
+.footer-social a {
+  display: inline-block;
+  padding: 7px 14px;
+  font-family: Arial, sans-serif;
+  font-size: 12.5px;
+  color: var(--primary);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.footer-social a:hover {
+  color: var(--accent-dark);
+  border-color: var(--accent);
+  background-color: rgba(196, 154, 108, 0.08);
+}
+
+.footer-copyright {
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: var(--muted);
+  text-transform: uppercase;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.footer-copyright strong {
+  color: var(--primary);
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 768px) {
+  .header-inner {
+    padding: 16px;
+  }
+  
+  .brand-name {
+    font-size: 20px;
+    letter-spacing: 2px;
+  }
+  
+  .brand-tagline {
+    font-size: 11px;
+  }
+  
+  .site-nav {
+    gap: 16px;
+    font-size: 13.5px;
+    width: 100%;
+    justify-content: flex-end;
+  }
+  
+  .site-main {
+    padding: 24px 16px 40px;
+  }
+  
+  h1 { font-size: 26px; }
+  h2 { font-size: 20px; }
+  
+  .footer-inner {
+    padding: 0;
+  }
+}
+
+/* ============================================================
+   FITUR KHAS DORANG
+   ============================================================ */
+
+/* ---------- 1. TOC (Daftar Isi) Otomatis ---------- */
+.dorang-toc {
+  background: linear-gradient(135deg, #fdfcfa 0%, #f8f5f0 100%);
+  border-left: 4px solid var(--accent);
+  border-radius: 10px;
+  padding: 20px 24px;
+  margin: 30px 0;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="dark"] .dorang-toc {
+  background: #252525;
+}
+
+.dorang-toc-title {
+  font-family: Georgia, serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 0 0 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(196, 154, 108, 0.3);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.dorang-toc-list {
+  list-style: none;
+  counter-reset: toc-counter;
+  margin: 0;
+  padding: 0;
+}
+
+.dorang-toc-list li {
+  counter-increment: toc-counter;
+  position: relative;
+  padding: 7px 0 7px 38px;
+  line-height: 1.55;
+  border-bottom: 1px dashed rgba(196, 154, 108, 0.15);
+}
+
+.dorang-toc-list li:last-child {
+  border-bottom: none;
+}
+
+.dorang-toc-list li::before {
+  content: counter(toc-counter, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: Georgia, serif;
+  font-size: 11px;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--accent);
+  width: 26px;
+  text-align: right;
+  opacity: 0.85;
+}
+
+.dorang-toc-list li a {
+  font-family: Georgia, serif;
+  font-size: 14px;
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.dorang-toc-list li a:hover {
+  color: var(--accent);
+  transform: translateX(3px);
+  display: inline-block;
+}
+
+.dorang-toc-sub {
+  padding-left: 52px;
+}
+
+.dorang-toc-sub::before {
+  content: "–";
+  font-size: 13px;
+  color: var(--accent);
+  opacity: 0.5;
+  width: 42px;
+}
+
+/* ---------- 2. Kotak Referensi Otomatis ---------- */
+.referensi {
+  background: linear-gradient(135deg, #fdfcfa 0%, #f8f5f0 100%);
+  border-left: 4px solid var(--accent);
+  border-radius: 0 10px 10px 0;
+  padding: 22px 26px 18px;
+  margin: 32px 0;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+[data-theme="dark"] .referensi {
+  background: #252525;
+}
+
+.referensi h2 {
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin: 0 0 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+  border-top: none;
+}
+
+.referensi ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  counter-reset: ref-counter;
+}
+
+.referensi ol li {
+  counter-increment: ref-counter;
+  position: relative;
+  padding: 0 0 0 28px;
+  margin: 0 0 9px;
+  font-size: 12.5px;
+  line-height: 1.55;
+}
+
+.referensi ol li::before {
+  content: counter(ref-counter) ".";
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-weight: 700;
+  color: var(--accent-dark);
+  width: 22px;
+}
+
+.referensi strong {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+/* ---------- 3. Callout DORANG ---------- */
+.dorang-callout {
+  background: linear-gradient(135deg, #fdfcfa 0%, #f8f5f0 100%);
+  border-left: 4px solid var(--accent);
+  border-radius: 0 10px 10px 0;
+  padding: 24px 28px;
+  margin: 2.5em 0 1.5em;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="dark"] .dorang-callout {
+  background: #252525;
+}
+
+.dorang-callout-label {
+  display: inline-block;
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--accent-dark);
+  background: rgba(196, 154, 108, 0.12);
+  padding: 5px 12px;
+  border-radius: 999px;
+  margin-bottom: 14px;
+}
+
+.dorang-callout-text {
+  font-family: Georgia, serif;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--text);
+  margin: 0 0 14px;
+}
+
+.dorang-callout-link {
+  display: inline-block;
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--accent-dark);
+  text-decoration: none;
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 3px;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.dorang-callout-link:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+/* ---------- 4. Gambar Cover dengan Grayscale ---------- */
+.post-cover {
+  margin: 2em 0;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(44, 62, 80, 0.1);
+}
+
+.post-cover img {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: grayscale(100%);
+  transition: filter 0.4s ease, transform 0.4s ease;
+}
+
+.post-cover:hover img {
+  filter: grayscale(0%);
+  transform: scale(1.02);
+}
+
+.post-cover figcaption {
+  font-family: Georgia, serif;
+  font-size: 12.5px;
+  font-style: italic;
+  color: var(--muted);
+  text-align: center;
+  padding: 12px 16px;
+  background: rgba(196, 154, 108, 0.06);
+}
+
+/* ---------- 5. Breadcrumb ---------- */
+.dorang-breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin: 0 0 16px;
+  font: italic 12px/1.5 Georgia, serif;
+  color: var(--muted);
+}
+
+.dorang-breadcrumb a {
+  color: var(--muted);
+  transition: color 0.2s ease;
+}
+
+.dorang-breadcrumb a:hover {
+  color: var(--accent-dark);
+}
+
+.dorang-breadcrumb .bc-sep {
+  color: var(--accent);
+  opacity: 0.65;
+}
+
+.dorang-breadcrumb .bc-current {
+  color: var(--primary);
+  font-style: normal;
+}
+
+/* ---------- Mobile Responsif untuk Fitur Khas ---------- */
+@media (max-width: 600px) {
+  .dorang-toc { padding: 16px 18px; }
+  .dorang-toc-list li { padding-left: 32px; }
+  .dorang-toc-list li a { font-size: 13px; }
+  .dorang-toc-list li::before { width: 22px; font-size: 10px; }
+  .dorang-toc-sub { padding-left: 44px; }
+  
+  .referensi { padding: 18px 16px; }
+  .referensi ol li { padding-left: 24px; font-size: 12px; }
+  
+  .dorang-callout { padding: 20px 22px; }
+  .dorang-callout-text { font-size: 14px; }
+  .dorang-callout-link { font-size: 14px; }
+}
+
+/* ============================================================
+   HALAMAN 404 KUSTOM
+   ============================================================ */
+.dorang-404 {
+  max-width: 600px;
+  margin: 60px auto;
+  text-align: center;
+}
+
+.dorang-404-code {
+  font-family: Arial, sans-serif;
+  font-size: 120px;
+  font-weight: 900;
+  line-height: 1;
+  color: var(--accent);
+  margin: 0 0 16px;
+  letter-spacing: -4px;
+  opacity: 0.85;
+}
+
+.dorang-404-title {
+  font-family: Arial, sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 0 0 16px;
+  border-bottom: none;
+}
+
+.dorang-404-text {
+  font-family: Georgia, serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--muted);
+  margin: 0 0 32px;
+}
+
+.dorang-404-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.dorang-404-btn {
+  display: inline-block;
+  padding: 12px 26px;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--accent-dark);
+  border: 2px solid var(--accent-dark);
+  border-radius: 999px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.dorang-404-btn:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.dorang-404-btn-outline {
+  background: transparent;
+  color: var(--accent-dark);
+}
+
+.dorang-404-btn-outline:hover {
+  background: var(--accent-dark);
+  color: #fff;
+}
+
+@media (max-width: 600px) {
+  .dorang-404-code { font-size: 80px; }
+  .dorang-404-title { font-size: 20px; }
+}
+
+/* ============================================================
+   HOMEPAGE EDITORIAL DORANG
+   ============================================================ */
+.dorang-home {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 0 60px;
+}
+
+.dorang-section {
+  margin: 3em 0;
+}
+
+.dorang-section-title {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--primary);
+  padding-bottom: 10px;
+  border-bottom: 3px solid var(--primary);
+  margin: 0 0 24px;
+}
+
+/* ---------- SOROTAN — Hero Horizontal ---------- */
+.dorang-hero {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  text-decoration: none;
+  color: inherit;
+  background: var(--soft);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 18px rgba(44, 62, 80, 0.08);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.dorang-hero:hover {
+  box-shadow: 0 10px 30px rgba(44, 62, 80, 0.15);
+  transform: translateY(-2px);
+}
+
+.dorang-hero-image {
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+  overflow: hidden;
+  background: var(--soft);
+}
+
+.dorang-hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  filter: grayscale(100%);
+  transition: filter 0.4s ease, transform 0.5s ease;
+}
+
+.dorang-hero:hover .dorang-hero-image img {
+  filter: grayscale(0%);
+  transform: scale(1.03);
+}
+
+.dorang-hero-content {
+  padding: 32px 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.dorang-hero-title {
+  font-family: Arial, sans-serif;
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1.25;
+  margin: 0 0 14px;
+  color: var(--primary);
+  letter-spacing: -0.3px;
+  border-bottom: none;
+  padding: 0;
+}
+
+.dorang-hero-summary {
+  font-family: Georgia, serif;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--text);
+  margin: 0 0 18px;
+}
+
+.dorang-hero-meta {
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* ---------- TAHUKAH ANDA — Grid 3 Kolom ---------- */
+.dorang-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.dorang-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.25s ease;
+}
+
+.dorang-card:hover {
+  transform: translateY(-3px);
+}
+
+.dorang-card-cover {
+  width: 100%;
+  aspect-ratio: 4/3;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--soft);
+  margin-bottom: 14px;
+}
+
+.dorang-card-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  filter: grayscale(100%);
+  transition: filter 0.4s ease, transform 0.4s ease;
+}
+
+.dorang-card:hover .dorang-card-cover img {
+  filter: grayscale(0%);
+  transform: scale(1.04);
+}
+
+.dorang-card-title {
+  font-family: Arial, sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.3;
+  margin: 0 0 6px;
+  color: var(--primary);
+  letter-spacing: -0.2px;
+  border-bottom: none;
+  padding: 0;
+}
+
+.dorang-card:hover .dorang-card-title {
+  color: var(--accent-dark);
+}
+
+.dorang-card-summary {
+  font-family: Georgia, serif;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--muted);
+  margin: 0;
+}
+
+/* ---------- SOSOK — List Horizontal ---------- */
+.dorang-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.dorang-list-item {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 22px;
+  text-decoration: none;
+  color: inherit;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--border);
+  transition: padding-left 0.25s ease;
+}
+
+.dorang-list-item:hover {
+  padding-left: 8px;
+}
+
+.dorang-list-item:last-child {
+  border-bottom: none;
+}
+
+.dorang-list-cover {
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  border-radius: 8px;
+  background: var(--soft);
+}
+
+.dorang-list-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  filter: grayscale(100%);
+  transition: filter 0.4s ease, transform 0.4s ease;
+}
+
+.dorang-list-item:hover .dorang-list-cover img {
+  filter: grayscale(0%);
+  transform: scale(1.04);
+}
+
+.dorang-list-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.dorang-list-title {
+  font-family: Arial, sans-serif;
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.3;
+  margin: 0 0 8px;
+  color: var(--primary);
+  letter-spacing: -0.2px;
+  border-bottom: none;
+  padding: 0;
+}
+
+.dorang-list-item:hover .dorang-list-title {
+  color: var(--accent-dark);
+}
+
+.dorang-list-summary {
+  font-family: Georgia, serif;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--muted);
+  margin: 0;
+}
+
+/* ---------- LIHAT SEMUA TULISAN ---------- */
+.dorang-viewall {
+  text-align: center;
+  margin: 4em 0 1em;
+  padding-top: 2em;
+  border-top: 1px solid var(--border);
+}
+
+.dorang-viewall-link {
+  display: inline-block;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent-dark);
+  text-decoration: none;
+  padding: 14px 32px;
+  border: 2px solid var(--accent);
+  border-radius: 999px;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.dorang-viewall-link:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* ---------- Dark Mode Homepage ---------- */
+[data-theme="dark"] .dorang-hero {
+  background: #252525;
+}
+
+[data-theme="dark"] .dorang-section-title {
+  color: #e6e6e6;
+  border-bottom-color: #e6e6e6;
+}
+
+[data-theme="dark"] .dorang-list-item {
+  border-bottom-color: #3a3a3a;
+}
+
+[data-theme="dark"] .dorang-hero-title,
+[data-theme="dark"] .dorang-card-title,
+[data-theme="dark"] .dorang-list-title {
+  color: #e6e6e6;
+}
+
+[data-theme="dark"] .dorang-hero-summary {
+  color: #b0b0b0;
+}
+
+/* ---------- Mobile Homepage ---------- */
+@media (max-width: 768px) {
+  .dorang-hero { grid-template-columns: 1fr; }
+  .dorang-hero-image { min-height: 220px; }
+  .dorang-hero-content { padding: 22px 22px 24px; }
+  .dorang-hero-title { font-size: 21px; }
+  
+  .dorang-grid { grid-template-columns: 1fr; gap: 22px; }
+  
+  .dorang-list-item {
+    grid-template-columns: 110px 1fr;
+    gap: 14px;
+    padding: 16px 0;
+  }
+  .dorang-list-title { font-size: 16px; }
+  .dorang-list-summary {
+    font-size: 13.5px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+/* ============================================
+   Callout: Baca Juga di DORANG
+   ============================================ */
+.baca-juga-callout {
+  border-left: 4px solid #c9a227;
+  background: #fdfaf0;
+  padding: 1rem 1.25rem;
+  margin: 1.75rem 0;
+  border-radius: 4px;
+}
+
+.baca-juga-label {
+  display: inline-block;
+  background: #c9a227;
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 0.25rem 0.7rem;
+  border-radius: 3px;
+  margin-bottom: 0.6rem;
+  text-transform: uppercase;
+}
+
+.baca-juga-intro {
+  margin: 0.4rem 0 0.5rem 0;
+  font-size: 0.92rem;
+  color: #555;
+  font-style: italic;
+}
+
+.baca-juga-link {
+  color: #c9a227;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.baca-juga-link:hover {
+  color: #a88518;
+  text-decoration: underline;
+}
+
+[data-theme="dark"] .baca-juga-callout {
+  background: #1e1e1e;
+  border-left-color: #d4af37;
+}
+
+[data-theme="dark"] .baca-juga-intro {
+  color: #b0b0b0;
+}
+
+[data-theme="dark"] .baca-juga-link {
+  color: #d4af37;
+}
+
+/* ============================================
+   List Page (Kategori & Arsip)
+   ============================================ */
+.dorang-list-page {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.dorang-list-header {
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid #c9a227;
+}
+
+.dorang-list-header h1 {
+  margin: 0 0 0.5rem 0;
+}
+
+.dorang-list-description {
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: #666;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+.dorang-card-body {
+  padding: 0.75rem 0.25rem 0;
+}
+
+.dorang-card-meta {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: #999;
+  font-style: italic;
+}
+
+/* Paginasi */
+.dorang-pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 3rem 0 1rem 0;
+  padding: 1.5rem 0;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.dorang-page-link {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  color: #c9a227;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  border: 1px solid #c9a227;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.dorang-page-link:hover {
+  background: #c9a227;
+  color: #fff;
+}
+
+.dorang-page-link.disabled {
+  color: #ccc;
+  border-color: #eee;
+  cursor: not-allowed;
+}
+
+.dorang-page-info {
+  font-size: 0.85rem;
+  color: #888;
+  font-style: italic;
+}
+
+.dorang-list-back {
+  margin-top: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.dorang-empty {
+  padding: 3rem 1rem;
+  text-align: center;
+  color: #999;
+}
+
+/* Dark mode */
+[data-theme="dark"] .dorang-list-header {
+  border-bottom-color: #d4af37;
+}
+
+[data-theme="dark"] .dorang-list-description {
+  color: #a0a0a0;
+}
+
+[data-theme="dark"] .dorang-page-link {
+  color: #d4af37;
+  border-color: #d4af37;
+}
+
+[data-theme="dark"] .dorang-page-link:hover {
+  background: #d4af37;
+  color: #1a1a1a;
+}
+
+[data-theme="dark"] .dorang-pagination {
+  border-color: #333;
+}
+.dorang-list-back { text-align: center; margin-top: 3rem; }
+
+/* ===== Prev/Next Navigation ===== */
+.dorang-post-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 3rem 0 2rem 0; padding: 1.5rem 0; border-top: 1px solid #eee; border-bottom: 1px solid #eee; }
+.dorang-post-nav-link { display: flex; flex-direction: column; text-decoration: none; padding: 0.75rem 1rem; border: 1px solid #eee; border-radius: 4px; transition: all 0.2s ease; }
+.dorang-post-nav-link:hover { border-color: #c9a227; background: #fdfaf0; }
+.dorang-nav-next { text-align: right; }
+.dorang-nav-label { font-size: 0.75rem; color: #c9a227; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 0.3rem; }
+.dorang-nav-title { font-size: 0.95rem; color: #333; font-weight: 500; line-height: 1.4; }
+.dorang-post-nav-link:hover .dorang-nav-title { color: #c9a227; }
+
+/* ===== Related Posts ===== */
+.dorang-related { margin: 3rem 0 2rem 0; }
+.dorang-related-title { font-size: 1.1rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #2c3e50; margin-bottom: 1.5rem; padding-bottom: 0.75rem; border-bottom: 2px solid #c9a227; }
+.dorang-related-grid { grid-template-columns: repeat(3, 1fr); }
+.dorang-related-grid .dorang-card-title { font-size: 1rem; }
+.dorang-post-back { margin-top: 2rem; text-align: center; }
+
+[data-theme="dark"] .dorang-post-nav { border-color: #333; }
+[data-theme="dark"] .dorang-post-nav-link { border-color: #333; }
+[data-theme="dark"] .dorang-post-nav-link:hover { border-color: #d4af37; background: #1e1e1e; }
+[data-theme="dark"] .dorang-nav-title { color: #e0e0e0; }
+[data-theme="dark"] .dorang-related-title { color: #d4af37; border-bottom-color: #d4af37; }
+
+@media (max-width: 720px) {
+  .dorang-post-nav { grid-template-columns: 1fr; }
+  .dorang-related-grid { grid-template-columns: 1fr; }
+}
+
+
+/* Fix: batas tinggi cover di kartu terkait */
+.dorang-related-grid .dorang-card-cover { max-height: 180px; overflow: hidden; }
+.dorang-related-grid .dorang-card-cover img { width: 100%; height: 180px; object-fit: cover; }
+
+/* ===== Floating Scroll Nav ===== */
+.dorang-scroll-nav { position: fixed; right: 24px; bottom: 24px; display: flex; flex-direction: column; gap: 10px; z-index: 999; }
+.dorang-scroll-btn { width: 44px; height: 44px; border-radius: 50%; border: none; background: #2c3e50; color: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.15); opacity: 0; visibility: hidden; transform: translateY(10px); transition: all 0.3s ease; padding: 0; }
+.dorang-scroll-btn.visible { opacity: 1; visibility: visible; transform: translateY(0); }
+.dorang-scroll-btn:hover { background: #c9a227; box-shadow: 0 6px 16px rgba(201,162,39,0.35); transform: translateY(-2px); }
+.dorang-scroll-btn:active { transform: translateY(0); }
+[data-theme="dark"] .dorang-scroll-btn { background: #4a5f7a; }
+[data-theme="dark"] .dorang-scroll-btn:hover { background: #d4af37; }
+@media (max-width: 720px) { .dorang-scroll-nav { right: 16px; bottom: 16px; gap: 8px; } .dorang-scroll-btn { width: 40px; height: 40px; } }

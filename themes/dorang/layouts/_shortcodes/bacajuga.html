@@ -1,0 +1,12 @@
+{{/* Shortcode: Baca Juga di DORANG */}}
+{{ $url := .Get "url" }}
+{{ $text := .Get "text" | default "Baca versi lengkap artikel ini di blog utama" }}
+{{ $intro := .Get "intro" | default "Baca juga artikel ini di blog utama:" }}
+
+<div class="baca-juga-callout">
+  <span class="baca-juga-label">BACA JUGA DI DORANG</span>
+  <p class="baca-juga-intro"><em>{{ $intro }}</em></p>
+  <a class="baca-juga-link" href="{{ $url }}" target="_blank" rel="noopener">
+    {{ $text }} →
+  </a>
+</div>

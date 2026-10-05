@@ -1,0 +1,76 @@
+baseURL = 'https://ceritadorang.pages.dev/'
+locale = 'id-ID'
+title = 'CERITA DORANG'
+theme = 'dorang'
+enableRobotsTXT = true
+
+# Pengaturan utama
+[params]
+  description = "Cerita yang Layak untuk Diceritakan"
+  author = "Donny Turang"
+  cloudflareAnalytics = "00882764242848bba4713b18b9a610a5"
+  images = ["/images/og-default.jpg"] 
+  authorURL = "https://donnyturang.blogspot.com/p/tentang-penulis.html"
+  defaultTheme = "auto"
+  ShowReadingTime = true
+  ShowShareButtons = true
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  ShowToc = true
+  TocOpen = false
+  disableScrollToTop = false
+  comments = false
+  disableAttribution = true
+  TocSide = "right"
+
+  [params.homeInfoParams]
+    Title = "CERITA DORANG"
+    Content = "Ruang untuk cerita yang tidak dikejar tenggat. Di sini, setiap sosok dan setiap kisah kecil diberi waktu untuk matang — dan layak untuk diceritakan."
+
+
+  [params.assets]
+    favicon = "/favicon.ico"
+    favicon16x16 = "/favicon.ico"
+    favicon32x32 = "/favicon.ico"
+    apple_touch_icon = "/favicon.ico"
+    safari_pinned_tab = "/favicon.ico"
+
+# Menu navigasi
+[[menu.main]]
+  name = "Beranda"
+  url = "/"
+  weight = 1
+
+[[menu.main]]
+  name = "Sosok"
+  url = "/categories/sosok/"
+  weight = 2
+
+[[menu.main]]
+  name = "Tahukah Anda"
+  url = "/categories/tahukah-anda/"
+  weight = 3
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+# Paginasi: 6 artikel per halaman
+[pagination]
+  pagerSize = 6
+
+# Setelan Artikel Terkait
+[related]
+  threshold = 20
+  includeNewer = true
+  toLower = true
+
+  [[related.indices]]
+    name = "tags"
+    weight = 100
+
+  [[related.indices]]
+    name = "categories"
+    weight = 50

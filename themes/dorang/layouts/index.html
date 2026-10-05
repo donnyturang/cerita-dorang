@@ -1,0 +1,84 @@
+{{ define "main" }}
+
+<div class="dorang-home">
+
+  {{/* ============================================================
+       SEKSI 1: SOROTAN — Artikel dengan tag "sorotan"
+       ============================================================ */}}
+  {{ $sorotan := where site.RegularPages "Params.tags" "intersect" (slice "sorotan") }}
+  {{ with $sorotan }}
+  <section class="dorang-section">
+    <h2 class="dorang-section-title">Sorotan</h2>
+    {{ range first 1 . }}
+    <a href="{{ .RelPermalink }}" class="dorang-hero">
+      {{ with .Params.cover.image }}
+      <div class="dorang-hero-image">
+        <img src="{{ . | absURL }}" alt="{{ $.Params.cover.alt | default $.Title }}" loading="eager">
+      </div>
+      {{ end }}
+      <div class="dorang-hero-content">
+        <h3 class="dorang-hero-title">{{ .Title }}</h3>
+        <p class="dorang-hero-summary">{{ .Summary | plainify | truncate 180 }}</p>
+        <span class="dorang-hero-meta">{{ .Date.Format "2 January 2006" }} · {{ .ReadingTime }} menit baca</span>
+      </div>
+    </a>
+    {{ end }}
+  </section>
+  {{ end }}
+
+  {{/* ============================================================
+       SEKSI 2: TAHUKAH ANDA — Kategori "Tahukah Anda"
+       ============================================================ */}}
+  {{ $tahukah := where site.RegularPages "Params.categories" "intersect" (slice "Tahukah Anda") }}
+  {{ with $tahukah }}
+  <section class="dorang-section">
+    <h2 class="dorang-section-title">Tahukah Anda</h2>
+    <div class="dorang-grid">
+      {{ range first 3 . }}
+      <a href="{{ .RelPermalink }}" class="dorang-card">
+        {{ with .Params.cover.image }}
+        <div class="dorang-card-cover">
+          <img src="{{ . | absURL }}" alt="{{ $.Params.cover.alt | default $.Title }}" loading="lazy">
+        </div>
+        {{ end }}
+        <h3 class="dorang-card-title">{{ .Title }}</h3>
+        <p class="dorang-card-summary">{{ .Summary | plainify | truncate 100 }}</p>
+      </a>
+      {{ end }}
+    </div>
+  </section>
+  {{ end }}
+
+  {{/* ============================================================
+       SEKSI 3: SOSOK — Kategori "Sosok"
+       ============================================================ */}}
+  {{ $sosok := where site.RegularPages "Params.categories" "intersect" (slice "Sosok") }}
+  {{ with $sosok }}
+  <section class="dorang-section">
+    <h2 class="dorang-section-title">Sosok</h2>
+    <div class="dorang-list">
+      {{ range first 5 . }}
+      <a href="{{ .RelPermalink }}" class="dorang-list-item">
+        {{ with .Params.cover.image }}
+        <div class="dorang-list-cover">
+          <img src="{{ . | absURL }}" alt="{{ $.Params.cover.alt | default $.Title }}" loading="lazy">
+        </div>
+        {{ end }}
+        <div class="dorang-list-content">
+          <h3 class="dorang-list-title">{{ .Title }}</h3>
+          <p class="dorang-list-summary">{{ .Summary | plainify | truncate 120 }}</p>
+        </div>
+      </a>
+      {{ end }}
+    </div>
+  </section>
+  {{ end }}
+
+  {{/* Tautan Lihat Semua */}}
+  <div class="dorang-viewall">
+    <a href="/posts/" class="dorang-viewall-link">Lihat Semua Tulisan →</a>
+  </div>
+
+</div>
+
+{{ end }}

@@ -1,0 +1,65 @@
+{{ define "main" }}
+
+<div class="dorang-list-page">
+
+  {{/* Header Kategori */}}
+  <header class="dorang-list-header">
+    <h1>{{ .Title }}</h1>
+    {{ with .Content }}
+      <div class="dorang-list-description">{{ . }}</div>
+    {{ end }}
+  </header>
+
+  {{/* Daftar Artikel */}}
+  {{ if .Pages }}
+    <div class="dorang-grid">
+      {{ range .Paginator.Pages }}
+        <a href="{{ .RelPermalink }}" class="dorang-card">
+          <div class="dorang-card-cover">
+            {{ with .Params.cover.image }}
+              <img src="{{ . | absURL }}" alt="{{ $.Params.cover.alt | default $.Title }}" loading="lazy">
+            {{ else }}
+              <img src="/images/og-default.jpg" alt="{{ .Title }}" loading="lazy">
+            {{ end }}
+          </div>
+          <div class="dorang-card-body">
+            <h3 class="dorang-card-title">{{ .Title }}</h3>
+            <p class="dorang-card-summary">{{ .Summary | plainify | truncate 120 }}</p>
+            <span class="dorang-card-meta">{{ .Date.Format "2 January 2006" }} · {{ .ReadingTime }} menit baca</span>
+          </div>
+        </a>
+      {{ end }}
+    </div>
+
+    {{/* Paginasi */}}
+    {{ $pag := .Paginator }}
+    {{ if gt $pag.TotalPages 1 }}
+      <nav class="dorang-pagination" aria-label="Navigasi halaman">
+        {{ if $pag.HasPrev }}
+          <a href="{{ $pag.Prev.URL }}" class="dorang-page-link">← Sebelumnya</a>
+        {{ else }}
+          <span class="dorang-page-link disabled">← Sebelumnya</span>
+        {{ end }}
+
+        <span class="dorang-page-info">Halaman {{ $pag.PageNumber }} dari {{ $pag.TotalPages }}</span>
+
+        {{ if $pag.HasNext }}
+          <a href="{{ $pag.Next.URL }}" class="dorang-page-link">Berikutnya →</a>
+        {{ else }}
+          <span class="dorang-page-link disabled">Berikutnya →</span>
+        {{ end }}
+      </nav>
+    {{ end }}
+
+  {{ else }}
+    <p class="dorang-empty"><em>Belum ada artikel di kategori ini.</em></p>
+  {{ end }}
+
+  {{/* Kembali */}}
+  <p class="dorang-list-back">
+    <a href="/">← Kembali ke Beranda</a>
+  </p>
+
+</div>
+
+{{ end }}

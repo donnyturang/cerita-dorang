@@ -1,0 +1,18 @@
+# Hugo build output
+public/
+resources/
+.hugo_build.lock
+
+# Installer & file besar
+*.deb
+*.tar.gz
+*.zip
+
+# Sistem operasi
+.DS_Store
+Thumbs.db
+
+layouts-papermod-backup/
+*.bak-*
+*.md.bak
+themes/PaperMod/

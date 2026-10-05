@@ -1,0 +1,29 @@
+{{/* ============================================================
+     HEADER — Logo, Tagline, Menu, Dark Mode Toggle
+     ============================================================ */}}
+
+<header class="site-header">
+  <div class="header-inner">
+    
+    {{/* Logo & Tagline */}}
+    <div class="header-brand">
+      <a href="{{ site.Home.RelPermalink }}" class="brand-name">
+        {{ site.Title }}
+      </a>
+      <span class="brand-tagline">{{ site.Params.description }}</span>
+    </div>
+
+    {{/* Menu Navigasi */}}
+    <nav class="site-nav" aria-label="Navigasi Utama">
+      <a href="{{ site.Home.RelPermalink }}">Beranda</a>
+      <a href="/categories/sosok/">Sosok</a>
+      <a href="/categories/tahukah-anda/">Tahukah Anda</a>
+      
+      {{/* Dark Mode Toggle */}}
+      <button id="theme-toggle" aria-label="Ganti tema" type="button">
+        <span class="theme-icon">🌙</span>
+      </button>
+    </nav>
+
+  </div>
+</header>

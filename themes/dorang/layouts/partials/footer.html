@@ -1,0 +1,70 @@
+{{/* ============================================================
+     FOOTER — DORANG + IKUTI DORANG + Hak Cipta
+     ============================================================ */}}
+
+<footer class="site-footer">
+  <div class="footer-inner">
+
+    {{/* Baris 1: Brand DORANG */}}
+    <div class="footer-brand">
+      <a href="https://donnyturang.blogspot.com/" target="_blank" rel="noopener noreferrer">
+        DORANG
+      </a>
+    </div>
+    <div class="footer-tagline">Cerita yang Layak untuk Diceritakan</div>
+
+    {{/* Baris 2: Menu DORANG */}}
+    <nav class="footer-nav">
+      <a href="https://donnyturang.blogspot.com/" target="_blank" rel="noopener noreferrer">Beranda</a>
+      <span class="footer-sep">&middot;</span>
+      <a href="https://donnyturang.blogspot.com/search/label/feature" target="_blank" rel="noopener noreferrer">Feature</a>
+      <span class="footer-sep">&middot;</span>
+      <a href="https://donnyturang.blogspot.com/search/label/opini" target="_blank" rel="noopener noreferrer">Opini</a>
+      <span class="footer-sep">&middot;</span>
+      <a href="https://donnyturang.blogspot.com/search/label/ebook" target="_blank" rel="noopener noreferrer">eBook</a>
+      <span class="footer-sep">&middot;</span>
+      <a href="https://donnyturang.blogspot.com/search/label/Catatan%20Kecil" target="_blank" rel="noopener noreferrer">Catatan Kecil</a>
+    </nav>
+
+    {{/* Baris 3: Tautan Legal */}}
+    <div class="footer-legal">
+      <a href="https://donnyturang.blogspot.com/p/tentang-penulis.html" target="_blank" rel="noopener noreferrer">Tentang Penulis</a>
+      <span class="separator">&middot;</span>
+      <a href="https://donnyturang.blogspot.com/p/kebijakan-privasi.html" target="_blank" rel="noopener noreferrer">Kebijakan Privasi</a>
+      <span class="separator">&middot;</span>
+      <a href="https://donnyturang.blogspot.com/p/persyaratan-layanan.html" target="_blank" rel="noopener noreferrer">Persyaratan Layanan</a>
+    </div>
+
+    {{/* Baris 4: IKUTI DORANG */}}
+    <div class="footer-follow">
+      <span class="footer-follow-label">Ikuti Dorang</span>
+      <ul class="footer-social">
+        <li><a href="mailto:dorang71@gmail.com" target="_blank" rel="noopener noreferrer">Email</a></li>
+        <li><a href="https://substack.com/@donnyturang" target="_blank" rel="noopener noreferrer">Substack</a></li>
+        <li><a href="https://medium.com/@donnyturang" target="_blank" rel="noopener noreferrer">Medium</a></li>
+        <li><a href="https://bsky.app/profile/donnyturang.bsky.social" target="_blank" rel="noopener noreferrer">Bluesky</a></li>
+        <li><a href="https://web.facebook.com/TURANGDonny" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+      </ul>
+    </div>
+
+    {{/* Baris 5: Copyright */}}
+    <div class="footer-copyright">
+      &copy; {{ now.Year }} <strong>DORANG</strong>
+    </div>
+
+  </div>
+</footer>
+
+{{/* Floating Scroll Navigation */}}
+<nav class="dorang-scroll-nav" aria-label="Navigasi halaman">
+  <button type="button" class="dorang-scroll-btn dorang-scroll-top" aria-label="Ke atas" title="Ke atas">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+  <button type="button" class="dorang-scroll-btn dorang-scroll-bottom" aria-label="Ke bawah" title="Ke bawah">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="6 9 12 15 18 9"></polyline>
+    </svg>
+  </button>
+</nav>
