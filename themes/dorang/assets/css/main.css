@@ -1361,18 +1361,19 @@ blockquote {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 4px 8px;
+    gap: 3px 4px;
     margin: 16px 0;
   }
   .footer-nav a {
-    font-size: 0.82rem;
+    font-size: 0.72rem;
     white-space: nowrap;
     line-height: 1.6;
   }
   .footer-nav .footer-sep {
     display: inline;
     color: #ccc;
-    font-size: 0.82rem;
+    font-size: 0.72rem;
+    margin: 0 2px;
   }
 
   .footer-legal {
