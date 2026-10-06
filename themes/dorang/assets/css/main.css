@@ -1432,3 +1432,9 @@ blockquote {
 @media (max-width: 768px) {
   .site-main { padding-bottom: 24px; }
 }
+
+/* Fix gap lebih agresif: rapatkan section terakhir + viewall */
+@media (max-width: 768px) {
+  .dorang-home > .dorang-section:last-of-type { margin-bottom: 1.5em; }
+  .dorang-viewall { margin-top: 1.5em; padding-top: 1em; margin-bottom: 0.5em; }
+}
