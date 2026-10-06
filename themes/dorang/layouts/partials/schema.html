@@ -1,0 +1,108 @@
+{{/* ============================================================
+     LD-JSON SCHEMA.ORG — WebSite, Organization, Article, Breadcrumb
+     ============================================================ */}}
+
+{{/* WebSite Schema (semua halaman) */}}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": {{ printf "%q" site.Title }},
+  "url": {{ printf "%q" site.BaseURL }},
+  "description": {{ printf "%q" site.Params.description }},
+  "inLanguage": "id-ID",
+  "publisher": {
+    "@type": "Organization",
+    "name": {{ printf "%q" site.Title }},
+    "logo": {
+      "@type": "ImageObject",
+      "url": {{ printf "%q" ("android-chrome-512x512.png" | absURL) }}
+    }
+  }
+}
+</script>
+
+{{ if .IsHome }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": {{ printf "%q" site.Title }},
+  "url": {{ printf "%q" site.BaseURL }},
+  "logo": {{ printf "%q" ("android-chrome-512x512.png" | absURL) }},
+  "description": {{ printf "%q" site.Params.description }},
+  "sameAs": [
+    "https://donnyturang.blogspot.com/",
+    "https://substack.com/@donnyturang",
+    "https://medium.com/@donnyturang",
+    "https://bsky.app/profile/donnyturang.bsky.social",
+    "https://web.facebook.com/TURANGDonny"
+  ]
+}
+</script>
+{{ end }}
+
+{{ if eq .Kind "page" }}
+{{ $schemaImage := "" }}
+{{ with .Params.cover }}{{ with .image }}{{ $schemaImage = . | absURL }}{{ end }}{{ end }}
+{{ if not $schemaImage }}{{ $schemaImage = "/images/og-default.jpg" | absURL }}{{ end }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": {{ printf "%q" .Title }},
+  "description": {{ printf "%q" (.Description | default site.Params.description) }},
+  "image": [{{ printf "%q" $schemaImage }}],
+  "datePublished": {{ printf "%q" (.Date.Format "2006-01-02T15:04:05Z07:00") }},
+  "dateModified": {{ printf "%q" (.Lastmod.Format "2006-01-02T15:04:05Z07:00") }},
+  "inLanguage": "id-ID",
+  "author": {
+    "@type": "Person",
+    "name": {{ printf "%q" (.Params.author | default site.Params.author) }},
+    "url": {{ printf "%q" site.Params.authorURL }}
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": {{ printf "%q" site.Title }},
+    "logo": {
+      "@type": "ImageObject",
+      "url": {{ printf "%q" ("android-chrome-512x512.png" | absURL) }}
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": {{ printf "%q" .Permalink }}
+  }{{ with .Params.categories }},
+  "articleSection": {{ printf "%q" (index . 0) }}{{ end }}{{ with .Params.tags }},
+  "keywords": {{ printf "%q" (delimit . ", ") }}{{ end }}
+}
+</script>
+
+{{ $catURL := "" }}{{ $catName := "" }}
+{{ with .Params.categories }}{{ $catName = index . 0 }}{{ $catURL = printf "categories/%s/" ($catName | urlize) | absURL }}{{ end }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Beranda",
+      "item": {{ printf "%q" site.BaseURL }}
+    }{{ if $catName }},
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": {{ printf "%q" $catName }},
+      "item": {{ printf "%q" $catURL }}
+    }{{ end }},
+    {
+      "@type": "ListItem",
+      "position": {{ if $catName }}3{{ else }}2{{ end }},
+      "name": {{ printf "%q" .Title }}
+    }
+  ]
+}
+</script>
+{{ end }}

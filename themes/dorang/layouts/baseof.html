@@ -2,12 +2,15 @@
 <html lang="{{ site.Language.Locale }}">
 <head>
   {{ partial "head.html" . }}
+  {{ partial "schema.html" . }}
 </head>
 <body>
 
+  <a href="#main" class="dorang-skip-link">Langsung ke konten</a>
+
   {{ partial "header.html" . }}
 
-  <main class="site-main">
+  <main id="main" class="site-main">
     {{ block "main" . }}{{ end }}
   </main>
 

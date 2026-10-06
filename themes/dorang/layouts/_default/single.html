@@ -31,6 +31,8 @@
     {{ .Content }}
   </div>
 
+  {{ partial "share.html" . }}
+
   {{/* Prev / Next */}}
   {{ if or .PrevInSection .NextInSection }}
   <nav class="dorang-post-nav" aria-label="Navigasi antar artikel">

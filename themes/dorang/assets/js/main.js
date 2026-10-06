@@ -327,3 +327,44 @@
     }
   });
 })();
+
+/* ===== Share: Copy Link ===== */
+(function () {
+  var btns = document.querySelectorAll('.dorang-share-copy');
+  if (!btns.length) return;
+  btns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var url = btn.getAttribute('data-url') || window.location.href;
+      var label = btn.querySelector('[data-copy-label]');
+      var originalText = label ? label.textContent : 'Salin Link';
+
+      function onSuccess() {
+        btn.classList.add('copied');
+        if (label) label.textContent = 'Tersalin!';
+        setTimeout(function () {
+          btn.classList.remove('copied');
+          if (label) label.textContent = originalText;
+        }, 2000);
+      }
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(onSuccess).catch(function () {
+          fallback(url, onSuccess);
+        });
+      } else {
+        fallback(url, onSuccess);
+      }
+    });
+  });
+
+  function fallback(text, cb) {
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); cb(); } catch (e) { console.warn('Copy failed', e); }
+    document.body.removeChild(ta);
+  }
+})();
