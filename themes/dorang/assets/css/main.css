@@ -259,7 +259,6 @@ blockquote {
   border-top: 1px solid var(--border);
   background: var(--soft);
   padding: 40px 22px 30px;
-  margin-top: 60px;
 }
 
 .footer-inner {
