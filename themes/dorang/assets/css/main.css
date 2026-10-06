@@ -1472,3 +1472,25 @@ blockquote {
   .dorang-share-label { font-size: 0.65rem; }
   .dorang-share-btn svg { width: 18px; height: 18px; }
 }
+
+/* ===== Skip Link (Aksesibilitas) ===== */
+.dorang-skip-link {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  background: var(--primary, #2c3e50);
+  color: #fff;
+  padding: 10px 16px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border-radius: 0 0 6px 0;
+  z-index: 10000;
+  transition: top 0.2s ease;
+}
+
+.dorang-skip-link:focus {
+  top: 0;
+  outline: 2px solid var(--accent, #c9a227);
+  outline-offset: 2px;
+}

@@ -1,0 +1,24 @@
+{{ define "main" }}
+
+<article class="post-single page-static">
+
+  {{/* Breadcrumb */}}
+  <nav class="dorang-breadcrumb" aria-label="Breadcrumb">
+    <a href="{{ site.Home.RelPermalink }}">Beranda</a>
+    <span class="bc-sep">›</span>
+    <span class="bc-current">{{ .Title }}</span>
+  </nav>
+
+  <h1>{{ .Title }}</h1>
+
+  <div class="post-body">
+    {{ .Content }}
+  </div>
+
+  <p class="dorang-post-back">
+    <a href="{{ site.Home.RelPermalink }}">← Kembali ke Beranda</a>
+  </p>
+
+</article>
+
+{{ end }}

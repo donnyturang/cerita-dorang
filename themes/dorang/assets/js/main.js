@@ -96,6 +96,9 @@
   var postBody = document.querySelector('.post-body');
   if (!postBody) return;
 
+  // Skip halaman statis (Kebijakan Privasi, Tentang Situs, dll)
+  if (postBody.closest('.page-static')) return;
+
   // Kalau sudah ada TOC manual, jangan ganggu
   if (postBody.querySelector('.dorang-toc')) return;
 
