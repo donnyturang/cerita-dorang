@@ -41,7 +41,7 @@ Karena itu, mengetahui nama-nama sungai, jembatan, dan danau di Tomohon bukan se
 
 ## Ternyata, sungai di Tomohon cukup banyak
 
-Di kawasan pusat kota Tomohon, terdapat sejumlah nama sungai yang telah teridentifikasi, antara lain **Ranowangko, Sineleyan, Giniringan, Ranoneperet, Malangen, Kinupit, Muung, Panumuran, Pinati, Kiaaruyan, Kelang 1, Kelang 2, Lembuyan, Tatou, Meras, dan Ranowatu**.
+Di kawasan pusat kota Tomohon,dan sekitarnya, terdapat sejumlah nama sungai yang telah teridentifikasi, antara lain **Ranowangko, Sineleyan, Giniringan, Ranoneperet, Malangen, Kinupit, Muung, Panumuran, Pinati, Kiaaruyan, Kelang 1, Kelang 2, Lembuyan, Tatou, Meras, dan Ranowatu**.
 
 Nama-nama itu mungkin tidak semuanya akrab bagi warga kota hari ini. Sebagian bahkan mungkin lebih dikenal oleh masyarakat yang tinggal di sekitar alirannya daripada oleh warga Tomohon secara keseluruhan.
 
