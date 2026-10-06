@@ -4,9 +4,24 @@
 
 {{/* Variabel Turunan */}}
 {{ $ogImage := "" }}
-{{ with .Params.cover }}{{ with .image }}{{ $ogImage = . | absURL }}{{ end }}{{ end }}
+{{/* Prioritas 1: cover artikel — di-resize ke 1200×630 untuk OG */}}
+{{ with .Params.cover }}{{ with .image }}
+  {{ $path := strings.TrimPrefix "/" . }}
+  {{ $img := resources.Get $path }}
+  {{ if $img }}
+    {{ $ogResized := $img.Fill "1200x630 Center webp q85" }}
+    {{ $ogImage = $ogResized.Permalink }}
+  {{ else }}
+    {{ $ogImage = . | absURL }}
+  {{ end }}
+{{ end }}{{ end }}
+{{/* Prioritas 2: default site params */}}
 {{ if not $ogImage }}{{ with site.Params.images }}{{ $ogImage = index . 0 | absURL }}{{ end }}{{ end }}
+{{/* Prioritas 3: fallback og-default.jpg */}}
 {{ if not $ogImage }}{{ $ogImage = "/images/og-default.jpg" | absURL }}{{ end }}
+
+{{/* Simpan ke .Store untuk dipakai partial lain (schema.html) */}}
+{{ .Store.Set "ogImage" $ogImage }}
 
 {{ $description := "" }}
 {{ with .Description }}{{ $description = . }}{{ else }}{{ $description = site.Params.description }}{{ end }}

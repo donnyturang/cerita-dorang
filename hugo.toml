@@ -78,3 +78,13 @@ enableRobotsTXT = true
 # Output tambahan untuk Search
 [outputs]
   home = ["HTML", "RSS", "JSON"]
+
+# Image processing
+[imaging]
+  quality = 85
+  hint = "photo"
+  anchor = "Center"
+
+  [imaging.exif]
+    disableDate = true
+    disableLatLong = true

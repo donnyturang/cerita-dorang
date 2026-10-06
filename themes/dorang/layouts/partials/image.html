@@ -1,0 +1,61 @@
+{{/* ============================================================
+     IMAGE — Responsive image with Hugo Image Processing
+     
+     Params:
+       src     — path di front matter (contoh: "/images/xxx.webp")
+       alt     — alt text
+       class   — CSS class (opsional)
+       sizes   — sizes attribute
+       loading — "eager" | "lazy" (default: lazy)
+       widths  — custom widths (default: 400, 800, 1200)
+     ============================================================ */}}
+
+{{ $src := .src }}
+{{ $alt := .alt | default "" }}
+{{ $class := .class | default "" }}
+{{ $loading := .loading | default "lazy" }}
+{{ $sizes := .sizes | default "(max-width: 640px) 100vw, (max-width: 1100px) 90vw, 800px" }}
+{{ $widths := .widths | default (slice 400 800 1200) }}
+
+{{/* Cari resource: "/images/xxx.webp" → "images/xxx.webp" */}}
+{{ $path := $src | strings.TrimPrefix "/" }}
+{{ $img := resources.Get $path }}
+
+{{ if $img }}
+  {{/* Generate srcset untuk setiap width yang ≤ lebar asli */}}
+  {{ $srcset := slice }}
+  {{ $fallback := $img }}
+  {{ range $widths }}
+    {{ if ge $img.Width . }}
+      {{ $resized := $img.Resize (printf "%dx webp q85" .) }}
+      {{ $srcset = $srcset | append (printf "%s %dw" $resized.RelPermalink .) }}
+      {{ $fallback = $resized }}
+    {{ end }}
+  {{ end }}
+
+  {{/* Kalau tidak ada yang di-resize, pakai aslinya */}}
+  {{ if eq (len $srcset) 0 }}
+    {{ $srcset = slice (printf "%s %dw" $img.RelPermalink $img.Width) }}
+  {{ end }}
+
+  <img
+    src="{{ $fallback.RelPermalink }}"
+    srcset="{{ delimit $srcset ", " }}"
+    sizes="{{ $sizes }}"
+    alt="{{ $alt }}"
+    {{ with $class }}class="{{ . }}"{{ end }}
+    width="{{ $img.Width }}"
+    height="{{ $img.Height }}"
+    loading="{{ $loading }}"
+    decoding="async"
+  >
+{{ else }}
+  {{/* Fallback: gambar tidak di assets, render dari static */}}
+  <img
+    src="{{ $src | absURL }}"
+    alt="{{ $alt }}"
+    {{ with $class }}class="{{ . }}"{{ end }}
+    loading="{{ $loading }}"
+    decoding="async"
+  >
+{{ end }}

@@ -13,7 +13,7 @@
     <a href="{{ .RelPermalink }}" class="dorang-hero">
       {{ with .Params.cover.image }}
       <div class="dorang-hero-image">
-        <img src="{{ . | absURL }}" alt="{{ $.Params.cover.alt | default $.Title }}" loading="eager">
+        {{ partial "image.html" (dict "src" . "alt" ($.Params.cover.alt | default $.Title) "loading" "eager" "sizes" "(max-width: 640px) 100vw, 50vw" "widths" (slice 400 800 1200)) }}
       </div>
       {{ end }}
       <div class="dorang-hero-content">
@@ -38,7 +38,7 @@
       <a href="{{ .RelPermalink }}" class="dorang-card">
         {{ with .Params.cover.image }}
         <div class="dorang-card-cover">
-          <img src="{{ . | absURL }}" alt="{{ $.Params.cover.alt | default $.Title }}" loading="lazy">
+          {{ partial "image.html" (dict "src" . "alt" ($.Params.cover.alt | default $.Title) "loading" "lazy" "sizes" "(max-width: 640px) 100vw, (max-width: 1100px) 45vw, 350px" "widths" (slice 400 800)) }}
         </div>
         {{ end }}
         <h3 class="dorang-card-title">{{ .Title }}</h3>
@@ -61,7 +61,7 @@
       <a href="{{ .RelPermalink }}" class="dorang-list-item">
         {{ with .Params.cover.image }}
         <div class="dorang-list-cover">
-          <img src="{{ . | absURL }}" alt="{{ $.Params.cover.alt | default $.Title }}" loading="lazy">
+          {{ partial "image.html" (dict "src" . "alt" ($.Params.cover.alt | default $.Title) "loading" "lazy" "sizes" "(max-width: 640px) 100vw, 280px" "widths" (slice 400 800)) }}
         </div>
         {{ end }}
         <div class="dorang-list-content">

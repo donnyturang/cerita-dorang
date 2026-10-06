@@ -22,7 +22,7 @@
 
   {{ with .Params.cover }}{{ with .image }}
     <figure class="post-cover">
-      <img src="{{ . | absURL }}" alt="{{ $.Params.cover.alt | default $.Title }}">
+      {{ partial "image.html" (dict "src" . "alt" ($.Params.cover.alt | default $.Title) "loading" "eager" "sizes" "(max-width: 1100px) 100vw, 1100px" "widths" (slice 400 800 1200)) }}
       {{ with $.Params.cover.caption }}<figcaption>{{ . }}</figcaption>{{ end }}
     </figure>
   {{ end }}{{ end }}
@@ -60,7 +60,7 @@
       {{ range . }}
         <a href="{{ .RelPermalink }}" class="dorang-card">
           <div class="dorang-card-cover">
-            {{ with .Params.cover.image }}<img src="{{ . | absURL }}" alt="{{ $.Params.cover.alt | default $.Title }}" loading="lazy">{{ else }}<img src="/images/og-default.jpg" alt="{{ .Title }}" loading="lazy">{{ end }}
+            {{ with .Params.cover.image }}{{ partial "image.html" (dict "src" . "alt" ($.Params.cover.alt | default $.Title) "loading" "lazy" "sizes" "(max-width: 640px) 100vw, 280px" "widths" (slice 400 800)) }}{{ else }}<img src="/images/og-default.jpg" alt="{{ .Title }}" loading="lazy">{{ end }}
           </div>
           <div class="dorang-card-body">
             <h3 class="dorang-card-title">{{ .Title }}</h3>
