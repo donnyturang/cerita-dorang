@@ -1494,3 +1494,53 @@ blockquote {
   outline: 2px solid var(--accent, #c9a227);
   outline-offset: 2px;
 }
+
+/* ============================================
+   Arsip — Halaman /arsip/
+   ============================================ */
+.dorang-archive { max-width: 780px; margin: 0 auto; }
+.dorang-archive-header { margin-bottom: 1rem; padding-bottom: 1.5rem; border-bottom: 2px solid var(--accent); }
+.dorang-archive-header h1 { margin: 0 0 0.5rem 0; }
+.dorang-archive-desc { margin: 0; color: var(--muted); font-style: italic; font-size: 0.95rem; }
+.dorang-archive-count { font-size: 0.85rem; color: var(--muted); margin: 1rem 0 2rem; letter-spacing: 0.05em; text-transform: uppercase; }
+
+.dorang-archive-year { margin-bottom: 3rem; }
+.dorang-archive-year-title { font-family: Georgia, serif; font-size: 2rem; color: var(--primary); margin: 0 0 1.5rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); }
+
+.dorang-archive-month { margin-bottom: 2rem; }
+.dorang-archive-month-title { font-family: Arial, sans-serif; font-size: 0.95rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent-dark); margin: 0 0 0.75rem; }
+
+.dorang-archive-list { list-style: none; padding: 0; margin: 0; }
+.dorang-archive-item { display: flex; align-items: baseline; gap: 0.75rem; padding: 0.6rem 0; border-bottom: 1px solid var(--border); }
+.dorang-archive-item:last-child { border-bottom: none; }
+.dorang-archive-date { font-family: Georgia, serif; font-size: 1rem; color: var(--muted); font-style: italic; min-width: 2rem; flex-shrink: 0; }
+.dorang-archive-link { color: var(--primary); text-decoration: none; font-weight: 500; flex: 1; transition: color 0.2s ease; }
+.dorang-archive-link:hover { color: var(--accent-dark); }
+.dorang-archive-cat { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); background: var(--soft); padding: 0.2rem 0.5rem; border-radius: 3px; flex-shrink: 0; }
+.dorang-archive-back { margin-top: 3rem; text-align: center; }
+
+[data-theme="dark"] .dorong-archive-year-title,
+[data-theme="dark"] .dorang-archive-year-title { color: #e0e0e0; }
+[data-theme="dark"] .dorong-archive-month-title,
+[data-theme="dark"] .dorang-archive-month-title { color: #d4af37; }
+[data-theme="dark"] .dorong-archive-link,
+[data-theme="dark"] .dorang-archive-link { color: #e0e0e0; }
+[data-theme="dark"] .dorong-archive-link:hover,
+[data-theme="dark"] .dorang-archive-link:hover { color: #d4af37; }
+[data-theme="dark"] .dorong-archive-item,
+[data-theme="dark"] .dorang-archive-item { border-color: #333; }
+[data-theme="dark"] .dorong-archive-cat,
+[data-theme="dark"] .dorang-archive-cat { background: #333; color: #b0b0b0; }
+
+@media (max-width: 640px) {
+  .dorong-archive-item,
+  .dorang-archive-item { flex-wrap: wrap; gap: 0.4rem; }
+  .dorong-archive-date,
+  .dorang-archive-date { min-width: 1.8rem; font-size: 0.95rem; }
+  .dorong-archive-link,
+  .dorang-archive-link { font-size: 0.95rem; width: 100%; }
+  .dorong-archive-cat,
+  .dorang-archive-cat { margin-left: 2.2rem; }
+  .dorong-archive-year-title,
+  .dorang-archive-year-title { font-size: 1.6rem; }
+}

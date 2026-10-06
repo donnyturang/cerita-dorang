@@ -1,0 +1,56 @@
+{{ define "main" }}
+
+{{/* Peta nama bulan Inggris → Indonesia */}}
+{{ $bulanID := dict
+  "January" "Januari" "February" "Februari" "March" "Maret"
+  "April" "April" "May" "Mei" "June" "Juni"
+  "July" "Juli" "August" "Agustus" "September" "September"
+  "October" "Oktober" "November" "November" "December" "Desember"
+}}
+
+{{/* Ambil semua artikel dari section posts */}}
+{{ $posts := where site.RegularPages "Section" "posts" }}
+
+<div class="dorang-archive">
+
+  <header class="dorang-archive-header">
+    <h1>{{ .Title }}</h1>
+    {{ with .Description }}<p class="dorang-archive-desc">{{ . }}</p>{{ end }}
+  </header>
+
+  {{ if $posts }}
+    <p class="dorang-archive-count">{{ len $posts }} artikel</p>
+
+    {{ range $posts.GroupByDate "2006" }}
+    <section class="dorang-archive-year">
+      <h2 class="dorang-archive-year-title">{{ .Key }}</h2>
+
+      {{ range .Pages.GroupByDate "January" }}
+      {{ $namaBulan := index $bulanID .Key | default .Key }}
+      <div class="dorang-archive-month">
+        <h3 class="dorang-archive-month-title">{{ $namaBulan }}</h3>
+        <ul class="dorang-archive-list">
+          {{ range .Pages }}
+          <li class="dorang-archive-item">
+            <time class="dorang-archive-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02" }}</time>
+            <a href="{{ .RelPermalink }}" class="dorang-archive-link">{{ .Title }}</a>
+            {{ with .Params.categories }}<span class="dorang-archive-cat">{{ index . 0 }}</span>{{ end }}
+          </li>
+          {{ end }}
+        </ul>
+      </div>
+      {{ end }}
+
+    </section>
+    {{ end }}
+  {{ else }}
+    <p><em>Belum ada artikel.</em></p>
+  {{ end }}
+
+  <p class="dorang-archive-back">
+    <a href="{{ site.Home.RelPermalink }}">← Kembali ke Beranda</a>
+  </p>
+
+</div>
+
+{{ end }}
