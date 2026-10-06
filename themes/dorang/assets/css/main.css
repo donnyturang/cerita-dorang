@@ -1421,3 +1421,8 @@ blockquote {
     font-size: 0.78rem;
   }
 }
+
+/* Fix: hindari padding bertumpuk di beranda (mobile) */
+@media (max-width: 768px) {
+  .dorang-home { padding-bottom: 0; }
+}
