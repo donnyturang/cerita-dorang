@@ -43,14 +43,19 @@ enableRobotsTXT = true
   weight = 1
 
 [[menu.main]]
-  name = "Sosok"
-  url = "/categories/sosok/"
+  name = "Jendela"
+  url = "/categories/jendela/"
   weight = 2
 
 [[menu.main]]
   name = "Tahukah Anda"
   url = "/categories/tahukah-anda/"
   weight = 3
+
+[[menu.main]]
+  name = "Sosok"
+  url = "/categories/sosok/"
+  weight = 4
 
 [markup]
   [markup.goldmark]

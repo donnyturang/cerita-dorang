@@ -27,7 +27,32 @@
   {{ end }}
 
   {{/* ============================================================
-       SEKSI 2: TAHUKAH ANDA — Kategori "Tahukah Anda"
+       SEKSI 2: JENDELA — Kategori "Jendela"
+       ============================================================ */}}
+  {{ $jendela := where site.RegularPages "Params.categories" "intersect" (slice "Jendela") }}
+  {{ with $jendela }}
+  <section class="dorang-section">
+    <h2 class="dorang-section-title">Jendela</h2>
+    <div class="dorang-list">
+      {{ range first 5 . }}
+      <a href="{{ .RelPermalink }}" class="dorang-list-item">
+        {{ with .Params.cover.image }}
+        <div class="dorang-list-cover">
+          {{ partial "image.html" (dict "src" . "alt" ($.Params.cover.alt | default $.Title) "loading" "lazy" "sizes" "(max-width: 640px) 100vw, 280px" "widths" (slice 400 800)) }}
+        </div>
+        {{ end }}
+        <div class="dorang-list-content">
+          <h3 class="dorang-list-title">{{ .Title }}</h3>
+          <p class="dorang-list-summary">{{ .Summary | plainify | truncate 120 }}</p>
+        </div>
+      </a>
+      {{ end }}
+    </div>
+  </section>
+  {{ end }}
+
+  {{/* ============================================================
+       SEKSI 3: TAHUKAH ANDA — Kategori "Tahukah Anda"
        ============================================================ */}}
   {{ $tahukah := where site.RegularPages "Params.categories" "intersect" (slice "Tahukah Anda") }}
   {{ with $tahukah }}
@@ -50,7 +75,7 @@
   {{ end }}
 
   {{/* ============================================================
-       SEKSI 3: SOSOK — Kategori "Sosok"
+       SEKSI 4: SOSOK — Kategori "Sosok"
        ============================================================ */}}
   {{ $sosok := where site.RegularPages "Params.categories" "intersect" (slice "Sosok") }}
   {{ with $sosok }}
