@@ -1425,4 +1425,10 @@ blockquote {
 /* Fix: hindari padding bertumpuk di beranda (mobile) */
 @media (max-width: 768px) {
   .dorang-home { padding-bottom: 0; }
+  .dorang-viewall { margin-bottom: 0.5em; }
+}
+
+/* Fix gap lebih agresif untuk mobile */
+@media (max-width: 768px) {
+  .site-main { padding-bottom: 24px; }
 }
