@@ -1,0 +1,29 @@
+{{/* ============================================================
+     NEWSLETTER — Buttondown Subscribe Form
+     ============================================================ */}}
+<section class="dorang-newsletter" aria-label="Berlangganan newsletter">
+  <h3 class="dorang-newsletter-title">Berlangganan</h3>
+  <p class="dorang-newsletter-desc">Dapatkan cerita baru langsung di inbox Anda.</p>
+
+  <form
+    action="https://buttondown.com/api/emails/embed-subscribe/ceritadorang"
+    method="post"
+    class="dorang-newsletter-form"
+    target="_blank"
+  >
+    <label for="dorang-newsletter-email" class="sr-only">Email</label>
+    <input
+      type="email"
+      id="dorang-newsletter-email"
+      name="email"
+      placeholder="email@anda.com"
+      required
+      class="dorang-newsletter-input"
+      autocomplete="email"
+    >
+    <input type="hidden" value="1" name="embed" />
+    <button type="submit" class="dorang-newsletter-btn">Berlangganan</button>
+  </form>
+
+  <p class="dorang-newsletter-note">Gratis. Bisa berhenti kapan saja.</p>
+</section>
