@@ -243,3 +243,87 @@
   window.addEventListener('resize', updateVisibility);
   updateVisibility();
 })();
+
+/* ===== Search Modal (Fuse.js) ===== */
+(function () {
+  var toggle = document.getElementById('search-toggle');
+  var modal = document.getElementById('dorang-search-modal');
+  var input = document.getElementById('dorang-search-input');
+  var results = document.getElementById('dorang-search-results');
+  if (!toggle || !modal || !input || !results) return;
+
+  var fuse = null;
+  var searchData = null;
+
+  function loadSearchIndex() {
+    if (searchData) return Promise.resolve();
+    return fetch('/index.json')
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        searchData = data;
+        var FuseCtor = window.Fuse;
+        if (!FuseCtor) return;
+        fuse = new FuseCtor(data, {
+          keys: [
+            { name: 'title', weight: 0.6 },
+            { name: 'summary', weight: 0.3 },
+            { name: 'tags', weight: 0.1 }
+          ],
+          threshold: 0.4,
+          ignoreLocation: true,
+          minMatchCharLength: 2
+        });
+      })
+      .catch(function (err) { console.warn('Search index error:', err); });
+  }
+
+  function openModal() {
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    loadSearchIndex().then(function () {
+      setTimeout(function () { input.focus(); }, 50);
+    });
+  }
+
+  function closeModal() {
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    input.value = '';
+    results.innerHTML = '<p class="dorang-search-hint">Ketik untuk mulai mencari...</p>';
+  }
+
+  function renderResults(query) {
+    if (!fuse || !query || query.length < 2) {
+      results.innerHTML = '<p class="dorang-search-hint">Ketik minimal 2 karakter...</p>';
+      return;
+    }
+    var found = fuse.search(query).slice(0, 10);
+    if (!found.length) {
+      results.innerHTML = '<p class="dorang-search-no-result">Tidak ada hasil untuk "' + query.replace(/</g, '&lt;') + '"</p>';
+      return;
+    }
+    var html = found.map(function (r) {
+      var p = r.item;
+      return '<a class="dorang-search-result" href="' + p.permalink + '">' +
+        '<h3 class="dorang-search-result-title">' + p.title + '</h3>' +
+        '<p class="dorang-search-result-summary">' + p.summary + '</p>' +
+        '<span class="dorang-search-result-meta">' + p.date + '</span>' +
+        '</a>';
+    }).join('');
+    results.innerHTML = html;
+  }
+
+  toggle.addEventListener('click', openModal);
+  modal.querySelectorAll('[data-search-close]').forEach(function (el) {
+    el.addEventListener('click', closeModal);
+  });
+  input.addEventListener('input', function (e) { renderResults(e.target.value.trim()); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+    if (e.key === '/' && !modal.classList.contains('open') && document.activeElement.tagName !== 'INPUT') {
+      e.preventDefault(); openModal();
+    }
+  });
+})();

@@ -1,0 +1,19 @@
+{{/* ============================================================
+     SEARCH MODAL — Client-side dengan Fuse.js
+     ============================================================ */}}
+<div id="dorang-search-modal" class="dorang-search-modal" aria-hidden="true" role="dialog" aria-label="Cari artikel">
+  <div class="dorang-search-overlay" data-search-close></div>
+  <div class="dorang-search-panel">
+    <div class="dorang-search-header">
+      <svg class="dorang-search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="11" cy="11" r="8"></circle>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+      <input type="text" id="dorang-search-input" class="dorang-search-input" placeholder="Cari artikel..." autocomplete="off" spellcheck="false">
+      <button type="button" class="dorang-search-close" aria-label="Tutup" data-search-close>×</button>
+    </div>
+    <div id="dorang-search-results" class="dorang-search-results">
+      <p class="dorang-search-hint">Ketik untuk mulai mencari...</p>
+    </div>
+  </div>
+</div>
