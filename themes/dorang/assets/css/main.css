@@ -2710,3 +2710,26 @@ blockquote {
     display: block;
   }
 }
+
+/* ============================================
+   Mobile Fix: TTS di Atas TOC
+   Urutan mobile: TTS → TOC → Body
+   ============================================ */
+@media (max-width: 968px) {
+  .dorang-post-layout {
+    display: flex;
+    flex-direction: column;
+  }
+  .dorang-post-content {
+    display: contents;
+  }
+  .dorang-tts-wrapper {
+    order: 1;
+  }
+  .dorang-toc-sidebar {
+    order: 2;
+  }
+  .post-body {
+    order: 3;
+  }
+}
