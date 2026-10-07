@@ -6,7 +6,7 @@
 {{ $populer = sort $populer "Params.populer_rank" "asc" }}
 {{ with $populer }}
 <section class="dorang-section">
-  <h2 class="dorang-section-title">Populer</h2>
+  <h2 class="dorang-section-title">Pilihan Redaksi</h2>
   <div class="dorang-populer-grid">
     {{ range $i, $p := first 4 . }}
     <a href="{{ $p.RelPermalink }}" class="dorang-populer-item">
