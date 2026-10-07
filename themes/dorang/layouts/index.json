@@ -6,7 +6,7 @@
     "title": {{ $e.Title | jsonify }},
     "permalink": {{ $e.RelPermalink | jsonify }},
     "summary": {{ $e.Summary | plainify | truncate 200 | jsonify }},
-    "date": {{ $e.Date.Format "2 January 2006" | jsonify }},
+    "date": {{ $e.Date | time.Format "2 January 2006" | jsonify }},
     "tags": {{ $e.Params.tags | jsonify }},
     "categories": {{ $e.Params.categories | jsonify }}
   }

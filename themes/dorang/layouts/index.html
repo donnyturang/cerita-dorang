@@ -19,7 +19,7 @@
       <div class="dorang-hero-content">
         <h3 class="dorang-hero-title">{{ .Title }}</h3>
         <p class="dorang-hero-summary">{{ .Summary | plainify | truncate 180 }}</p>
-        <span class="dorang-hero-meta">{{ .Date.Format "2 January 2006" }} · {{ .ReadingTime }} menit baca</span>
+        <span class="dorang-hero-meta">{{ .Date | time.Format "2 January 2006" }} · {{ .ReadingTime }} menit baca</span>
       </div>
     </a>
     {{ end }}

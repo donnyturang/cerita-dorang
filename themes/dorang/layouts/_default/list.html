@@ -25,7 +25,7 @@
           <div class="dorang-card-body">
             <h3 class="dorang-card-title">{{ .Title }}</h3>
             <p class="dorang-card-summary">{{ .Summary | plainify | truncate 120 }}</p>
-            <span class="dorang-card-meta">{{ .Date.Format "2 January 2006" }} · {{ .ReadingTime }} menit baca</span>
+            <span class="dorang-card-meta">{{ .Date | time.Format "2 January 2006" }} · {{ .ReadingTime }} menit baca</span>
           </div>
         </a>
       {{ end }}

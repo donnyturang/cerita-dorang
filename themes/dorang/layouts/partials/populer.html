@@ -13,7 +13,7 @@
       <span class="dorang-populer-rank">{{ printf "%02d" (add $i 1) }}</span>
       <div class="dorang-populer-content">
         <h3 class="dorang-populer-title">{{ $p.Title }}</h3>
-        <span class="dorang-populer-meta">{{ $p.Date.Format "2 January 2006" }}{{ with $p.Params.categories }} · {{ index . 0 }}{{ end }}</span>
+        <span class="dorang-populer-meta">{{ $p.Date | time.Format "2 January 2006" }}{{ with $p.Params.categories }} · {{ index . 0 }}{{ end }}</span>
       </div>
     </a>
     {{ end }}

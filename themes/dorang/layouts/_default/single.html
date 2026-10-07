@@ -19,7 +19,7 @@
 
   <p class="post-meta">
     <small>
-      {{ .Date.Format "2 January 2006" }} · 
+      {{ .Date | time.Format "2 January 2006" }} · 
       {{ .ReadingTime }} menit baca · 
       {{ .Params.author | default "Donny Turang" }}
     </small>
@@ -79,7 +79,7 @@
           </div>
           <div class="dorang-card-body">
             <h3 class="dorang-card-title">{{ .Title }}</h3>
-            <span class="dorang-card-meta">{{ .Date.Format "2 January 2006" }}</span>
+            <span class="dorang-card-meta">{{ .Date | time.Format "2 January 2006" }}</span>
           </div>
         </a>
       {{ end }}
