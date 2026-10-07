@@ -1,0 +1,22 @@
+{{/* ============================================================
+     POPULER — Top 4 Artikel dari tag "populer"
+     Sortir berdasarkan populer_rank (ascending)
+     ============================================================ */}}
+{{ $populer := where site.RegularPages "Params.tags" "intersect" (slice "populer") }}
+{{ $populer = sort $populer "Params.populer_rank" "asc" }}
+{{ with $populer }}
+<section class="dorang-section">
+  <h2 class="dorang-section-title">Populer</h2>
+  <div class="dorang-populer-grid">
+    {{ range $i, $p := first 4 . }}
+    <a href="{{ $p.RelPermalink }}" class="dorang-populer-item">
+      <span class="dorang-populer-rank">{{ printf "%02d" (add $i 1) }}</span>
+      <div class="dorang-populer-content">
+        <h3 class="dorang-populer-title">{{ $p.Title }}</h3>
+        <span class="dorang-populer-meta">{{ $p.Date.Format "2 January 2006" }}{{ with $p.Params.categories }} · {{ index . 0 }}{{ end }}</span>
+      </div>
+    </a>
+    {{ end }}
+  </div>
+</section>
+{{ end }}

@@ -8,6 +8,8 @@ enableRobotsTXT = true
 [params]
   description = "Cerita yang Layak untuk Diceritakan"
   author = "Donny Turang"
+  authorBio = "Jurnalis Utama bersertifikat Dewan Pers/AJI Indonesia. Menulis cerita yang layak untuk diceritakan."
+  authorImage = "/images/donny-turang.webp"
   cloudflareAnalytics = "00882764242848bba4713b18b9a610a5"
   images = ["/images/og-default.jpg"] 
   authorURL = "https://donnyturang.blogspot.com/p/tentang-penulis.html"

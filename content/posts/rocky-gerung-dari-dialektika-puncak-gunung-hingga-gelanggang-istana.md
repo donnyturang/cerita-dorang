@@ -3,7 +3,8 @@ title = "Rocky Gerung: Dari Dialektika Puncak Gunung hingga Gelanggang Istana"
 date = 2026-10-03T10:00:00+08:00
 draft = false
 categories = ["Sosok"]
-tags = ["Rocky Gerung", "Filsafat", "Demokrasi", "Kebebasan Berpikir", "Panjat Tebing", "Wantimpres"]
+tags = ["Rocky Gerung", "Filsafat", "Demokrasi", "Kebebasan Berpikir", "Panjat Tebing", "Wantimpres", "populer"]
+populer_rank = 4
 [cover]
   image = "/images/rocky-gerung.webp"
   alt = "Karikatur Rocky Gerung dengan latar tebing, buku filsafat, alam bebas, dan siluet Istana Negara"

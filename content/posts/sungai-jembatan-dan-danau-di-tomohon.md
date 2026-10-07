@@ -6,6 +6,8 @@ draft: false
 author: "Donny Turang"
 categories: ["Tahukah Anda"]
 tags:
+  - populer
+populer_rank: 1
   - Tomohon
   - Sungai Tomohon
   - Danau Tomohon

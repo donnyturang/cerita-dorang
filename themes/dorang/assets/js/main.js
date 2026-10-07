@@ -371,3 +371,34 @@
     document.body.removeChild(ta);
   }
 })();
+
+/* ===== Reading Progress Bar ===== */
+(function () {
+  var bar = document.querySelector('.dorang-progress-fill');
+  var article = document.querySelector('.post-single');
+  if (!bar || !article) return;
+
+  function updateProgress() {
+    var rect = article.getBoundingClientRect();
+    var articleTop = rect.top + window.scrollY;
+    var articleHeight = rect.height;
+    var viewportHeight = window.innerHeight;
+    var scrolled = window.scrollY;
+
+    // Hitung progress: 0% saat awal artikel, 100% saat scroll mencapai akhir artikel
+    var scrollableDistance = articleHeight - viewportHeight;
+    if (scrollableDistance <= 0) {
+      // Artikel pendek, langsung 100%
+      bar.style.width = '100%';
+      return;
+    }
+
+    var progress = ((scrolled - articleTop + viewportHeight * 0.3) / (articleHeight - viewportHeight * 0.3)) * 100;
+    progress = Math.max(0, Math.min(100, progress));
+    bar.style.width = progress + '%';
+  }
+
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  window.addEventListener('resize', updateProgress);
+  updateProgress();
+})();

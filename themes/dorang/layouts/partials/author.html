@@ -1,0 +1,24 @@
+{{/* ============================================================
+     AUTHOR BIO BOX — Ditampilkan di akhir artikel
+     ============================================================ */}}
+{{ $author := .Params.author | default site.Params.author }}
+{{ $bio := .Params.authorBio | default site.Params.authorBio }}
+{{ $url := .Params.authorURL | default site.Params.authorURL }}
+{{ $image := .Params.authorImage | default site.Params.authorImage }}
+
+<section class="dorang-author" aria-label="Tentang Penulis">
+  <div class="dorang-author-photo">
+    {{ with $image }}
+      {{ partial "image.html" (dict "src" . "alt" $author "loading" "lazy" "sizes" "80px" "widths" (slice 80 160)) }}
+    {{ end }}
+  </div>
+  <div class="dorang-author-body">
+    <h3 class="dorang-author-name">{{ $author }}</h3>
+    {{ with $bio }}<p class="dorang-author-bio">{{ . }}</p>{{ end }}
+    {{ with $url }}
+    <a href="{{ . }}" class="dorang-author-link" target="_blank" rel="noopener noreferrer">
+      Tentang Penulis →
+    </a>
+    {{ end }}
+  </div>
+</section>
