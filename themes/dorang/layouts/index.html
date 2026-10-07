@@ -32,7 +32,7 @@
   {{ $jendela := where site.RegularPages "Params.categories" "intersect" (slice "Jendela") }}
   {{ with $jendela }}
   <section class="dorang-section">
-    <h2 class="dorang-section-title">Jendela</h2>
+    <h2 class="dorang-section-title"><a href="/categories/jendela/">Jendela</a></h2>
     <div class="dorang-list">
       {{ range first 5 . }}
       <a href="{{ .RelPermalink }}" class="dorang-list-item">
@@ -57,7 +57,7 @@
   {{ $tahukah := where site.RegularPages "Params.categories" "intersect" (slice "Tahukah Anda") }}
   {{ with $tahukah }}
   <section class="dorang-section">
-    <h2 class="dorang-section-title">Tahukah Anda</h2>
+    <h2 class="dorang-section-title"><a href="/categories/tahukah-anda/">Tahukah Anda</a></h2>
     <div class="dorang-grid">
       {{ range first 3 . }}
       <a href="{{ .RelPermalink }}" class="dorang-card">
@@ -80,7 +80,7 @@
   {{ $sosok := where site.RegularPages "Params.categories" "intersect" (slice "Sosok") }}
   {{ with $sosok }}
   <section class="dorang-section">
-    <h2 class="dorang-section-title">Sosok</h2>
+    <h2 class="dorang-section-title"><a href="/categories/sosok/">Sosok</a></h2>
     <div class="dorang-list">
       {{ range first 5 . }}
       <a href="{{ .RelPermalink }}" class="dorang-list-item">

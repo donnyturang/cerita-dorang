@@ -2784,3 +2784,20 @@ blockquote {
 [data-theme="dark"] .footer-inner {
   color: #b8b8b8;   /* abu terang untuk dark mode */
 }
+
+/* ============================================
+   Section Title — Clickable Link
+   ============================================ */
+.dorang-section-title a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.dorang-section-title a:hover {
+  color: var(--accent-dark);
+}
+
+[data-theme="dark"] .dorang-section-title a:hover {
+  color: var(--accent);
+}
