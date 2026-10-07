@@ -1,0 +1,41 @@
+{{/* ============================================================
+     TTS — Dengarkan Artikel (Web Speech API)
+     Fitur: Play/Pause/Stop, Speed, Voice, Highlight, Mini Controller
+     ============================================================ */}}
+<div class="dorang-tts-wrapper">
+  <button type="button" class="dorang-tts-toggle" id="dorangTtsToggle" aria-expanded="false">
+    <span aria-hidden="true">🔊</span>
+    <span>Dengarkan Artikel</span>
+  </button>
+
+  <div class="dorang-tts-panel" id="dorangTtsPanel" hidden>
+    <div class="dorang-tts-controls">
+      <button type="button" class="dorang-tts-btn" id="dorangTtsPlay">
+        <span aria-hidden="true">▶️</span><span>Putar</span>
+      </button>
+      <button type="button" class="dorang-tts-btn" id="dorangTtsPause" disabled>
+        <span aria-hidden="true">⏸</span><span>Jeda</span>
+      </button>
+      <button type="button" class="dorang-tts-btn" id="dorangTtsStop" disabled>
+        <span aria-hidden="true">⏹</span><span>Berhenti</span>
+      </button>
+    </div>
+    <div class="dorang-tts-extras">
+      <label>Kecepatan
+        <select id="dorangTtsSpeed">
+          <option value="0.8">0,8×</option>
+          <option value="0.9">0,9×</option>
+          <option value="1.0" selected>1,0×</option>
+          <option value="1.1">1,1×</option>
+          <option value="1.2">1,2×</option>
+        </select>
+      </label>
+      <label>Suara
+        <select id="dorangTtsVoice">
+          <option value="">Memuat…</option>
+        </select>
+      </label>
+    </div>
+    <p class="dorang-tts-status" id="dorangTtsStatus"></p>
+  </div>
+</div>

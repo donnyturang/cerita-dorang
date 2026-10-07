@@ -513,3 +513,341 @@
     localStorage.setItem(DISMISS_KEY, Date.now().toString());
   });
 })();
+
+/* ===== TTS — Dengarkan Artikel ===== */
+(function () {
+  'use strict';
+  if (!('speechSynthesis' in window)) return;
+
+  function init() {
+    var wrapper = document.querySelector('.dorang-tts-wrapper');
+    var postBody = document.querySelector('.post-body');
+    var postTitle = document.querySelector('.post-single h1');
+    if (!wrapper || !postBody) return;
+
+    var toggleBtn = wrapper.querySelector('#dorangTtsToggle');
+    var panel = wrapper.querySelector('#dorangTtsPanel');
+    var playBtn = wrapper.querySelector('#dorangTtsPlay');
+    var pauseBtn = wrapper.querySelector('#dorangTtsPause');
+    var stopBtn = wrapper.querySelector('#dorangTtsStop');
+    var speedSel = wrapper.querySelector('#dorangTtsSpeed');
+    var voiceSel = wrapper.querySelector('#dorangTtsVoice');
+    var statusEl = wrapper.querySelector('#dorangTtsStatus');
+
+    var chunks = [], chunkIndex = 0, state = 'idle';
+    var pausedChunk = 0, pausedChar = 0, curChar = 0;
+
+    /* Mini floating controller */
+    var mini = document.createElement('div');
+    mini.className = 'dorang-tts-mini';
+    mini.setAttribute('role', 'region');
+    mini.setAttribute('aria-label', 'Kontrol Dengarkan Artikel');
+    mini.innerHTML = '<span class="dorang-tts-mini-dot" aria-hidden="true"></span>' +
+      '<span class="dorang-tts-mini-label">Memutar</span>' +
+      '<button type="button" class="dorang-tts-mini-btn" id="dorangTtsMiniPause" aria-label="Jeda">&#9208;</button>' +
+      '<button type="button" class="dorang-tts-mini-btn" id="dorangTtsMiniStop" aria-label="Berhenti">&#9209;</button>' +
+      '<button type="button" class="dorang-tts-mini-btn" id="dorangTtsMiniExpand" aria-label="Kembali ke panel">&#8593;</button>';
+    document.body.appendChild(mini);
+
+    var miniPause = mini.querySelector('#dorangTtsMiniPause');
+    var miniStop = mini.querySelector('#dorangTtsMiniStop');
+    var miniExpand = mini.querySelector('#dorangTtsMiniExpand');
+
+    miniPause.addEventListener('click', function () {
+      if (state === 'playing') pauseBtn.click();
+      else if (state === 'paused') playBtn.click();
+    });
+    miniStop.addEventListener('click', function () { stopBtn.click(); });
+    miniExpand.addEventListener('click', function () {
+      panel.hidden = false;
+      toggleBtn.setAttribute('aria-expanded', 'true');
+      setTimeout(populateVoices, 100);
+      wrapper.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+
+    toggleBtn.addEventListener('click', function () {
+      var open = !panel.hidden;
+      panel.hidden = open;
+      toggleBtn.setAttribute('aria-expanded', String(!open));
+      if (!open) setTimeout(populateVoices, 100);
+    });
+
+    function collectNodes() {
+      var nodes = [];
+      var skip = [
+        '.dorang-tts-wrapper',
+        '.dorang-author',
+        '.dorang-share',
+        '.dorang-post-nav',
+        '.dorang-related',
+        '.dorang-populer-grid',
+        '.dorang-post-back',
+        '.dorang-breadcrumb',
+        '.dorang-toc-sidebar',
+        '.dorang-toc',
+        '.post-cover',
+        'figure',
+        'table',
+        '.referensi',
+        '.dorang-related-title',
+        '.dorang-related-grid'
+      ];
+      var els = postBody.querySelectorAll('p, h2, h3, h4, blockquote, li');
+      for (var i = 0; i < els.length; i++) {
+        var el = els[i];
+        var skipEl = false;
+        for (var x = 0; x < skip.length; x++) {
+          if (el.closest(skip[x])) { skipEl = true; break; }
+        }
+        if (skipEl) continue;
+        if (el.tagName === 'LI' && el.querySelector('li')) continue;
+        var t = (el.innerText || el.textContent || '').replace(/\s+/g, ' ').trim();
+        if (!t || t.length < 2) continue;
+        nodes.push({ element: el, text: t });
+      }
+      return nodes;
+    }
+
+    function splitT(text, max) {
+      max = max || 220;
+      var parts = text.match(/[^.!?…]+[.!?…]+(\s|$)|[^.!?…]+$/g) || [text];
+      var r = [], c = '';
+      for (var i = 0; i < parts.length; i++) {
+        var s = parts[i].trim();
+        if (!s) continue;
+        if (c && (c + ' ' + s).length > max) { r.push(c); c = s; }
+        else c = c ? c + ' ' + s : s;
+      }
+      if (c) r.push(c);
+      return r;
+    }
+
+    function buildChunks() {
+      var o = [];
+      if (postTitle) {
+        var t = postTitle.textContent.replace(/\s+/g, ' ').trim();
+        if (t) o.push({ text: t, element: postTitle });
+      }
+      var ns = collectNodes();
+      for (var i = 0; i < ns.length; i++) {
+        var n = ns[i];
+        if (n.text.length <= 220) o.push({ text: n.text, element: n.element });
+        else {
+          var p = splitT(n.text, 220);
+          for (var j = 0; j < p.length; j++) {
+            o.push({ text: p[j], element: n.element });
+          }
+        }
+      }
+      return o;
+    }
+
+    function hl(el) {
+      var old = document.querySelector('.dorang-tts-active');
+      if (old) old.classList.remove('dorang-tts-active');
+      if (!el) return;
+      el.classList.add('dorang-tts-active');
+      var r = el.getBoundingClientRect();
+      var vh = window.innerHeight || document.documentElement.clientHeight;
+      if (r.top < 120 || r.bottom > vh - 120) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }
+
+    function clr() {
+      var old = document.querySelector('.dorang-tts-active');
+      if (old) old.classList.remove('dorang-tts-active');
+    }
+
+    function isID(v) {
+      if (!v) return false;
+      var l = (v.lang || '').toLowerCase().replace('_', '-');
+      var n = (v.name || '').toLowerCase();
+      return /^(id|in)-id$/.test(l) || /^(id|in)-/.test(l) || n.indexOf('indonesia') !== -1;
+    }
+
+    function isMS(v) {
+      if (!v) return false;
+      return /^ms/.test((v.lang || '').toLowerCase().replace('_', '-'));
+    }
+
+    function pick(voices, pref) {
+      if (pref) for (var i = 0; i < voices.length; i++) {
+        if (voices[i].voiceURI === pref) return voices[i];
+      }
+      for (var j = 0; j < voices.length; j++) if (isID(voices[j])) return voices[j];
+      for (var k = 0; k < voices.length; k++) if (isMS(voices[k])) return voices[k];
+      return null;
+    }
+
+    var userPicked = false;
+
+    function populateVoices() {
+      var v = window.speechSynthesis.getVoices();
+      if (!v.length) return false;
+      var cur = userPicked ? voiceSel.value : '';
+      v.sort(function (a, b) {
+        var aI = isID(a), bI = isID(b), aM = isMS(a), bM = isMS(b);
+        if (aI && !bI) return -1;
+        if (!aI && bI) return 1;
+        if (aM && !bM) return -1;
+        if (!aM && bM) return 1;
+        return (a.lang || '').localeCompare(b.lang || '');
+      });
+      voiceSel.innerHTML = '';
+      v.forEach(function (vv) {
+        var o = document.createElement('option');
+        o.value = vv.voiceURI;
+        o.textContent = vv.name + ' — ' + vv.lang;
+        voiceSel.appendChild(o);
+      });
+      var rec = pick(v, cur);
+      if (rec) voiceSel.value = rec.voiceURI;
+      else if (v.length) voiceSel.value = v[0].voiceURI;
+      voiceSel.disabled = false;
+      return true;
+    }
+
+    if (!populateVoices()) {
+      window.speechSynthesis.onvoiceschanged = populateVoices;
+      [300, 800, 1500, 3000].forEach(function (d) {
+        setTimeout(populateVoices, d);
+      });
+    }
+
+    function setStatus(t) { statusEl.textContent = t || ''; }
+
+    function upd() {
+      if (state === 'idle') {
+        playBtn.disabled = false;
+        pauseBtn.disabled = true;
+        stopBtn.disabled = true;
+        playBtn.innerHTML = '<span aria-hidden="true">▶️</span><span>Putar</span>';
+        if (mini) mini.classList.remove('visible');
+      } else if (state === 'playing') {
+        playBtn.disabled = true;
+        pauseBtn.disabled = false;
+        stopBtn.disabled = false;
+        if (mini) {
+          mini.classList.add('visible');
+          miniPause.innerHTML = '&#9208;';
+          miniPause.setAttribute('aria-label', 'Jeda');
+        }
+      } else if (state === 'paused') {
+        playBtn.disabled = false;
+        pauseBtn.disabled = true;
+        stopBtn.disabled = false;
+        playBtn.innerHTML = '<span aria-hidden="true">▶️</span><span>Lanjutkan</span>';
+        if (mini) {
+          mini.classList.add('visible');
+          miniPause.innerHTML = '&#9654;';
+          miniPause.setAttribute('aria-label', 'Lanjutkan');
+        }
+      }
+    }
+
+    function speak(index, off) {
+      off = off || 0;
+      if (index >= chunks.length) {
+        state = 'idle';
+        chunkIndex = 0;
+        curChar = 0;
+        upd();
+        setStatus('Selesai.');
+        clr();
+        return;
+      }
+      chunkIndex = index;
+      var ch = chunks[index];
+      var t = off > 0 ? ch.text.substring(off) : ch.text;
+      if (!t.trim()) { speak(index + 1, 0); return; }
+      curChar = off;
+      var u = new SpeechSynthesisUtterance(t);
+      u.lang = 'id-ID';
+      u.rate = parseFloat(speedSel.value) || 1.0;
+      var c = pick(window.speechSynthesis.getVoices(), voiceSel.value);
+      if (c) { u.voice = c; u.lang = c.lang; }
+      u.onstart = function () { hl(ch.element); };
+      u.onboundary = function (e) {
+        if (typeof e.charIndex === 'number' && e.charIndex >= 0) curChar = off + e.charIndex;
+      };
+      u.onend = function () {
+        curChar = 0;
+        if (state === 'playing') speak(index + 1, 0);
+      };
+      u.onerror = function (e) {
+        if (e && (e.error === 'interrupted' || e.error === 'canceled')) return;
+      };
+      window.speechSynthesis.speak(u);
+      setStatus('Membaca bagian ' + (index + 1) + ' dari ' + chunks.length + '…');
+    }
+
+    playBtn.addEventListener('click', function () {
+      if (state === 'paused') {
+        state = 'playing';
+        upd();
+        window.speechSynthesis.cancel();
+        speak(pausedChunk, pausedChar);
+        return;
+      }
+      if (!chunks.length) chunks = buildChunks();
+      if (!chunks.length) { setStatus('Tidak ada teks.'); return; }
+      window.speechSynthesis.cancel();
+      state = 'playing';
+      upd();
+      speak(0);
+    });
+
+    pauseBtn.addEventListener('click', function () {
+      if (state !== 'playing') return;
+      state = 'paused';
+      pausedChunk = chunkIndex;
+      pausedChar = curChar;
+      window.speechSynthesis.cancel();
+      upd();
+      setStatus('Dijeda.');
+    });
+
+    stopBtn.addEventListener('click', function () {
+      state = 'idle';
+      chunkIndex = 0;
+      pausedChunk = 0;
+      pausedChar = 0;
+      curChar = 0;
+      window.speechSynthesis.cancel();
+      upd();
+      setStatus('Dihentikan.');
+      clr();
+    });
+
+    speedSel.addEventListener('change', function () {
+      if (state === 'playing') {
+        window.speechSynthesis.cancel();
+        setTimeout(function () {
+          if (state === 'playing') speak(chunkIndex);
+        }, 60);
+      }
+    });
+
+    voiceSel.addEventListener('change', function () {
+      userPicked = true;
+      if (state === 'playing') {
+        window.speechSynthesis.cancel();
+        setTimeout(function () {
+          if (state === 'playing') speak(chunkIndex);
+        }, 60);
+      }
+    });
+
+    window.addEventListener('pagehide', function () {
+      window.speechSynthesis.cancel();
+      clr();
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
