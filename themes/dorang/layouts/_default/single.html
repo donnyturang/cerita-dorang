@@ -34,9 +34,12 @@
 
   <div class="dorang-post-layout">
     <aside class="dorang-toc-sidebar" aria-label="Daftar Isi"></aside>
-    <div class="post-body">
+    <div class="dorang-post-content">
+      {{/* TTS — sejajar dengan body artikel */}}
       {{ partial "tts.html" . }}
-      {{ .Content }}
+      <div class="post-body">
+        {{ .Content }}
+      </div>
     </div>
   </div>
 

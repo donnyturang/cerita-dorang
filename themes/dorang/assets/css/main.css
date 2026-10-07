@@ -2695,3 +2695,18 @@ blockquote {
     opacity: 1;
   }
 }
+
+/* ============================================
+   Post Content Wrapper — TTS + Body dalam 1 Kolom
+   ============================================ */
+.dorang-post-content {
+  min-width: 0;
+}
+
+/* Mobile: tetap block biasa */
+@media (max-width: 1023px) {
+  .dorong-post-content,
+  .dorang-post-content {
+    display: block;
+  }
+}
