@@ -460,3 +460,56 @@
       });
   });
 })();
+
+/* ===== PWA Install Banner ===== */
+(function () {
+  var banner = document.getElementById('pwa-install-banner');
+  var installBtn = document.getElementById('pwa-install-btn');
+  var dismissBtn = document.getElementById('pwa-dismiss-btn');
+  if (!banner || !installBtn || !dismissBtn) return;
+
+  var deferredPrompt = null;
+  var DISMISS_KEY = 'pwa-install-dismissed';
+  var DISMISS_DAYS = 14;
+
+  // Kalau user sudah dismiss dalam 14 hari terakhir, jangan tampilkan
+  var dismissedAt = localStorage.getItem(DISMISS_KEY);
+  if (dismissedAt) {
+    var daysSince = (Date.now() - parseInt(dismissedAt, 10)) / (1000 * 60 * 60 * 24);
+    if (daysSince < DISMISS_DAYS) return;
+  }
+
+  // Chrome menembakkan event ini saat PWA installable
+  window.addEventListener('beforeinstallprompt', function (e) {
+    e.preventDefault();
+    deferredPrompt = e;
+
+    // Delay 5 detik supaya user sempat baca dulu
+    setTimeout(function () {
+      if (!document.hidden) banner.hidden = false;
+    }, 5000);
+  });
+
+  installBtn.addEventListener('click', function () {
+    if (!deferredPrompt) return;
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then(function (choice) {
+      if (choice.outcome === 'accepted') {
+        console.log('PWA install: accepted');
+      }
+      deferredPrompt = null;
+      banner.hidden = true;
+    });
+  });
+
+  dismissBtn.addEventListener('click', function () {
+    banner.hidden = true;
+    localStorage.setItem(DISMISS_KEY, Date.now().toString());
+  });
+
+  // Kalau PWA sudah installed, sembunyikan banner
+  window.addEventListener('appinstalled', function () {
+    banner.hidden = true;
+    localStorage.setItem(DISMISS_KEY, Date.now().toString());
+  });
+})();

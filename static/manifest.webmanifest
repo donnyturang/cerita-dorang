@@ -10,7 +10,27 @@
   "theme_color": "#2c3e50",
   "lang": "id-ID",
   "dir": "ltr",
-  "categories": ["news", "books", "lifestyle"],
+  "categories": [
+    "news",
+    "books",
+    "lifestyle"
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshots/pwa-narrow.png",
+      "sizes": "720x1280",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "CERITA DORANG di HP"
+    },
+    {
+      "src": "/screenshots/pwa-wide.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "CERITA DORANG di Desktop"
+    }
+  ],
   "icons": [
     {
       "src": "/android-chrome-192x192.png",

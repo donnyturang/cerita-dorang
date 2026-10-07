@@ -22,6 +22,19 @@
   <script src="{{ $js.RelPermalink }}" defer></script>
 
 
+  {{/* PWA Install Banner */}}
+  <div id="pwa-install-banner" class="dorang-pwa-banner" hidden>
+    <div class="dorang-pwa-banner-inner">
+      <img src="/android-chrome-192x192.png" alt="CERITA DORANG" class="dorang-pwa-banner-icon">
+      <div class="dorang-pwa-banner-text">
+        <strong>Install CERITA DORANG</strong>
+        <span>Baca lebih cepat, bisa offline</span>
+      </div>
+      <button type="button" id="pwa-install-btn" class="dorang-pwa-banner-btn">Install</button>
+      <button type="button" id="pwa-dismiss-btn" class="dorang-pwa-banner-close" aria-label="Tutup">×</button>
+    </div>
+  </div>
+
   {{/* Floating Scroll Navigation */}}
   <nav class="dorang-scroll-nav" aria-label="Navigasi halaman">
     <button type="button" class="dorang-scroll-btn dorang-scroll-top" aria-label="Ke atas" title="Ke atas">
