@@ -15,7 +15,7 @@
 {{ $class := .class | default "" }}
 {{ $loading := .loading | default "lazy" }}
 {{ $sizes := .sizes | default "(max-width: 640px) 100vw, (max-width: 1100px) 90vw, 800px" }}
-{{ $widths := .widths | default (slice 400 800 1200) }}
+{{ $widths := .widths | default (slice 200 400 800 1200) }}
 
 {{/* Cari resource: "/images/xxx.webp" → "images/xxx.webp" */}}
 {{ $path := $src | strings.TrimPrefix "/" }}

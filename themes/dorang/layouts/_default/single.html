@@ -75,7 +75,7 @@
       {{ range . }}
         <a href="{{ .RelPermalink }}" class="dorang-card">
           <div class="dorang-card-cover">
-            {{ with .Params.cover.image }}{{ partial "image.html" (dict "src" . "alt" ($.Params.cover.alt | default $.Title) "loading" "lazy" "sizes" "(max-width: 640px) 100vw, 280px" "widths" (slice 400 800)) }}{{ else }}<img src="/images/og-default.jpg" alt="{{ .Title }}" loading="lazy">{{ end }}
+            {{ with .Params.cover.image }}{{ partial "image.html" (dict "src" . "alt" ($.Params.cover.alt | default $.Title) "loading" "lazy" "sizes" "(max-width: 640px) 200px, 240px" "widths" (slice 200 400 600 800)) }}{{ else }}<img src="/images/og-default.jpg" alt="{{ .Title }}" loading="lazy">{{ end }}
           </div>
           <div class="dorang-card-body">
             <h3 class="dorang-card-title">{{ .Title }}</h3>

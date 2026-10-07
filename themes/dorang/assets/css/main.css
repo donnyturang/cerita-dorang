@@ -2733,3 +2733,28 @@ blockquote {
     order: 3;
   }
 }
+
+/* ============================================
+   Accessibility Fix — Kontras WCAG AA
+   ============================================ */
+.dorang-populer-rank {
+  color: var(--accent-dark);   /* ganti dari --accent */
+  opacity: 1;                   /* hilangkan opacity 0.85 */
+}
+.dorang-newsletter-note {
+  color: var(--accent-dark);   /* ganti dari --muted */
+}
+.dorang-newsletter-btn {
+  background: var(--accent-dark);  /* lebih kontras */
+}
+.dorang-newsletter-btn:hover {
+  background: var(--primary);
+}
+
+/* Dark mode */
+[data-theme="dark"] .dorang-populer-rank {
+  color: #f0d97a;   /* emas cerah untuk dark mode */
+}
+[data-theme="dark"] .dorang-newsletter-note {
+  color: #d4af37;
+}
