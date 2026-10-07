@@ -32,8 +32,11 @@
     </figure>
   {{ end }}{{ end }}
 
-  <div class="post-body">
-    {{ .Content }}
+  <div class="dorang-post-layout">
+    <aside class="dorang-toc-sidebar" aria-label="Daftar Isi"></aside>
+    <div class="post-body">
+      {{ .Content }}
+    </div>
   </div>
 
   {{ partial "share.html" . }}

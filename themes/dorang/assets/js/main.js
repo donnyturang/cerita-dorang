@@ -136,8 +136,36 @@
     ol.appendChild(li);
   }
 
-  // Sisipkan TOC sebelum heading pertama
-  headings[0].parentNode.insertBefore(toc, headings[0]);
+  // Sisipkan TOC ke sidebar (kalau ada), fallback ke atas heading pertama
+  var sidebar = document.querySelector('.dorang-toc-sidebar');
+  var layout = document.querySelector('.dorang-post-layout');
+  if (sidebar) {
+    sidebar.appendChild(toc);
+    if (layout) layout.classList.add('has-toc');
+  } else {
+    headings[0].parentNode.insertBefore(toc, headings[0]);
+  }
+
+  // Scroll spy — highlight item TOC sesuai section yang sedang dibaca
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          var allLinks = toc.querySelectorAll('a');
+          for (var k = 0; k < allLinks.length; k++) {
+            allLinks[k].classList.remove('active');
+          }
+          var id = entry.target.id;
+          var activeLink = toc.querySelector('a[href="#' + id + '"]');
+          if (activeLink) activeLink.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-100px 0px -70% 0px', threshold: 0 });
+
+    for (var j = 0; j < headings.length; j++) {
+      observer.observe(headings[j]);
+    }
+  }
 
   // Smooth scroll saat link diklik
   toc.addEventListener('click', function(e) {
