@@ -443,3 +443,20 @@
     });
   });
 })();
+
+/* ===== PWA: Service Worker Registration ===== */
+(function () {
+  if (!('serviceWorker' in navigator)) return;
+  if (location.protocol !== 'https:' && location.hostname !== 'localhost') return;
+
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('/service-worker.js', { scope: '/' })
+      .then(function (reg) {
+        // Cek update setiap kali load (silent)
+        reg.update().catch(function () {});
+      })
+      .catch(function (err) {
+        console.warn('Service Worker gagal diregister:', err);
+      });
+  });
+})();
