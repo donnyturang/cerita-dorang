@@ -430,3 +430,16 @@
   window.addEventListener('resize', updateProgress);
   updateProgress();
 })();
+
+/* ===== Handler: Buka Search Modal dari Elemen Mana Saja ===== */
+(function () {
+  var openers = document.querySelectorAll('[data-open-search]');
+  var toggle = document.getElementById('search-toggle');
+  if (!openers.length || !toggle) return;
+
+  openers.forEach(function (el) {
+    el.addEventListener('click', function () {
+      toggle.click();
+    });
+  });
+})();

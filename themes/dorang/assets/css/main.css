@@ -2069,3 +2069,234 @@ blockquote {
     font-size: 11.5px;
   }
 }
+
+/* ============================================
+   Print Stylesheet — Rapi untuk Kertas
+   ============================================ */
+@media print {
+  /* Reset dasar — hitam di kertas putih */
+  html, body {
+    background: #fff !important;
+    color: #000 !important;
+    font-size: 11pt;
+    line-height: 1.5;
+  }
+
+  /* Sembunyikan elemen non-konten */
+  .site-header,
+  .site-footer,
+  .dorang-progress-bar,
+  .dorang-scroll-nav,
+  .dorang-search-modal,
+  .dorang-breadcrumb,
+  .dorang-toc-sidebar,
+  .dorang-toc,
+  .dorang-share,
+  .dorang-author,
+  .dorang-post-nav,
+  .dorang-related,
+  .dorang-populer-grid,
+  .dorang-section,
+  .dorang-post-back,
+  .dorang-skip-link,
+  .dorang-viewall,
+  .theme-toggle,
+  .search-toggle,
+  #theme-toggle,
+  #search-toggle {
+    display: none !important;
+  }
+
+  /* Layout jadi 1 kolom */
+  .dorang-post-layout,
+  .dorang-post-layout.has-toc {
+    display: block !important;
+    max-width: 100% !important;
+    grid-template-columns: 1fr !important;
+    gap: 0 !important;
+  }
+
+  .post-body,
+  .post-single,
+  .site-main {
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Typography */
+  h1 { font-size: 20pt; page-break-after: avoid; }
+  h2 { font-size: 15pt; page-break-after: avoid; }
+  h3 { font-size: 13pt; page-break-after: avoid; }
+
+  p, li { orphans: 3; widows: 3; }
+
+  /* Gambar — jangan pecah halaman */
+  img {
+    max-width: 100% !important;
+    page-break-inside: avoid;
+    page-break-after: avoid;
+  }
+
+  figure {
+    page-break-inside: avoid;
+    margin: 1em 0;
+  }
+
+  figcaption {
+    font-size: 9pt;
+    font-style: italic;
+    color: #333;
+  }
+
+  /* Blockquote — border kiri rapi */
+  blockquote {
+    border-left: 3pt solid #333 !important;
+    padding-left: 1em !important;
+    background: transparent !important;
+    font-style: italic;
+  }
+
+  /* Link — tampilkan URL setelah teks link */
+  .post-body a[href]:not([href^="#"])::after {
+    content: " (" attr(href) ")";
+    font-size: 9pt;
+    color: #555;
+    word-break: break-all;
+  }
+
+  /* Cover image — center + max height */
+  .post-cover img {
+    max-height: 400px;
+    width: auto;
+  }
+
+  /* Meta info di atas artikel */
+  .post-meta {
+    font-size: 10pt;
+    color: #333;
+    border-bottom: 1pt solid #ccc;
+    padding-bottom: 0.5em;
+    margin-bottom: 1em;
+  }
+
+  /* Heading underline (matching tema) */
+  .post-body h2 {
+    border-bottom: 1pt solid #999;
+    padding-bottom: 0.3em;
+  }
+
+  /* Hindari background gelap di dark mode */
+  [data-theme="dark"] * {
+    background: transparent !important;
+    color: #000 !important;
+    box-shadow: none !important;
+  }
+}
+
+/* ============================================
+   404 — Search Box
+   ============================================ */
+.dorang-404-search {
+  margin: 2.5rem auto 2rem;
+  max-width: 420px;
+  text-align: center;
+}
+
+.dorang-404-search-label {
+  font-family: Arial, sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 0.75rem;
+}
+
+.dorang-404-search-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 14px 18px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: var(--muted);
+  text-align: left;
+  transition: all 0.2s ease;
+}
+
+.dorang-404-search-box:hover {
+  border-color: var(--accent);
+  box-shadow: 0 4px 16px rgba(201, 162, 39, 0.12);
+  transform: translateY(-1px);
+}
+
+.dorang-404-search-icon {
+  flex-shrink: 0;
+  color: var(--muted);
+}
+
+.dorang-404-search-box:hover .dorang-404-search-icon {
+  color: var(--accent);
+}
+
+.dorang-404-search-placeholder {
+  flex: 1;
+  font-style: italic;
+}
+
+.dorang-404-search-key {
+  font-family: Arial, sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  background: var(--soft);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 3px 7px;
+  opacity: 0.85;
+}
+
+/* Dark mode */
+[data-theme="dark"] .dorong-404-search-box,
+[data-theme="dark"] .dorang-404-search-box {
+  background: #252525;
+  border-color: #444;
+  color: #b0b0b0;
+}
+[data-theme="dark"] .dorong-404-search-box:hover,
+[data-theme="dark"] .dorang-404-search-box:hover {
+  border-color: #d4af37;
+  box-shadow: 0 4px 16px rgba(212, 175, 55, 0.15);
+}
+[data-theme="dark"] .dorang-404-search-icon {
+  color: #a0a0a0;
+}
+[data-theme="dark"] .dorang-404-search-box:hover .dorang-404-search-icon {
+  color: #d4af37;
+}
+[data-theme="dark"] .dorang-404-search-key {
+  background: #333;
+  border-color: #444;
+  color: #b0b0b0;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .dorang-404-search {
+    margin: 2rem auto 1.5rem;
+  }
+  .dorang-404-search-box {
+    padding: 12px 14px;
+    font-size: 0.9rem;
+  }
+  .dorang-404-search-key {
+    display: none;
+  }
+}
