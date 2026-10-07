@@ -2758,3 +2758,29 @@ blockquote {
 [data-theme="dark"] .dorang-newsletter-note {
   color: #d4af37;
 }
+
+/* Fix kontras: newsletter note */
+.dorang-newsletter-note {
+  color: #5a4a2a;   /* cokelat gelap, kontras tinggi */
+}
+[data-theme="dark"] .dorang-newsletter-note {
+  color: #d4af37;   /* emas terang untuk dark mode */
+}
+
+/* Fix kontras: footer */
+.footer-tagline,
+.footer-nav a,
+.footer-legal a,
+.footer-legal-row a,
+.footer-copyright,
+.footer-inner {
+  color: #4a4a4a;   /* abu gelap, kontras WCAG AA */
+}
+[data-theme="dark"] .footer-tagline,
+[data-theme="dark"] .footer-nav a,
+[data-theme="dark"] .footer-legal a,
+[data-theme="dark"] .footer-legal-row a,
+[data-theme="dark"] .footer-copyright,
+[data-theme="dark"] .footer-inner {
+  color: #b8b8b8;   /* abu terang untuk dark mode */
+}

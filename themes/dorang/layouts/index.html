@@ -13,7 +13,7 @@
     <a href="{{ .RelPermalink }}" class="dorang-hero">
       {{ with .Params.cover.image }}
       <div class="dorang-hero-image">
-        {{ partial "image.html" (dict "src" . "alt" ($.Params.cover.alt | default $.Title) "loading" "eager" "sizes" "(max-width: 640px) 100vw, 50vw" "widths" (slice 400 800 1200)) }}
+        {{ partial "image.html" (dict "src" . "alt" ($.Params.cover.alt | default $.Title) "loading" "eager" "fetchpriority" "high" "sizes" "(max-width: 640px) 100vw, 50vw" "widths" (slice 400 800 1200)) }}
       </div>
       {{ end }}
       <div class="dorang-hero-content">

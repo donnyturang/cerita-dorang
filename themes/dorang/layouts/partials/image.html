@@ -15,6 +15,7 @@
 {{ $class := .class | default "" }}
 {{ $loading := .loading | default "lazy" }}
 {{ $sizes := .sizes | default "(max-width: 640px) 100vw, (max-width: 1100px) 90vw, 800px" }}
+{{ $fetchpriority := .fetchpriority | default "" }}
 {{ $widths := .widths | default (slice 200 400 800 1200) }}
 
 {{/* Cari resource: "/images/xxx.webp" → "images/xxx.webp" */}}
@@ -47,6 +48,7 @@
     width="{{ $img.Width }}"
     height="{{ $img.Height }}"
     loading="{{ $loading }}"
+    {{ with $fetchpriority }}fetchpriority="{{ . }}"{{ end }}
     decoding="async"
   >
 {{ else }}
@@ -56,6 +58,7 @@
     alt="{{ $alt }}"
     {{ with $class }}class="{{ . }}"{{ end }}
     loading="{{ $loading }}"
+    {{ with $fetchpriority }}fetchpriority="{{ . }}"{{ end }}
     decoding="async"
   >
 {{ end }}
