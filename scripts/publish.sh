@@ -396,6 +396,15 @@ echo -e "${GOLD}🚀 Push...${NC}"
 git push origin main
 echo -e "${GREEN}✓ Push selesai${NC}"
 
+# ── Submit ke IndexNow (Bing & Yandex) ────────────────────
+INDEXNOW_SCRIPT="$HOME/Projects/indexnow-submit.sh"
+if [ -x "$INDEXNOW_SCRIPT" ]; then
+    echo ""
+    echo -e "${GOLD}📡 Submit ke IndexNow...${NC}"
+    sleep 5  # tunggu Cloudflare deploy mulai
+    "$INDEXNOW_SCRIPT" "https://ceritadorang.pages.dev/posts/$SLUG/" 2>&1 | tail -5
+fi
+
 # ═══════════════════════════════════════════════════════════
 # BAGIAN 8: VERIFIKASI CLOUDFLARE
 # ═══════════════════════════════════════════════════════════
