@@ -84,7 +84,7 @@ Dan ketika bunga-bunga disusun menjadi bentuk raksasa, ketika kendaraan hias ber
 
 Ada alasan mengapa bunga menjadi identitas yang kuat.
 
-Bunga bukan benda asing yang tiba-tiba didatangkan untuk kepentingan festival. Di belakang panggung itu ada petani, kebun, tanah, air, keterampilan, dan tradisi yang telah lama hidup.
+Bunga bukan benda asing yang tiba-tiba didatangkan untuk kepentingan festival. Di belakang panggung itu ada petani, kebun, tanah, [air](/posts/sungai-jembatan-dan-danau-di-tomohon/), keterampilan, dan tradisi yang telah lama hidup.
 
 Di Kakaskasen, misalnya, bunga tidak tumbuh karena pemerintah menetapkan sebuah slogan.
 
@@ -396,7 +396,7 @@ Kota yang bangga dengan ruang publik seharusnya menyediakan ruang bagi semua ora
 
 Kota yang ingin disebut maju seharusnya tidak memaksa orang memilih antara berjalan di trotoar atau mempertaruhkan keselamatan di badan jalan.
 
-Di sinilah makna *Kota Bunga* dapat diperluas.
+Di sinilah makna [*Kota Bunga*](/posts/mengapa-tomohon-disebut-kota-bunga/) dapat diperluas.
 
 Bukan hanya kota yang memiliki bunga.
 
@@ -522,11 +522,6 @@ Melainkan wajah kota yang benar-benar hidup.
 
 **Bunga terbaik adalah ketika manusia bisa berjalan dengan aman pulang ke rumah.**
 
-
 {{< bacajuga-internal slug="kota-yang-pernah-diperjuangkan" >}}
-
-{{< bacajuga-internal slug="mengapa-tomohon-disebut-kota-bunga" >}}
-
-{{< bacajuga-internal slug="sungai-jembatan-dan-danau-di-tomohon" >}}
 
 {{< bacajuga url="https://donnyturang.blogspot.com/2026/09/apakah-tomohon-sudah-ramah-bagi-pejalan-kaki.html" text="Apakah Tomohon Sudah Ramah bagi Pejalan Kaki?" >}}
