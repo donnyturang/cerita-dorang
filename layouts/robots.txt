@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Blokir halaman sistem
+Disallow: /page/
+
+# Sitemap
+Sitemap: https://ceritadorang.pages.dev/sitemap.xml
