@@ -136,6 +136,6 @@ Justru di situlah menariknya. Mungkin masih ada warga Tinoor yang mengetahui nam
 
 Sebab sebuah kota tidak hanya mempunyai sejarah dalam buku. Sebagian sejarahnya tersimpan dalam nama sungai, jembatan, mata air, telaga, dan danau. Dan terkadang, untuk mengetahui seperti apa sebuah kota dahulu, kita hanya perlu mengikuti ke mana air pernah mengalir.
 
-{{< bacajuga url="https://donnyturang.blogspot.com/2026/10/sungai-jembatan-dan-danau-tomohon.html" text="Sungai, Jembatan, dan Danau di Tomohon" intro="Baca versi lengkap artikel ini di blog utama:" >}}
+{{< bacajuga url="https://donnyturang.blogspot.com/2026/10/sungai-jembatan-dan-danau-tomohon.html" text="Sungai, Jembatan, dan Danau di Tomohon" >}}
 
 > **Catatan:** Daftar sungai, jembatan, dan danau dalam tulisan ini merupakan identifikasi awal berdasarkan informasi yang tersedia bagi penulis dan belum dimaksudkan sebagai daftar inventaris resmi yang lengkap. Masih sangat mungkin terdapat nama sungai, anak sungai, mata air, jembatan, telaga, atau danau lain yang belum teridentifikasi. Beberapa nama dan penyebutan juga masih memerlukan verifikasi lapangan serta penelusuran sumber lokal.

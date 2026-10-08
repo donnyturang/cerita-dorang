@@ -2,6 +2,8 @@
 title = "Mengapa Tomohon Disebut Kota Bunga?"
 date = 2026-10-02T20:00:00+08:00
 draft = false
+description = "Jejak panjang Tomohon sebagai Kota Bunga: dari bunga di halaman rumah dan pagar hidup, hingga parade dan festival yang mendunia."
+summary = "Bunga di Tomohon bukan sekadar dekorasi atau slogan. Ia tumbuh lebih dulu di halaman rumah, menjadi pagar hidup, lalu berkembang menjadi identitas kota. Sebelum ada istilah city branding, sebelum festival internasional, warga Tomohon sudah mengenal bunga sebagai bagian dari hidup mereka."
 categories = ["Tahukah Anda"]
 tags = ["Tomohon", "Sejarah", "Flora", "Budaya", "Kota Bunga", "sorotan", "populer"]
 populer_rank = 3

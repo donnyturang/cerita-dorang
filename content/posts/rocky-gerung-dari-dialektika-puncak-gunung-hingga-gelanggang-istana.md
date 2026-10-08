@@ -2,6 +2,8 @@
 title = "Rocky Gerung: Dari Dialektika Puncak Gunung hingga Gelanggang Istana"
 date = 2026-10-03T10:00:00+08:00
 draft = false
+description = "Perjalanan Rocky Gerung dari Manado, filsafat UI, dunia panjat tebing, oposisi kritis, hingga masuk lingkar Istana sebagai anggota Wantimpres."
+summary = "Dari Manado ia berangkat mencari filsafat. Dari ruang kelas ia belajar keadilan. Dari alam bebas ia menemukan batas manusia. Selama bertahun-tahun ia berdiri di luar pagar kekuasaan. Kini, ia justru berada di dalam Istana—sebuah babak baru bagi filsuf yang lama diasosiasikan dengan oposisi."
 categories = ["Sosok"]
 tags = ["Rocky Gerung", "Filsafat", "Demokrasi", "Kebebasan Berpikir", "Panjat Tebing", "Wantimpres", "populer"]
 populer_rank = 4

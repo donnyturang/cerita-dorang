@@ -19,3 +19,6 @@ themes/PaperMod/
 
 # Backup artikel (pola: posts.bak.YYYYMMDD-HHMMSS)
 content/posts.bak.*
+
+# Backup artikel (pindah ke _backups/)
+_backups/
