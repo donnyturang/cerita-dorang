@@ -108,7 +108,7 @@ Karena itu, perjuangan menuju otonomi sebenarnya mengandung gagasan yang sangat 
 
 Namun sebelum menjadi kota, Tomohon terlebih dahulu harus mengalami perubahan di dalam dirinya sendiri.
 
-Pada 28 September 2001, DPRD Kabupaten Minahasa menetapkan pembentukan tiga kecamatan di wilayah Tomohon: Tomohon Utara dengan ibu kota Kakaskasen, Tomohon Selatan dengan ibu kota Walian, dan Tomohon Tengah dengan ibu kota Talete II. Pembentukan itu kemudian diresmikan pada 5 November 2001, bertepatan dengan peringatan HUT Minahasa ke-573.
+Pada 28 September 2001, [DPRD Kabupaten Minahasa](/posts/kursi-kursi-yang-harus-pulang-ke-rumah/) menetapkan pembentukan tiga kecamatan di wilayah Tomohon: Tomohon Utara dengan ibu kota Kakaskasen, Tomohon Selatan dengan ibu kota Walian, dan Tomohon Tengah dengan ibu kota Talete II. Pembentukan itu kemudian diresmikan pada 5 November 2001, bertepatan dengan peringatan HUT Minahasa ke-573.
 
 Dua tahun kemudian, perjalanan itu sampai pada pembentukan Kota Tomohon.
 
@@ -198,7 +198,7 @@ Jika jalan menuju kebun tetap rusak, jika drainase tetap tersumbat, jika fasilit
 
 ## Kota Bunga dan Kontradiksi yang Tumbuh Bersamanya
 
-Tomohon kemudian menemukan identitas yang sangat kuat: **Kota Bunga**.
+Tomohon kemudian menemukan identitas yang sangat kuat: **[Kota Bunga](/posts/mengapa-tomohon-disebut-kota-bunga/)**.
 
 Bunga menjadi wajah kota.
 
@@ -615,3 +615,5 @@ Ia akan ditemukan di jalan yang dilalui warga, di kebun tempat petani bekerja, d
 Di sanalah sebuah kota benar-benar hidup.
 
 Dan di sanalah pula sebuah kota akan diadili oleh sejarah.
+
+{{< bacajuga-internal slug="kursi-kursi-yang-harus-pulang-ke-rumah" >}}

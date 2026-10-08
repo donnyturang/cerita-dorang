@@ -1,0 +1,18 @@
+{{/* ============================================================
+     Baca Juga Internal — Callout minimalis
+     Cara pakai: {{< bacajuga-internal slug="slug-artikel" >}}
+     ============================================================ */}}
+{{ $slug := .Get "slug" }}
+{{ with site.GetPage (printf "posts/%s" $slug) }}
+<div class="baca-juga-callout">
+  <span class="baca-juga-label">BACA JUGA</span>
+  <a class="baca-juga-link" href="{{ .RelPermalink }}">
+    {{ .Title }} →
+  </a>
+</div>
+{{ else }}
+<div class="baca-juga-callout" style="background:#ffeeee;border-left-color:#cc0000">
+  <span class="baca-juga-label" style="background:#cc0000">⚠️ ERROR</span>
+  <p>Artikel dengan slug "<code>{{ $slug }}</code>" tidak ditemukan.</p>
+</div>
+{{ end }}

@@ -1122,19 +1122,13 @@ blockquote {
   text-transform: uppercase;
 }
 
-.baca-juga-intro {
-  margin: 0.4rem 0 0.5rem 0;
-  font-size: 0.92rem;
-  color: #555;
-  font-style: italic;
-}
-
 .baca-juga-link {
   color: #c9a227;
   font-weight: 600;
   font-size: 0.95rem;
   text-decoration: none;
   display: inline-block;
+  margin-top: 0.6rem;
 }
 
 .baca-juga-link:hover {
@@ -1145,10 +1139,6 @@ blockquote {
 [data-theme="dark"] .baca-juga-callout {
   background: #1e1e1e;
   border-left-color: #d4af37;
-}
-
-[data-theme="dark"] .baca-juga-intro {
-  color: #b0b0b0;
 }
 
 [data-theme="dark"] .baca-juga-link {
@@ -2847,4 +2837,25 @@ blockquote {
   color: inherit;
   border-bottom: none;
   background: transparent;
+}
+
+/* ============================================
+   Baca Juga — Error State
+   ============================================ */
+.baca-juga-callout p {
+  margin: 0.5rem 0 0;
+  font-size: 0.9rem;
+  color: #333;
+}
+.baca-juga-callout p code {
+  background: rgba(0, 0, 0, 0.06);
+  padding: 1px 5px;
+  border-radius: 3px;
+  font-size: 0.85rem;
+}
+[data-theme="dark"] .baca-juga-callout p {
+  color: #e0e0e0;
+}
+[data-theme="dark"] .baca-juga-callout p code {
+  background: rgba(255, 255, 255, 0.1);
 }

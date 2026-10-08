@@ -312,3 +312,5 @@ Melainkan pada kenyataan bahwa jauh sebelum dunia datang untuk melihat bunga-bun
 - Pemerintah Kota Tomohon. *Dokumen Perencanaan Kota Bunga dan Rencana Induk Pengembangan Pariwisata Daerah (RIPPDA) Kota Tomohon*. Dinas Kebudayaan dan Pariwisata Kota Tomohon, 2008.
 - Undang-Undang Republik Indonesia Nomor 10 Tahun 2003 tentang Pembentukan Kabupaten Minahasa Selatan dan Kota Tomohon di Provinsi Sulawesi Utara.
 {{< /referensi >}}
+
+{{< bacajuga-internal slug="sungai-jembatan-dan-danau-di-tomohon" >}}

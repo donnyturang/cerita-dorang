@@ -53,7 +53,7 @@ Caroll masuk lebih jauh ke dunia usaha dan dipercaya menjadi Direktur PT Guna Al
 
 Beberapa tahun kemudian, ia kembali memasuki arena politik melalui lembaga legislatif.
 
-Pada Pemilu 2014, Caroll terpilih sebagai anggota DPRD Kota Tomohon. Ia kemudian dipercaya menjadi salah satu pimpinan DPRD, sebagai Wakil Ketua DPRD Kota Tomohon periode 2014–2019. Catatan pemerintahan dan pemberitaan pada masa itu juga menunjukkan posisinya sebagai salah satu pimpinan lembaga legislatif kota.
+Pada Pemilu 2014, Caroll terpilih sebagai anggota [DPRD Kota Tomohon](/posts/kursi-kursi-yang-harus-pulang-ke-rumah/). Ia kemudian dipercaya menjadi salah satu pimpinan DPRD, sebagai Wakil Ketua DPRD Kota Tomohon periode 2014–2019. Catatan pemerintahan dan pemberitaan pada masa itu juga menunjukkan posisinya sebagai salah satu pimpinan lembaga legislatif kota.
 
 Ia kembali menjadi Wakil Ketua DPRD pada periode berikutnya, 2019–2020.
 
@@ -157,13 +157,6 @@ Sebab seorang sosok tidak hanya dibentuk oleh ketika ia menang.
 
 Ia juga dibentuk oleh jalan panjang sebelum kemenangan itu datang.
 
-<hr>
+{{< bacajuga-internal slug="kursi-kursi-yang-harus-pulang-ke-rumah" >}}
 
-<div class="dorang-callout">
-  <span class="dorang-callout-label">Baca juga di DORANG</span>
-  <p class="dorang-callout-text">Tulisan ini juga diterbitkan di blog utama <strong>DORANG</strong>. Untuk membaca versi lengkap beserta pembaruan terkait, kunjungi:</p>
-  <a class="dorang-callout-link" href="https://donnyturang.blogspot.com/2026/05/caroll-senduk-wali-kota-tomohon.html" target="_blank" rel="noopener noreferrer">
-    Caroll Senduk: Wali Kota Tomohon
-    <span class="dorang-callout-arrow">→</span>
-  </a>
-</div>
+{{< bacajuga url="https://donnyturang.blogspot.com/2026/05/caroll-senduk-wali-kota-tomohon.html" text="Caroll Senduk: Wali Kota Tomohon" >}}

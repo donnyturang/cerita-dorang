@@ -16,3 +16,6 @@ layouts-papermod-backup/
 *.bak-*
 *.md.bak
 themes/PaperMod/
+
+# Backup artikel (pola: posts.bak.YYYYMMDD-HHMMSS)
+content/posts.bak.*

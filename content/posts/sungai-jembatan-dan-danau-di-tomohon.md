@@ -120,7 +120,7 @@ Generasi yang lebih tua mungkin masih tahu persis di mana sebuah aliran berada. 
 
 Jika seluruh nama sungai, jembatan, dan danau tersebut diletakkan di atas peta Kota Tomohon, mungkin kita akan melihat sebuah kota yang berbeda.
 
-Bukan hanya Tomohon yang dikenal melalui jalan raya dan pusat pertokoannya. Bukan hanya Tomohon sebagai Kota Bunga. Melainkan Tomohon sebagai sebuah lanskap yang sejak awal memiliki hubungan erat dengan air.
+Bukan hanya Tomohon yang dikenal melalui jalan raya dan pusat pertokoannya. Bukan hanya Tomohon sebagai [Kota Bunga](/posts/mengapa-tomohon-disebut-kota-bunga/). Melainkan Tomohon sebagai sebuah lanskap yang sejak awal memiliki hubungan erat dengan air.
 
 Sungai menghubungkan kawasan pertanian. Jembatan menghubungkan manusia. Mata air menyediakan kebutuhan dasar. Danau menyimpan air sekaligus cerita.
 

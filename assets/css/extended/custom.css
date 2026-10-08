@@ -2256,3 +2256,38 @@ html {
     padding-right: 16px !important;
   }
 }
+
+/* ============================================
+   Fix: Baca Juga Callout
+   ============================================ */
+
+/* Fix double selector di dark mode (theme bug baris 1144) */
+[data-theme="dark"] .baca-juga-link {
+  color: #d4af37;
+}
+
+[data-theme="dark"] .baca-juga-link:hover {
+  color: #e8c95a;
+}
+
+/* Spacing antar callout biar tidak dempet */
+.baca-juga-callout + .baca-juga-callout {
+  margin-top: 1rem;
+}
+
+/* Mobile: label & link sedikit lebih rapat */
+@media (max-width: 600px) {
+  .baca-juga-callout {
+    padding: 0.85rem 1rem;
+    margin: 1.25rem 0;
+  }
+  .baca-juga-label {
+    font-size: 0.65rem;
+    padding: 0.2rem 0.6rem;
+    margin-bottom: 0.5rem;
+  }
+  .baca-juga-link {
+    font-size: 0.9rem;
+    margin-top: 0.4rem;
+  }
+}

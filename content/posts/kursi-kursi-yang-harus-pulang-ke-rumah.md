@@ -193,7 +193,7 @@ Bahkan orang-orang yang duduk dalam satu koalisi sesekali harus mampu mengatakan
 
 Bukan karena mereka membenci pemerintah.
 
-Bukan karena mereka ingin menjatuhkan wali kota.
+Bukan karena mereka ingin menjatuhkan [wali kota](/posts/caroll-senduk-dari-rumah-bupati-hingga-balai-kota/).
 
 Bukan karena setiap perbedaan harus dijadikan pertarungan.
 
@@ -563,7 +563,7 @@ Terutama bagi orang yang sedang menghitung uang di dompet. Tetapi ada satu hukum
 
 Uang itu berasal dari suatu tempat.
 
-Dari APBD.
+Dari [APBD](/posts/kota-yang-pernah-diperjuangkan/).
 
 Transfer.
 
@@ -934,3 +934,5 @@ Mereka hanya ingin tahu satu hal:
 Pertanyaan itu sederhana. Tetapi justru karena sederhana, ia sulit dihindari.
 
 Dan kursi-kursi kekuasaan, cepat atau lambat, harus pulang membawa jawabannya.
+
+{{< bacajuga-internal slug="caroll-senduk-dari-rumah-bupati-hingga-balai-kota" >}}
