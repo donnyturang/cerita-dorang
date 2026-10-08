@@ -2801,3 +2801,50 @@ blockquote {
 [data-theme="dark"] .dorang-section-title a:hover {
   color: var(--accent);
 }
+
+/* ============================================
+   Link di Artikel — Konsisten Warna Emas DORANG
+   ============================================ */
+.post-body a,
+.post-body a:link,
+.post-body a:visited {
+  color: var(--accent-dark);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(196, 154, 108, 0.35);
+  transition: color 0.2s ease,
+              border-color 0.2s ease,
+              background-color 0.2s ease;
+}
+
+.post-body a:hover,
+.post-body a:focus {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+  background-color: rgba(196, 154, 108, 0.10);
+  outline: none;
+}
+
+/* Dark mode */
+[data-theme="dark"] .post-body a,
+[data-theme="dark"] .post-body a:link,
+[data-theme="dark"] .post-body a:visited {
+  color: var(--accent);
+  border-bottom-color: rgba(212, 175, 55, 0.4);
+}
+
+[data-theme="dark"] .post-body a:hover,
+[data-theme="dark"] .post-body a:focus {
+  color: #f0d97a;
+  border-bottom-color: #f0d97a;
+  background-color: rgba(212, 175, 55, 0.12);
+}
+
+/* Link di dalam heading / footer / dll — jangan ganggu */
+.post-body h1 a,
+.post-body h2 a,
+.post-body h3 a,
+.post-body h4 a {
+  color: inherit;
+  border-bottom: none;
+  background: transparent;
+}
