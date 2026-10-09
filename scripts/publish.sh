@@ -511,39 +511,13 @@ echo -e "${GOLD}   📱 SHARE PREVIEW — Copy-paste ke sosmed${NC}"
 echo -e "${GOLD}════════════════════════════════════════════════${NC}"
 echo ""
 
-# Generate hashtag dari 3 tag pertama
-HASHTAGS=""
-if [ -n "$TAGS" ]; then
-    IFS=',' read -ra TAG_ARR <<< "$TAGS"
-    COUNT=0
-    for t in "${TAG_ARR[@]}"; do
-        [ $COUNT -ge 3 ] && break
-        t=$(echo "$t" | xargs | sed 's/[^a-zA-Z0-9]//g')
-        [ -n "$t" ] && HASHTAGS+="#$t "
-        COUNT=$((COUNT+1))
-    done
-fi
-HASHTAGS=$(echo "$HASHTAGS" | xargs)
-
-echo -e "${BLUE}── Facebook / LinkedIn ─────────────────────${NC}"
+echo -e "${BLUE}── Facebook ────────────────────────────────${NC}"
 echo "$JUDUL"
 echo "$POST_URL"
 echo ""
 
-echo -e "${BLUE}── X (Twitter) ─────────────────────────────${NC}"
-if [ -n "$HASHTAGS" ]; then
-    echo "$JUDUL"
-    echo "$POST_URL"
-    echo "$HASHTAGS"
-else
-    echo "$JUDUL"
-    echo "$POST_URL"
-fi
-echo ""
-
-echo -e "${BLUE}── Threads ─────────────────────────────────${NC}"
+echo -e "${BLUE}── Bluesky ─────────────────────────────────${NC}"
 echo "$JUDUL"
-echo ""
 echo "$POST_URL"
 echo ""
 
