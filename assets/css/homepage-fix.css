@@ -665,3 +665,268 @@
     padding-left: 24px;
   }
 }
+
+/* ═══════════════════════════════════════════════════════
+   SEKSI TERBARU — Hero + 3 Mini Cards
+   ═══════════════════════════════════════════════════════ */
+
+.terbaru-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+.terbaru-hero {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.3s ease;
+}
+
+.terbaru-hero:hover {
+  transform: translateY(-3px);
+}
+
+.terbaru-hero-image {
+  width: 100%;
+  aspect-ratio: 4/3;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--soft);
+  margin-bottom: 18px;
+}
+
+.terbaru-hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  filter: grayscale(100%);
+  transition: filter 0.4s ease, transform 0.5s ease;
+}
+
+.terbaru-hero:hover .terbaru-hero-image img {
+  filter: grayscale(0%);
+  transform: scale(1.02);
+}
+
+.terbaru-badge {
+  display: inline-block;
+  font-family: Arial, sans-serif;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--accent);
+  padding: 3px 8px;
+  border-radius: 3px;
+  margin-bottom: 10px;
+}
+
+.terbaru-hero-title {
+  font-family: Arial, sans-serif;
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1.25;
+  margin: 0 0 12px;
+  color: var(--primary);
+  letter-spacing: -0.3px;
+}
+
+.terbaru-hero:hover .terbaru-hero-title {
+  color: var(--accent-dark);
+}
+
+.terbaru-hero-summary {
+  font-family: Georgia, serif;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--text);
+  margin: 0 0 12px;
+}
+
+.terbaru-hero-meta {
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* Mini cards */
+.terbaru-mini-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-top: 1px solid var(--border);
+}
+
+.terbaru-mini {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 4px;
+  border-bottom: 1px solid var(--border);
+  text-decoration: none;
+  color: inherit;
+  transition: padding-left 0.2s ease, background 0.2s ease;
+}
+
+.terbaru-mini:hover {
+  padding-left: 12px;
+  background: var(--soft);
+}
+
+.terbaru-mini-thumb {
+  width: 72px;
+  height: 72px;
+  flex-shrink: 0;
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--soft);
+}
+
+.terbaru-mini-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+}
+
+.terbaru-mini:hover .terbaru-mini-thumb img {
+  filter: grayscale(0%);
+}
+
+.terbaru-mini-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.terbaru-mini-title {
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.35;
+  margin: 0 0 4px;
+  color: var(--primary);
+  letter-spacing: -0.2px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.terbaru-mini:hover .terbaru-mini-title {
+  color: var(--accent-dark);
+}
+
+.terbaru-mini-meta {
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* Dark mode */
+[data-theme="dark"] .terbaru-hero-title { color: #e0e0e0; }
+[data-theme="dark"] .terbaru-hero:hover .terbaru-hero-title { color: #f0d97a; }
+[data-theme="dark"] .terbaru-hero-image { background: #1f1f1f; }
+[data-theme="dark"] .terbaru-mini:hover { background: rgba(255,255,255,0.04); }
+[data-theme="dark"] .terbaru-mini-title { color: #e0e0e0; }
+[data-theme="dark"] .terbaru-mini:hover .terbaru-mini-title { color: #f0d97a; }
+[data-theme="dark"] .terbaru-mini-meta { color: #a0a0a0; }
+
+/* Mobile — hero overlay cinematic + list compact */
+@media (max-width: 767px) {
+  .terbaru-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .terbaru-hero {
+    position: relative;
+    aspect-ratio: 4/3;
+    border-radius: 12px;
+    overflow: hidden;
+    transform: none;
+  }
+
+  .terbaru-hero:hover {
+    transform: none;
+  }
+
+  .terbaru-hero-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: auto;
+    margin-bottom: 0;
+    border-radius: 0;
+  }
+
+  .terbaru-hero-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.88) 0%,
+      rgba(0, 0, 0, 0.5) 40%,
+      rgba(0, 0, 0, 0) 70%
+    );
+    pointer-events: none;
+  }
+
+  .terbaru-hero-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px 18px;
+    z-index: 2;
+  }
+
+  .terbaru-badge {
+    background: var(--accent);
+    color: #fff;
+    font-size: 0.6rem;
+    padding: 3px 8px;
+    margin-bottom: 8px;
+  }
+
+  .terbaru-hero-title {
+    font-size: 20px;
+    color: #fff;
+    margin: 0 0 8px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .terbaru-hero:hover .terbaru-hero-title {
+    color: #fff;
+  }
+
+  .terbaru-hero-summary {
+    font-size: 13px;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.85);
+    margin: 0 0 6px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .terbaru-hero-meta {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.7);
+  }
+}

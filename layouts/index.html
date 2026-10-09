@@ -1,0 +1,138 @@
+{{ define "main" }}
+
+<div class="dorang-home">
+
+  {{/* ============================================================
+       SEKSI 1: TERBARU — 4 artikel terbaru (Hero + 3 Mini)
+       ============================================================ */}}
+  {{ $terbaru := first 4 (where site.RegularPages "Section" "posts").ByDate.Reverse }}
+  {{ with $terbaru }}
+  {{ $hero := index . 0 }}
+  {{ $mini := after 1 . }}
+  <section class="dorang-section">
+    <h2 class="dorang-section-title">Terbaru</h2>
+
+    <div class="terbaru-grid">
+
+      {{/* HERO — artikel paling baru */}}
+      <a href="{{ $hero.RelPermalink }}" class="terbaru-hero">
+        {{ with $hero.Params.cover.image }}
+        <div class="terbaru-hero-image">
+          {{ partial "image.html" (dict "src" . "alt" ($hero.Params.cover.alt | default $hero.Title) "loading" "eager" "fetchpriority" "high" "sizes" "(max-width: 767px) 100vw, 60vw" "widths" (slice 400 800 1200)) }}
+        </div>
+        {{ end }}
+        <div class="terbaru-hero-content">
+          <span class="terbaru-badge">Terbaru</span>
+          <h3 class="terbaru-hero-title">{{ $hero.Title }}</h3>
+          <p class="terbaru-hero-summary">{{ $hero.Summary | plainify | truncate 180 }}</p>
+          <span class="terbaru-hero-meta">{{ $hero.Date | time.Format "2 January 2006" }} · {{ $hero.ReadingTime }} menit baca</span>
+        </div>
+      </a>
+
+      {{/* MINI CARDS — 3 artikel berikutnya */}}
+      <div class="terbaru-mini-list">
+        {{ range $mini }}
+        <a href="{{ .RelPermalink }}" class="terbaru-mini">
+          {{ if .Params.cover.image }}
+          <div class="terbaru-mini-thumb">
+            {{ partial "image.html" (dict "src" .Params.cover.image "alt" (.Params.cover.alt | default .Title) "loading" "lazy" "sizes" "80px" "widths" (slice 120 240)) }}
+          </div>
+          {{ end }}
+          <div class="terbaru-mini-content">
+            <h4 class="terbaru-mini-title">{{ .Title }}</h4>
+            <span class="terbaru-mini-meta">{{ .Date | time.Format "2 January 2006" }} · {{ .ReadingTime }} menit</span>
+          </div>
+        </a>
+        {{ end }}
+      </div>
+
+    </div>
+  </section>
+  {{ end }}
+
+  {{/* ============================================================
+       SEKSI 2: JENDELA — Kategori "Jendela"
+       ============================================================ */}}
+  {{ $jendela := where site.RegularPages "Params.categories" "intersect" (slice "Jendela") }}
+  {{ with $jendela }}
+  <section class="dorang-section">
+    <h2 class="dorang-section-title"><a href="/categories/jendela/">Jendela</a></h2>
+    <div class="dorang-list">
+      {{ range first 5 . }}
+      <a href="{{ .RelPermalink }}" class="dorang-list-item">
+        {{ with .Params.cover.image }}
+        <div class="dorang-list-cover">
+          {{ partial "image.html" (dict "src" . "alt" ($.Params.cover.alt | default $.Title) "loading" "lazy" "sizes" "(max-width: 640px) 200px, 240px" "widths" (slice 200 400 600 800)) }}
+        </div>
+        {{ end }}
+        <div class="dorang-list-content">
+          <h3 class="dorang-list-title">{{ .Title }}</h3>
+          <p class="dorang-list-summary">{{ .Summary | plainify | truncate 120 }}</p>
+        </div>
+      </a>
+      {{ end }}
+    </div>
+  </section>
+  {{ end }}
+
+  {{/* ============================================================
+       SEKSI 3: TAHUKAH ANDA — Kategori "Tahukah Anda"
+       ============================================================ */}}
+  {{ $tahukah := where site.RegularPages "Params.categories" "intersect" (slice "Tahukah Anda") }}
+  {{ with $tahukah }}
+  <section class="dorang-section">
+    <h2 class="dorang-section-title"><a href="/categories/tahukah-anda/">Tahukah Anda</a></h2>
+    <div class="dorang-grid">
+      {{ range first 3 . }}
+      <a href="{{ .RelPermalink }}" class="dorang-card">
+        {{ with .Params.cover.image }}
+        <div class="dorang-card-cover">
+          {{ partial "image.html" (dict "src" . "alt" ($.Params.cover.alt | default $.Title) "loading" "lazy" "sizes" "(max-width: 640px) 100vw, (max-width: 1100px) 45vw, 350px" "widths" (slice 200 400 600 800)) }}
+        </div>
+        {{ end }}
+        <h3 class="dorang-card-title">{{ .Title }}</h3>
+        <p class="dorang-card-summary">{{ .Summary | plainify | truncate 100 }}</p>
+      </a>
+      {{ end }}
+    </div>
+  </section>
+  {{ end }}
+
+  {{/* ============================================================
+       SEKSI 4: SOSOK — Kategori "Sosok"
+       ============================================================ */}}
+  {{ $sosok := where site.RegularPages "Params.categories" "intersect" (slice "Sosok") }}
+  {{ with $sosok }}
+  <section class="dorang-section">
+    <h2 class="dorang-section-title"><a href="/categories/sosok/">Sosok</a></h2>
+    <div class="dorang-list">
+      {{ range first 5 . }}
+      <a href="{{ .RelPermalink }}" class="dorang-list-item">
+        {{ with .Params.cover.image }}
+        <div class="dorang-list-cover">
+          {{ partial "image.html" (dict "src" . "alt" ($.Params.cover.alt | default $.Title) "loading" "lazy" "sizes" "(max-width: 640px) 200px, 240px" "widths" (slice 200 400 600 800)) }}
+        </div>
+        {{ end }}
+        <div class="dorang-list-content">
+          <h3 class="dorang-list-title">{{ .Title }}</h3>
+          <p class="dorang-list-summary">{{ .Summary | plainify | truncate 120 }}</p>
+        </div>
+      </a>
+      {{ end }}
+    </div>
+  </section>
+  {{ end }}
+
+  {{/* ============================================================
+       SEKSI 5: POPULER — Artikel dengan tag "populer"
+       ============================================================ */}}
+  {{ partial "populer.html" . }}
+
+  {{/* Tautan Lihat Semua */}}
+  <div class="dorang-viewall">
+    <a href="/posts/" class="dorang-viewall-link">Lihat Semua Tulisan →</a>
+  </div>
+
+</div>
+
+{{ end }}
