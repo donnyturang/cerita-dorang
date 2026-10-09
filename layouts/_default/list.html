@@ -30,6 +30,7 @@
         </div>
         {{ end }}
         <div class="kategori-hero-content">
+          <span class="kategori-hero-badge">Terbaru</span>
           <h2 class="kategori-hero-title">{{ .Title }}</h2>
           <p class="kategori-hero-summary">{{ .Summary | plainify | truncate 200 }}</p>
           <span class="kategori-hero-meta">{{ .Date | time.Format "2 January 2006" }} · {{ .ReadingTime }} menit baca</span>

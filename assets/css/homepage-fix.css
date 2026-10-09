@@ -377,3 +377,171 @@
     font-size: 15px;
   }
 }
+
+/* ═══════════════════════════════════════════════════════
+   KATEGORI MOBILE — Hero Cinematic + List Compact
+   (khusus mobile, biar tidak monoton semua vertikal)
+   ═══════════════════════════════════════════════════════ */
+
+/* Badge "Terbaru" — untuk desktop & mobile */
+.kategori-hero-badge {
+  display: inline-block;
+  font-family: Arial, sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--accent);
+  padding: 4px 10px;
+  border-radius: 3px;
+  margin-bottom: 12px;
+}
+
+@media (max-width: 600px) {
+
+  /* ── HERO — overlay cinematic ─────────────────────── */
+  .kategori-hero {
+    position: relative;
+    aspect-ratio: 4/3;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    transform: none;
+  }
+
+  .kategori-hero:hover {
+    transform: none;
+  }
+
+  .kategori-hero-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: auto;
+    margin-bottom: 0;
+    border-radius: 0;
+  }
+
+  /* Gradient overlay untuk readability teks */
+  .kategori-hero-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.88) 0%,
+      rgba(0, 0, 0, 0.5) 40%,
+      rgba(0, 0, 0, 0) 70%
+    );
+    pointer-events: none;
+  }
+
+  .kategori-hero-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px 18px;
+    z-index: 2;
+  }
+
+  .kategori-hero-badge {
+    background: var(--accent);
+    color: #fff;
+    font-size: 0.6rem;
+    padding: 3px 8px;
+    margin-bottom: 8px;
+  }
+
+  .kategori-hero-title {
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 1.3;
+    color: #fff;
+    margin: 0 0 8px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .kategori-hero:hover .kategori-hero-title {
+    color: #fff;
+  }
+
+  .kategori-hero-summary {
+    font-size: 13px;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.85);
+    margin: 0 0 6px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .kategori-hero-meta {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  /* ── SISA ARTIKEL — list compact ─────────────────── */
+  .kategori-rest {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border-top: 1px solid var(--border);
+    margin-top: 0;
+  }
+
+  .kategori-rest .dorang-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 4px;
+    border-bottom: 1px solid var(--border);
+    transform: none;
+    transition: background 0.2s ease, padding-left 0.2s ease;
+  }
+
+  .kategori-rest .dorang-card:hover {
+    transform: none;
+    padding-left: 12px;
+    background: var(--soft);
+  }
+
+  .kategori-rest .dorang-card-cover {
+    width: 72px;
+    height: 72px;
+    aspect-ratio: 1;
+    margin-bottom: 0;
+    flex-shrink: 0;
+    border-radius: 6px;
+  }
+
+  .kategori-rest .dorang-card-title {
+    font-size: 15px;
+    line-height: 1.35;
+    margin: 0 0 4px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .kategori-rest .dorang-card-summary {
+    display: none;
+  }
+
+  /* Dark mode */
+  [data-theme="dark"] .kategori-rest .dorang-card:hover {
+    background: rgba(255, 255, 255, 0.04);
+  }
+
+  [data-theme="dark"] .kategori-hero-title {
+    color: #fff;
+  }
+}
