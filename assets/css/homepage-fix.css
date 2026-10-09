@@ -575,3 +575,93 @@
 [data-theme="dark"] .dorang-list-page .dorang-list-description em {
   color: #a0a0a0;
 }
+
+
+/* ═══════════════════════════════════════════════════════
+   REFERENSI — Sumber dan Rujukan
+   (dipindah dari custom.css yang tidak ke-load)
+   ═══════════════════════════════════════════════════════ */
+
+
+/* ============================================================
+   KOTAK REFERENSI — Sumber dan Rujukan
+   ============================================================ */
+.dorang-referensi {
+  position: relative;
+  margin: 2.5em 0 1.5em;
+  padding: 24px 28px 22px;
+  background: linear-gradient(135deg, #fdfcfa 0%, #f8f5f0 100%);
+  border-left: 4px solid var(--accent);
+  border-radius: 0 10px 10px 0;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+  counter-reset: ref-counter;
+}
+
+.dorang-referensi-title {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--accent-dark);
+  margin: 0 0 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(196, 154, 108, 0.3);
+}
+
+.dorang-referensi ul,
+.dorang-referensi ol {
+  padding-left: 20px;
+  margin: 0;
+}
+
+.dorang-referensi li {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: var(--content);
+  margin-bottom: 8px;
+}
+
+.dorang-referensi li:last-child {
+  margin-bottom: 0;
+}
+
+.dorang-referensi em {
+  color: var(--primary);
+}
+
+/* Dark Mode */
+[data-theme="dark"] .dorang-referensi {
+  background: linear-gradient(135deg, #232323 0%, #1f1f1f 100%);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .dorang-referensi-title {
+  color: var(--accent);
+  border-bottom-color: rgba(212, 168, 120, 0.35);
+}
+
+[data-theme="dark"] .dorang-referensi li {
+  color: #c0c0c0;
+}
+
+[data-theme="dark"] .dorang-referensi li::before {
+  color: var(--accent);
+}
+
+[data-theme="dark"] .dorang-referensi em {
+  color: #e6e6e6;
+}
+
+/* Responsif Mobile */
+@media (max-width: 600px) {
+  .dorang-referensi {
+    padding: 18px 18px 16px;
+    margin: 2em 0 1.2em;
+  }
+  .dorang-referensi li {
+    font-size: 11.5px;
+    padding-left: 24px;
+  }
+}
