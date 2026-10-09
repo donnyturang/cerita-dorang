@@ -218,11 +218,18 @@ if [ "$BACA_EKST" = "y" ]; then
 fi
 
 echo ""
-echo -e "🔗 Inline link natural di body?"
+echo -e "🔗 Inline link INTERNAL di body (ke artikel sendiri)?"
 echo -e "   Format: anchor|slug (pisah koma kalau banyak)"
 echo -e "   ${GOLD}Contoh: air|sungai-jembatan-dan-danau-di-tomohon${NC}"
 echo -e "   ${GOLD}(Enter untuk skip)${NC}"
 read -p "   > " INLINE_INPUT
+
+echo ""
+echo -e "🌐 Inline link EKSTERNAL di body (ke Blogger)?"
+echo -e "   Format: anchor|url (pisah koma kalau banyak)"
+echo -e "   ${GOLD}Contoh: Kekeringan di Tanah Kami|https://donnyturang.blogspot.com/2026/09/kekeringan-di-tanah-kami.html${NC}"
+echo -e "   ${GOLD}(Enter untuk skip)${NC}"
+read -p "   > " INLINE_EXT_INPUT
 
 # ═══════════════════════════════════════════════════════════
 # BAGIAN 4: BUAT FILE
@@ -374,6 +381,61 @@ if missed:
 PYINLINE
 fi
 
+# ── Inline link EKSTERNAL (ke Blogger) ────────────────────
+if [ -n "$INLINE_EXT_INPUT" ]; then
+    python3 - "$FILE" "$INLINE_EXT_INPUT" << 'PYEXT'
+import sys, re
+path = sys.argv[1]
+raw = sys.argv[2]
+
+with open(path) as f:
+    c = f.read()
+
+pairs = [p.strip() for p in raw.split(',') if p.strip()]
+applied = 0
+missed = []
+
+for pair in pairs:
+    if '|' not in pair:
+        missed.append(f"{pair} (format salah)")
+        continue
+    anchor, url = pair.split('|', 1)
+    anchor = anchor.strip()
+    url = url.strip()
+
+    # Bersihkan tanda bintang jika user sudah sertakan
+    clean_anchor = anchor.strip('*').strip()
+
+    # Pattern 1: sudah italic *anchor* di body
+    pat_italic = re.compile(r'(?<!\[)\*' + re.escape(clean_anchor) + r'\*(?!\])')
+    # Pattern 2: plain text anchor di body
+    pat_plain = re.compile(r'(?<!\[)(' + re.escape(clean_anchor) + r')(?!\])')
+
+    m = pat_italic.search(c)
+    if m:
+        c = c[:m.start()] + f'[*{clean_anchor}*]({url})' + c[m.end():]
+        applied += 1
+        print(f"   \033[0;32m\u2705\033[0m ext: '*{clean_anchor}*' \u2192 {url[:60]}...")
+    else:
+        m = pat_plain.search(c)
+        if m:
+            matched_text = m.group(1)
+            c = c[:m.start()] + f'[*{matched_text}*]({url})' + c[m.end():]
+            applied += 1
+            print(f"   \033[0;32m\u2705\033[0m ext: '{matched_text}' \u2192 {url[:60]}...")
+        else:
+            missed.append(clean_anchor)
+
+with open(path, 'w') as f:
+    f.write(c)
+
+print(f"   \033[0;34m\U0001F4CA\033[0m External link: {applied} applied")
+if missed:
+    print(f"   \033[0;33m\u26A0\ufe0f\033[0m Tidak ketemu: {', '.join(missed)}")
+PYEXT
+fi
+
+# ═══════════════════════════════════════════════════════════
 # ═══════════════════════════════════════════════════════════
 # BAGIAN 6: PREVIEW
 # ═══════════════════════════════════════════════════════════
