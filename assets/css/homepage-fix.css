@@ -1,0 +1,110 @@
+/* ═══════════════════════════════════════════════════════
+   HOMEPAGE FIX — JENDELA & SOSOK jadi Grid 3 Kolom
+   Konsisten dengan TAHUKAH ANDA
+   ═══════════════════════════════════════════════════════ */
+
+/* List → Grid 3 kolom */
+.dorang-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+}
+
+/* Item jadi card vertikal */
+.dorang-list-item {
+  display: block;
+  padding: 0;
+  border-bottom: none;
+  transition: transform 0.25s ease;
+}
+
+.dorang-list-item:hover {
+  padding-left: 0;
+  transform: translateY(-3px);
+}
+
+/* Thumbnail jadi full width card */
+.dorang-list-cover {
+  width: 100%;
+  aspect-ratio: 4/3;
+  margin-bottom: 14px;
+}
+
+.dorang-list-content {
+  display: block;
+}
+
+.dorang-list-title {
+  font-size: 17px;
+  margin: 0 0 6px;
+}
+
+.dorang-list-summary {
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+/* Responsive — tablet 2 kolom */
+@media (max-width: 900px) {
+  .dorang-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+  }
+}
+
+/* Responsive — mobile 1 kolom */
+@media (max-width: 600px) {
+  .dorang-list {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════
+   HERO (SOROTAN) — aspect 4:3 sama dengan card
+   Konsisten desktop & mobile
+   ═══════════════════════════════════════════════════════ */
+
+.dorang-hero {
+  align-items: center;
+}
+
+.dorang-hero-image {
+  aspect-ratio: 4/3;
+  height: auto;
+  min-height: 0;
+  max-height: none;
+}
+
+/* Mobile: hero full-width, aspect 4:3 */
+@media (max-width: 767px) {
+  .dorang-hero {
+    grid-template-columns: 1fr;
+  }
+  .dorang-hero-image {
+    aspect-ratio: 4/3;
+    height: auto;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════
+   HERO — Hilangkan background cream di desktop
+   supaya gambar 4:3 tidak "mengambang" di container
+   ═══════════════════════════════════════════════════════ */
+
+@media (min-width: 768px) {
+  .dorang-hero {
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .dorang-hero:hover {
+    box-shadow: none;
+    transform: none;
+  }
+
+  .dorang-hero-image {
+    border-radius: 8px;
+    overflow: hidden;
+  }
+}
