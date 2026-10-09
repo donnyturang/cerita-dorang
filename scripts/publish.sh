@@ -124,11 +124,13 @@ for tag in "${TAG_ARRAY[@]}"; do
 done
 
 echo ""
-read -p "⭐ Masuk sorotan/populer? (y/n): " POP
+read -p "⭐ Masuk PILIHAN REDAKSI? (y/n): " POP
 POP_LINE=""
+POP_TAG_LINE=""
 if [ "$POP" = "y" ]; then
     read -p "   Rank (1-5, kecil = lebih atas): " RANK
     POP_LINE="populer_rank: $RANK"
+    POP_TAG_LINE="  - populer"
 fi
 
 # ═══════════════════════════════════════════════════════════
@@ -266,6 +268,7 @@ author: "$AUTHOR"
 categories: ["$KATEGORI"]
 tags:
 $(echo -e "$TAG_LINES" | sed '/^$/d')
+$POP_TAG_LINE
 description: "$DESCRIPTION"
 ${FM_OPTIONALS}ShowToc: true
 ShowShareButtons: true
