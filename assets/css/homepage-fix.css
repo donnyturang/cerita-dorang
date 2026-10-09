@@ -108,3 +108,158 @@
     overflow: hidden;
   }
 }
+
+/* ═══════════════════════════════════════════════════════
+   PILIHAN REDAKSI — Layout Editorial List
+   (ganti dari grid 2x2 → list vertikal elegan)
+   ═══════════════════════════════════════════════════════ */
+
+.dorang-pilihan-list {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.dorang-pilihan-item {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 18px 8px;
+  border-bottom: 1px solid var(--border);
+  text-decoration: none;
+  color: inherit;
+  transition: padding-left 0.25s ease, background 0.25s ease;
+}
+
+.dorang-pilihan-item:hover {
+  padding-left: 16px;
+  background: var(--soft);
+}
+
+/* Angka badge kecil */
+.dorang-pilihan-rank {
+  font-family: Georgia, serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--accent);
+  line-height: 1;
+  flex-shrink: 0;
+  min-width: 2rem;
+  padding: 6px 0;
+  border-right: 1px solid var(--border);
+  text-align: center;
+}
+
+/* Thumbnail kecil */
+.dorang-pilihan-thumb {
+  width: 72px;
+  height: 72px;
+  border-radius: 6px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: var(--soft);
+}
+
+.dorang-pilihan-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  filter: grayscale(100%);
+  transition: filter 0.35s ease, transform 0.35s ease;
+}
+
+.dorang-pilihan-item:hover .dorang-pilihan-thumb img {
+  filter: grayscale(0%);
+  transform: scale(1.05);
+}
+
+/* Konten */
+.dorang-pilihan-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.dorang-pilihan-title {
+  font-family: Georgia, serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin: 0 0 0.35rem;
+  line-height: 1.4;
+  transition: color 0.2s ease;
+}
+
+.dorang-pilihan-item:hover .dorang-pilihan-title {
+  color: var(--accent-dark);
+}
+
+.dorang-pilihan-meta {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--muted);
+  font-style: italic;
+  letter-spacing: 0.02em;
+}
+
+/* Arrow kecil di kanan */
+.dorang-pilihan-arrow {
+  flex-shrink: 0;
+  font-size: 1.1rem;
+  color: var(--accent);
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.dorang-pilihan-item:hover .dorang-pilihan-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Dark mode */
+[data-theme="dark"] .dorang-pilihan-item:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+[data-theme="dark"] .dorang-pilihan-title {
+  color: #e0e0e0;
+}
+
+[data-theme="dark"] .dorang-pilihan-item:hover .dorang-pilihan-title {
+  color: #f0d97a;
+}
+
+[data-theme="dark"] .dorang-pilihan-rank {
+  color: #f0d97a;
+}
+
+[data-theme="dark"] .dorang-pilihan-meta {
+  color: #a0a0a0;
+}
+
+[data-theme="dark"] .dorang-pilihan-arrow {
+  color: #f0d97a;
+}
+
+/* Mobile — lebih kompak */
+@media (max-width: 600px) {
+  .dorang-pilihan-item {
+    gap: 12px;
+    padding: 14px 4px;
+  }
+  .dorang-pilihan-thumb {
+    width: 60px;
+    height: 60px;
+  }
+  .dorang-pilihan-title {
+    font-size: 0.95rem;
+  }
+  .dorang-pilihan-rank {
+    font-size: 0.75rem;
+    min-width: 1.6rem;
+  }
+}

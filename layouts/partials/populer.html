@@ -1,0 +1,28 @@
+{{/* ============================================================
+     PILIHAN REDAKSI — Top 4 Artikel dari tag "populer"
+     Layout: list editorial (thumbnail + rank + title + meta)
+     ============================================================ */}}
+{{ $populer := where site.RegularPages "Params.tags" "intersect" (slice "populer") }}
+{{ $populer = sort $populer "Params.populer_rank" "asc" }}
+{{ with $populer }}
+<section class="dorang-section">
+  <h2 class="dorang-section-title">Pilihan Redaksi</h2>
+  <div class="dorang-pilihan-list">
+    {{ range $i, $p := first 4 . }}
+    <a href="{{ $p.RelPermalink }}" class="dorang-pilihan-item">
+      <span class="dorang-pilihan-rank">{{ printf "%02d" (add $i 1) }}</span>
+      {{ with $p.Params.cover.image }}
+      <div class="dorang-pilihan-thumb">
+        {{ partial "image.html" (dict "src" . "alt" ($p.Params.cover.alt | default $p.Title) "loading" "lazy" "sizes" "80px" "widths" (slice 120 240)) }}
+      </div>
+      {{ end }}
+      <div class="dorang-pilihan-content">
+        <h3 class="dorang-pilihan-title">{{ $p.Title }}</h3>
+        <span class="dorang-pilihan-meta">{{ $p.Date | time.Format "2 January 2006" }}{{ with $p.Params.categories }} · {{ index . 0 }}{{ end }}</span>
+      </div>
+      <span class="dorang-pilihan-arrow">→</span>
+    </a>
+    {{ end }}
+  </div>
+</section>
+{{ end }}
