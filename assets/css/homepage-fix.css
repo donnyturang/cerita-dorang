@@ -263,3 +263,117 @@
     min-width: 1.6rem;
   }
 }
+
+/* ═══════════════════════════════════════════════════════
+   KATEGORI — Hero + Grid Hybrid
+   Artikel terbaru jadi hero, sisanya grid 3 kolom
+   ═══════════════════════════════════════════════════════ */
+
+/* Hero kategori — layout vertikal (image atas, text bawah) */
+.kategori-hero {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  margin-bottom: 3rem;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.kategori-hero:hover {
+  transform: translateY(-3px);
+}
+
+.kategori-hero-image {
+  width: 100%;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  border-radius: 12px;
+  background: var(--soft);
+  margin-bottom: 20px;
+}
+
+.kategori-hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  filter: grayscale(100%);
+  transition: filter 0.4s ease, transform 0.5s ease;
+}
+
+.kategori-hero:hover .kategori-hero-image img {
+  filter: grayscale(0%);
+  transform: scale(1.02);
+}
+
+.kategori-hero-content {
+  padding: 0 4px;
+}
+
+.kategori-hero-title {
+  font-family: Arial, sans-serif;
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 1.25;
+  margin: 0 0 12px;
+  color: var(--primary);
+  letter-spacing: -0.3px;
+  border-bottom: none;
+  padding: 0;
+}
+
+.kategori-hero:hover .kategori-hero-title {
+  color: var(--accent-dark);
+}
+
+.kategori-hero-summary {
+  font-family: Georgia, serif;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--text);
+  margin: 0 0 12px;
+}
+
+.kategori-hero-meta {
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* Spacing antara hero & grid */
+.kategori-rest {
+  margin-top: 0.5rem;
+}
+
+/* Dark mode */
+[data-theme="dark"] .kategori-hero-title {
+  color: #e0e0e0;
+}
+
+[data-theme="dark"] .kategori-hero:hover .kategori-hero-title {
+  color: #f0d97a;
+}
+
+[data-theme="dark"] .kategori-hero-image {
+  background: #1f1f1f;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .kategori-hero {
+    margin-bottom: 2rem;
+  }
+  .kategori-hero-image {
+    aspect-ratio: 4/3;
+    margin-bottom: 14px;
+  }
+  .kategori-hero-title {
+    font-size: 21px;
+  }
+  .kategori-hero-summary {
+    font-size: 15px;
+  }
+}
