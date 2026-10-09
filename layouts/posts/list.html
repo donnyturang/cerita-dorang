@@ -1,0 +1,65 @@
+{{ define "main" }}
+
+<div class="dorang-list-page">
+
+  {{/* Header Arsip */}}
+  <header class="dorang-list-header">
+    <h1>{{ .Title | default "Semua Tulisan" }}</h1>
+    {{ with .Content }}
+      <div class="dorang-list-description">{{ . }}</div>
+    {{ else }}
+      <div class="dorang-list-description">
+        <em>Semua cerita yang pernah kami terbitkan — dari yang paling baru, sampai yang paling awal.</em>
+      </div>
+    {{ end }}
+  </header>
+
+  {{/* Grid Murni — semua artikel */}}
+  {{ if .Pages }}
+    <div class="dorang-grid">
+      {{ range .Paginator.Pages }}
+      <a href="{{ .RelPermalink }}" class="dorang-card">
+        {{ with .Params.cover.image }}
+        <div class="dorang-card-cover">
+          {{ partial "image.html" (dict "src" . "alt" ($.Params.cover.alt | default $.Title) "loading" "lazy" "sizes" "(max-width: 640px) 100vw, (max-width: 1100px) 45vw, 350px" "widths" (slice 400 800)) }}
+        </div>
+        {{ end }}
+        <h3 class="dorang-card-title">{{ .Title }}</h3>
+        <p class="dorang-card-summary">{{ .Summary | plainify | truncate 120 }}</p>
+        <span class="dorang-card-meta">{{ .Date | time.Format "2 January 2006" }}{{ with .Params.categories }} · {{ index . 0 }}{{ end }}</span>
+      </a>
+      {{ end }}
+    </div>
+
+    {{/* Paginasi */}}
+    {{ $pag := .Paginator }}
+    {{ if gt $pag.TotalPages 1 }}
+      <nav class="dorang-pagination" aria-label="Navigasi halaman">
+        {{ if $pag.HasPrev }}
+          <a href="{{ $pag.Prev.URL }}" class="dorang-page-link">← Sebelumnya</a>
+        {{ else }}
+          <span class="dorang-page-link disabled">← Sebelumnya</span>
+        {{ end }}
+
+        <span class="dorang-page-info">Halaman {{ $pag.PageNumber }} dari {{ $pag.TotalPages }}</span>
+
+        {{ if $pag.HasNext }}
+          <a href="{{ $pag.Next.URL }}" class="dorang-page-link">Berikutnya →</a>
+        {{ else }}
+          <span class="dorang-page-link disabled">Berikutnya →</span>
+        {{ end }}
+      </nav>
+    {{ end }}
+
+  {{ else }}
+    <p class="dorang-empty"><em>Belum ada artikel yang diterbitkan.</em></p>
+  {{ end }}
+
+  {{/* Kembali */}}
+  <p class="dorang-list-back">
+    <a href="/">← Kembali ke Beranda</a>
+  </p>
+
+</div>
+
+{{ end }}

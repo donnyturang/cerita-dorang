@@ -545,3 +545,33 @@
     color: #fff;
   }
 }
+
+/* ═══════════════════════════════════════════════════════
+   /posts/ — Arsip Grid Murni
+   ═══════════════════════════════════════════════════════ */
+
+/* Meta di card (tanggal · kategori) */
+.dorang-card-meta {
+  display: block;
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 8px;
+  letter-spacing: 0.02em;
+}
+
+/* Deskripsi header arsip (italic, lebih halus) */
+.dorang-list-page .dorang-list-description em {
+  color: var(--muted);
+  font-size: 15px;
+}
+
+/* Dark mode */
+[data-theme="dark"] .dorang-card-meta {
+  color: #a0a0a0;
+}
+
+[data-theme="dark"] .dorang-list-page .dorang-list-description em {
+  color: #a0a0a0;
+}
