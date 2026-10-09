@@ -396,6 +396,73 @@ echo -e "${GOLD}🚀 Push...${NC}"
 git push origin main
 echo -e "${GREEN}✓ Push selesai${NC}"
 
+# ── Social Share Preview ──────────────────────────────────
+POST_URL="https://ceritadorang.pages.dev/posts/$SLUG/"
+
+echo ""
+echo -e "${GOLD}════════════════════════════════════════════════${NC}"
+echo -e "${GOLD}   📱 SHARE PREVIEW — Copy-paste ke sosmed${NC}"
+echo -e "${GOLD}════════════════════════════════════════════════${NC}"
+echo ""
+
+# Generate hashtag dari 3 tag pertama
+HASHTAGS=""
+if [ -n "$TAGS" ]; then
+    IFS=',' read -ra TAG_ARR <<< "$TAGS"
+    COUNT=0
+    for t in "${TAG_ARR[@]}"; do
+        [ $COUNT -ge 3 ] && break
+        t=$(echo "$t" | xargs | sed 's/[^a-zA-Z0-9]//g')
+        [ -n "$t" ] && HASHTAGS+="#$t "
+        COUNT=$((COUNT+1))
+    done
+fi
+HASHTAGS=$(echo "$HASHTAGS" | xargs)
+
+echo -e "${BLUE}── Facebook / LinkedIn ─────────────────────${NC}"
+echo "$JUDUL"
+echo "$POST_URL"
+echo ""
+
+echo -e "${BLUE}── X (Twitter) ─────────────────────────────${NC}"
+if [ -n "$HASHTAGS" ]; then
+    echo "$JUDUL"
+    echo "$POST_URL"
+    echo "$HASHTAGS"
+else
+    echo "$JUDUL"
+    echo "$POST_URL"
+fi
+echo ""
+
+echo -e "${BLUE}── Threads ─────────────────────────────────${NC}"
+echo "$JUDUL"
+echo ""
+echo "$POST_URL"
+echo ""
+
+# Auto-copy ke clipboard
+SHARE_TEXT="$JUDUL — $POST_URL"
+# Simpan ke file (fallback kalau clipboard ketimpa)
+SHARE_FILE="$HOME/dorang-last-share.txt"
+echo "$SHARE_TEXT" > "$SHARE_FILE"
+
+if command -v xclip >/dev/null 2>&1; then
+    (echo -n "$SHARE_TEXT" | xclip -selection clipboard -loops 0 &) &
+    disown 2>/dev/null || true
+    echo -e "${GREEN}✅ "${JUDUL:0:40}… — URL" di-copy ke clipboard${NC}"
+elif command -v wl-copy >/dev/null 2>&1; then
+    (echo -n "$SHARE_TEXT" | wl-copy &) &
+    disown 2>/dev/null || true
+    echo -e "${GREEN}✅ "${JUDUL:0:40}… — URL" di-copy ke clipboard${NC}"
+else
+    echo -e "${GOLD}💡 Tip: install 'xclip' untuk auto-copy${NC}"
+    echo -e "   ${GOLD}sudo apt install xclip${NC}"
+fi
+
+echo -e "   ${GOLD}📄 Fallback: cat ~/dorang-last-share.txt${NC}"
+echo ""
+
 # ── Submit ke IndexNow (Bing & Yandex) ────────────────────
 INDEXNOW_SCRIPT="$HOME/Projects/indexnow-submit.sh"
 if [ -x "$INDEXNOW_SCRIPT" ]; then
