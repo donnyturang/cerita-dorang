@@ -203,7 +203,17 @@ read -p "🌐 Tambah bacajuga eksternal (Blogger)? (y/n): " BACA_EKST
 BACA_EKST_LINE=""
 if [ "$BACA_EKST" = "y" ]; then
     read -p "   URL: " B_URL
-    read -p "   Judul link: " B_TEXT
+    # Loop sampai user isi judul (bukan URL)
+    while true; do
+        read -p "   Judul link: " B_TEXT
+        if [[ "$B_TEXT" == http* ]]; then
+            echo -e "   ${RED}⚠️  Itu URL, bukan judul. Ketik judul artikel, misal: 'El Niño Mulai Memukul'${NC}"
+        elif [ -z "$B_TEXT" ]; then
+            echo -e "   ${RED}⚠️  Judul tidak boleh kosong${NC}"
+        else
+            break
+        fi
+    done
     [ -n "$B_URL" ] && BACA_EKST_LINE="{{< bacajuga url=\"$B_URL\" text=\"$B_TEXT\" >}}"
 fi
 
@@ -223,7 +233,16 @@ echo -e "${GOLD}  4. BUAT FILE${NC}"
 echo -e "${GOLD}─────────────────────────────────────────────${NC}"
 echo ""
 
-DATE=$(date +%Y-%m-%dT%H:%M:%S+08:00)
+# Date/time sekarang (WITA +08:00)
+DATE_DEFAULT=$(date +%Y-%m-%dT%H:%M:%S+08:00)
+DATE_HUMAN=$(date "+%A, %d %B %Y — %H:%M WITA")
+
+echo -e "📅 ${BLUE}Tanggal & waktu (WITA):${NC}"
+echo -e "   ${GREEN}$DATE_HUMAN${NC}"
+echo -e "   ${GOLD}(Enter = pakai ini, atau ketik format: YYYY-MM-DDTHH:MM:SS+08:00)${NC}"
+read -p "   > " DATE_INPUT
+DATE="${DATE_INPUT:-$DATE_DEFAULT}"
+
 FILE="content/posts/$SLUG.md"
 
 FM_OPTIONALS=""
@@ -247,20 +266,45 @@ ShowShareButtons: true
 
 $LEAD_MD
 
-Paragraf pembuka artikel...
+<!-- ⬇️ Mulai menulis body artikel di sini. Hapus komentar ini kalau perlu. ⬇️ -->
 
-## Heading Pertama
 
-Isi paragraf...
 
-## Heading Kedua
-
-Isi paragraf...
+<!-- ⬆️ Akhir body artikel. Jangan hapus baris di bawah ini. ⬆️ -->
 
 $BACA_INT_LINES$BACA_EKST_LINE
 ARTIKEL_EOF
 
 echo -e "${GREEN}✅ File dibuat:${NC} $FILE ($(wc -l < "$FILE") baris)"
+
+# ═══════════════════════════════════════════════════════
+# FIX 3: Preview frontmatter sebelum editor
+# ═══════════════════════════════════════════════════════
+echo ""
+echo -e "${GOLD}════════════════════════════════════════════════${NC}"
+echo -e "${GOLD}   📄 PREVIEW FRONTMATTER${NC}"
+echo -e "${GOLD}════════════════════════════════════════════════${NC}"
+echo ""
+
+# Tampilkan 20 baris pertama (frontmatter + sedikit body)
+head -20 "$FILE"
+
+echo ""
+echo -e "${GOLD}─────────────────────────────────────────────────${NC}"
+
+# Cek apakah delimiter --- ada 2
+DELIM_COUNT=$(grep -c "^---$" "$FILE")
+if [ "$DELIM_COUNT" -lt 2 ]; then
+    echo -e "${RED}⚠️  PERINGATAN: Delimiter '---' tidak lengkap (ada $DELIM_COUNT, harus 2)${NC}"
+    echo -e "${RED}    Frontmatter mungkin rusak. Cek manual!${NC}"
+fi
+
+read -p "Lanjut buka editor? (y/n): " PREVIEW_OK
+if [ "$PREVIEW_OK" != "y" ]; then
+    echo -e "${GOLD}Dibatalkan. File tetap ada di:${NC} $FILE"
+    echo -e "${GOLD}Edit manual: nano $FILE${NC}"
+    exit 0
+fi
 
 # ═══════════════════════════════════════════════════════════
 # BAGIAN 5: EDITOR
