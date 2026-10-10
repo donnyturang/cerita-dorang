@@ -40,13 +40,11 @@ for f in files:
     with open(f) as fp:
         content = fp.read()
     
-    # Extract title (YAML atau TOML)
+    # Extract title (YAML "title: ..." atau TOML "title = ...")
     title = ""
-    m = re.search(r'^title:\s*"([^"]+)"', content, re.MULTILINE)
+    m = re.search(r'^title\s*[:=]\s*["\']([^"\']+)["\']', content, re.MULTILINE)
     if not m:
-        m = re.search(r"^title:\s*'([^']+)'", content, re.MULTILINE)
-    if not m:
-        m = re.search(r'^title:\s*(.+)$', content, re.MULTILINE)
+        m = re.search(r'^title\s*[:=]\s*(.+)$', content, re.MULTILINE)
     if m:
         title = m.group(1).strip().strip('"').strip("'")
     
