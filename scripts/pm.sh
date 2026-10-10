@@ -207,6 +207,38 @@ echo ""
 echo "🌐 Inline link EKSTERNAL (anchor|url, Enter skip):"
 read -p "   > " INLINE_EXT_INPUT
 
+# ── COVER IMAGE ──────────────────────────────────────────
+echo ""
+echo -e "🖼️  Cover image (nama file di ~/Pictures/, Enter = skip):"
+read -p "   > " GAMBAR
+
+COVER_LINE=""
+GAMBAR_FILE=""
+if [ -n "$GAMBAR" ]; then
+    SRC="$HOME/Pictures/$GAMBAR"
+    if [ ! -f "$SRC" ]; then
+        echo -e "   ⚠️  Tidak ditemukan: $SRC"
+        echo -e "   File di ~/Pictures/:"
+        ls -1 ~/Pictures/ 2>/dev/null | head -10 | sed 's/^/     /'
+        read -p "   Lanjut tanpa cover? (y/n): " LANJUT
+        [ "$LANJUT" != "y" ] && exit 0
+    else
+        mkdir -p "$PROJECT/assets/images"
+        cp "$SRC" "$PROJECT/assets/images/$GAMBAR"
+        GAMBAR_FILE="$GAMBAR"
+        SIZE=$(du -h "$SRC" | cut -f1)
+        echo -e "   ✅ Disalin ($SIZE) → assets/images/$GAMBAR"
+        echo ""
+        read -p "   Alt text (SEO): " ALT
+        read -p "   Caption/kredit: " CAPTION
+        COVER_LINE="cover:
+  image: \"/images/$GAMBAR\"
+  alt: '$ALT'
+  caption: '$CAPTION'
+  relative: false"
+    fi
+fi
+
 echo ""
 DATE_DEFAULT=$(date +%Y-%m-%dT%H:%M:%S+08:00)
 DATE_HUMAN=$(date "+%A, %d %B %Y — %H:%M WITA")
@@ -220,6 +252,7 @@ FILE="content/posts/$SLUG.md"
 FM_OPTIONALS=""
 [ -n "$SUMMARY_LINE" ] && FM_OPTIONALS+="$SUMMARY_LINE"$'\n'
 [ -n "$POP_LINE" ] && FM_OPTIONALS+="$POP_LINE"$'\n'
+[ -n "$COVER_LINE" ] && FM_OPTIONALS+="$COVER_LINE"$'\n'
 
 # Gabung frontmatter + body dari draft
 {
@@ -314,6 +347,7 @@ if [ "$PUSH_NUM" != "y" ]; then
 fi
 
 git add "$FILE"
+[ -n "$GAMBAR_FILE" ] && git add "assets/images/$GAMBAR_FILE"
 git commit -m "publish: $JUDUL (dari draft Desktop)"
 git push origin main
 
