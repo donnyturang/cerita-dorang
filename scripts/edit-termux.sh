@@ -26,21 +26,53 @@ if [ -n "$(git status --porcelain)" ]; then
     [ "$LANJUT" != "y" ] && exit 0
 fi
 
-# Kumpulkan daftar artikel (kecuali _index.md)
+# Kumpulkan daftar artikel via Python (support YAML + TOML)
 echo -e "${BLUE}📄 Daftar artikel (terbaru dulu):${NC}"
 echo ""
 
-ARTICLES=$(ls -t content/posts/*.md | grep -v "_index.md")
+LIST_OUTPUT=$(python3 << 'PYLIST'
+import os, re, glob
+
+files = [f for f in glob.glob("content/posts/*.md") if "_index.md" not in f]
+articles = []
+
+for f in files:
+    with open(f) as fp:
+        content = fp.read()
+    
+    # Extract title (YAML atau TOML)
+    title = ""
+    m = re.search(r'^title:\s*"([^"]+)"', content, re.MULTILINE)
+    if not m:
+        m = re.search(r"^title:\s*'([^']+)'", content, re.MULTILINE)
+    if not m:
+        m = re.search(r'^title:\s*(.+)$', content, re.MULTILINE)
+    if m:
+        title = m.group(1).strip().strip('"').strip("'")
+    
+    # Extract date (YAML atau TOML)
+    date = ""
+    m = re.search(r'^date\s*[=:]\s*(.+)$', content, re.MULTILINE)
+    if m:
+        date = m.group(1).strip().strip('"').strip("'")[:10]
+    
+    articles.append((date, title, f))
+
+# Sort by date, terbaru dulu
+articles.sort(reverse=True)
+
+for i, (date, title, f) in enumerate(articles, 1):
+    print(f"{i}|{date}|{title}|{f}")
+PYLIST
+)
 
 i=1
 declare -a FILE_LIST
-for f in $ARTICLES; do
-    title=$(grep -m1 '^title:' "$f" | sed 's/title: *//;s/"//g')
-    date=$(grep -m1 '^date:' "$f" | sed 's/date: *//;s/T.*//')
-    printf "   %2d) [%s] %s\n" "$i" "$date" "$title"
-    FILE_LIST[$i]="$f"
+while IFS='|' read -r num date title file; do
+    printf "   %2d) [%s] %s\n" "$num" "$date" "$title"
+    FILE_LIST[$num]="$file"
     i=$((i+1))
-done
+done <<< "$LIST_OUTPUT"
 
 TOTAL=$((i-1))
 echo ""
