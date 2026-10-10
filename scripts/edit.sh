@@ -103,6 +103,79 @@ fi
 sleep 1
 
 $EDITOR_CMD "$FILE"
+# ── COVER IMAGE (opsional) ──────────────────────────────
+echo ""
+read -p "🖼️  Edit cover image? (y/n): " EDIT_COVER
+
+GAMBAR_COPY=""
+if [ "$EDIT_COVER" = "y" ]; then
+    echo ""
+    echo -e "   Nama file gambar di ~/Pictures/ (Enter = skip):"
+    read -p "   > " GAMBAR
+
+    if [ -n "$GAMBAR" ]; then
+        SRC="$HOME/Pictures/$GAMBAR"
+        if [ ! -f "$SRC" ]; then
+            echo -e "   ${RED}⚠️  Tidak ditemukan: $SRC${NC}"
+            echo -e "   ${GOLD}File di ~/Pictures/:${NC}"
+            ls -1 ~/Pictures/ 2>/dev/null | head -10 | sed 's/^/     /'
+        else
+            mkdir -p "$PROJECT/assets/images"
+            cp "$SRC" "$PROJECT/assets/images/$GAMBAR"
+            GAMBAR_COPY="$GAMBAR"
+            SIZE=$(du -h "$SRC" | cut -f1)
+            echo -e "   ${GREEN}✓ Disalin${NC} ($SIZE) → assets/images/$GAMBAR"
+            echo ""
+            read -p "   Alt text (SEO): " ALT
+            read -p "   Caption/kredit: " CAPTION
+
+            # Update frontmatter via Python
+            python3 - "$FILE" "$GAMBAR" "$ALT" "$CAPTION" << 'PYCOVER'
+import sys, re
+path, gambar, alt, caption = sys.argv[1:5]
+with open(path) as f:
+    c = f.read()
+
+fm_match = re.match(r'^---\n(.*?)\n---\n', c, re.DOTALL)
+if not fm_match:
+    print("   \033[0;31m❌ Frontmatter tidak ditemukan\033[0m")
+    sys.exit(1)
+
+fm = fm_match.group(1)
+body = c[fm_match.end():]
+
+# Hapus blok cover lama (multi-line + single line)
+lines = fm.split('\n')
+result = []
+in_cover = False
+for line in lines:
+    if line.startswith('cover:'):
+        in_cover = True
+        # Kalau single line dengan isi (cover: xxx), skip juga
+        continue
+    if in_cover:
+        if line.startswith('  ') or line.startswith('\t'):
+            continue
+        else:
+            in_cover = False
+    result.append(line)
+fm = '\n'.join(result).rstrip()
+
+# Tambah blok cover baru sebelum ShowToc
+new_cover = f'cover:\n  image: "/images/{gambar}"\n  alt: \'{alt}\'\n  caption: \'{caption}\'\n  relative: false'
+if 'ShowToc:' in fm:
+    fm = fm.replace('ShowToc:', new_cover + '\nShowToc:', 1)
+else:
+    fm = fm + '\n' + new_cover
+
+with open(path, 'w') as f:
+    f.write('---\n' + fm + '\n---\n' + body)
+
+print("   \033[0;32m✅ Cover diupdate di frontmatter\033[0m")
+PYCOVER
+        fi
+    fi
+fi
 
 # Cek perubahan
 if git diff --quiet "$FILE"; then
@@ -133,6 +206,7 @@ if [ "$PUSH_NUM" != "y" ]; then
 fi
 
 git add "$FILE"
+[ -n "$GAMBAR_COPY" ] && git add "assets/images/$GAMBAR_COPY"
 git commit -m "edit: update $(basename $FILE .md)"
 git push origin main
 
