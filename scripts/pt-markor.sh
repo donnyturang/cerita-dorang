@@ -38,7 +38,7 @@ fi
 echo -e "${BLUE}📄 Draft di Markor:${NC}"
 echo ""
 
-FILES=$(ls -t "$MARKOR_DIR"/*.md 2>/dev/null | grep -v '/_' || true)
+FILES=$(find "$MARKOR_DIR" -maxdepth 1 -name "*.md" -type f -exec ls -t {} + 2>/dev/null || true)
 
 if [ -z "$FILES" ]; then
     echo -e "${RED}   (tidak ada file .md)${NC}"
@@ -47,14 +47,15 @@ fi
 
 i=1
 declare -a FILE_LIST
-for f in $FILES; do
+while IFS= read -r f; do
+    [ -z "$f" ] && continue
     title=$(basename "$f" .md)
     modif=$(date -r "$f" "+%d %b %H:%M" 2>/dev/null || echo "—")
     size=$(wc -l < "$f" 2>/dev/null || echo "0")
     printf "   %2d) [%s] %s (%s baris)\n" "$i" "$modif" "$title" "$size"
     FILE_LIST[$i]="$f"
     i=$((i+1))
-done
+done <<< "$FILES"
 
 TOTAL=$((i-1))
 echo ""
