@@ -90,7 +90,7 @@ if [ -z "$DRAFT" ] || [ ! -f "$DRAFT" ]; then
 fi
 
 echo ""
-echo -e "${GREEN}📝 Draft:${NC} $(basename $DRAFT)"
+echo -e "${GREEN}📝 Draft:${NC} $(basename "$DRAFT")"
 echo ""
 
 # ── INFO ARTIKEL ─────────────────────────────────────
