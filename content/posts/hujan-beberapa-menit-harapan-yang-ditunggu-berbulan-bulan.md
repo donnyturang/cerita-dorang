@@ -25,7 +25,7 @@ ShowShareButtons: true
 ---
 *Di Tomohon, hujan yang turun sebentar pada Jumat pagi, 9 Oktober 2026, disambut dengan ucapan syukur. Di tengah kekhawatiran terhadap El Niño dan kekeringan, beberapa menit air jatuh dari langit terasa jauh lebih berharga daripada biasanya.*
 
-Ketika Langit Akhirnya Menurunkan Air
+## Ketika Langit Akhirnya Menurunkan Air
 
 Pagi itu, Jumat, 9 Oktober 2026, hujan turun di Kota Tomohon.
 
