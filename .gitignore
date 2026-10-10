@@ -23,3 +23,6 @@ content/posts.bak.*
 # Backup artikel (pindah ke _backups/)
 _backups/
 .indexnow-key
+
+# Backup script (pola: script.sh.backup-YYYYMMDD-HHMM)
+scripts/*.backup-*
