@@ -38,9 +38,25 @@ fi
 echo -e "${BLUE}📄 Draft di $DRAFT_DIR:${NC}"
 echo ""
 
-FILES=$(ls -t "$DRAFT_DIR"/*.md 2>/dev/null | grep -v '/_' || true)
+LIST_OUTPUT=$(python3 << 'PYLIST'
+import os
+DRAFT_DIR = os.path.expanduser("~/Documents/dorang-drafts")
+files = []
+for root, dirs, filenames in os.walk(DRAFT_DIR):
+    dirs[:] = [d for d in dirs if not d.startswith('.')]
+    for f in filenames:
+        if f.endswith('.md') and f != 'Welcome.md':
+            full = os.path.join(root, f)
+            rel = os.path.relpath(full, DRAFT_DIR)
+            mtime = os.path.getmtime(full)
+            files.append((mtime, full, rel))
+files.sort(reverse=True)
+for i, (mt, full, rel) in enumerate(files[:30], 1):
+    print(f"{i}|{full}|{rel}")
+PYLIST
+)
 
-if [ -z "$FILES" ]; then
+if [ -z "$LIST_OUTPUT" ]; then
     echo -e "${RED}   (tidak ada file .md)${NC}"
     echo -e "${GOLD}   Tulis draft di editor favorit, simpan di folder itu.${NC}"
     exit 1
@@ -48,14 +64,14 @@ fi
 
 i=1
 declare -a FILE_LIST
-for f in $FILES; do
-    title=$(basename "$f" .md)
-    modif=$(date -r "$f" "+%d %b %H:%M" 2>/dev/null || echo "—")
-    size=$(wc -l < "$f" 2>/dev/null || echo "0")
-    printf "   %2d) [%s] %s (%s baris)\n" "$i" "$modif" "$title" "$size"
-    FILE_LIST[$i]="$f"
+while IFS='|' read -r num full rel; do
+    title="${rel%.md}"
+    modif=$(date -r "$full" "+%d %b %H:%M" 2>/dev/null || echo "—")
+    size=$(wc -l < "$full" 2>/dev/null || echo "0")
+    printf "   %2d) [%s] %s (%s baris)\n" "$num" "$modif" "$title" "$size"
+    FILE_LIST[$num]="$full"
     i=$((i+1))
-done
+done <<< "$LIST_OUTPUT"
 
 TOTAL=$((i-1))
 echo ""
