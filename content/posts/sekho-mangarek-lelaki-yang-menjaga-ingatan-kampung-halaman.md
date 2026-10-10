@@ -14,11 +14,12 @@ description: "Di balik kesederhanaanya, Sekho Mangarek menjaga warisan Makantar:
 summary: "Di balik toko di pusat kota Tomohon, Edy “Sekho” Mangarek menyimpan perjalanan panjang bersama Makantar. Dari nyanyian gereja hingga lagu-lagu yang menyeberangi jarak, kisahnya adalah cerita tentang musik, identitas Minahasa, dan kerinduan yang membuat seseorang merasa pulang."
 ShowToc: true
 ShowShareButtons: true
+cover:
+  image: "/images/sekho-mangarek.webp"
+  alt: "Musisi Sekho Mangarek dari grup Makantar Makaaruyen mengenakan topi jerami dan kaus abu-abu, duduk di atas gerobak kayu tua bernuansa merah di tengah perkebunan kopi."
+  caption: 'Edy "Sekho" Mangarek — Di balik perjalanan Makantar, tersimpan kisah tentang musik, kebudayaan Minahasa, dan ingatan kampung halaman. (Foto: Sumber Facebook Sekho Mangarek)'
 ---
 
-*Di balik lagu-lagu Makantar, ada perjalanan seorang musisi Minahasa yang percaya bahwa musik bukan sekadar hiburan. Ia adalah rumah bagi ingatan, bahasa, dan kerinduan yang tak selalu bisa dibawa pulang.*
-
-# Sekho Mangarek: Lelaki yang Menjaga Ingatan Kampung Halaman
 
 *Di balik lagu-lagu Makantar, ada perjalanan seorang musisi Minahasa yang percaya bahwa musik bukan sekadar hiburan. Ia adalah rumah bagi ingatan, bahasa, dan kerinduan yang tak selalu bisa dibawa pulang.*
 
