@@ -9,7 +9,7 @@ set -e
 GREEN='\033[0;32m'; GOLD='\033[0;33m'; BLUE='\033[0;34m'
 RED='\033[0;31m'; NC='\033[0m'
 
-MARKOR_DIR="$HOME/storage/shared/Documents/markor"
+MARKOR_DIR="$HOME/storage/shared/Documents/markor/DORANG Drafts"
 PROJECT="$HOME/Projects/dorang-hugo"
 
 clear
