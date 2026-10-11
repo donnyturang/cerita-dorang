@@ -10,7 +10,7 @@ tags:
   - Musik Minahasa
   - Budaya Minahasa
   - Makaaruyen
-description: "Di balik kesederhanaanya, Sekho Mangarek menjaga warisan Makantar: lagu-lagu yang merawat ingatan, budaya Minahasa, dan rindu pada kampung halaman."
+description: "Di balik kesederhanaannya, Sekho Mangarek menjaga warisan Makantar: lagu-lagu yang merawat ingatan, budaya Minahasa, dan rindu pada kampung halaman."
 summary: "Di balik toko di pusat kota Tomohon, Edy “Sekho” Mangarek menyimpan perjalanan panjang bersama Makantar. Dari nyanyian gereja hingga lagu-lagu yang menyeberangi jarak, kisahnya adalah cerita tentang musik, identitas Minahasa, dan kerinduan yang membuat seseorang merasa pulang."
 ShowToc: true
 ShowShareButtons: true
