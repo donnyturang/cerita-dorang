@@ -1,4 +1,4 @@
-baseURL = 'https://ceritadorang.pages.dev/'
+baseURL = 'https://ceritadorang.com/'
 locale = 'id-ID'
 title = 'CERITA DORANG'
 theme = 'dorang'
