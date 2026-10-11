@@ -108,9 +108,11 @@
 {{ $style := resources.Get "css/main.css" | resources.Minify | resources.Fingerprint }}
 <link rel="stylesheet" href="{{ $style.RelPermalink }}">
 
-{{/* ========== HOMEPAGE FIX ========== */}}
+{{/* ========== HOMEPAGE FIX (hanya di homepage) ========== */}}
+{{ if .IsHome }}
 {{ $homefix := resources.Get "css/homepage-fix.css" | resources.Minify | resources.Fingerprint }}
 <link rel="stylesheet" href="{{ $homefix.RelPermalink }}">
+{{ end }}
 
 {{/* ========== FUSE.JS ========== */}}
 <script defer src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0/dist/fuse.min.js" integrity="sha384-PCSoOZTpbkikBEtd/+uV3WNdc676i9KUf01KOA8CnJotvlx8rRrETbDuwdjqTYvt" crossorigin="anonymous"></script>
