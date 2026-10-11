@@ -25,4 +25,4 @@ _backups/
 .indexnow-key
 
 # Backup script (pola: script.sh.backup-YYYYMMDD-HHMM)
-scripts/*.backup-*
+*.backup-*
