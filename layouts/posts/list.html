@@ -18,10 +18,11 @@
   {{ if .Pages }}
     <div class="dorang-grid">
       {{ range .Paginator.Pages }}
+        {{ $item := . }}
       <a href="{{ .RelPermalink }}" class="dorang-card">
         {{ with .Params.cover.image }}
         <div class="dorang-card-cover">
-          {{ partial "image.html" (dict "src" . "alt" ($.Params.cover.alt | default $.Title) "loading" "lazy" "sizes" "(max-width: 640px) 100vw, (max-width: 1100px) 45vw, 350px" "widths" (slice 400 800)) }}
+          {{ partial "image.html" (dict "src" . "alt" ($item.Params.cover.alt | default $item.Title) "loading" "lazy" "sizes" "(max-width: 640px) 100vw, (max-width: 1100px) 45vw, 350px" "widths" (slice 400 800)) }}
         </div>
         {{ end }}
         <h3 class="dorang-card-title">{{ .Title }}</h3>
