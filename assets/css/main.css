@@ -1,0 +1,3022 @@
+/* ============================================================
+   TEMA DORANG — CSS Utama
+   Cerita yang Layak untuk Diceritakan
+   ============================================================ */
+
+/* ---------- Variabel Warna ---------- */
+:root {
+  --primary: #2c3e50;
+  --accent: #c49a6c;
+  --accent-dark: #8c6838;
+  --text: #1a1a1a;
+  --muted: #666;
+  --bg: #ffffff;
+  --soft: #f8f5f0;
+  --border: #e6e6e6;
+  --reading: 760px;
+  --max: 1100px;
+}
+
+/* Dark mode */
+[data-theme="dark"] {
+  --text: #e6e6e6;
+  --muted: #a0a0a0;
+  --bg: #1a1a1a;
+  --soft: #252525;
+  --border: #3a3a3a;
+  --primary: #e6e6e6;
+  --accent: #d4a878;
+  --accent-dark: #c49a6c;
+}
+
+/* ---------- Reset Dasar ---------- */
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 18px;
+  line-height: 1.8;
+  overflow-wrap: break-word;
+}
+
+a { color: inherit; text-decoration: none; }
+
+img { max-width: 100%; height: auto; }
+
+/* ---------- Header ---------- */
+.site-header {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: transform 0.35s ease-in-out;
+}
+
+[data-theme="dark"] .site-header {
+  background: rgba(26, 26, 26, 0.95);
+}
+
+.header-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 20px 22px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.header-brand {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-name {
+  font-family: Georgia, serif;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--primary);
+  position: relative;
+  padding-bottom: 6px;
+  display: inline-block;
+  transition: color 0.25s ease;
+}
+
+.brand-name::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 30px;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.brand-name:hover { color: var(--accent); }
+.brand-name:hover::after { width: 100%; }
+
+.brand-tagline {
+  font-style: italic;
+  font-size: 13px;
+  color: var(--muted);
+  letter-spacing: 0.5px;
+  margin-top: 4px;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  font-family: Georgia, serif;
+  font-size: 15px;
+}
+
+.site-nav a {
+  color: var(--primary);
+  position: relative;
+  padding: 6px 0;
+  transition: color 0.25s ease;
+}
+
+.site-nav a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+
+.site-nav a:hover {
+  color: var(--accent);
+}
+
+.site-nav a:hover::after {
+  width: 100%;
+}
+
+#theme-toggle {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+#theme-toggle:hover {
+  border-color: var(--accent);
+  transform: rotate(15deg);
+}
+
+/* ---------- Main Content ---------- */
+.site-main {
+  max-width: var(--reading);
+  margin: 0 auto;
+  padding: 40px 22px 60px;
+}
+
+h1, h2, h3, h4 {
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--primary);
+  line-height: 1.3;
+  margin: 1.5em 0 0.5em;
+}
+
+h1 {
+  font-size: clamp(28px, 5vw, 42px);
+  font-weight: 800;
+  letter-spacing: -0.3px;
+  margin-top: 0;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: 700;
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 8px;
+}
+
+h3 { font-size: 20px; }
+
+p { margin: 0 0 1.2em; }
+
+hr {
+  border: none;
+  text-align: center;
+  margin: 30px 0;
+}
+
+hr::before {
+  content: "❋  ❋  ❋";
+  color: var(--accent);
+  letter-spacing: 8px;
+  font-size: 12px;
+}
+
+/* ---------- Daftar Artikel (Homepage) ---------- */
+.site-main ul {
+  list-style: none;
+  padding: 0;
+}
+
+.site-main ul li {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.site-main ul li a {
+  font-family: Arial, sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--primary);
+  transition: color 0.2s ease;
+}
+
+.site-main ul li a:hover {
+  color: var(--accent-dark);
+}
+
+.site-main ul li small {
+  font-style: italic;
+  font-size: 13px;
+  color: var(--muted);
+  margin-left: 8px;
+}
+
+/* ---------- Blockquote ---------- */
+blockquote {
+  border-left: 4px solid var(--accent);
+  padding: 12px 20px;
+  margin: 1.8em 0;
+  font-style: italic;
+  background: var(--soft);
+  border-radius: 0 6px 6px 0;
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  border-top: 1px solid var(--border);
+  background: var(--soft);
+  padding: 40px 22px 30px;
+}
+
+.footer-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.footer-brand a {
+  font-family: Georgia, serif;
+  font-size: 20px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--primary);
+  transition: color 0.25s ease;
+}
+
+.footer-brand a:hover { color: var(--accent); }
+
+.footer-tagline {
+  font-style: italic;
+  font-size: 13px;
+  color: var(--muted);
+  margin: 6px 0 20px;
+}
+
+.footer-nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 14px;
+  margin-bottom: 18px;
+}
+
+.footer-nav a {
+  color: var(--muted);
+  transition: color 0.2s ease;
+}
+
+.footer-nav a:hover { color: var(--accent-dark); }
+
+.footer-sep {
+  color: var(--border);
+}
+
+.footer-legal {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 12px;
+  font-style: italic;
+  color: var(--muted);
+  margin-bottom: 24px;
+}
+
+.footer-legal a {
+  color: var(--muted);
+  transition: color 0.2s ease;
+}
+
+.footer-legal a:hover { color: var(--accent-dark); }
+
+.footer-follow {
+  border-top: 1px solid var(--border);
+  padding-top: 20px;
+  margin-bottom: 20px;
+}
+
+.footer-follow-label {
+  display: block;
+  font-family: Arial, sans-serif;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--primary);
+  opacity: 0.85;
+  margin-bottom: 14px;
+}
+
+.footer-social {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-social li { margin: 0; }
+
+.footer-social a {
+  display: inline-block;
+  padding: 7px 14px;
+  font-family: Arial, sans-serif;
+  font-size: 12.5px;
+  color: var(--primary);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.footer-social a:hover {
+  color: var(--accent-dark);
+  border-color: var(--accent);
+  background-color: rgba(196, 154, 108, 0.08);
+}
+
+.footer-copyright {
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: var(--muted);
+  text-transform: uppercase;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.footer-copyright strong {
+  color: var(--primary);
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 768px) {
+  .header-inner {
+    padding: 16px;
+  }
+  
+  .brand-name {
+    font-size: 20px;
+    letter-spacing: 2px;
+  }
+  
+  .brand-tagline {
+    font-size: 11px;
+  }
+  
+  .site-nav {
+    gap: 16px;
+    font-size: 13.5px;
+    width: 100%;
+    justify-content: flex-end;
+  }
+  
+  .site-main {
+    padding: 24px 16px 40px;
+  }
+  
+  h1 { font-size: 26px; }
+  h2 { font-size: 20px; }
+  
+  .footer-inner {
+    padding: 0;
+  }
+}
+
+/* ============================================================
+   FITUR KHAS DORANG
+   ============================================================ */
+
+/* ---------- 1. TOC (Daftar Isi) Otomatis ---------- */
+.dorang-toc {
+  background: linear-gradient(135deg, #fdfcfa 0%, #f8f5f0 100%);
+  border-left: 4px solid var(--accent);
+  border-radius: 10px;
+  padding: 20px 24px;
+  margin: 30px 0;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="dark"] .dorang-toc {
+  background: #252525;
+}
+
+.dorang-toc-title {
+  font-family: Georgia, serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 0 0 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(196, 154, 108, 0.3);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.dorang-toc-list {
+  list-style: none;
+  counter-reset: toc-counter;
+  margin: 0;
+  padding: 0;
+}
+
+.dorang-toc-list li {
+  counter-increment: toc-counter;
+  position: relative;
+  padding: 7px 0 7px 38px;
+  line-height: 1.55;
+  border-bottom: 1px dashed rgba(196, 154, 108, 0.15);
+}
+
+.dorang-toc-list li:last-child {
+  border-bottom: none;
+}
+
+.dorang-toc-list li::before {
+  content: counter(toc-counter, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: Georgia, serif;
+  font-size: 11px;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--accent);
+  width: 26px;
+  text-align: right;
+  opacity: 0.85;
+}
+
+.dorang-toc-list li a {
+  font-family: Georgia, serif;
+  font-size: 14px;
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.dorang-toc-list li a:hover {
+  color: var(--accent);
+  transform: translateX(3px);
+  display: inline-block;
+}
+
+.dorang-toc-sub {
+  padding-left: 52px;
+}
+
+.dorang-toc-sub::before {
+  content: "–";
+  font-size: 13px;
+  color: var(--accent);
+  opacity: 0.5;
+  width: 42px;
+}
+
+/* ---------- 2. Kotak Referensi Otomatis ---------- */
+.referensi {
+  background: linear-gradient(135deg, #fdfcfa 0%, #f8f5f0 100%);
+  border-left: 4px solid var(--accent);
+  border-radius: 0 10px 10px 0;
+  padding: 22px 26px 18px;
+  margin: 32px 0;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+[data-theme="dark"] .referensi {
+  background: #252525;
+}
+
+.referensi h2 {
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin: 0 0 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+  border-top: none;
+}
+
+.referensi ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  counter-reset: ref-counter;
+}
+
+.referensi ol li {
+  counter-increment: ref-counter;
+  position: relative;
+  padding: 0 0 0 28px;
+  margin: 0 0 9px;
+  font-size: 12.5px;
+  line-height: 1.55;
+}
+
+.referensi ol li::before {
+  content: counter(ref-counter) ".";
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-weight: 700;
+  color: var(--accent-dark);
+  width: 22px;
+}
+
+.referensi strong {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+/* ---------- 3. Callout DORANG ---------- */
+.dorang-callout {
+  background: linear-gradient(135deg, #fdfcfa 0%, #f8f5f0 100%);
+  border-left: 4px solid var(--accent);
+  border-radius: 0 10px 10px 0;
+  padding: 24px 28px;
+  margin: 2.5em 0 1.5em;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="dark"] .dorang-callout {
+  background: #252525;
+}
+
+.dorang-callout-label {
+  display: inline-block;
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--accent-dark);
+  background: rgba(196, 154, 108, 0.12);
+  padding: 5px 12px;
+  border-radius: 999px;
+  margin-bottom: 14px;
+}
+
+.dorang-callout-text {
+  font-family: Georgia, serif;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--text);
+  margin: 0 0 14px;
+}
+
+.dorang-callout-link {
+  display: inline-block;
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--accent-dark);
+  text-decoration: none;
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 3px;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.dorang-callout-link:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+/* ---------- 4. Gambar Cover dengan Grayscale ---------- */
+.post-cover {
+  margin: 2em 0;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(44, 62, 80, 0.1);
+}
+
+.post-cover img {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: grayscale(100%);
+  transition: filter 0.4s ease, transform 0.4s ease;
+}
+
+.post-cover:hover img {
+  filter: grayscale(0%);
+  transform: scale(1.02);
+}
+
+.post-cover figcaption {
+  font-family: Georgia, serif;
+  font-size: 12.5px;
+  font-style: italic;
+  color: var(--muted);
+  text-align: center;
+  padding: 12px 16px;
+  background: rgba(196, 154, 108, 0.06);
+}
+
+/* ---------- 5. Breadcrumb ---------- */
+.dorang-breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin: 0 0 16px;
+  font: italic 12px/1.5 Georgia, serif;
+  color: var(--muted);
+}
+
+.dorang-breadcrumb a {
+  color: var(--muted);
+  transition: color 0.2s ease;
+}
+
+.dorang-breadcrumb a:hover {
+  color: var(--accent-dark);
+}
+
+.dorang-breadcrumb .bc-sep {
+  color: var(--accent);
+  opacity: 0.65;
+}
+
+.dorang-breadcrumb .bc-current {
+  color: var(--primary);
+  font-style: normal;
+}
+
+/* ---------- Mobile Responsif untuk Fitur Khas ---------- */
+@media (max-width: 600px) {
+  .dorang-toc { padding: 16px 18px; }
+  .dorang-toc-list li { padding-left: 32px; }
+  .dorang-toc-list li a { font-size: 13px; }
+  .dorang-toc-list li::before { width: 22px; font-size: 10px; }
+  .dorang-toc-sub { padding-left: 44px; }
+  
+  .referensi { padding: 18px 16px; }
+  .referensi ol li { padding-left: 24px; font-size: 12px; }
+  
+  .dorang-callout { padding: 20px 22px; }
+  .dorang-callout-text { font-size: 14px; }
+  .dorang-callout-link { font-size: 14px; }
+}
+
+/* ============================================================
+   HALAMAN 404 KUSTOM
+   ============================================================ */
+.dorang-404 {
+  max-width: 600px;
+  margin: 60px auto;
+  text-align: center;
+}
+
+.dorang-404-code {
+  font-family: Arial, sans-serif;
+  font-size: 120px;
+  font-weight: 900;
+  line-height: 1;
+  color: var(--accent);
+  margin: 0 0 16px;
+  letter-spacing: -4px;
+  opacity: 0.85;
+}
+
+.dorang-404-title {
+  font-family: Arial, sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 0 0 16px;
+  border-bottom: none;
+}
+
+.dorang-404-text {
+  font-family: Georgia, serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--muted);
+  margin: 0 0 32px;
+}
+
+.dorang-404-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.dorang-404-btn {
+  display: inline-block;
+  padding: 12px 26px;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--accent-dark);
+  border: 2px solid var(--accent-dark);
+  border-radius: 999px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.dorang-404-btn:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.dorang-404-btn-outline {
+  background: transparent;
+  color: var(--accent-dark);
+}
+
+.dorang-404-btn-outline:hover {
+  background: var(--accent-dark);
+  color: #fff;
+}
+
+@media (max-width: 600px) {
+  .dorang-404-code { font-size: 80px; }
+  .dorang-404-title { font-size: 20px; }
+}
+
+/* ============================================================
+   HOMEPAGE EDITORIAL DORANG
+   ============================================================ */
+.dorang-home {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.dorang-section {
+  margin: 3em 0;
+}
+
+.dorang-section-title {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--primary);
+  padding-bottom: 10px;
+  border-bottom: 3px solid var(--primary);
+  margin: 0 0 24px;
+}
+
+/* ---------- SOROTAN — Hero Horizontal ---------- */
+.dorang-hero {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  text-decoration: none;
+  color: inherit;
+  background: var(--soft);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 18px rgba(44, 62, 80, 0.08);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.dorang-hero:hover {
+  box-shadow: 0 10px 30px rgba(44, 62, 80, 0.15);
+  transform: translateY(-2px);
+}
+
+.dorang-hero-image {
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+  overflow: hidden;
+  background: var(--soft);
+}
+
+.dorang-hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  filter: grayscale(100%);
+  transition: filter 0.4s ease, transform 0.5s ease;
+}
+
+.dorang-hero:hover .dorang-hero-image img {
+  filter: grayscale(0%);
+  transform: scale(1.03);
+}
+
+.dorang-hero-content {
+  padding: 32px 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.dorang-hero-title {
+  font-family: Arial, sans-serif;
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1.25;
+  margin: 0 0 14px;
+  color: var(--primary);
+  letter-spacing: -0.3px;
+  border-bottom: none;
+  padding: 0;
+}
+
+.dorang-hero-summary {
+  font-family: Georgia, serif;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--text);
+  margin: 0 0 18px;
+}
+
+.dorang-hero-meta {
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* ---------- TAHUKAH ANDA — Grid 3 Kolom ---------- */
+.dorang-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.dorang-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.25s ease;
+}
+
+.dorang-card:hover {
+  transform: translateY(-3px);
+}
+
+.dorang-card-cover {
+  width: 100%;
+  aspect-ratio: 4/3;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--soft);
+  margin-bottom: 14px;
+}
+
+.dorang-card-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  filter: grayscale(100%);
+  transition: filter 0.4s ease, transform 0.4s ease;
+}
+
+.dorang-card:hover .dorang-card-cover img {
+  filter: grayscale(0%);
+  transform: scale(1.04);
+}
+
+.dorang-card-title {
+  font-family: Arial, sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.3;
+  margin: 0 0 6px;
+  color: var(--primary);
+  letter-spacing: -0.2px;
+  border-bottom: none;
+  padding: 0;
+}
+
+.dorang-card:hover .dorang-card-title {
+  color: var(--accent-dark);
+}
+
+.dorang-card-summary {
+  font-family: Georgia, serif;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--muted);
+  margin: 0;
+}
+
+/* ---------- SOSOK — List Horizontal ---------- */
+.dorang-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.dorang-list-item {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 22px;
+  text-decoration: none;
+  color: inherit;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--border);
+  transition: padding-left 0.25s ease;
+}
+
+.dorang-list-item:hover {
+  padding-left: 8px;
+}
+
+.dorang-list-item:last-child {
+  border-bottom: none;
+}
+
+.dorang-list-cover {
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  border-radius: 8px;
+  background: var(--soft);
+}
+
+.dorang-list-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  filter: grayscale(100%);
+  transition: filter 0.4s ease, transform 0.4s ease;
+}
+
+.dorang-list-item:hover .dorang-list-cover img {
+  filter: grayscale(0%);
+  transform: scale(1.04);
+}
+
+.dorang-list-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.dorang-list-title {
+  font-family: Arial, sans-serif;
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.3;
+  margin: 0 0 8px;
+  color: var(--primary);
+  letter-spacing: -0.2px;
+  border-bottom: none;
+  padding: 0;
+}
+
+.dorang-list-item:hover .dorang-list-title {
+  color: var(--accent-dark);
+}
+
+.dorang-list-summary {
+  font-family: Georgia, serif;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--muted);
+  margin: 0;
+}
+
+/* ---------- LIHAT SEMUA TULISAN ---------- */
+.dorang-viewall {
+  text-align: center;
+  margin: 4em 0 1em;
+  padding-top: 2em;
+  border-top: 1px solid var(--border);
+}
+
+.dorang-viewall-link {
+  display: inline-block;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent-dark);
+  text-decoration: none;
+  padding: 14px 32px;
+  border: 2px solid var(--accent);
+  border-radius: 999px;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.dorang-viewall-link:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* ---------- Dark Mode Homepage ---------- */
+[data-theme="dark"] .dorang-hero {
+  background: #252525;
+}
+
+[data-theme="dark"] .dorang-section-title {
+  color: #e6e6e6;
+  border-bottom-color: #e6e6e6;
+}
+
+[data-theme="dark"] .dorang-list-item {
+  border-bottom-color: #3a3a3a;
+}
+
+[data-theme="dark"] .dorang-hero-title,
+[data-theme="dark"] .dorang-card-title,
+[data-theme="dark"] .dorang-list-title {
+  color: #e6e6e6;
+}
+
+[data-theme="dark"] .dorang-hero-summary {
+  color: #b0b0b0;
+}
+
+/* ---------- Mobile Homepage ---------- */
+@media (max-width: 768px) {
+  .dorang-hero { grid-template-columns: 1fr; }
+  .dorang-hero-image { min-height: 220px; }
+  .dorang-hero-content { padding: 22px 22px 24px; }
+  .dorang-hero-title { font-size: 21px; }
+  
+  .dorang-grid { grid-template-columns: 1fr; gap: 22px; }
+  
+  .dorang-list-item {
+    grid-template-columns: 110px 1fr;
+    gap: 14px;
+    padding: 16px 0;
+  }
+  .dorang-list-title { font-size: 16px; }
+  .dorang-list-summary {
+    font-size: 13.5px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+/* ============================================
+   Callout: Baca Juga di DORANG
+   ============================================ */
+.baca-juga-callout {
+  border-left: 4px solid #c9a227;
+  background: #fdfaf0;
+  padding: 1rem 1.25rem;
+  margin: 1.75rem 0;
+  border-radius: 4px;
+}
+
+.baca-juga-label {
+  display: inline-block;
+  background: #c9a227;
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 0.25rem 0.7rem;
+  border-radius: 3px;
+  margin-bottom: 0.6rem;
+  text-transform: uppercase;
+}
+
+.baca-juga-link {
+  color: #c9a227;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 0.6rem;
+}
+
+.baca-juga-link:hover {
+  color: #a88518;
+  text-decoration: underline;
+}
+
+[data-theme="dark"] .baca-juga-callout {
+  background: #1e1e1e;
+  border-left-color: #d4af37;
+}
+
+[data-theme="dark"] .baca-juga-link {
+  color: #d4af37;
+}
+
+/* ============================================
+   List Page (Kategori & Arsip)
+   ============================================ */
+.dorang-list-page {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.dorang-list-header {
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid #c9a227;
+}
+
+.dorang-list-header h1 {
+  margin: 0 0 0.5rem 0;
+}
+
+.dorang-list-description {
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: #666;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+.dorang-card-body {
+  padding: 0.75rem 0.25rem 0;
+}
+
+.dorang-card-meta {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: #999;
+  font-style: italic;
+}
+
+/* Paginasi */
+.dorang-pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 3rem 0 1rem 0;
+  padding: 1.5rem 0;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.dorang-page-link {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  color: #c9a227;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  border: 1px solid #c9a227;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.dorang-page-link:hover {
+  background: #c9a227;
+  color: #fff;
+}
+
+.dorang-page-link.disabled {
+  color: #ccc;
+  border-color: #eee;
+  cursor: not-allowed;
+}
+
+.dorang-page-info {
+  font-size: 0.85rem;
+  color: #888;
+  font-style: italic;
+}
+
+.dorang-list-back {
+  margin-top: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.dorang-empty {
+  padding: 3rem 1rem;
+  text-align: center;
+  color: #999;
+}
+
+/* Dark mode */
+[data-theme="dark"] .dorang-list-header {
+  border-bottom-color: #d4af37;
+}
+
+[data-theme="dark"] .dorang-list-description {
+  color: #a0a0a0;
+}
+
+[data-theme="dark"] .dorang-page-link {
+  color: #d4af37;
+  border-color: #d4af37;
+}
+
+[data-theme="dark"] .dorang-page-link:hover {
+  background: #d4af37;
+  color: #1a1a1a;
+}
+
+[data-theme="dark"] .dorang-pagination {
+  border-color: #333;
+}
+.dorang-list-back { text-align: center; margin-top: 3rem; }
+
+/* ===== Prev/Next Navigation ===== */
+.dorang-post-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 3rem 0 2rem 0; padding: 1.5rem 0; border-top: 1px solid #eee; border-bottom: 1px solid #eee; }
+.dorang-post-nav-link { display: flex; flex-direction: column; text-decoration: none; padding: 0.75rem 1rem; border: 1px solid #eee; border-radius: 4px; transition: all 0.2s ease; }
+.dorang-post-nav-link:hover { border-color: #c9a227; background: #fdfaf0; }
+.dorang-nav-next { text-align: right; }
+.dorang-nav-label { font-size: 0.75rem; color: #c9a227; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 0.3rem; }
+.dorang-nav-title { font-size: 0.95rem; color: #333; font-weight: 500; line-height: 1.4; }
+.dorang-post-nav-link:hover .dorang-nav-title { color: #c9a227; }
+
+/* ===== Related Posts ===== */
+.dorang-related { margin: 3rem 0 2rem 0; }
+.dorang-related-title { font-size: 1.1rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #2c3e50; margin-bottom: 1.5rem; padding-bottom: 0.75rem; border-bottom: 2px solid #c9a227; }
+.dorang-related-grid { grid-template-columns: repeat(3, 1fr); }
+.dorang-related-grid .dorang-card-title { font-size: 1rem; }
+.dorang-post-back { margin-top: 2rem; text-align: center; }
+
+[data-theme="dark"] .dorang-post-nav { border-color: #333; }
+[data-theme="dark"] .dorang-post-nav-link { border-color: #333; }
+[data-theme="dark"] .dorang-post-nav-link:hover { border-color: #d4af37; background: #1e1e1e; }
+[data-theme="dark"] .dorang-nav-title { color: #e0e0e0; }
+[data-theme="dark"] .dorang-related-title { color: #d4af37; border-bottom-color: #d4af37; }
+
+@media (max-width: 720px) {
+  .dorang-post-nav { grid-template-columns: 1fr; }
+  .dorang-related-grid { grid-template-columns: 1fr; }
+}
+
+
+/* Fix: batas tinggi cover di kartu terkait */
+.dorang-related-grid .dorang-card-cover { max-height: 180px; overflow: hidden; }
+.dorang-related-grid .dorang-card-cover img { width: 100%; height: 180px; object-fit: cover; }
+
+/* ===== Floating Scroll Nav ===== */
+.dorang-scroll-nav { position: fixed; right: 24px; bottom: 24px; display: flex; flex-direction: column; gap: 10px; z-index: 999; }
+.dorang-scroll-btn { width: 44px; height: 44px; border-radius: 50%; border: none; background: #2c3e50; color: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.15); opacity: 0; visibility: hidden; transform: translateY(10px); transition: all 0.3s ease; padding: 0; }
+.dorang-scroll-btn.visible { opacity: 1; visibility: visible; transform: translateY(0); }
+.dorang-scroll-btn:hover { background: #c9a227; box-shadow: 0 6px 16px rgba(201,162,39,0.35); transform: translateY(-2px); }
+.dorang-scroll-btn:active { transform: translateY(0); }
+[data-theme="dark"] .dorang-scroll-btn { background: #4a5f7a; }
+[data-theme="dark"] .dorang-scroll-btn:hover { background: #d4af37; }
+@media (max-width: 720px) { .dorang-scroll-nav { right: 16px; bottom: 16px; gap: 8px; } .dorang-scroll-btn { width: 40px; height: 40px; } }
+
+
+/* ===== Search Modal ===== */
+.search-toggle { background: transparent; border: 1px solid var(--border, #ddd); border-radius: 50%; width: 36px; height: 36px; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; font-size: 15px; transition: all 0.2s ease; padding: 0; }
+.search-toggle:hover { border-color: var(--accent, #c9a227); background: rgba(201, 162, 39, 0.08); }
+.dorang-search-modal { position: fixed; inset: 0; z-index: 9999; display: none; align-items: flex-start; justify-content: center; padding-top: 8vh; }
+.dorang-search-modal.open { display: flex; }
+.dorang-search-overlay { position: absolute; inset: 0; background: rgba(0, 0, 0, 0.5); backdrop-filter: blur(2px); animation: fadeIn 0.2s ease; }
+.dorang-search-panel { position: relative; width: 100%; max-width: 640px; margin: 0 16px; background: #fff; border-radius: 12px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25); overflow: hidden; animation: slideDown 0.25s ease; }
+.dorang-search-header { display: flex; align-items: center; gap: 12px; padding: 16px 18px; border-bottom: 1px solid #eee; }
+.dorang-search-icon { color: #888; flex-shrink: 0; }
+.dorang-search-input { flex: 1; border: none; outline: none; font-size: 16px; background: transparent; color: #222; font-family: inherit; }
+.dorang-search-input::placeholder { color: #aaa; }
+.dorang-search-close { background: transparent; border: none; font-size: 24px; color: #888; cursor: pointer; padding: 0 6px; line-height: 1; transition: color 0.15s; }
+.dorang-search-close:hover { color: #c9a227; }
+.dorang-search-results { max-height: 60vh; overflow-y: auto; padding: 8px 0; }
+.dorang-search-hint { padding: 20px; text-align: center; color: #999; font-size: 0.9rem; margin: 0; }
+.dorang-search-result { display: block; padding: 14px 20px; text-decoration: none; color: inherit; border-bottom: 1px solid #f5f5f5; transition: background 0.15s; }
+.dorang-search-result:last-child { border-bottom: none; }
+.dorang-search-result:hover { background: #fdfaf0; }
+.dorang-search-result-title { font-weight: 600; color: #2c3e50; margin: 0 0 4px; font-size: 1rem; line-height: 1.4; }
+.dorang-search-result-summary { font-size: 0.85rem; color: #777; margin: 0 0 4px; line-height: 1.5; }
+.dorang-search-result-meta { font-size: 0.75rem; color: #aaa; font-style: italic; }
+.dorang-search-no-result { padding: 24px; text-align: center; color: #999; font-size: 0.9rem; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideDown { from { opacity: 0; transform: translateY(-12px); } to { opacity: 1; transform: translateY(0); } }
+[data-theme="dark"] .dorang-search-panel { background: #1e1e1e; }
+[data-theme="dark"] .dorang-search-header { border-bottom-color: #333; }
+[data-theme="dark"] .dorang-search-input { color: #e0e0e0; }
+[data-theme="dark"] .dorang-search-result { border-bottom-color: #2a2a2a; }
+[data-theme="dark"] .dorang-search-result:hover { background: #2a2a2a; }
+[data-theme="dark"] .dorang-search-result-title { color: #e0e0e0; }
+[data-theme="dark"] .dorang-search-result-summary { color: #a0a0a0; }
+[data-theme="dark"] .search-toggle { border-color: #444; color: #e0e0e0; }
+@media (max-width: 640px) {
+  .dorang-search-modal { padding-top: 4vh; }
+  .dorang-search-input { font-size: 15px; }
+}
+
+/* ===== Footer Mobile — Satu Baris Per Grup ===== */
+@media (max-width: 640px) {
+  .site-footer { padding: 28px 16px 70px; }
+
+  .footer-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 3px 4px;
+    margin: 16px 0;
+  }
+  .footer-nav a {
+    font-size: 0.72rem;
+    white-space: nowrap;
+    line-height: 1.6;
+  }
+  .footer-nav .footer-sep {
+    display: inline;
+    color: #ccc;
+    font-size: 0.72rem;
+    margin: 0 2px;
+  }
+
+  .footer-legal {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 3px 5px;
+    margin: 14px 0;
+  }
+  .footer-legal a {
+    font-size: 0.68rem;
+    white-space: nowrap;
+    font-style: italic;
+    line-height: 1.5;
+  }
+  .footer-legal .separator {
+    display: inline;
+    color: #ccc;
+    font-size: 0.68rem;
+  }
+
+  .footer-social {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin: 12px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+  .footer-social li { margin: 0; }
+  .footer-social a {
+    font-size: 0.68rem;
+    padding: 3px 7px;
+    white-space: nowrap;
+    line-height: 1.4;
+  }
+  .footer-follow-label {
+    display: block;
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 0.78rem;
+  }
+}
+
+/* Fix: hindari padding bertumpuk di beranda (mobile) */
+@media (max-width: 768px) {
+  .dorang-home { padding-bottom: 0; }
+  .dorang-viewall { margin-bottom: 0.5em; }
+}
+
+/* Fix gap lebih agresif untuk mobile */
+@media (max-width: 768px) {
+  .site-main { padding-bottom: 24px; }
+}
+
+/* Fix gap lebih agresif: rapatkan section terakhir + viewall */
+@media (max-width: 768px) {
+  .dorang-home > .dorang-section:last-of-type { margin-bottom: 1.5em; }
+  .dorang-viewall { margin-top: 1.5em; padding-top: 1em; margin-bottom: 0.5em; }
+}
+
+/* ============================================
+   Share Buttons
+   ============================================ */
+.dorang-share { margin: 3rem 0 2rem; padding: 2rem 1rem; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.dorang-share-title { font-family: Arial, sans-serif; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); text-align: center; margin: 0 0 1.25rem; }
+.dorang-share-list { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; list-style: none; padding: 0; margin: 0; max-width: 560px; margin-left: auto; margin-right: auto; }
+.dorang-share-list li { margin: 0; }
+.dorang-share-btn { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; padding: 12px 8px; border-radius: 10px; background: var(--soft, #f8f5f0); color: var(--primary); text-decoration: none; border: 1px solid var(--border); transition: all 0.2s ease; cursor: pointer; font-family: inherit; font-size: inherit; }
+.dorang-share-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08); }
+.dorang-share-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.03em; text-align: center; line-height: 1.2; }
+.dorang-share-btn svg { flex-shrink: 0; }
+
+/* Warna brand saat hover */
+.dorang-share-wa:hover { background: #25D366; color: #fff; border-color: #25D366; }
+.dorang-share-fb:hover { background: #1877F2; color: #fff; border-color: #1877F2; }
+.dorang-share-x:hover { background: #000; color: #fff; border-color: #000; }
+.dorang-share-bsky:hover { background: #0085FF; color: #fff; border-color: #0085FF; }
+.dorang-share-tg:hover { background: #229ED9; color: #fff; border-color: #229ED9; }
+.dorang-share-email:hover { background: #6c757d; color: #fff; border-color: #6c757d; }
+.dorang-share-li:hover { background: #0A66C2; color: #fff; border-color: #0A66C2; }
+.dorang-share-copy:hover { background: var(--accent, #c9a227); color: #fff; border-color: var(--accent, #c9a227); }
+.dorang-share-copy.copied { background: #16a34a; color: #fff; border-color: #16a34a; }
+
+/* Dark Mode Share */
+[data-theme="dark"] .dorang-share-btn { background: #252525; color: #e0e0e0; border-color: #333; }
+[data-theme="dark"] .dorang-share-btn:hover { color: #fff; }
+[data-theme="dark"] .dorang-share-title { color: #a0a0a0; }
+[data-theme="dark"] .dorang-share { border-color: #333; }
+
+/* Mobile: 4 kolom tetap, sedikit lebih kecil */
+@media (max-width: 640px) {
+  .dorang-share-list { grid-template-columns: repeat(4, 1fr); gap: 8px; }
+  .dorang-share-btn { padding: 10px 4px; border-radius: 8px; }
+  .dorang-share-label { font-size: 0.65rem; }
+  .dorang-share-btn svg { width: 18px; height: 18px; }
+}
+
+/* ===== Skip Link (Aksesibilitas) ===== */
+.dorang-skip-link {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  background: var(--primary, #2c3e50);
+  color: #fff;
+  padding: 10px 16px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border-radius: 0 0 6px 0;
+  z-index: 10000;
+  transition: top 0.2s ease;
+}
+
+.dorang-skip-link:focus {
+  top: 0;
+  outline: 2px solid var(--accent, #c9a227);
+  outline-offset: 2px;
+}
+
+/* ============================================
+   Arsip — Halaman /arsip/
+   ============================================ */
+.dorang-archive { max-width: 780px; margin: 0 auto; }
+.dorang-archive-header { margin-bottom: 1rem; padding-bottom: 1.5rem; border-bottom: 2px solid var(--accent); }
+.dorang-archive-header h1 { margin: 0 0 0.5rem 0; }
+.dorang-archive-desc { margin: 0; color: var(--muted); font-style: italic; font-size: 0.95rem; }
+.dorang-archive-count { font-size: 0.85rem; color: var(--muted); margin: 1rem 0 2rem; letter-spacing: 0.05em; text-transform: uppercase; }
+
+.dorang-archive-year { margin-bottom: 3rem; }
+.dorang-archive-year-title { font-family: Georgia, serif; font-size: 2rem; color: var(--primary); margin: 0 0 1.5rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); }
+
+.dorang-archive-month { margin-bottom: 2rem; }
+.dorang-archive-month-title { font-family: Arial, sans-serif; font-size: 0.95rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent-dark); margin: 0 0 0.75rem; }
+
+.dorang-archive-list { list-style: none; padding: 0; margin: 0; }
+.dorang-archive-item { display: flex; align-items: baseline; gap: 0.75rem; padding: 0.6rem 0; border-bottom: 1px solid var(--border); }
+.dorang-archive-item:last-child { border-bottom: none; }
+.dorang-archive-date { font-family: Georgia, serif; font-size: 1rem; color: var(--muted); font-style: italic; min-width: 2rem; flex-shrink: 0; }
+.dorang-archive-link { color: var(--primary); text-decoration: none; font-weight: 500; flex: 1; transition: color 0.2s ease; }
+.dorang-archive-link:hover { color: var(--accent-dark); }
+.dorang-archive-cat { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); background: var(--soft); padding: 0.2rem 0.5rem; border-radius: 3px; flex-shrink: 0; }
+.dorang-archive-back { margin-top: 3rem; text-align: center; }
+
+[data-theme="dark"] .dorong-archive-year-title,
+[data-theme="dark"] .dorang-archive-year-title { color: #e0e0e0; }
+[data-theme="dark"] .dorong-archive-month-title,
+[data-theme="dark"] .dorang-archive-month-title { color: #d4af37; }
+[data-theme="dark"] .dorong-archive-link,
+[data-theme="dark"] .dorang-archive-link { color: #e0e0e0; }
+[data-theme="dark"] .dorong-archive-link:hover,
+[data-theme="dark"] .dorang-archive-link:hover { color: #d4af37; }
+[data-theme="dark"] .dorong-archive-item,
+[data-theme="dark"] .dorang-archive-item { border-color: #333; }
+[data-theme="dark"] .dorong-archive-cat,
+[data-theme="dark"] .dorang-archive-cat { background: #333; color: #b0b0b0; }
+
+@media (max-width: 640px) {
+  .dorong-archive-item,
+  .dorang-archive-item { flex-wrap: wrap; gap: 0.4rem; }
+  .dorong-archive-date,
+  .dorang-archive-date { min-width: 1.8rem; font-size: 0.95rem; }
+  .dorong-archive-link,
+  .dorang-archive-link { font-size: 0.95rem; width: 100%; }
+  .dorong-archive-cat,
+  .dorang-archive-cat { margin-left: 2.2rem; }
+  .dorong-archive-year-title,
+  .dorang-archive-year-title { font-size: 1.6rem; }
+}
+
+/* ============================================
+   Newsletter — Form Berlangganan (Buttondown)
+   ============================================ */
+.dorang-newsletter {
+  text-align: center;
+  margin: 2rem auto 1.5rem;
+  max-width: 420px;
+  padding: 0 1rem;
+}
+.dorang-newsletter-title {
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin: 0 0 0.5rem;
+}
+.dorang-newsletter-desc {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin: 0 0 1rem;
+  font-style: italic;
+}
+.dorang-newsletter-form {
+  display: flex;
+  gap: 0.5rem;
+  align-items: stretch;
+  max-width: 100%;
+}
+.dorang-newsletter-input {
+  flex: 1;
+  padding: 0.65rem 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 0.9rem;
+  color: var(--text);
+  background: #fff;
+  transition: border-color 0.2s ease;
+  min-width: 0;
+}
+.dorang-newsletter-input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(201, 162, 39, 0.15);
+}
+.dorang-newsletter-btn {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.65rem 1.2rem;
+  font-family: Arial, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  white-space: nowrap;
+}
+.dorang-newsletter-btn:hover {
+  background: var(--accent-dark);
+}
+.dorang-newsletter-note {
+  font-size: 0.72rem;
+  color: var(--muted);
+  margin: 0.75rem 0 0;
+  opacity: 0.85;
+}
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Dark mode */
+[data-theme="dark"] .dorang-newsletter-title { color: #e0e0e0; }
+[data-theme="dark"] .dorang-newsletter-input {
+  background: #252525;
+  color: #e0e0e0;
+  border-color: #444;
+}
+[data-theme="dark"] .dorang-newsletter-input:focus {
+  border-color: #d4af37;
+}
+
+/* Mobile: stack input + button */
+@media (max-width: 480px) {
+  .dorang-newsletter-form {
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  .dorang-newsletter-btn {
+    padding: 0.7rem 1rem;
+  }
+}
+
+/* Fix: Header mobile — 4 menu + 2 tombol dalam 1 baris */
+@media (max-width: 768px) {
+  .site-nav {
+    gap: 12px;
+    font-size: 13px;
+    flex-wrap: nowrap;
+  }
+  .site-nav a {
+    white-space: nowrap;
+  }
+  .search-toggle,
+  #theme-toggle {
+    width: 32px;
+    height: 32px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-nav {
+    gap: 9px;
+    font-size: 11.5px;
+  }
+  .site-nav a {
+    padding: 5px 0;
+  }
+  .search-toggle,
+  #theme-toggle {
+    width: 30px;
+    height: 30px;
+    font-size: 12px;
+  }
+  .brand-name {
+    font-size: 17px;
+    letter-spacing: 1.5px;
+  }
+  .brand-tagline {
+    font-size: 10px;
+  }
+}
+
+/* ============================================
+   Reading Progress Bar
+   ============================================ */
+.dorang-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: transparent;
+  z-index: 9999;
+  pointer-events: none;
+}
+.dorang-progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #c9a227 0%, #d4af37 100%);
+  transition: width 0.1s ease-out;
+  box-shadow: 0 0 8px rgba(201, 162, 39, 0.5);
+}
+[data-theme="dark"] .dorong-progress-fill,
+[data-theme="dark"] .dorang-progress-fill {
+  background: linear-gradient(90deg, #d4af37 0%, #f0d97a 100%);
+  box-shadow: 0 0 8px rgba(212, 175, 55, 0.6);
+}
+
+/* ============================================
+   Author Bio Box
+   ============================================ */
+.dorang-author {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  background: var(--soft);
+  border-left: 4px solid var(--accent);
+  border-radius: 8px;
+  padding: 24px 24px 20px;
+  margin: 2.5rem 0;
+}
+
+.dorang-author-photo {
+  flex-shrink: 0;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--border);
+}
+
+.dorang-author-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.dorang-author-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.dorang-author-name {
+  font-family: Georgia, serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 0 0 0.4rem;
+}
+
+.dorang-author-bio {
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.6;
+  margin: 0 0 0.6rem;
+}
+
+.dorang-author-link {
+  font-family: Arial, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--accent-dark);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.dorang-author-link:hover {
+  color: var(--accent);
+}
+
+/* Dark mode */
+[data-theme="dark"] .dorang-author {
+  background: #252525;
+  border-left-color: #d4af37;
+}
+[data-theme="dark"] .dorang-author-name {
+  color: #e0e0e0;
+}
+[data-theme="dark"] .dorang-author-bio {
+  color: #a0a0a0;
+}
+[data-theme="dark"] .dorang-author-link {
+  color: #d4af37;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .dorang-author {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px 16px;
+  }
+  .dorang-author-photo {
+    width: 70px;
+    height: 70px;
+  }
+  .dorang-author-bio {
+    font-size: 0.85rem;
+  }
+}
+
+/* ============================================
+   Populer — Top 4 Artikel
+   ============================================ */
+.dorang-populer-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 1.5rem;
+}
+
+.dorang-populer-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px 22px;
+  background: var(--soft);
+  border-radius: 10px;
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid transparent;
+  transition: all 0.25s ease;
+}
+
+.dorang-populer-item:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(201, 162, 39, 0.12);
+}
+
+.dorang-populer-rank {
+  font-family: Georgia, serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--accent);
+  line-height: 1;
+  flex-shrink: 0;
+  min-width: 2.5rem;
+  opacity: 0.85;
+}
+
+.dorang-populer-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.dorang-populer-title {
+  font-family: Georgia, serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin: 0 0 0.4rem;
+  line-height: 1.4;
+  transition: color 0.2s ease;
+}
+
+.dorang-populer-item:hover .dorang-populer-title {
+  color: var(--accent-dark);
+}
+
+.dorang-populer-meta {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--muted);
+  font-style: italic;
+  letter-spacing: 0.02em;
+}
+
+/* Dark mode */
+[data-theme="dark"] .dorang-populer-item {
+  background: #1f1f1f;
+}
+[data-theme="dark"] .dorang-populer-item:hover {
+  border-color: #d4af37;
+  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.15);
+}
+[data-theme="dark"] .dorang-populer-rank {
+  color: #d4af37;
+}
+[data-theme="dark"] .dorang-populer-title {
+  color: #e0e0e0;
+}
+[data-theme="dark"] .dorang-populer-item:hover .dorang-populer-title {
+  color: #d4af37;
+}
+[data-theme="dark"] .dorang-populer-meta {
+  color: #a0a0a0;
+}
+
+/* Mobile — tetap 1 kolom */
+@media (max-width: 720px) {
+  .dorang-populer-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .dorang-populer-item {
+    padding: 16px 18px;
+  }
+  .dorang-populer-rank {
+    font-size: 1.8rem;
+    min-width: 2rem;
+  }
+  .dorang-populer-title {
+    font-size: 0.95rem;
+  }
+}
+
+/* ============================================
+   Sticky TOC — Layout 2 Kolom Desktop
+   ============================================ */
+.dorang-post-layout {
+  display: block; /* Mobile default */
+}
+
+/* Desktop: 2 kolom dengan TOC sticky di kiri */
+@media (min-width: 1024px) {
+  .dorang-post-layout.has-toc {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 3rem;
+    align-items: start;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .dorang-toc-sidebar {
+    position: sticky;
+    top: 100px;
+    align-self: start;
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+    padding-right: 4px;
+  }
+
+  /* Scrollbar halus untuk sidebar */
+  .dorang-toc-sidebar::-webkit-scrollbar {
+    width: 4px;
+  }
+  .dorang-toc-sidebar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .dorang-toc-sidebar::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 2px;
+  }
+  .dorang-toc-sidebar::-webkit-scrollbar-thumb:hover {
+    background: var(--accent);
+  }
+
+  /* TOC di sidebar lebih compact */
+  .dorang-toc-sidebar .dorang-toc {
+    margin: 0;
+    padding: 18px 20px;
+  }
+
+  .dorang-toc-sidebar .dorang-toc-list a {
+    font-size: 0.82rem;
+    padding: 5px 0;
+    display: block;
+    line-height: 1.4;
+  }
+
+  /* Highlight item yang sedang dibaca */
+  .dorang-toc-sidebar .dorang-toc-list a.active {
+    color: var(--accent-dark);
+    font-weight: 700;
+    border-left: 2px solid var(--accent);
+    padding-left: 8px;
+    margin-left: -10px;
+  }
+
+  /* Post body di kolom kanan */
+  .dorang-post-layout.has-toc .post-body {
+    max-width: 100%;
+    min-width: 0;
+  }
+}
+
+/* Mobile: sidebar tetap di atas artikel */
+@media (max-width: 1023px) {
+  .dorang-toc-sidebar:empty {
+    display: none;
+  }
+  .dorang-toc-sidebar {
+    margin-bottom: 2rem;
+  }
+}
+
+/* Dark mode */
+[data-theme="dark"] .dorang-toc-sidebar .dorang-toc {
+  background: #252525;
+}
+[data-theme="dark"] .dorang-toc-sidebar .dorang-toc-list a.active {
+  color: #f0d97a;
+  border-left-color: #d4af37;
+}
+[data-theme="dark"] .dorang-toc-sidebar::-webkit-scrollbar-thumb {
+  background: #444;
+}
+[data-theme="dark"] .dorang-toc-sidebar::-webkit-scrollbar-thumb:hover {
+  background: #d4af37;
+}
+
+/* ============================================
+   Footer Legal — 2 Baris (About + Legal)
+   ============================================ */
+.footer-legal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-style: italic;
+  color: var(--muted);
+  margin-bottom: 24px;
+}
+
+.footer-legal-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.footer-legal-row a {
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  white-space: nowrap;
+}
+
+.footer-legal-row a:hover {
+  color: var(--accent-dark);
+}
+
+.footer-legal-row .separator {
+  color: var(--muted);
+  opacity: 0.6;
+}
+
+/* Dark mode */
+[data-theme="dark"] .footer-legal-row a:hover {
+  color: #d4af37;
+}
+
+/* Mobile — tetap rapi */
+@media (max-width: 480px) {
+  .footer-legal {
+    gap: 4px;
+  }
+  .footer-legal-row {
+    gap: 6px;
+    font-size: 11.5px;
+  }
+}
+
+/* ============================================
+   Print Stylesheet — Rapi untuk Kertas
+   ============================================ */
+@media print {
+  /* Reset dasar — hitam di kertas putih */
+  html, body {
+    background: #fff !important;
+    color: #000 !important;
+    font-size: 11pt;
+    line-height: 1.5;
+  }
+
+  /* Sembunyikan elemen non-konten */
+  .site-header,
+  .site-footer,
+  .dorang-progress-bar,
+  .dorang-scroll-nav,
+  .dorang-search-modal,
+  .dorang-breadcrumb,
+  .dorang-toc-sidebar,
+  .dorang-toc,
+  .dorang-share,
+  .dorang-author,
+  .dorang-post-nav,
+  .dorang-related,
+  .dorang-populer-grid,
+  .dorang-section,
+  .dorang-post-back,
+  .dorang-skip-link,
+  .dorang-viewall,
+  .theme-toggle,
+  .search-toggle,
+  #theme-toggle,
+  #search-toggle {
+    display: none !important;
+  }
+
+  /* Layout jadi 1 kolom */
+  .dorang-post-layout,
+  .dorang-post-layout.has-toc {
+    display: block !important;
+    max-width: 100% !important;
+    grid-template-columns: 1fr !important;
+    gap: 0 !important;
+  }
+
+  .post-body,
+  .post-single,
+  .site-main {
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Typography */
+  h1 { font-size: 20pt; page-break-after: avoid; }
+  h2 { font-size: 15pt; page-break-after: avoid; }
+  h3 { font-size: 13pt; page-break-after: avoid; }
+
+  p, li { orphans: 3; widows: 3; }
+
+  /* Gambar — jangan pecah halaman */
+  img {
+    max-width: 100% !important;
+    page-break-inside: avoid;
+    page-break-after: avoid;
+  }
+
+  figure {
+    page-break-inside: avoid;
+    margin: 1em 0;
+  }
+
+  figcaption {
+    font-size: 9pt;
+    font-style: italic;
+    color: #333;
+  }
+
+  /* Blockquote — border kiri rapi */
+  blockquote {
+    border-left: 3pt solid #333 !important;
+    padding-left: 1em !important;
+    background: transparent !important;
+    font-style: italic;
+  }
+
+  /* Link — tampilkan URL setelah teks link */
+  .post-body a[href]:not([href^="#"])::after {
+    content: " (" attr(href) ")";
+    font-size: 9pt;
+    color: #555;
+    word-break: break-all;
+  }
+
+  /* Cover image — center + max height */
+  .post-cover img {
+    max-height: 400px;
+    width: auto;
+  }
+
+  /* Meta info di atas artikel */
+  .post-meta {
+    font-size: 10pt;
+    color: #333;
+    border-bottom: 1pt solid #ccc;
+    padding-bottom: 0.5em;
+    margin-bottom: 1em;
+  }
+
+  /* Heading underline (matching tema) */
+  .post-body h2 {
+    border-bottom: 1pt solid #999;
+    padding-bottom: 0.3em;
+  }
+
+  /* Hindari background gelap di dark mode */
+  [data-theme="dark"] * {
+    background: transparent !important;
+    color: #000 !important;
+    box-shadow: none !important;
+  }
+}
+
+/* ============================================
+   404 — Search Box
+   ============================================ */
+.dorang-404-search {
+  margin: 2.5rem auto 2rem;
+  max-width: 420px;
+  text-align: center;
+}
+
+.dorang-404-search-label {
+  font-family: Arial, sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 0.75rem;
+}
+
+.dorang-404-search-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 14px 18px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: var(--muted);
+  text-align: left;
+  transition: all 0.2s ease;
+}
+
+.dorang-404-search-box:hover {
+  border-color: var(--accent);
+  box-shadow: 0 4px 16px rgba(201, 162, 39, 0.12);
+  transform: translateY(-1px);
+}
+
+.dorang-404-search-icon {
+  flex-shrink: 0;
+  color: var(--muted);
+}
+
+.dorang-404-search-box:hover .dorang-404-search-icon {
+  color: var(--accent);
+}
+
+.dorang-404-search-placeholder {
+  flex: 1;
+  font-style: italic;
+}
+
+.dorang-404-search-key {
+  font-family: Arial, sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  background: var(--soft);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 3px 7px;
+  opacity: 0.85;
+}
+
+/* Dark mode */
+[data-theme="dark"] .dorong-404-search-box,
+[data-theme="dark"] .dorang-404-search-box {
+  background: #252525;
+  border-color: #444;
+  color: #b0b0b0;
+}
+[data-theme="dark"] .dorong-404-search-box:hover,
+[data-theme="dark"] .dorang-404-search-box:hover {
+  border-color: #d4af37;
+  box-shadow: 0 4px 16px rgba(212, 175, 55, 0.15);
+}
+[data-theme="dark"] .dorang-404-search-icon {
+  color: #a0a0a0;
+}
+[data-theme="dark"] .dorang-404-search-box:hover .dorang-404-search-icon {
+  color: #d4af37;
+}
+[data-theme="dark"] .dorang-404-search-key {
+  background: #333;
+  border-color: #444;
+  color: #b0b0b0;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .dorang-404-search {
+    margin: 2rem auto 1.5rem;
+  }
+  .dorang-404-search-box {
+    padding: 12px 14px;
+    font-size: 0.9rem;
+  }
+  .dorang-404-search-key {
+    display: none;
+  }
+}
+
+/* ============================================
+   PWA Install Banner
+   ============================================ */
+.dorang-pwa-banner {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9998;
+  max-width: 480px;
+  width: calc(100% - 40px);
+  animation: pwa-slide-up 0.4s ease-out;
+}
+
+@keyframes pwa-slide-up {
+  from { opacity: 0; transform: translateX(-50%) translateY(20px); }
+  to { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+.dorang-pwa-banner-inner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+
+.dorang-pwa-banner-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.dorang-pwa-banner-text {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.dorang-pwa-banner-text strong {
+  font-family: Arial, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.dorang-pwa-banner-text span {
+  font-size: 0.75rem;
+  color: var(--muted);
+  font-style: italic;
+}
+
+.dorang-pwa-banner-btn {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-family: Arial, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  white-space: nowrap;
+}
+
+.dorang-pwa-banner-btn:hover {
+  background: var(--accent-dark);
+}
+
+.dorang-pwa-banner-close {
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  color: var(--muted);
+  cursor: pointer;
+  padding: 0 4px;
+  line-height: 1;
+  transition: color 0.2s ease;
+}
+
+.dorang-pwa-banner-close:hover {
+  color: var(--accent-dark);
+}
+
+/* Dark mode */
+[data-theme="dark"] .dorong-pwa-banner-inner,
+[data-theme="dark"] .dorang-pwa-banner-inner {
+  background: #252525;
+  border-color: #444;
+}
+[data-theme="dark"] .dorong-pwa-banner-text strong,
+[data-theme="dark"] .dorang-pwa-banner-text strong {
+  color: #e0e0e0;
+}
+[data-theme="dark"] .dorong-pwa-banner-close,
+[data-theme="dark"] .dorang-pwa-banner-close {
+  color: #a0a0a0;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .dorong-pwa-banner,
+  .dorang-pwa-banner {
+    bottom: 12px;
+    width: calc(100% - 24px);
+  }
+  .dorong-pwa-banner-inner,
+  .dorang-pwa-banner-inner {
+    padding: 10px 12px;
+  }
+  .dorong-pwa-banner-icon {
+    width: 36px;
+    height: 36px;
+  }
+  .dorong-pwa-banner-btn {
+    padding: 7px 12px;
+    font-size: 0.7rem;
+  }
+}
+
+/* ============================================
+   TTS — Dengarkan Artikel
+   ============================================ */
+.dorang-tts-wrapper {
+  margin: 22px 0 24px;
+  font-family: Arial, sans-serif;
+}
+
+.dorang-tts-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 20px;
+  background: transparent;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  color: var(--accent-dark);
+  font: 700 11px/1.2 Arial, sans-serif;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dorang-tts-toggle:hover,
+.dorang-tts-toggle[aria-expanded="true"] {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+.dorang-tts-panel {
+  margin-top: 14px;
+  padding: 18px 20px;
+  background: var(--soft);
+  border-left: 4px solid var(--accent);
+  border-radius: 0 8px 8px 0;
+}
+
+.dorang-tts-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.dorang-tts-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 15px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--primary);
+  font: 600 12px/1.2 Arial, sans-serif;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.dorang-tts-btn:hover:not(:disabled) {
+  border-color: var(--accent);
+  color: var(--accent-dark);
+}
+
+.dorang-tts-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.dorang-tts-extras {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  font: 12px/1.4 Arial, sans-serif;
+  color: var(--muted);
+}
+
+.dorang-tts-extras label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dorang-tts-extras select {
+  padding: 5px 9px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-size: 12px;
+  background: #fff;
+  color: var(--primary);
+  max-width: 200px;
+  font-family: Arial, sans-serif;
+}
+
+.dorang-tts-status {
+  margin: 12px 0 0;
+  font: italic 11px/1.4 Arial, sans-serif;
+  color: var(--muted);
+  min-height: 14px;
+}
+
+/* Highlight paragraf yang sedang dibaca */
+.dorang-tts-active {
+  background-color: rgba(196, 154, 108, 0.10);
+  box-shadow: -3px 0 0 0 var(--accent);
+  border-radius: 0 6px 6px 0;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+/* ---------- Mini-controller melayang (kiri bawah) ---------- */
+.dorang-tts-mini {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  z-index: 9998;
+  display: none;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px 8px 14px;
+  background: var(--primary);
+  border: 1px solid rgba(196, 154, 108, 0.45);
+  border-radius: 999px;
+  box-shadow: 0 6px 20px rgba(44, 62, 80, 0.35);
+  font-family: Arial, sans-serif;
+}
+
+.dorang-tts-mini.visible {
+  display: inline-flex;
+}
+
+.dorang-tts-mini-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--accent);
+  border-radius: 50%;
+  flex-shrink: 0;
+  animation: dorangTtsPulse 1.4s ease-in-out infinite;
+  transition: opacity 0.3s;
+}
+
+@keyframes dorangTtsPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+.dorang-tts-mini-label {
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.dorang-tts-mini-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  background: rgba(196, 154, 108, 0.15);
+  border: 1px solid rgba(196, 154, 108, 0.4);
+  border-radius: 50%;
+  color: var(--accent);
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: Arial, sans-serif;
+}
+
+.dorang-tts-mini-btn:hover {
+  background: var(--accent);
+  color: var(--primary);
+}
+
+.dorang-tts-mini-btn:active {
+  transform: scale(0.95);
+}
+
+/* Dark mode */
+[data-theme="dark"] .dorong-tts-btn,
+[data-theme="dark"] .dorang-tts-btn {
+  background: #252525;
+  color: #e6e6e6;
+  border-color: #3a3a3a;
+}
+
+[data-theme="dark"] .dorong-tts-btn:hover:not(:disabled),
+[data-theme="dark"] .dorang-tts-btn:hover:not(:disabled) {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+[data-theme="dark"] .dorong-tts-extras select,
+[data-theme="dark"] .dorang-tts-extras select {
+  background: #252525;
+  color: #e6e6e6;
+  border-color: #3a3a3a;
+}
+
+[data-theme="dark"] .dorong-tts-active,
+[data-theme="dark"] .dorang-tts-active {
+  background-color: rgba(212, 168, 120, 0.12);
+}
+
+[data-theme="dark"] .dorong-tts-mini,
+[data-theme="dark"] .dorang-tts-mini {
+  background: #252525;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Mobile */
+@media screen and (max-width: 600px) {
+  .dorong-tts-mini,
+  .dorang-tts-mini {
+    left: 12px;
+    bottom: 12px;
+    padding: 6px 8px 6px 10px;
+    gap: 6px;
+  }
+  .dorong-tts-mini-label,
+  .dorang-tts-mini-label {
+    display: none;
+  }
+  .dorong-tts-mini-btn,
+  .dorang-tts-mini-btn {
+    width: 28px;
+    height: 28px;
+    font-size: 12px;
+  }
+  .dorong-tts-panel,
+  .dorang-tts-panel {
+    padding: 14px;
+  }
+  .dorong-tts-controls,
+  .dorang-tts-controls {
+    gap: 6px;
+  }
+  .dorong-tts-btn,
+  .dorang-tts-btn {
+    padding: 6px 11px;
+    font-size: 11px;
+  }
+  .dorong-tts-extras,
+  .dorang-tts-extras {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .dorong-tts-extras select,
+  .dorang-tts-extras select {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+/* Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .dorong-tts-mini-dot,
+  .dorang-tts-mini-dot {
+    animation: none;
+    opacity: 1;
+  }
+}
+
+/* ============================================
+   Post Content Wrapper — TTS + Body dalam 1 Kolom
+   ============================================ */
+.dorang-post-content {
+  min-width: 0;
+}
+
+/* Mobile: tetap block biasa */
+@media (max-width: 1023px) {
+  .dorong-post-content,
+  .dorang-post-content {
+    display: block;
+  }
+}
+
+/* ============================================
+   Mobile Fix: TTS di Atas TOC
+   Urutan mobile: TTS → TOC → Body
+   ============================================ */
+@media (max-width: 968px) {
+  .dorang-post-layout {
+    display: flex;
+    flex-direction: column;
+  }
+  .dorang-post-content {
+    display: contents;
+  }
+  .dorang-tts-wrapper {
+    order: 1;
+  }
+  .dorang-toc-sidebar {
+    order: 2;
+  }
+  .post-body {
+    order: 3;
+  }
+}
+
+/* ============================================
+   Accessibility Fix — Kontras WCAG AA
+   ============================================ */
+.dorang-populer-rank {
+  color: var(--accent-dark);   /* ganti dari --accent */
+  opacity: 1;                   /* hilangkan opacity 0.85 */
+}
+.dorang-newsletter-note {
+  color: var(--accent-dark);   /* ganti dari --muted */
+}
+.dorang-newsletter-btn {
+  background: var(--accent-dark);  /* lebih kontras */
+}
+.dorang-newsletter-btn:hover {
+  background: var(--primary);
+}
+
+/* Dark mode */
+[data-theme="dark"] .dorang-populer-rank {
+  color: #f0d97a;   /* emas cerah untuk dark mode */
+}
+[data-theme="dark"] .dorang-newsletter-note {
+  color: #d4af37;
+}
+
+/* Fix kontras: newsletter note */
+.dorang-newsletter-note {
+  color: #5a4a2a;   /* cokelat gelap, kontras tinggi */
+}
+[data-theme="dark"] .dorang-newsletter-note {
+  color: #d4af37;   /* emas terang untuk dark mode */
+}
+
+/* Fix kontras: footer */
+.footer-tagline,
+.footer-nav a,
+.footer-legal a,
+.footer-legal-row a,
+.footer-copyright,
+.footer-inner {
+  color: #4a4a4a;   /* abu gelap, kontras WCAG AA */
+}
+[data-theme="dark"] .footer-tagline,
+[data-theme="dark"] .footer-nav a,
+[data-theme="dark"] .footer-legal a,
+[data-theme="dark"] .footer-legal-row a,
+[data-theme="dark"] .footer-copyright,
+[data-theme="dark"] .footer-inner {
+  color: #b8b8b8;   /* abu terang untuk dark mode */
+}
+
+/* ============================================
+   Section Title — Clickable Link
+   ============================================ */
+.dorang-section-title a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.dorang-section-title a:hover {
+  color: var(--accent-dark);
+}
+
+[data-theme="dark"] .dorang-section-title a:hover {
+  color: var(--accent);
+}
+
+/* ============================================
+   Link di Artikel — Konsisten Warna Emas DORANG
+   ============================================ */
+.post-body a,
+.post-body a:link,
+.post-body a:visited {
+  color: var(--accent-dark);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(196, 154, 108, 0.35);
+  transition: color 0.2s ease,
+              border-color 0.2s ease,
+              background-color 0.2s ease;
+}
+
+.post-body a:hover,
+.post-body a:focus {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+  background-color: rgba(196, 154, 108, 0.10);
+  outline: none;
+}
+
+/* Dark mode */
+[data-theme="dark"] .post-body a,
+[data-theme="dark"] .post-body a:link,
+[data-theme="dark"] .post-body a:visited {
+  color: var(--accent);
+  border-bottom-color: rgba(212, 175, 55, 0.4);
+}
+
+[data-theme="dark"] .post-body a:hover,
+[data-theme="dark"] .post-body a:focus {
+  color: #f0d97a;
+  border-bottom-color: #f0d97a;
+  background-color: rgba(212, 175, 55, 0.12);
+}
+
+/* Link di dalam heading / footer / dll — jangan ganggu */
+.post-body h1 a,
+.post-body h2 a,
+.post-body h3 a,
+.post-body h4 a {
+  color: inherit;
+  border-bottom: none;
+  background: transparent;
+}
+
+/* ============================================
+   Baca Juga — Error State
+   ============================================ */
+.baca-juga-callout p {
+  margin: 0.5rem 0 0;
+  font-size: 0.9rem;
+  color: #333;
+}
+.baca-juga-callout p code {
+  background: rgba(0, 0, 0, 0.06);
+  padding: 1px 5px;
+  border-radius: 3px;
+  font-size: 0.85rem;
+}
+[data-theme="dark"] .baca-juga-callout p {
+  color: #e0e0e0;
+}
+[data-theme="dark"] .baca-juga-callout p code {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+
+/* ═══════════════════════════════════════════════════════
+   PILIHAN REDAKSI — Dipindah dari homepage-fix.css
+   (agar tampil di semua halaman: homepage + artikel)
+   ═══════════════════════════════════════════════════════ */
+
+/* ═══════════════════════════════════════════════════════
+   PILIHAN REDAKSI — Layout Editorial List
+   (ganti dari grid 2x2 → list vertikal elegan)
+   ═══════════════════════════════════════════════════════ */
+
+.dorang-pilihan-list {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.dorang-pilihan-item {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 18px 8px;
+  border-bottom: 1px solid var(--border);
+  text-decoration: none;
+  color: inherit;
+  transition: padding-left 0.25s ease, background 0.25s ease;
+}
+
+.dorang-pilihan-item:hover {
+  padding-left: 16px;
+  background: var(--soft);
+}
+
+/* Angka badge kecil */
+.dorang-pilihan-rank {
+  font-family: Georgia, serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--accent-dark);
+  line-height: 1;
+  flex-shrink: 0;
+  min-width: 2rem;
+  padding: 6px 0;
+  border-right: 1px solid var(--border);
+  text-align: center;
+}
+
+/* Thumbnail kecil */
+.dorang-pilihan-thumb {
+  width: 72px;
+  height: 72px;
+  border-radius: 6px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: var(--soft);
+}
+
+.dorang-pilihan-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  filter: grayscale(100%);
+  transition: filter 0.35s ease, transform 0.35s ease;
+}
+
+.dorang-pilihan-item:hover .dorang-pilihan-thumb img {
+  filter: grayscale(0%);
+  transform: scale(1.05);
+}
+
+/* Konten */
+.dorang-pilihan-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.dorang-pilihan-title {
+  font-family: Georgia, serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin: 0 0 0.35rem;
+  line-height: 1.4;
+  transition: color 0.2s ease;
+}
+
+.dorang-pilihan-item:hover .dorang-pilihan-title {
+  color: var(--accent-dark);
+}
+
+.dorang-pilihan-meta {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--muted);
+  font-style: italic;
+  letter-spacing: 0.02em;
+}
+
+/* Arrow kecil di kanan */
+.dorang-pilihan-arrow {
+  flex-shrink: 0;
+  font-size: 1.1rem;
+  color: var(--accent);
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.dorang-pilihan-item:hover .dorang-pilihan-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Dark mode */
+[data-theme="dark"] .dorang-pilihan-item:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+[data-theme="dark"] .dorang-pilihan-title {
+  color: #e0e0e0;
+}
+
+[data-theme="dark"] .dorang-pilihan-item:hover .dorang-pilihan-title {
+  color: #f0d97a;
+}
+
+[data-theme="dark"] .dorang-pilihan-rank {
+  color: #f0d97a;
+}
+
+[data-theme="dark"] .dorang-pilihan-meta {
+  color: #a0a0a0;
+}
+
+[data-theme="dark"] .dorang-pilihan-arrow {
+  color: #f0d97a;
+}
+
+/* Mobile — lebih kompak */
+@media (max-width: 600px) {
+  .dorang-pilihan-item {
+    gap: 12px;
+    padding: 14px 4px;
+  }
+  .dorang-pilihan-thumb {
+    width: 60px;
+    height: 60px;
+  }
+  .dorang-pilihan-title {
+    font-size: 0.95rem;
+  }
+  .dorang-pilihan-rank {
+    font-size: 0.75rem;
+    min-width: 1.6rem;
+  }
+}
