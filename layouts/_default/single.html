@@ -27,7 +27,7 @@
 
   {{ with .Params.cover }}{{ with .image }}
     <figure class="post-cover">
-      {{ partial "image.html" (dict "src" . "alt" ($.Params.cover.alt | default $.Title) "loading" "eager" "sizes" "(max-width: 1100px) 100vw, 1100px" "widths" (slice 400 800 1200)) }}
+      {{ partial "image.html" (dict "src" . "alt" ($.Params.cover.alt | default $.Title) "loading" "eager" "fetchpriority" "high" "sizes" "(max-width: 1100px) 100vw, 1100px" "widths" (slice 400 800 1200)) }}
       {{ with $.Params.cover.caption }}<figcaption>{{ . }}</figcaption>{{ end }}
     </figure>
   {{ end }}{{ end }}
