@@ -19,28 +19,52 @@
     {{/* Halaman pertama: tampilkan hero + grid */}}
     {{ if eq .Paginator.PageNumber 1 }}
       {{ $first := index $pages 0 }}
-      {{ $rest := after 1 $pages }}
+      {{ $mini := after 1 $pages | first 3 }}
+      {{ $rest := after 4 $pages }}
 
-      {{/* HERO — Artikel terbaru */}}
-      {{ with $first }}
-      <a href="{{ .RelPermalink }}" class="kategori-hero">
-        {{ with .Params.cover.image }}
-        <div class="kategori-hero-image">
-          {{ partial "image.html" (dict "src" . "alt" ($first.Params.cover.alt | default $first.Title) "loading" "eager" "fetchpriority" "high" "sizes" "(max-width: 640px) 100vw, 1100px" "widths" (slice 600 900 1200)) }}
+      {{/* FEATURED LAYOUT — Hero + 3 Mini (sama seperti homepage) */}}
+      <div class="dorang-featured-grid">
+        {{/* HERO — Artikel terbaru */}}
+        {{ with $first }}
+        <a href="{{ .RelPermalink }}" class="dorang-featured-hero">
+          {{ with .Params.cover.image }}
+          <div class="dorang-featured-hero-image">
+            {{ partial "image.html" (dict "src" . "alt" ($first.Params.cover.alt | default $first.Title) "loading" "eager" "fetchpriority" "high" "sizes" "(max-width: 767px) 100vw, 60vw" "widths" (slice 400 800 1200)) }}
+          </div>
+          {{ end }}
+          <div class="dorang-featured-hero-content">
+            <span class="dorang-featured-badge">Terbaru</span>
+            <h2 class="dorang-featured-hero-title">{{ .Title }}</h2>
+            <p class="dorang-featured-hero-summary">{{ .Summary | plainify | truncate 180 }}</p>
+            <span class="dorang-featured-hero-meta">{{ .Date | time.Format "2 January 2006" }} · {{ .ReadingTime }} menit baca</span>
+          </div>
+        </a>
+        {{ end }}
+
+        {{/* MINI — 3 artikel berikutnya */}}
+        {{ if $mini }}
+        <div class="dorang-featured-mini-list">
+          {{ range $mini }}
+          {{ $item := . }}
+          <a href="{{ .RelPermalink }}" class="dorang-featured-mini">
+            {{ with .Params.cover.image }}
+            <div class="dorang-featured-mini-thumb">
+              {{ partial "image.html" (dict "src" . "alt" ($item.Params.cover.alt | default $item.Title) "loading" "lazy" "sizes" "80px" "widths" (slice 120 240)) }}
+            </div>
+            {{ end }}
+            <div class="dorang-featured-mini-content">
+              <h4 class="dorang-featured-mini-title">{{ .Title }}</h4>
+              <span class="dorang-featured-mini-meta">{{ .Date | time.Format "2 January 2006" }} · {{ .ReadingTime }} menit</span>
+            </div>
+          </a>
+          {{ end }}
         </div>
         {{ end }}
-        <div class="kategori-hero-content">
-          <span class="kategori-hero-badge">Terbaru</span>
-          <h2 class="kategori-hero-title">{{ .Title }}</h2>
-          <p class="kategori-hero-summary">{{ .Summary | plainify | truncate 200 }}</p>
-          <span class="kategori-hero-meta">{{ .Date | time.Format "2 January 2006" }} · {{ .ReadingTime }} menit baca</span>
-        </div>
-      </a>
-      {{ end }}
+      </div>
 
-      {{/* GRID — Sisa artikel */}}
+      {{/* GRID — Sisa artikel (mulai ke-5) */}}
       {{ if $rest }}
-      <div class="dorang-grid kategori-rest">
+      <div class="dorang-grid">
         {{ range $rest }}
         {{ $item := . }}
         <a href="{{ .RelPermalink }}" class="dorang-card">

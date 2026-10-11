@@ -15,35 +15,35 @@
   <section class="dorang-section">
     <h2 class="dorang-section-title">Terbaru</h2>
 
-    <div class="terbaru-grid">
+    <div class="dorang-featured-grid">
 
       {{/* HERO — artikel paling baru */}}
-      <a href="{{ $hero.RelPermalink }}" class="terbaru-hero">
+      <a href="{{ $hero.RelPermalink }}" class="dorang-featured-hero">
         {{ with $hero.Params.cover.image }}
-        <div class="terbaru-hero-image">
+        <div class="dorang-featured-hero-image">
           {{ partial "image.html" (dict "src" . "alt" ($hero.Params.cover.alt | default $hero.Title) "loading" "eager" "fetchpriority" "high" "sizes" "(max-width: 767px) 100vw, 60vw" "widths" (slice 400 800 1200)) }}
         </div>
         {{ end }}
-        <div class="terbaru-hero-content">
-          <span class="terbaru-badge">Terbaru</span>
-          <h3 class="terbaru-hero-title">{{ $hero.Title }}</h3>
-          <p class="terbaru-hero-summary">{{ $hero.Summary | plainify | truncate 180 }}</p>
-          <span class="terbaru-hero-meta">{{ $hero.Date | time.Format "2 January 2006" }} · {{ $hero.ReadingTime }} menit baca</span>
+        <div class="dorang-featured-hero-content">
+          <span class="dorang-featured-badge">Terbaru</span>
+          <h3 class="dorang-featured-hero-title">{{ $hero.Title }}</h3>
+          <p class="dorang-featured-hero-summary">{{ $hero.Summary | plainify | truncate 180 }}</p>
+          <span class="dorang-featured-hero-meta">{{ $hero.Date | time.Format "2 January 2006" }} · {{ $hero.ReadingTime }} menit baca</span>
         </div>
       </a>
 
       {{/* MINI CARDS — 3 artikel berikutnya */}}
-      <div class="terbaru-mini-list">
+      <div class="dorang-featured-mini-list">
         {{ range $mini }}
-        <a href="{{ .RelPermalink }}" class="terbaru-mini">
+        <a href="{{ .RelPermalink }}" class="dorang-featured-mini">
           {{ if .Params.cover.image }}
-          <div class="terbaru-mini-thumb">
+          <div class="dorang-featured-mini-thumb">
             {{ partial "image.html" (dict "src" .Params.cover.image "alt" (.Params.cover.alt | default .Title) "loading" "lazy" "sizes" "80px" "widths" (slice 120 240)) }}
           </div>
           {{ end }}
-          <div class="terbaru-mini-content">
-            <h4 class="terbaru-mini-title">{{ .Title }}</h4>
-            <span class="terbaru-mini-meta">{{ .Date | time.Format "2 January 2006" }} · {{ .ReadingTime }} menit</span>
+          <div class="dorang-featured-mini-content">
+            <h4 class="dorang-featured-mini-title">{{ .Title }}</h4>
+            <span class="dorang-featured-mini-meta">{{ .Date | time.Format "2 January 2006" }} · {{ .ReadingTime }} menit</span>
           </div>
         </a>
         {{ end }}
