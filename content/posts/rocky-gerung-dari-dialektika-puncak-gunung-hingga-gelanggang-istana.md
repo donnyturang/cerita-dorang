@@ -451,4 +451,5 @@ Melainkan melalui jejak langkah.
 
 9. **Universitas Indonesia / Departemen Ilmu Filsafat FIB UI** serta sumber pemberitaan terkait, untuk rekam jejak Rocky Gerung sebagai dosen tidak tetap dan aktivitas akademiknya di UI.
 </div>
+
 {{< bacajuga url="https://donnyturang.blogspot.com/2026/10/dialektika-akal-sehat-rocky-gerung-dari-tebing-ke-istana.html" text="Dialektika Akal Sehat: Rocky Gerung dari Tebing ke Istana" >}}

@@ -368,4 +368,5 @@ Sebab kampung halaman tidak selalu harus didatangi untuk dapat dirasakan.
 Kadang-kadang, ia cukup dipanggil melalui sebuah lagu.
 
 Lalu, dari tempat yang jauh, seseorang mendengarnya—dan untuk sesaat, merasa sudah pulang.
+
 {{< bacajuga url="https://donnyturang.blogspot.com/2026/04/sekho-mangarek-menyimpan-kampung.html" text="Sekho Mangarek: Menyimpan Kampung Halaman dalam Lagu" >}}
