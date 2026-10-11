@@ -9,7 +9,7 @@
   {{ $path := strings.TrimPrefix "/" . }}
   {{ $img := resources.Get $path }}
   {{ if $img }}
-    {{ $ogResized := $img.Fill "1200x630 Center webp q85" }}
+    {{ $ogResized := $img.Fill "1200x630 Center webp q75" }}
     {{ $ogImage = $ogResized.Permalink }}
   {{ else }}
     {{ $ogImage = . | absURL }}
