@@ -5,4 +5,4 @@ Allow: /
 Disallow: /page/
 
 # Sitemap
-Sitemap: https://ceritadorang.pages.dev/sitemap.xml
+Sitemap: https://ceritadorang.com/sitemap.xml
