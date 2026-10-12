@@ -98,6 +98,47 @@ read -p "Editor (1=nano, 2=vim): " ED
 
 $EDITOR_CMD "$FILE"
 
+# ── CLEANUP: Fix \n\n literal + baris kosong sekitar shortcode ──
+echo ""
+echo -e "${BLUE}🧹 Membersihkan format…${NC}"
+
+python3 - "$FILE" << 'PYCLEANUP'
+import sys
+path = sys.argv[1]
+with open(path) as f:
+    lines = f.readlines()
+
+new_lines = []
+fixed_gap = 0
+fixed_nn = 0
+
+for i, line in enumerate(lines):
+    if '\\n\\n' in line:
+        line = line.replace('\\n\\n', '\n\n')
+        fixed_nn += 1
+
+    is_shortcode = '{{<' in line and ('bacajuga' in line or '/bacajuga' in line)
+
+    if is_shortcode and new_lines and new_lines[-1].strip() != '':
+        new_lines.append('\n')
+        fixed_gap += 1
+
+    new_lines.append(line)
+
+    if is_shortcode and i < len(lines) - 1 and lines[i+1].strip() != '':
+        new_lines.append('\n')
+        fixed_gap += 1
+
+with open(path, 'w') as f:
+    f.writelines(new_lines)
+
+total = fixed_gap + fixed_nn
+if total > 0:
+    print(f"   ✓ Cleanup: {fixed_gap} baris, {fixed_nn} literal")
+else:
+    print(f"   ✓ Format sudah bersih")
+PYCLEANUP
+
 # ── COVER IMAGE (opsional) ──────────────────────────────
 echo ""
 read -p "🖼️  Edit cover image? (y/n): " EDIT_COVER
@@ -202,5 +243,5 @@ echo -e "${GOLD}⏳ Cloudflare akan deploy ulang otomatis.${NC}"
 echo -e "${GOLD}   Tunggu 1-2 menit, lalu cek:${NC}"
 
 SLUG=$(basename "$FILE" .md)
-echo -e "${BLUE}   https://ceritadorang.pages.dev/posts/$SLUG/${NC}"
+echo -e "${BLUE}   https://ceritadorang.com/posts/$SLUG/${NC}"
 echo ""

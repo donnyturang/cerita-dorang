@@ -136,7 +136,7 @@ if [ -n "$BACA_INTERNAL" ]; then
         s=$(echo "$s" | xargs)
         s="${s#posts/}"
         if [ -f "content/posts/$s.md" ]; then
-            BACA_INT_LINES+="{{< bacajuga-internal slug=\"$s\" >}}\n\n"
+            BACA_INT_LINES+="{{< bacajuga-internal slug=\"$s\" >}}"$'\n\n'
             echo -e "   ${GREEN}✓${NC} $s"
         else
             echo -e "   ${RED}⚠️  tidak ada: $s${NC}"
@@ -213,6 +213,47 @@ $BACA_INT_LINES$BACA_EKST_LINE
 ARTIKEL_EOF
 
 echo -e "${GREEN}✅ File dibuat:${NC} $FILE"
+# ── CLEANUP: Fix \n\n literal + baris kosong sekitar shortcode ──
+echo ""
+echo -e "${BLUE}🧹 Membersihkan format…${NC}"
+
+python3 - "$FILE" << 'PYCLEANUP'
+import sys
+path = sys.argv[1]
+with open(path) as f:
+    lines = f.readlines()
+
+new_lines = []
+fixed_gap = 0
+fixed_nn = 0
+
+for i, line in enumerate(lines):
+    if '\\n\\n' in line:
+        line = line.replace('\\n\\n', '\n\n')
+        fixed_nn += 1
+
+    is_shortcode = '{{<' in line and ('bacajuga' in line or '/bacajuga' in line)
+
+    if is_shortcode and new_lines and new_lines[-1].strip() != '':
+        new_lines.append('\n')
+        fixed_gap += 1
+
+    new_lines.append(line)
+
+    if is_shortcode and i < len(lines) - 1 and lines[i+1].strip() != '':
+        new_lines.append('\n')
+        fixed_gap += 1
+
+with open(path, 'w') as f:
+    f.writelines(new_lines)
+
+total = fixed_gap + fixed_nn
+if total > 0:
+    print(f"   ✓ Cleanup: {fixed_gap} baris, {fixed_nn} literal")
+else:
+    print(f"   ✓ Format sudah bersih")
+PYCLEANUP
+
 
 # ── 6. PREVIEW FRONTMATTER ─────────────────────────────
 echo ""
@@ -304,7 +345,7 @@ git push origin main
 echo -e "${GREEN}✓ Push selesai${NC}"
 
 # ── 10. SHARE PREVIEW ──────────────────────────────────
-POST_URL="https://ceritadorang.pages.dev/posts/$SLUG/"
+POST_URL="https://ceritadorang.com/posts/$SLUG/"
 SHARE_TEXT="$JUDUL — $POST_URL"
 
 echo ""
