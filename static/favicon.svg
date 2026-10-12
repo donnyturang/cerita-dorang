@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" fill="#fdf6e3"/>
+  <text x="32" y="34" font-family="Georgia, 'Times New Roman', serif" font-size="34" font-weight="bold" fill="#3a2518" text-anchor="middle" letter-spacing="-7">CD</text>
+  <circle cx="32" cy="48" r="8" fill="#f5a623"/>
+  <path d="M 10 62 L 32 44 L 54 62 Z" fill="#1a1a1a"/>
+  <path d="M 26 52 L 32 46 L 38 52 L 34 50 L 30 50 Z" fill="#fdf6e3"/>
+</svg>
