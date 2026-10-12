@@ -173,7 +173,7 @@ if [ -n "$BACA_INTERNAL" ]; then
         s=$(echo "$s" | xargs)
         s="${s#posts/}"
         if [ -f "content/posts/$s.md" ]; then
-            BACA_INT_LINES+="{{< bacajuga-internal slug=\"$s\" >}}\n\n"
+            BACA_INT_LINES+="{{< bacajuga-internal slug=\"$s\" >}}"$'\n\n'
             echo -e "   ${GREEN}✓${NC} $s"
         else
             echo -e "   ${RED}⚠️  tidak ada: $s${NC}"
@@ -185,18 +185,21 @@ echo ""
 read -p "🌐 Bacajuga eksternal? (y/n): " BACA_EKST
 BACA_EKST_LINE=""
 if [ "$BACA_EKST" = "y" ]; then
-    read -p "   URL: " B_URL
-    while true; do
-        read -p "   Judul link: " B_TEXT
-        if [[ "$B_TEXT" == http* ]]; then
-            echo -e "   ${RED}⚠️  Itu URL, bukan judul${NC}"
-        elif [ -z "$B_TEXT" ]; then
-            echo -e "   ${RED}⚠️  Wajib diisi${NC}"
-        else
-            break
-        fi
-    done
-    BACA_EKST_LINE="{{< bacajuga url=\"$B_URL\" text=\"$B_TEXT\" >}}"
+    echo -e "   ${GOLD}Format: URL|Judul, URL|Judul (pisah koma untuk multi)${NC}"
+    echo -e "   ${GOLD}Contoh: https://blog.com/a|Artikel A, https://blog.com/b|Artikel B${NC}"
+    echo -e "   ${GOLD}(Enter = skip)${NC}"
+    read -p "   > " BACA_EKST_INPUT
+    if [ -n "$BACA_EKST_INPUT" ]; then
+        BACA_EKST_LINE="{{< bacajuga-list >}}"
+        IFS=',' read -ra BACA_PAIRS <<< "$BACA_EKST_INPUT"
+        for pair in "${BACA_PAIRS[@]}"; do
+            pair=$(echo "$pair" | xargs)
+            if [ -n "$pair" ]; then
+                BACA_EKST_LINE+=$'\n'"$pair"
+            fi
+        done
+        BACA_EKST_LINE+=$'\n'"{{< /bacajuga-list >}}"
+    fi
 fi
 
 echo ""

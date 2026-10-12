@@ -1,0 +1,30 @@
+{{/* ============================================================
+     Baca Juga List — Multi artikel dalam 1 kotak
+
+     Cara pakai:
+       {{< bacajuga-list >}}
+       https://url-1.com|Judul 1
+       https://url-2.com|Judul 2
+       {{< /bacajuga-list >}}
+     ============================================================ */}}
+{{ $content := trim .Inner " \n\r\t" }}
+{{ $lines := split $content "\n" }}
+<div class="baca-juga-callout">
+  <span class="baca-juga-label">BACA JUGA</span>
+  <ul class="baca-juga-list">
+    {{ range $lines }}
+      {{ $line := trim . " \t\r" }}
+      {{ if $line }}
+        {{ $parts := split $line "|" }}
+        {{ $url := index $parts 0 | trim }}
+        {{ $text := "" }}
+        {{ if gt (len $parts) 1 }}
+          {{ $text = index $parts 1 | trim }}
+        {{ else }}
+          {{ $text = $url }}
+        {{ end }}
+        <li><a class="baca-juga-link" href="{{ $url }}" target="_blank" rel="noopener noreferrer">{{ $text }} →</a></li>
+      {{ end }}
+    {{ end }}
+  </ul>
+</div>

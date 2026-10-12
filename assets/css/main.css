@@ -3704,3 +3704,74 @@ blockquote {
     color: rgba(255, 255, 255, 0.7);
   }
 }
+
+
+/* ═══════════════════════════════════════════════════════
+   BACA JUGA — Multi artikel list (dalam 1 callout)
+   ═══════════════════════════════════════════════════════ */
+
+.baca-juga-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.75rem 0 0;
+  counter-reset: baca-counter;
+}
+
+.baca-juga-list li {
+  counter-increment: baca-counter;
+  position: relative;
+  padding: 10px 0 10px 36px;
+  border-bottom: 1px dashed rgba(201, 162, 39, 0.25);
+  line-height: 1.55;
+}
+
+.baca-juga-list li:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.baca-juga-list li::before {
+  content: counter(baca-counter);
+  position: absolute;
+  left: 0;
+  top: 10px;
+  font-family: Georgia, serif;
+  font-weight: 700;
+  font-style: italic;
+  color: #c9a227;
+  font-size: 1rem;
+  width: 26px;
+  text-align: center;
+  line-height: 1;
+}
+
+.baca-juga-list .baca-juga-link {
+  display: inline;
+  margin-top: 0;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+/* Dark mode */
+[data-theme="dark"] .baca-juga-list li {
+  border-bottom-color: rgba(212, 175, 55, 0.2);
+}
+
+[data-theme="dark"] .baca-juga-list li::before {
+  color: #d4af37;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .baca-juga-list li {
+    padding: 8px 0 8px 30px;
+  }
+  .baca-juga-list li::before {
+    top: 8px;
+    font-size: 0.9rem;
+    width: 22px;
+  }
+  .baca-juga-list .baca-juga-link {
+    font-size: 0.9rem;
+  }
+}

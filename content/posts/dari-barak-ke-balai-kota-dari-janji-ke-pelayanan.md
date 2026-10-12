@@ -763,4 +763,7 @@ Hanya seseorang yang bisa kembali bekerja, kembali kepada keluarganya, dan melan
 Peristiwa kecil semacam itu mungkin tidak pernah masuk dalam buku sejarah Kota Tomohon.
 
 **Padahal, justru untuk itulah sebuah pemerintahan seharusnya ada.**
-{{< bacajuga-internal slug="kota-yang-pernah-diperjuangkan" >}}\n\n{{< bacajuga url="https://donnyturang.blogspot.com/2026/05/dari-barak-militer-ke-kompleks-permanen-sejarah-kantor-walikota-tomohon.html" text="Dari Barak Militer ke Kompleks Permanen" >}}
+
+{{< bacajuga-internal slug="kota-yang-pernah-diperjuangkan" >}}
+
+{{< bacajuga url="https://donnyturang.blogspot.com/2026/05/dari-barak-militer-ke-kompleks-permanen-sejarah-kantor-walikota-tomohon.html" text="Dari Barak Militer ke Kompleks Permanen" >}}
