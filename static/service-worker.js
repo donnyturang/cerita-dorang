@@ -1,9 +1,9 @@
 /* ============================================================
-   CERITA DORANG — Service Worker
+   CERITA DORANG - Service Worker
    PWA: cache assets + offline fallback
    ============================================================ */
 
-var CACHE_VERSION = 'dorang-v1';
+var CACHE_VERSION = 'dorang-v2';
 var STATIC_CACHE = CACHE_VERSION + '-static';
 var PAGES_CACHE = CACHE_VERSION + '-pages';
 
@@ -17,19 +17,20 @@ var CORE_PAGES = [
   '/404.html'
 ];
 
-/* Install — precache core */
+/* Install - precache core */
 self.addEventListener('install', function (event) {
   event.waitUntil(
     caches.open(PAGES_CACHE).then(function (cache) {
       return cache.addAll(CORE_PAGES).catch(function (err) {
         console.warn('SW: gagal precache beberapa halaman', err);
       });
+    }).then(function () {
+      return self.skipWaiting();
     })
   );
-  self.skipWaiting();
 });
 
-/* Activate — cleanup cache lama */
+/* Activate - cleanup cache lama */
 self.addEventListener('activate', function (event) {
   event.waitUntil(
     caches.keys().then(function (keys) {
@@ -40,12 +41,13 @@ self.addEventListener('activate', function (event) {
           return caches.delete(k);
         })
       );
+    }).then(function () {
+      return self.clients.claim();
     })
   );
-  self.clients.claim();
 });
 
-/* Fetch — strategi per jenis request */
+/* Fetch - strategi per jenis request */
 self.addEventListener('fetch', function (event) {
   var request = event.request;
 
@@ -58,7 +60,7 @@ self.addEventListener('fetch', function (event) {
     return;
   }
 
-  /* HTML navigation → network first, fallback cache */
+  /* HTML navigation -> network first, fallback cache */
   if (request.mode === 'navigate' || request.destination === 'document') {
     event.respondWith(
       fetch(request).then(function (response) {
@@ -76,7 +78,7 @@ self.addEventListener('fetch', function (event) {
     return;
   }
 
-  /* Asset (CSS/JS/img/font) → cache first, fallback network */
+  /* Asset (CSS/JS/img/font) -> cache first, fallback network */
   event.respondWith(
     caches.match(request).then(function (cached) {
       if (cached) return cached;
