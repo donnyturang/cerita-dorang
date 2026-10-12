@@ -7,8 +7,8 @@ licenselink = "https://github.com/donnyturang/cerita-dorang/blob/main/LICENSE"
 
 description = "Tema editorial kustom untuk CERITA DORANG — Cerita yang Layak untuk Diceritakan."
 
-homepage = "https://ceritadorang.pages.dev/"
-demosite = "https://ceritadorang.pages.dev/"
+homepage = "https://ceritadorang.com/"
+demosite = "https://ceritadorang.com/"
 
 tags = [
   "blog",
@@ -41,4 +41,4 @@ features = [
 # Informasi tambahan
 [original]
   author = "Donny Turang"
-  homepage = "https://ceritadorang.pages.dev/"
+  homepage = "https://ceritadorang.com/"

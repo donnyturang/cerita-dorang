@@ -6,7 +6,7 @@ Ruang baca yang lebih cepat dan modern untuk cerita-cerita terpilih dari **DORAN
 
 ## Live
 
-- **Situs:** https://ceritadorang.pages.dev/
+- **Situs:** https://ceritadorang.com/
 - **Blog utama:** https://donnyturang.blogspot.com/
 
 ## Tech Stack

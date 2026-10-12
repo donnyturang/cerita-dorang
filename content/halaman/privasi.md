@@ -7,7 +7,7 @@ url: "/privasi/"
 description: "Bagaimana CERITA DORANG mengelola data dan privasi pembaca."
 ---
 
-Halaman ini menjelaskan bagaimana **CERITA DORANG** (`ceritadorang.pages.dev`) mengelola data dan privasi pembaca.
+Halaman ini menjelaskan bagaimana **CERITA DORANG** (`ceritadorang.com`) mengelola data dan privasi pembaca.
 
 ## 1. Data yang Dikumpulkan
 

@@ -7,7 +7,7 @@ url: "/syarat-layanan/"
 description: "Syarat dan ketentuan penggunaan konten CERITA DORANG."
 ---
 
-Dengan mengakses dan membaca **CERITA DORANG** (`ceritadorang.pages.dev`), Anda menyetujui syarat dan ketentuan berikut.
+Dengan mengakses dan membaca **CERITA DORANG** (`ceritadorang.com`), Anda menyetujui syarat dan ketentuan berikut.
 
 ## 1. Hak Cipta Konten
 
