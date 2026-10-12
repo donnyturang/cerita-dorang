@@ -13,7 +13,7 @@ RED='\033[0;31m'; CYAN='\033[0;36m'; NC='\033[0m'
 
 PROJECT="$HOME/Projects/dorang-hugo"
 PICTURES_DIR="$HOME/Pictures"
-CF_URL="https://ceritadorang.pages.dev"
+CF_URL="https://ceritadorang.com"
 GSC_URL="https://search.google.com/search-console"
 
 clear
@@ -191,7 +191,7 @@ if [ -n "$BACA_INTERNAL" ]; then
         s=$(echo "$s" | xargs)
         s="${s#posts/}"; s="${s#/posts/}"
         if [ -f "content/posts/$s.md" ]; then
-            printf -v _entry '{{< bacajuga-internal slug="%s" >}}\n\n' "$s"
+            printf -v _entry '{{< bacajuga-internal slug="%s" >}}%s' "$s" $'\n\n'
             BACA_INT_LINES+="$_entry"
             echo -e "   ${GREEN}✓${NC} $s"
         else
@@ -340,6 +340,50 @@ fi
 sleep 1
 $EDITOR_CMD "$FILE"
 echo -e "${GREEN}✓ Editor selesai${NC} ($(wc -l < "$FILE") baris)"
+
+# ── CLEANUP: Fix \n\n literal + baris kosong sekitar shortcode ──
+echo ""
+echo -e "${BLUE}🧹 Membersihkan format (baris kosong sekitar shortcode)…${NC}"
+
+python3 - "$FILE" << 'PYCLEANUP'
+import sys
+path = sys.argv[1]
+with open(path) as f:
+    lines = f.readlines()
+
+new_lines = []
+fixed_gap = 0
+fixed_nn = 0
+
+for i, line in enumerate(lines):
+    # Fix 1: hapus literal \n\n
+    if '\\n\\n' in line:
+        line = line.replace('\\n\\n', '\n\n')
+        fixed_nn += 1
+
+    is_shortcode = '{{<' in line and ('bacajuga' in line or '/bacajuga' in line)
+
+    # Fix 2: sisip baris kosong sebelum shortcode
+    if is_shortcode and new_lines and new_lines[-1].strip() != '':
+        new_lines.append('\n')
+        fixed_gap += 1
+
+    new_lines.append(line)
+
+    # Fix 3: sisip baris kosong sesudah shortcode
+    if is_shortcode and i < len(lines) - 1 and lines[i+1].strip() != '':
+        new_lines.append('\n')
+        fixed_gap += 1
+
+with open(path, 'w') as f:
+    f.writelines(new_lines)
+
+total = fixed_gap + fixed_nn
+if total > 0:
+    print(f"   \033[0;32m✓\033[0m Cleanup: {fixed_gap} baris kosong, {fixed_nn} literal \\n\\n")
+else:
+    print(f"   \033[0;32m✓\033[0m Format sudah bersih")
+PYCLEANUP
 
 # Apply inline links via Python
 if [ -n "$INLINE_INPUT" ]; then
@@ -506,7 +550,7 @@ git push origin main
 echo -e "${GREEN}✓ Push selesai${NC}"
 
 # ── Social Share Preview ──────────────────────────────────
-POST_URL="https://ceritadorang.pages.dev/posts/$SLUG/"
+POST_URL="https://ceritadorang.com/posts/$SLUG/"
 
 echo ""
 echo -e "${GOLD}════════════════════════════════════════════════${NC}"
@@ -552,7 +596,7 @@ if [ -x "$INDEXNOW_SCRIPT" ]; then
     echo ""
     echo -e "${GOLD}📡 Submit ke IndexNow...${NC}"
     sleep 5  # tunggu Cloudflare deploy mulai
-    "$INDEXNOW_SCRIPT" "https://ceritadorang.pages.dev/posts/$SLUG/" 2>&1 | tail -5
+    "$INDEXNOW_SCRIPT" "https://ceritadorang.com/posts/$SLUG/" 2>&1 | tail -5
 fi
 
 # ═══════════════════════════════════════════════════════════
