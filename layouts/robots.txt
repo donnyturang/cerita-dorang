@@ -2,6 +2,8 @@ User-agent: *
 Allow: /
 
 # Blokir halaman sistem
+Disallow: /categories/
+Disallow: /tags/
 Disallow: /page/
 
 # Sitemap
