@@ -286,6 +286,47 @@ echo "$BACA_INT_LINES$BACA_EKST_LINE"
 echo ""
 echo -e "${GREEN}✅ File dibuat:${NC} $FILE"
 
+# ── CLEANUP: Fix \n\n literal + baris kosong sekitar shortcode ──
+echo ""
+echo -e "${BLUE}🧹 Membersihkan format…${NC}"
+
+python3 - "$FILE" << 'PYCLEANUP'
+import sys
+path = sys.argv[1]
+with open(path) as f:
+    lines = f.readlines()
+
+new_lines = []
+fixed_gap = 0
+fixed_nn = 0
+
+for i, line in enumerate(lines):
+    if '\\n\\n' in line:
+        line = line.replace('\\n\\n', '\n\n')
+        fixed_nn += 1
+
+    is_shortcode = '{{<' in line and ('bacajuga' in line or '/bacajuga' in line)
+
+    if is_shortcode and new_lines and new_lines[-1].strip() != '':
+        new_lines.append('\n')
+        fixed_gap += 1
+
+    new_lines.append(line)
+
+    if is_shortcode and i < len(lines) - 1 and lines[i+1].strip() != '':
+        new_lines.append('\n')
+        fixed_gap += 1
+
+with open(path, 'w') as f:
+    f.writelines(new_lines)
+
+total = fixed_gap + fixed_nn
+if total > 0:
+    print(f"   ✓ Cleanup: {fixed_gap} baris, {fixed_nn} literal")
+else:
+    print(f"   ✓ Format sudah bersih")
+PYCLEANUP
+
 # Apply inline links
 if [ -n "$INLINE_INPUT" ]; then
     python3 - "$FILE" "$INLINE_INPUT" << 'PYINLINE'
@@ -355,7 +396,7 @@ git commit -m "publish: $JUDUL (dari draft Desktop)"
 git push origin main
 
 # Share preview
-POST_URL="https://ceritadorang.pages.dev/posts/$SLUG/"
+POST_URL="https://ceritadorang.com/posts/$SLUG/"
 SHARE_TEXT="$JUDUL — $POST_URL"
 
 echo ""
