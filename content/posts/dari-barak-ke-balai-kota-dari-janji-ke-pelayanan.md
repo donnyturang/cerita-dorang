@@ -16,7 +16,7 @@ summary: "Perjalanan lebih dari dua dasawarsa otonomi Kota Tomohon menyimpan kis
 cover:
   image: "/images/dari-barak-ke-balai-kota.webp"
   alt: 'Ilustrasi perjalanan pemerintahan Kota Tomohon dari kompleks Rindam Kakaskasen menuju Kantor Wali Kota di Kolongan I, serta perkembangan gedung DPRD dari Walian ke Lansot. Seorang ASN membawa meja sendiri, melambangkan keterbatasan fasilitas pada awal otonomi.'
-  caption: 'Dari barak ke balai kota. Perjalanan lebih dari dua dasawarsa otonomi Tomohon, dari kantor pemerintahan sederhana hingga gedung-gedung representatif. Di balik perubahan itu tersimpan kisah pengabdian para aparatur yang pernah bekerja dalam keterbatasan, bahkan membawa meja sendiri. Kini, ketika fasilitas semakin memadai, pertanyaan terpenting tetap sama: sudahkah pelayanan publik semakin dekat dengan masyarakat?'
+  caption: 'Dari barak ke balai kota. Perjalanan lebih dari dua dasawarsa otonomi Tomohon, dari kantor pemerintahan sederhana hingga gedung-gedung representatif. Di balik perubahan itu tersimpan kisah pengabdian para aparatur yang pernah bekerja dalam keterbatasan, bahkan membawa meja sendiri. Kini, ketika fasilitas semakin memadai, pertanyaan terpenting tetap sama: sudahkah pelayanan publik semakin dekat dengan masyarakat?(Gambar—hanya ilustrasi—dari arsip dorang dan direkayasa berkolaborasi dengan teknologi AI)'
   relative: false
 ShowToc: true
 ShowShareButtons: true
