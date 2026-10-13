@@ -353,7 +353,7 @@ Kota ini membutuhkan kepedulian yang tetap menyala ketika api sudah padam.
 
 Kepedulian terhadap hutan, terhadap udara, terhadap kehidupan yang bergantung pada keseimbangan alam.
 
-Dan, barangkali yang tidak kalah penting, kepedulian terhadap sesama manusia. sebagaimana tulisan sebelumnya *Di Kota Bunga, ke Mana Kaki Kita Harus Berjalan?*
+Dan, barangkali yang tidak kalah penting, kepedulian terhadap sesama manusia. sebagaimana tulisan sebelumnya [*Di Kota Bunga, ke Mana Kaki Kita Harus Berjalan?*](/posts/di-kota-bunga-ke-mana-kaki-kita-harus-berjalan/)
 
 ### Ketika Api Padam, Apa yang Tersisa?
 
