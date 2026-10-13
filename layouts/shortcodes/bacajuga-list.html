@@ -16,10 +16,10 @@
       {{ $line := trim . " \t\r" }}
       {{ if $line }}
         {{ $parts := split $line "|" }}
-        {{ $url := index $parts 0 | trim }}
+        {{ $url := index $parts 0 | strings.TrimSpace }}
         {{ $text := "" }}
         {{ if gt (len $parts) 1 }}
-          {{ $text = index $parts 1 | trim }}
+          {{ $text = index $parts 1 | strings.TrimSpace }}
         {{ else }}
           {{ $text = $url }}
         {{ end }}
