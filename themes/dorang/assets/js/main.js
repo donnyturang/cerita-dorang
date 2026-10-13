@@ -103,7 +103,13 @@
   if (postBody.querySelector('.dorang-toc')) return;
 
   // Kumpulkan heading H2 dan H3
-  var headings = postBody.querySelectorAll('h2, h3');
+  var allHeadings = postBody.querySelectorAll('h2, h3');
+  // Skip heading struktural (berakhir dengan ':' atau punya class 'no-toc')
+  var headings = Array.prototype.slice.call(allHeadings).filter(function(h) {
+    var text = (h.textContent || '').trim();
+    if (h.classList.contains('no-toc')) return false;
+    return !text.endsWith(':');
+  });
   if (headings.length < 2) return; // Minimal 2 heading
 
   // Buat struktur TOC

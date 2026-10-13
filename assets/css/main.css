@@ -3775,3 +3775,31 @@ blockquote {
     font-size: 0.9rem;
   }
 }
+
+/* ============================================================
+   SECTION SOURCE — heading kecil untuk "Sumber dan Rujukan"
+   ============================================================ */
+.section-source {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--muted);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 8px;
+  margin: 2.5em 0 1em;
+}
+
+[data-theme="dark"] .section-source {
+  color: #a0a0a0;
+  border-bottom-color: #3a3a3a;
+}
+
+@media (max-width: 600px) {
+  .section-source {
+    font-size: 12px;
+    letter-spacing: 1.2px;
+    margin: 2em 0 0.75em;
+  }
+}
