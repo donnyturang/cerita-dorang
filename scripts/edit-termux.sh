@@ -238,7 +238,19 @@ while true; do
             fi ;;
         14) edit_field "Alt text" ALT ;;
         15) edit_field "Caption" CAPTION ;;
-        16) edit_field "Tanggal (format ISO)" DATE ;;
+        16) echo ""
+            echo -e "${GOLD}📅 Tanggal saat ini:${NC} $DATE"
+            NOW=$(date +%Y-%m-%dT%H:%M:%S+08:00)
+            NOW_HUMAN=$(date "+%A, %d %B %Y — %H:%M WITA")
+            echo -e "${GOLD}📅 Sekarang:${NC} ${GREEN}$NOW_HUMAN${NC}"
+            read -p "   Update ke sekarang? (y/n): " UPDATE_DATE
+            if [ "$UPDATE_DATE" = "y" ]; then
+                DATE="$NOW"
+                echo -e "   ${GREEN}✅ Tanggal diperbarui.${NC}"
+            else
+                echo -e "   ${GOLD}⏸️  Dibiarkan.${NC}"
+            fi
+            read -p "Tekan Enter untuk kembali ke menu..." ;;
         17) echo -e "${BLUE}Membuka nano — scroll ke bawah untuk isi artikel…${NC}"
             sleep 1
             nano "$FILE"
