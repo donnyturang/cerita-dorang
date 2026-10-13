@@ -285,7 +285,7 @@ Mungkin di Kakaskasen dan sejumlah lingkungan lain, kebiasaan itu masih bertahan
 
 Namun, perubahan cara hidup masyarakat tidak dapat diabaikan.
 
-Kota berkembang. Kesibukan bertambah. Hubungan sosial tidak selalu seerat dahulu. Teknologi komunikasi membuat kabar menyebar jauh lebih cepat, tetapi belum tentu membuat orang lebih cepat bergerak membantu. Seperti tulisan sebelumnya *Kota yang Pernah Diperjuangkan, [Kota yang Kini Harus Membuktikan Diri](/posts/kota-yang-pernah-diperjuangkan/)*
+Kota berkembang. Kesibukan bertambah. Hubungan sosial tidak selalu seerat dahulu. Teknologi komunikasi membuat kabar menyebar jauh lebih cepat, tetapi belum tentu membuat orang lebih cepat bergerak membantu. Seperti tulisan sebelumnya <a href="/posts/kota-yang-pernah-diperjuangkan/"><em>Kota yang Pernah Diperjuangkan, Kota yang Kini Harus Membuktikan Diri</em></a>
 
 Dulu, suara pengeras suara dapat memanggil orang keluar rumah untuk bekerja bersama.
 
