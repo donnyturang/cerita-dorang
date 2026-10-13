@@ -1,26 +1,20 @@
 ---
-title: "Gunung Lokon Terbakar, Tomohon Dipenuhi Asap"
-date: 2026-10-13T18:07:36+08:00
+title : "Gunung Lokon Terbakar, Tomohon Dipenuhi Asap"
+date : "2026-10-13T18:07:36+08:00"
 draft: false
-author: "Donny Turang"
-categories: ["Jendela"]
-tags:
-  - Tomohon
-  - Gunung Lokon
-  - Kebakaran Hutan
-  - Kebakaran Lahan
-  - Mapalus
-  - Lingkungan Hidup
-  - Sulawesi Utara
-description: "Gunung Lokon terbakar, asap menyelimuti Tomohon. Di tengah perjuangan relawan, dan petugas terkait, semangat Mapalus dan kepedulian terhadap alam kembali diuji."
-summary: "Api berkobar cepat di lereng Gunung Lokon.  Warga dan petugas berjibaku memadamkannya,  sementara asap menyelimuti Tomohon.  Di tengah ancaman kebakaran, semangat Mapalus dan kepedulian terhadap alam kembali dipertanyakan."
+author : "Donny Turang"
+categories : ["Jendela"]
+tags: ["Tomohon", "Gunung Lokon", "Kebakaran Hutan", "Kebakaran Lahan", "Mapalus", "Lingkungan Hidup", "Sulawesi Utara", "populer"]
+description : "Gunung Lokon terbakar, asap menyelimuti Tomohon. Di tengah perjuangan relawan, dan petugas terkait, semangat Mapalus dan kepedulian terhadap alam kembali diuji."
+summary : "Api berkobar cepat di lereng Gunung Lokon.  Warga dan petugas berjibaku memadamkannya,  sementara asap menyelimuti Tomohon.  Di tengah ancaman kebakaran, semangat Mapalus dan kepedulian terhadap alam kembali dipertanyakan."
+ShowToc: true
+ShowShareButtons: true
+populer_rank : 1
 cover:
   image: "/images/gunung-lokon-terbakar.webp"
   alt: 'Relawan dan petugas terkait berupaya memadamkan api yang membakar vegetasi di lereng Gunung Lokon, Tomohon, Sulawesi Utara, Selasa, 13 Oktober 2026.'
   caption: 'Gambar hanya ilustrasi yang dibuat dari foto dorang kemudian direkayasa berkolaborasi dengan teknologi AI.'
   relative: false
-ShowToc: true
-ShowShareButtons: true
 ---
 
 *Setelah Soputan, Awu, dan Klabat dilanda kebakaran, kini api menjalar di lereng Gunung Lokon. Di tengah asap yang menyelimuti Tomohon, warga dan petugas berjibaku menghadapi kobaran api. Peristiwa ini bukan sekadar cerita tentang hutan yang terbakar, melainkan juga tentang alam yang semakin rentan dan semangat Mapalus yang diuji oleh perubahan zaman.*
