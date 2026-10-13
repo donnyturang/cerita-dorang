@@ -1,5 +1,5 @@
 {{/* ============================================================
-     PILIHAN REDAKSI — Top 4 Artikel dari tag "populer"
+     PILIHAN REDAKSI — Top 5 Artikel dari tag "populer"
      Layout: list editorial (thumbnail + rank + title + meta)
      ============================================================ */}}
 {{ $populer := where site.RegularPages "Params.tags" "intersect" (slice "populer") }}
@@ -8,7 +8,7 @@
 <section class="dorang-section">
   <h2 class="dorang-section-title">Pilihan Redaksi</h2>
   <div class="dorang-pilihan-list">
-    {{ range $i, $p := first 4 . }}
+    {{ range $i, $p := first 5 . }}
     <a href="{{ $p.RelPermalink }}" class="dorang-pilihan-item">
       <span class="dorang-pilihan-rank">{{ printf "%02d" (add $i 1) }}</span>
       {{ with $p.Params.cover.image }}
