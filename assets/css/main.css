@@ -3791,7 +3791,8 @@ blockquote {
   margin: 2.5em 0 1em;
 }
 
-/* Paragraf rujukan desktop — kecil, muted */
+/* Paragraf rujukan — kecil, muted */
+.ref-text,
 .section-source + p,
 .section-source + p + p {
   font-family: Georgia, serif;
@@ -3813,6 +3814,7 @@ blockquote {
     letter-spacing: 1.2px;
     margin: 2em 0 0.75em;
   }
+  .ref-text,
   .section-source + p,
   .section-source + p + p {
     font-size: 11px;

@@ -322,6 +322,7 @@ Melainkan tentang betapa mudahnya manusia melupakan sesuatu yang paling dibutuhk
 Dan terkadang, kita baru memahami nilai setetes air ketika tetes terakhir hampir habis.
 
 <h2 class="section-source no-toc">Sumber dan Rujukan</h2>
-BMKG—Peringatan Dini Kekeringan Meteorologis Dasarian II Oktober 2026 dan Analisis Dinamika Atmosfer Dasarian I Oktober 2026. Status peringatan dapat berubah mengikuti pembaruan BMKG.
+
+<p class="ref-text">BMKG—Peringatan Dini Kekeringan Meteorologis Dasarian II Oktober 2026 dan Analisis Dinamika Atmosfer Dasarian I Oktober 2026. Status peringatan dapat berubah mengikuti pembaruan BMKG.</p>
 
 
