@@ -6,7 +6,7 @@ description = "Perjalanan Rocky Gerung dari Manado, filsafat UI, dunia panjat te
 summary = "Dari Manado ia berangkat mencari filsafat. Dari ruang kelas ia belajar keadilan. Dari alam bebas ia menemukan batas manusia. Selama bertahun-tahun ia berdiri di luar pagar kekuasaan. Kini, ia justru berada di dalam Istana—sebuah babak baru bagi filsuf yang lama diasosiasikan dengan oposisi."
 categories = ["Sosok"]
 tags = ["Rocky Gerung", "Filsafat", "Demokrasi", "Kebebasan Berpikir", "Panjat Tebing", "Wantimpres", "populer"]
-populer_rank = 4
+populer_rank= 7
 [cover]
   image = "/images/rocky-gerung.webp"
   alt = "Karikatur Rocky Gerung dengan latar tebing, buku filsafat, alam bebas, dan siluet Istana Negara"

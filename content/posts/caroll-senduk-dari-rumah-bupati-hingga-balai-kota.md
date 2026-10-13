@@ -5,9 +5,8 @@ draft = false
 description = "Perjalanan Caroll Senduk dari keluarga birokrasi di Bitung, dunia usaha, DPRD Tomohon, hingga dua kali memimpin Kota Tomohon sebagai wali kota."
 summary = "Caroll Joram Azarias Senduk bukan sekadar nama di baliho atau daftar jabatan. Ia pernah kalah dalam pemilihan, membangun usaha, belajar politik dari DPRD, lalu dua kali dipercaya memimpin Tomohon. Sebuah perjalanan yang mengajarkan bahwa pemimpin dibentuk bukan hanya oleh kemenangan, tetapi oleh jalan panjang sebelum kemenangan itu."
 categories = ["Sosok"]
-tags = ["Caroll Senduk", "Tomohon", "Politik Lokal", "Profil", "rekomendasi", "pilihan", "populer"]
+tags = ["Caroll Senduk", "Tomohon", "Politik Lokal", "Profil", "rekomendasi", "pilihan"]
 author = "Donny Turang"
-populer_rank = 1
 [cover]
   image = "/images/caroll-senduk.webp"
   alt = "Caroll Senduk, Wali Kota Tomohon"

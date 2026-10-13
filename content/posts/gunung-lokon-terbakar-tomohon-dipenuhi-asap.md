@@ -9,7 +9,7 @@ description : "Gunung Lokon terbakar, asap menyelimuti Tomohon. Di tengah perjua
 summary : "Api berkobar cepat di lereng Gunung Lokon.  Warga dan petugas berjibaku memadamkannya,  sementara asap menyelimuti Tomohon.  Di tengah ancaman kebakaran, semangat Mapalus dan kepedulian terhadap alam kembali dipertanyakan."
 ShowToc: true
 ShowShareButtons: true
-populer_rank : 1
+populer_rank: 2
 cover:
   image: "/images/gunung-lokon-terbakar.webp"
   alt: 'Relawan dan petugas terkait berupaya memadamkan api yang membakar vegetasi di lereng Gunung Lokon, Tomohon, Sulawesi Utara, Selasa, 13 Oktober 2026.'

@@ -15,7 +15,7 @@ tags:
   - Manado
   - Senator
   - populer
-populer_rank: 5
+populer_rank: 4
 description: "Setelah pemilu, kursi kekuasaan terisi. Tetapi rakyat tetap menunggu: ke mana suara mereka pergi dan kapan janji politik benar-benar pulang?"
 summary: "Delapan belas kursi mayoritas, tujuh kursi minoritas, delapan wakil dari Dapil Minahasa-Tomohon, dan empat senator Sulut. Di balik semua angka itu ada satu pertanyaan: ke mana suara rakyat pergi setelah pemilu selesai?"
 cover:

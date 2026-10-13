@@ -7,7 +7,7 @@ author: "Donny Turang"
 categories: ["Jendela"]
 tags:
   - populer
-populer_rank: 2
+populer_rank: 5
   - Tomohon
   - Kota Tomohon
   - Sejarah Tomohon

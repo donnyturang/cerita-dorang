@@ -13,7 +13,7 @@ tags:
   - Lingkungan  - populer
 description: "Peringatan BMKG menempatkan 15 daerah Sulawesi Utara berstatus Awas kekeringan. Di balik angka itu, ada ancaman bagi air, pertanian, dan kehidupan."
 summary: "Seluruh 15 kabupaten dan kota di Sulawesi Utara berstatus Awas kekeringan meteorologis pada 11–20 Oktober 2026. Di balik peringatan BMKG, ancaman kekurangan air, kerentanan pertanian, dan risiko kebakaran mengingatkan bahwa krisis lingkungan selalu berujung pada kehidupan manusia."
-populer_rank: 2
+populer_rank: 1
 cover:
   image: "/images/kekeringan-dan-danau.webp"
   alt: 'Ilustrasi gabungan lahan pertanian yang mengering di Bukit Wawo, Tomohon Selatan, dengan perairan Telaga Sineleyan di Talete, Tomohon Tengah. Dua lanskap yang menggambarkan kontras antara kekeringan dan keberadaan sumber air di tengah ancaman kemarau di Sulawesi Utara.'
