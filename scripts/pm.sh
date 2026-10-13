@@ -439,14 +439,14 @@ for pair in [p.strip() for p in raw.split(',') if p.strip()]:
     pat_pl = re.compile(r'(?<!\[)(' + re.escape(clean) + r')(?!\])')
     m = pat_it.search(c)
     if m:
-        c = c[:m.start()] + f'[*{clean}*]({url})' + c[m.end():]
-        print(f"   ✅ ext: '*{clean}*'")
+        c = c[:m.start()] + f'<a href="{url}"><em>{clean}</em></a>' + c[m.end():]
+        print(f"   ✅ ext: '{clean}' → HTML tag")
     else:
         m = pat_pl.search(c)
         if m:
             matched = m.group(1)
-            c = c[:m.start()] + f'[*{matched}*]({url})' + c[m.end():]
-            print(f"   ✅ ext: '{matched}'")
+            c = c[:m.start()] + f'<a href="{url}"><em>{matched}</em></a>' + c[m.end():]
+            print(f"   ✅ ext: '{matched}' → HTML tag")
         else:
             print(f"   ⚠️  tidak ketemu: '{clean}'")
 with open(path, 'w') as f: f.write(c)
