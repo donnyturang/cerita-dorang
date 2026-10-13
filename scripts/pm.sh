@@ -356,7 +356,7 @@ draft: false
 author: "$AUTHOR"
 categories: ["$KATEGORI"]
 tags:
-$(echo -e "$TAG_LINES" | sed '/^$/d')$( [ -n "$POP_TAG_LINE" ] && echo "$POP_TAG_LINE" )
+$(echo -e "$TAG_LINES" | sed '/^$/d')$( [ -n "$POP_TAG_LINE" ] && echo -e "\n$POP_TAG_LINE" )
 description: "$DESCRIPTION"
 ${FM_OPTIONALS}ShowToc: true
 ShowShareButtons: true
