@@ -6,7 +6,7 @@ description = "Jejak panjang Tomohon sebagai Kota Bunga: dari bunga di halaman r
 summary = "Bunga di Tomohon bukan sekadar dekorasi atau slogan. Ia tumbuh lebih dulu di halaman rumah, menjadi pagar hidup, lalu berkembang menjadi identitas kota. Sebelum ada istilah city branding, sebelum festival internasional, warga Tomohon sudah mengenal bunga sebagai bagian dari hidup mereka."
 categories = ["Tahukah Anda"]
 tags = ["Tomohon", "Sejarah", "Flora", "Budaya", "Kota Bunga", "sorotan", "populer"]
-populer_rank= 6
+populer_rank = 6
 [cover]
   image = "/images/bunga-tomohon.webp"
   alt = "Ilustrasi bunga di Kota Tomohon"

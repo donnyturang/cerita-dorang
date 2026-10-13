@@ -3,7 +3,7 @@
      Layout: list editorial (thumbnail + rank + title + meta)
      ============================================================ */}}
 {{ $populer := where site.RegularPages "Params.tags" "intersect" (slice "populer") }}
-{{ $populer = sort $populer "Params.populer_rank" "asc" }}
+{{ $populer = $populer.ByParam "populer_rank" }}
 {{ with $populer }}
 <section class="dorang-section">
   <h2 class="dorang-section-title">Pilihan Redaksi</h2>
