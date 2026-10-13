@@ -63,9 +63,9 @@
     <div class="dorang-list">
       {{ range first 5 . }}
       <a href="{{ .RelPermalink }}" class="dorang-list-item">
-        {{ with .Params.cover.image }}
+        {{ if .Params.cover.image }}
         <div class="dorang-list-cover">
-          {{ partial "image.html" (dict "src" . "alt" ($.Params.cover.alt | default $.Title) "loading" "lazy" "sizes" "(max-width: 640px) 200px, 240px" "widths" (slice 200 400 600 800)) }}
+          {{ partial "image.html" (dict "src" .Params.cover.image "alt" (.Params.cover.alt | default .Title) "loading" "lazy" "sizes" "(max-width: 640px) 200px, 240px" "widths" (slice 200 400 600 800)) }}
         </div>
         {{ end }}
         <div class="dorang-list-content">
@@ -88,9 +88,9 @@
     <div class="dorang-grid">
       {{ range first 3 . }}
       <a href="{{ .RelPermalink }}" class="dorang-card">
-        {{ with .Params.cover.image }}
+        {{ if .Params.cover.image }}
         <div class="dorang-card-cover">
-          {{ partial "image.html" (dict "src" . "alt" ($.Params.cover.alt | default $.Title) "loading" "lazy" "sizes" "(max-width: 640px) 100vw, (max-width: 1100px) 45vw, 350px" "widths" (slice 200 400 600 800)) }}
+          {{ partial "image.html" (dict "src" .Params.cover.image "alt" (.Params.cover.alt | default .Title) "loading" "lazy" "sizes" "(max-width: 640px) 100vw, (max-width: 1100px) 45vw, 350px" "widths" (slice 200 400 600 800)) }}
         </div>
         {{ end }}
         <h3 class="dorang-card-title">{{ .Title }}</h3>
@@ -111,9 +111,9 @@
     <div class="dorang-list">
       {{ range first 5 . }}
       <a href="{{ .RelPermalink }}" class="dorang-list-item">
-        {{ with .Params.cover.image }}
+        {{ if .Params.cover.image }}
         <div class="dorang-list-cover">
-          {{ partial "image.html" (dict "src" . "alt" ($.Params.cover.alt | default $.Title) "loading" "lazy" "sizes" "(max-width: 640px) 200px, 240px" "widths" (slice 200 400 600 800)) }}
+          {{ partial "image.html" (dict "src" .Params.cover.image "alt" (.Params.cover.alt | default .Title) "loading" "lazy" "sizes" "(max-width: 640px) 200px, 240px" "widths" (slice 200 400 600 800)) }}
         </div>
         {{ end }}
         <div class="dorang-list-content">
