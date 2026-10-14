@@ -4,7 +4,7 @@ date : "2026-10-14T19:27:01+08:00"
 draft: false
 author : "Donny Turang"
 categories : ["Tahukah Anda"]
-tags: ["Seminari Kakaskasen", "Sejarah Tomohon", "Pendidikan Calon Imam", "Sejarah Gereja Katolik", "Permesta", "Woloan", "Kakaskasen"]
+tags : ["Seminari Kakaskasen", "Sejarah Tomohon", "Pendidikan Calon Imam", "Sejarah Gereja Katolik", "Permesta", "Woloan", "Kakaskasen"]
 description : "Sejarah Seminari Kakaskasen, bermula dari kehilangan seorang calon imam, melewati kehancuran perang dan Permesta, hingga menjadi rumah bagi ribuan panggilan."
 summary : "Berawal dari kehilangan seorang anak yang diharapkan menjadi imam, Pastor Hendricus Croonen merintis seminari di Woloan pada 1928. Perjalanannya menuju Kakaskasen diwarnai semangat mapalus, kehancuran akibat Perang Dunia II, hingga pergolakan Permesta. Inilah kisah hampir seabad tentang keteguhan, pengorbanan, dan panggilan yang terus bertumbuh di kaki Gunung Lokon."
 ShowToc: true
