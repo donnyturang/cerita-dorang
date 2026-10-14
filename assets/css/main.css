@@ -3731,18 +3731,7 @@ blockquote {
 }
 
 .baca-juga-list li::before {
-  content: "→";
-  position: absolute;
-  left: 0;
-  top: 10px;
-  font-family: sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  color: #c9a227;
-  font-size: 1.1rem;
-  width: 26px;
-  text-align: center;
-  line-height: 1;
+  content: none;
 }
 
 .baca-juga-list .baca-juga-link {
