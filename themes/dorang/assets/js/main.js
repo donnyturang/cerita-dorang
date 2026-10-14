@@ -292,10 +292,23 @@
   var fuse = null;
   var searchData = null;
 
+  function loadFuseScript() {
+    if (window.Fuse) return Promise.resolve();
+    return new Promise(function (resolve, reject) {
+      var s = document.createElement('script');
+      s.src = 'https://cdn.jsdelivr.net/npm/fuse.js@7.0.0/dist/fuse.min.js';
+      s.integrity = 'sha384-PCSoOZTpbkikBEtd/+uV3WNdc676i9KUf01KOA8CnJotvlx8rRrETbDuwdjqTYvt';
+      s.crossOrigin = 'anonymous';
+      s.onload = resolve;
+      s.onerror = reject;
+      document.head.appendChild(s);
+    });
+  }
+
   function loadSearchIndex() {
     if (searchData) return Promise.resolve();
-    return fetch('/index.json')
-      .then(function (r) { return r.json(); })
+    return Promise.all([fetch('/index.json'), loadFuseScript()])
+      .then(function (results) { return results[0].json(); })
       .then(function (data) {
         searchData = data;
         var FuseCtor = window.Fuse;
