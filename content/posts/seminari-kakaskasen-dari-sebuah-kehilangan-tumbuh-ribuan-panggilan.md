@@ -1,26 +1,19 @@
 ---
-title: "Seminari Kakaskasen: Dari Sebuah Kehilangan, Tumbuh Ribuan Panggilan"
-date: 2026-10-14T19:27:01+08:00
+title : "Seminari Kakaskasen: Dari Sebuah Kehilangan, Tumbuh Ribuan Panggilan"
+date : "2026-10-14T19:27:01+08:00"
 draft: false
-author: "Donny Turang"
-categories: ["Tahukah Anda"]
-tags:
-  - Seminari Kakaskasen
-  - Sejarah Tomohon
-  - Pendidikan Calon Imam
-  - Sejarah Gereja Katolik
-  - Permesta
-  - Woloan
-  - Kakaskasen
-description: "Sejarah Seminari Kakaskasen, bermula dari kehilangan seorang calon imam, melewati kehancuran perang dan Permesta, hingga menjadi rumah bagi ribuan panggilan."
-summary: "Berawal dari kehilangan seorang anak yang diharapkan menjadi imam, Pastor Hendricus Croonen merintis seminari di Woloan pada 1928. Perjalanannya menuju Kakaskasen diwarnai semangat mapalus, kehancuran akibat Perang Dunia II, hingga pergolakan Permesta. Inilah kisah hampir seabad tentang keteguhan, pengorbanan, dan panggilan yang terus bertumbuh di kaki Gunung Lokon."
+author : "Donny Turang"
+categories : ["Tahukah Anda"]
+tags: ["Seminari Kakaskasen", "Sejarah Tomohon", "Pendidikan Calon Imam", "Sejarah Gereja Katolik", "Permesta", "Woloan", "Kakaskasen"]
+description : "Sejarah Seminari Kakaskasen, bermula dari kehilangan seorang calon imam, melewati kehancuran perang dan Permesta, hingga menjadi rumah bagi ribuan panggilan."
+summary : "Berawal dari kehilangan seorang anak yang diharapkan menjadi imam, Pastor Hendricus Croonen merintis seminari di Woloan pada 1928. Perjalanannya menuju Kakaskasen diwarnai semangat mapalus, kehancuran akibat Perang Dunia II, hingga pergolakan Permesta. Inilah kisah hampir seabad tentang keteguhan, pengorbanan, dan panggilan yang terus bertumbuh di kaki Gunung Lokon."
+ShowToc: true
+ShowShareButtons: true
 cover:
   image: "/images/seminari-kakaskasen.webp"
   alt: 'Ilustrasi komposit digital Seminari Menengah St. Fransiskus Xaverius Kakaskasen, Tomohon, memadukan foto gerbang seminari dengan rekonstruksi visual sejarah pendidikan calon imam, kehancuran bangunan akibat perang, para seminaris, dan Gunung Lokon.'
   caption: 'Jejak panjang Seminari Menengah St. Fransiskus Xaverius Kakaskasen, Tomohon, dari perintisannya di Woloan pada 1928, kehancuran akibat Perang Dunia II, hingga kebangkitannya melewati pergolakan Permesta. Ilustrasi komposit digital ini menggambarkan perjalanan sejarah, pengorbanan, dan keteguhan panggilan yang terus bertumbuh di kaki Gunung Lokon. (Gambar merupakan rekayasa visual dan ilustrasi historis kolaborasi DORANG dengan teknologi AI.)'
   relative: false
-ShowToc: true
-ShowShareButtons: true
 ---
 
 *Di balik tembok batu dan pepohonan rindang di kaki Gunung Lokon, berdiri sebuah seminari yang pernah kehilangan calon murid pertamanya, luluh lantak oleh perang, dan bertahan di tengah pergolakan. Hampir seabad kemudian, kisahnya bukan hanya tentang pendidikan calon imam, melainkan tentang manusia, pengorbanan, dan kesetiaan pada sebuah panggilan.*
