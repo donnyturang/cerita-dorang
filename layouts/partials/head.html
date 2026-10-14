@@ -23,6 +23,29 @@
 {{/* Simpan ke .Store untuk dipakai partial lain (schema.html) */}}
 {{ .Store.Set "ogImage" $ogImage }}
 
+{{/* ═══ PRELOAD LCP IMAGE ═══ */}}
+{{ $lcpImage := "" }}
+{{ $lcpSizes := "" }}
+{{ if .IsHome }}
+  {{ $hero := index (first 1 (where site.RegularPages "Section" "posts").ByDate.Reverse) 0 }}
+  {{ with $hero }}{{ with .Params.cover.image }}{{ $lcpImage = . }}{{ $lcpSizes = "(max-width: 767px) 100vw, 60vw" }}{{ end }}{{ end }}
+{{ else if .IsPage }}
+  {{ with .Params.cover.image }}{{ $lcpImage = . }}{{ $lcpSizes = "(max-width: 1100px) 100vw, 1100px" }}{{ end }}
+{{ end }}
+{{ with $lcpImage }}
+  {{ $path := strings.TrimPrefix "/" . }}
+  {{ $img := resources.Get $path }}
+  {{ if $img }}
+    {{ $w400 := $img.Resize "400x webp q75" }}
+    {{ $w800 := $img.Resize "800x webp q75" }}
+    {{ $w1200 := $img.Resize "1200x webp q75" }}
+<link rel="preload" as="image"
+      imagesrcset="{{ $w400.RelPermalink }} 400w, {{ $w800.RelPermalink }} 800w, {{ $w1200.RelPermalink }} 1200w"
+      imagesizes="{{ $lcpSizes }}"
+      fetchpriority="high">
+  {{ end }}
+{{ end }}
+
 {{ $description := "" }}
 {{ with .Description }}{{ $description = . }}{{ else }}{{ $description = site.Params.description }}{{ end }}
 
