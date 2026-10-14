@@ -370,5 +370,8 @@ Hampir satu abad kemudian, dari cita-cita yang pernah terputus itu, perjalanan r
 
 ---
 
-**Catatan Sumber:** Penelusuran sejarah dalam tulisan ini merujuk pada *Memoria Nostra: Ad Maiorem Dei Gloriam*, yang diadaptasi dari Majalah Seminaris *Kimentur*, Edisi Khusus No. 1/Tahun VII/2003; artikel <a href="https://brainfransiscosupit.blogspot.com/2012/12/sejarah-ringkas-seminari-st-fransiskus.html"><em>Sejarah Ringkas Seminari St. Fransiskus</em></a> yang dimuat di blog Fransisco Supit; serta tulisan <a href="https://donnyturang.blogspot.com/2026/05/seminari-kakaskasen-tomohon-panggilan-sunyi.html"><em>Seminari Kakaskasen Tomohon: Panggilan Sunyi</em></a> karya Donny Turang. 
+**Catatan Sumber:** Penelusuran sejarah dalam tulisan ini merujuk pada *Memoria Nostra: Ad Maiorem Dei Gloriam*, yang diadaptasi dari Majalah Seminaris *Kimentur*, Edisi Khusus No. 1/Tahun VII/2003; artikel <a href="https://brainfransiscosupit.blogspot.com/2012/12/sejarah-ringkas-seminari-st-fransiskus.html"><em>Sejarah Ringkas Seminari St. Fransiskus</em></a> yang dimuat di blog Fransisco Supit; serta tulisan <a href="https://donnyturang.blogspot.com/2026/05/seminari-kakaskasen-tomohon-panggilan-sunyi.html"><em>Seminari Kakaskasen Tomohon: Panggilan Sunyi</em></a> karya Donny Turang.
 
+{{< bacajuga-list >}}
+https://donnyturang.blogspot.com/2026/05/negeri-lima-ribu-gereja-sulawesi-utara.html|Negeri Lima Ribu Gereja: Membaca Sulawesi Utara dari Menara Lonceng
+{{< /bacajuga-list >}}
