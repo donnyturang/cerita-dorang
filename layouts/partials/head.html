@@ -36,9 +36,9 @@
   {{ $path := strings.TrimPrefix "/" . }}
   {{ $img := resources.Get $path }}
   {{ if $img }}
-    {{ $w400 := $img.Resize "400x webp q75" }}
-    {{ $w800 := $img.Resize "800x webp q75" }}
-    {{ $w1200 := $img.Resize "1200x webp q75" }}
+    {{ $w400 := $img.Resize "400x webp q68" }}
+    {{ $w800 := $img.Resize "800x webp q68" }}
+    {{ $w1200 := $img.Resize "1200x webp q68" }}
 <link rel="preload" as="image"
       imagesrcset="{{ $w400.RelPermalink }} 400w, {{ $w800.RelPermalink }} 800w, {{ $w1200.RelPermalink }} 1200w"
       imagesizes="{{ $lcpSizes }}"
@@ -97,7 +97,6 @@
 <meta name="theme-color" content="#1a1a1a" media="(prefers-color-scheme: dark)">
 
 {{/* ========== PRECONNECT ========== */}}
-<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
 
 {{/* ========== RSS AUTO-DISCOVERY ========== */}}

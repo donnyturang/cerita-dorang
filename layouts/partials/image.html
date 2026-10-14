@@ -28,7 +28,7 @@
   {{ $fallback := $img }}
   {{ range $widths }}
     {{ if ge $img.Width . }}
-      {{ $resized := $img.Resize (printf "%dx webp q75" .) }}
+      {{ $resized := $img.Resize (printf "%dx webp q68" .) }}
       {{ $srcset = $srcset | append (printf "%s %dw" $resized.RelPermalink .) }}
       {{ $fallback = $resized }}
     {{ end }}
