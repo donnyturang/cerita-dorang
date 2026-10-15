@@ -1,7 +1,7 @@
 ---
 title: "Tentang Situs"
 date: 2026-10-06T08:00:00+08:00
-lastmod: 2026-10-09T13:00:00+08:00
+lastmod: 2026-10-15T20:00:00+08:00
 layout: "static-page"
 url: "/tentang-situs/"
 description: "Apa itu CERITA DORANG, kenapa dibangun, dan apa yang akan Anda temukan di sini."
@@ -13,7 +13,7 @@ Ia bukan blog utama. Ia juga bukan sekadar arsip. Ia adalah ruang di mana cerita
 
 ## Kenapa Ada Dua Situs?
 
-Blog utama **DORANG** ([donnyturang.blogspot.com](https://donnyturang.blogspot.com)) sudah lama menjadi rumah bagi berbagai tulisan — catatan harian, opini, refleksi, dan liputan ringan yang ditulis dari waktu ke waktu. Di sana, tulisan tumbuh cepat dan mengalir.
+Blog utama **DORANG** sudah lama menjadi rumah bagi berbagai tulisan — catatan harian, opini, refleksi, dan liputan ringan yang ditulis dari waktu ke waktu. Di sana, tulisan tumbuh cepat dan mengalir. Sebagian dari tulisan itu kini disusun ulang di sini, dengan tampilan yang lebih tenang.
 
 Sementara **CERITA DORANG** adalah tempat yang berbeda. Ia diisi lebih lambat, lebih selektif. Setiap artikel melewati penyuntingan ulang — kadang ditulis ulang, kadang diperkaya — sebelum akhirnya diterbitkan di sini.
 
@@ -47,6 +47,7 @@ Kalau Anda menemukan kesalahan, salah kutip, atau ingin memberi tanggapan, silak
 ## Kontak
 
 - **Email:** [dorang71@gmail.com](mailto:dorang71@gmail.com)
-- **Blog utama:** [donnyturang.blogspot.com](https://donnyturang.blogspot.com)
+- **Halaman Kontak:** [/kontak/](/kontak/)
+- **Profil Penulis:** [/tentang-penulis/](/tentang-penulis/)
 
 *Terakhir diperbarui: 9 Oktober 2026*

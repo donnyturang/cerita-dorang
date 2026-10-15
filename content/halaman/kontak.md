@@ -1,7 +1,7 @@
 ---
 title: "Kontak"
 date: 2026-10-07T08:00:00+08:00
-lastmod: 2026-10-07T08:00:00+08:00
+lastmod: 2026-10-15T20:00:00+08:00
 layout: "static-page"
 url: "/kontak/"
 description: "Hubungi Donny Turang dan CERITA DORANG untuk pertanyaan, saran, atau kerja sama."
@@ -28,11 +28,9 @@ Untuk percakapan ringan, tanggapan cepat, atau sekadar menyapa:
 - **Bluesky** — [@donnyturang.bsky.social](https://bsky.app/profile/donnyturang.bsky.social)
 - **Facebook** — [TURANGDonny](https://web.facebook.com/TURANGDonny)
 
-## Blog Utama
+## Arsip DORANG
 
-Untuk arsip lengkap tulisan DORANG (sejak awal):
-
-**[donnyturang.blogspot.com](https://donnyturang.blogspot.com)**
+Untuk arsip lengkap tulisan lama DORANG, lihat halaman [Tentang Situs](/tentang-situs/).
 
 ## Kerja Sama
 

@@ -1,7 +1,7 @@
 ---
 title: "Tentang Penulis"
 date: 2026-10-07T08:00:00+08:00
-lastmod: 2026-10-07T08:00:00+08:00
+lastmod: 2026-10-15T20:00:00+08:00
 layout: "static-page"
 url: "/tentang-penulis/"
 description: "Profil Donny Turang — jurnalis dan penulis di balik CERITA DORANG."
@@ -22,7 +22,7 @@ Lahir di Manado dan besar di Tomohon, Sulawesi Utara — dua tempat yang meningg
 
 ## Mengapa CERITA DORANG?
 
-Blog utama **DORANG** ([donnyturang.blogspot.com](https://donnyturang.blogspot.com)) sudah lama menjadi rumah bagi berbagai tulisan — feature, opini, catatan kecil, hingga buku elektronik.
+Blog utama **DORANG** sudah lama menjadi rumah bagi berbagai tulisan — feature, opini, catatan kecil, hingga buku elektronik. Sebagian dari tulisan itu kini disusun ulang di **CERITA DORANG**, dengan pengalaman membaca yang lebih nyaman.
 
 **CERITA DORANG** dibangun sebagai **ruang baca yang lebih cepat dan modern** untuk cerita-cerita terpilih — dengan pengalaman membaca yang lebih nyaman, tanpa gangguan.
 
@@ -39,12 +39,7 @@ Karya yang sudah terbit:
 ## Kontak
 
 - **Email:** [dorang71@gmail.com](mailto:dorang71@gmail.com)
-- **Blog utama:** [donnyturang.blogspot.com](https://donnyturang.blogspot.com)
-- **Halaman Kontak CERITA DORANG:** [/kontak/](/kontak/)
-
-Untuk profil lengkap dan arsip tulisan, kunjungi:
-
-**[Tentang Penulis di DORANG →](https://donnyturang.blogspot.com/p/tentang-penulis.html)**
+- **Halaman Kontak:** [/kontak/](/kontak/)
 
 ---
 
