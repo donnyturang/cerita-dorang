@@ -431,23 +431,10 @@ fi
 # ═══ INLINE INTERNAL ═══
 if [ -n "$INLINE_INPUT" ]; then
     echo -e "${BLUE}🔗 Inline internal…${NC}"
-    python3 - "$FILE" "$INLINE_INPUT" << 'PYINLINE'
-import sys, re
-path, raw = sys.argv[1], sys.argv[2]
-with open(path) as f: c = f.read()
-for pair in [p.strip() for p in raw.split(',') if p.strip()]:
-    if '|' not in pair: continue
-    anchor, slug = pair.split('|', 1)
-    anchor, slug = anchor.strip(), slug.strip().lstrip('/')
-    slug = slug[6:] if slug.startswith('posts/') else slug
-    pattern = re.compile(r'(?<!\[)(' + re.escape(anchor) + r')(?!\])', re.IGNORECASE)
-    m = pattern.search(c)
-    if m:
-        c = c[:m.start()] + f'[{m.group(1)}](/posts/{slug}/)' + c[m.end():]
-        print(f"   ✅ '{m.group(1)}' → {slug}")
-    else: print(f"   ⚠️  tidak ketemu: '{anchor}'")
-with open(path, 'w') as f: f.write(c)
-PYINLINE
+    if ! python3 scripts/inline_links.py "$FILE" "$INLINE_INPUT"; then
+        echo -e "${RED}❌ Pemrosesan inline internal gagal.${NC}"
+        exit 1
+    fi
 fi
 
 # ═══ INLINE EKSTERNAL (HTML tag) ═══

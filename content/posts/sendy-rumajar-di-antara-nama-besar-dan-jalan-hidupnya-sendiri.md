@@ -71,7 +71,7 @@ Pada 2003, Tomohon memasuki babak baru.
 
 Melalui Undang-Undang Nomor 10 Tahun 2003, Tomohon dibentuk menjadi daerah otonom. Wilayah yang sebelumnya merupakan bagian dari Kabupaten Minahasa itu mulai menata pemerintahan sendiri.
 
-Bagi masyarakat, otonomi membawa harapan tentang pelayanan yang lebih dekat, pembangunan yang lebih merata, dan kesempatan menentukan masa depan daerah tanpa selalu bergantung pada kabupaten induk, sebagaimana tulisan sebelumnya *Kota yang Pernah Diperjuangkan, [Kota yang Kini Harus Membuktikan Diri](/posts/https://ceritadorang.com/posts/kota-yang-pernah-diperjuangkan//)*
+Bagi masyarakat, otonomi membawa harapan tentang pelayanan yang lebih dekat, pembangunan yang lebih merata, dan kesempatan menentukan masa depan daerah tanpa selalu bergantung pada kabupaten induk, sebagaimana tulisan sebelumnya *Kota yang Pernah Diperjuangkan, [Kota yang Kini Harus Membuktikan Diri](/posts/kota-yang-pernah-diperjuangkan/)*
 
 Bagi keluarga Rumajar, perubahan itu kelak menghadirkan babak politik berikutnya.
 
@@ -224,7 +224,7 @@ Jakarta, 20 Februari 2025.
 
 Di Istana Negara, para kepala daerah dan wakil kepala daerah terpilih mengikuti prosesi pelantikan serentak.
 
-Di antara mereka terdapat *[Caroll Joram Azarias Senduk](/posts/https://ceritadorang.com/posts/caroll-senduk-dari-rumah-bupati-hingga-balai-kota//)* dan Sendy Gladys Adolfina Rumajar.
+Di antara mereka terdapat *[Caroll Joram Azarias Senduk](/posts/caroll-senduk-dari-rumah-bupati-hingga-balai-kota/)* dan Sendy Gladys Adolfina Rumajar.
 
 Keduanya datang membawa mandat politik hasil Pilkada Tomohon 2024.
 
