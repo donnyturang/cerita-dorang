@@ -1,26 +1,19 @@
 ---
-title: "Sendy Rumajar: Di Antara Nama Besar dan Jalan Hidupnya Sendiri"
-date: 2026-10-15T12:19:05+08:00
+title : "Sendy Rumajar: Di Antara Nama Besar dan Jalan Hidupnya Sendiri"
+date : "2026-10-15T12:19:05+08:00"
 draft: false
-author: "Donny Turang"
-categories: ["Sosok"]
-tags:
-  - Sendy Rumajar
-  - Tomohon
-  - Wakil Wali Kota
-  - Kepemimpinan
-  - Tomohon
-  - Sulawesiara
-  - Tokoh Perempuan
-description: "Sendy Rumajar tumbuh dalam keluarga politik Tomohon. Dari Paskibraka Nasional hingga wakil wali kota, ia menghadapi ujian membangun warisannya sendiri."
-summary: "Tiga generasi keluarga Rumajar meninggalkan jejak dalam sejarah politik Minahasa dan Tomohon. Kini, Sendy Gladys Adolfina Rumajar menghadapi tantangan berbeda: membuktikan bahwa kepemimpinannya bukan sekadar kelanjutan nama besar keluarga, melainkan perjalanan pengabdian yang memiliki maknanya sendiri."
+author : "Donny Turang"
+categories : ["Sosok"]
+tags: ["Sendy Rumajar", "Tomohon", "Wakil Wali Kota", "Kepemimpinan", "Tomohon", "Sulawesiara", "Tokoh Perempuan"]
+description : "Sendy Rumajar tumbuh dalam keluarga politik Tomohon. Dari Paskibraka Nasional hingga wakil wali kota, ia menghadapi ujian membangun warisannya sendiri."
+summary : "Tiga generasi keluarga Rumajar meninggalkan jejak dalam sejarah politik Minahasa dan Tomohon. Kini, Sendy Gladys Adolfina Rumajar menghadapi tantangan berbeda: membuktikan bahwa kepemimpinannya bukan sekadar kelanjutan nama besar keluarga, melainkan perjalanan pengabdian yang memiliki maknanya sendiri."
+ShowToc: true
+ShowShareButtons: true
 cover:
   image: "/images/sendy-rumajar.webp"
   alt: 'Sendy Gladys Adolfina Rumajar, Wakil Wali Kota Tomohon, tersenyum mengenakan jas hitam dan dasi biru muda dalam ilustrasi editorial bertajuk Di Antara Nama Besar dan Jalan Hidupnya Sendiri.'
   caption: 'Sendy Gladys Adolfina Rumajar, Wakil Wali Kota Tomohon periode 2025–2030. Mewarisi nama besar dalam sejarah politik Minahasa dan Tomohon, ia kini menghadapi tantangan membangun jejak kepemimpinannya sendiri, melampaui warisan keluarga. (Foto sumber: Instagram @rumajarsendy. Ilustrasi editorial dan pengolahan visual digital: CERITA DORANG, berkolaborasi dengan teknologi AI.)'
   relative: false
-ShowToc: true
-ShowShareButtons: true
 ---
 
 *Dari cucu seorang Ketua DPRD Minahasa, putri mantan Wali Kota Tomohon, hingga menjadi Wakil Wali Kota pada usia 33 tahun. Sendy Gladys Adolfina Rumajar tumbuh bersama sejarah politik keluarganya. Namun, warisan nama hanyalah permulaan. Di hadapannya terbentang perjalanan yang jauh lebih sulit: membangun kepercayaan dengan kemampuannya sendiri.*
