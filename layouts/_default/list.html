@@ -122,6 +122,12 @@
     <p class="dorang-empty"><em>Belum ada artikel di kategori ini.</em></p>
   {{ end }}
 
+  {{/* JELAJAHI RUBRIK LAIN + PILIHAN REDAKSI — hanya di halaman kategori, halaman 1 */}}
+  {{ if and (eq .Kind "term") (eq .Type "categories") (eq .Paginator.PageNumber 1) }}
+    {{ partial "dari-rubrik-lain.html" . }}
+    {{ partial "pilihan-redaksi-compact.html" . }}
+  {{ end }}
+
   {{/* Kembali */}}
   <p class="dorang-list-back">
     <a href="/">← Kembali ke Beranda</a>

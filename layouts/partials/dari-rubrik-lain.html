@@ -1,0 +1,27 @@
+{{/* DARI RUBRIK LAIN — cross-category dari kategori berbeda */}}
+{{ $currentCat := .Title }}
+{{ $allCats := slice "Jendela" "Tahukah Anda" "Sosok" }}
+{{ $otherCats := complement (slice $currentCat) $allCats }}
+
+{{ $otherArticles := where site.RegularPages "Params.categories" "intersect" $otherCats }}
+{{ $latestOther := first 3 ($otherArticles.ByDate.Reverse) }}
+
+{{ with $latestOther }}
+<section class="dorang-section">
+  <h2 class="dorang-section-title">Jelajahi Rubrik Lain</h2>
+  <div class="dorang-grid">
+    {{ range . }}
+      {{ $item := . }}
+      <a href="{{ .RelPermalink }}" class="dorang-card">
+        {{ with .Params.cover.image }}
+        <div class="dorang-card-cover">
+          {{ partial "image.html" (dict "src" . "alt" ($item.Params.cover.alt | default $item.Title) "loading" "lazy" "sizes" "(max-width: 640px) 100vw, (max-width: 1100px) 45vw, 350px" "widths" (slice 200 400 600 800)) }}
+        </div>
+        {{ end }}
+        <h3 class="dorang-card-title">{{ .Title }}</h3>
+        <p class="dorang-card-summary">{{ .Summary | plainify | truncate 100 }}</p>
+      </a>
+    {{ end }}
+  </div>
+</section>
+{{ end }}
