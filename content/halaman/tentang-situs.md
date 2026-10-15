@@ -1,23 +1,23 @@
 ---
 title: "Tentang Situs"
 date: 2026-10-06T08:00:00+08:00
-lastmod: 2026-10-15T20:00:00+08:00
+lastmod: 2026-10-15T22:00:00+08:00
 layout: "static-page"
 url: "/tentang-situs/"
 description: "Apa itu CERITA DORANG, kenapa dibangun, dan apa yang akan Anda temukan di sini."
 ---
 
-**CERITA DORANG** adalah ruang baca yang lebih cepat dan modern untuk cerita-cerita terpilih dari **DORANG**.
+**CERITA DORANG** adalah ruang baca untuk cerita-cerita yang layak dibaca ulang.
 
-Ia bukan blog utama. Ia juga bukan sekadar arsip. Ia adalah ruang di mana cerita-cerita yang kami anggap layak dibaca ulang, disusun kembali dengan tampilan yang lebih tenang — tanpa iklan yang mengganggu, tanpa tata letak yang ramai.
+Ia bukan portal berita. Ia juga bukan arsip. Ia adalah ruang di mana cerita-cerita terpilih disusun dengan tampilan yang lebih tenang — tanpa iklan yang mengganggu, tanpa tata letak yang ramai.
 
-## Kenapa Ada Dua Situs?
+## Kenapa CERITA DORANG Ada?
 
-Blog utama **DORANG** sudah lama menjadi rumah bagi berbagai tulisan — catatan harian, opini, refleksi, dan liputan ringan yang ditulis dari waktu ke waktu. Di sana, tulisan tumbuh cepat dan mengalir. Sebagian dari tulisan itu kini disusun ulang di sini, dengan tampilan yang lebih tenang.
+Cerita tentang Tomohon, Minahasa, dan orang-orang di dalamnya sering kali hidup hanya dalam percakapan. Berlalu begitu saja, tanpa sempat dituliskan.
 
-Sementara **CERITA DORANG** adalah tempat yang berbeda. Ia diisi lebih lambat, lebih selektif. Setiap artikel melewati penyuntingan ulang — kadang ditulis ulang, kadang diperkaya — sebelum akhirnya diterbitkan di sini.
+**CERITA DORANG** hadir agar cerita-cerita itu tidak hilang. Ia diisi perlahan, dengan seleksi yang ketat. Setiap artikel melewati penyuntingan ulang — kadang ditulis ulang, kadang diperkaya — sebelum akhirnya diterbitkan di sini.
 
-Dua situs, satu niat: agar cerita tentang Tomohon, Minahasa, dan orang-orang di dalamnya tetap hidup, dan bisa dibaca dengan cara yang lebih layak.
+Satu niat: agar cerita-cerita ini tetap hidup, dan bisa dibaca dengan cara yang lebih layak.
 
 ## Apa yang Akan Anda Temukan di Sini?
 
@@ -53,4 +53,4 @@ Kalau Anda menemukan kesalahan, salah kutip, atau ingin memberi tanggapan, silak
 - **Halaman Kontak:** [/kontak/](/kontak/)
 - **Profil Penulis:** [/tentang-penulis/](/tentang-penulis/)
 
-*Terakhir diperbarui: 9 Oktober 2026*
+*Terakhir diperbarui: 15 Oktober 2026*
