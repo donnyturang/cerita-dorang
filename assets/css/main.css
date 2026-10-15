@@ -3818,13 +3818,12 @@ blockquote {
    ============================================================ */
 .homepage-quote {
   max-width: 620px;
-  margin: 24px auto 32px;
-  padding: 8px 24px 16px;
+  margin: 4px auto 36px;
+  padding: 8px 24px 0;
   text-align: center;
   position: relative;
   background: transparent;
   border: none;
-  border-bottom: 1px solid var(--border);
   border-radius: 0;
 }
 
@@ -3867,7 +3866,6 @@ blockquote {
 
 [data-theme="dark"] .homepage-quote {
   background: transparent;
-  border-bottom-color: #3a3a3a;
 }
 
 [data-theme="dark"] .homepage-quote-text {
@@ -3884,8 +3882,8 @@ blockquote {
 
 @media (max-width: 640px) {
   .homepage-quote {
-    margin: 20px auto 28px;
-    padding: 8px 20px 14px;
+    margin: 4px auto 28px;
+    padding: 8px 20px 0;
   }
   .homepage-quote-text {
     font-size: 10.5px;
