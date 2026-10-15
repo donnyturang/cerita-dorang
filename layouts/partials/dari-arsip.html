@@ -1,0 +1,38 @@
+{{/* DARI ARSIP — 3 artikel random dari arsip, exclude yang sudah tampil di homepage */}}
+
+{{ $semua := where site.RegularPages "Section" "posts" }}
+{{ $shown := slice }}
+
+{{/* Hanya exclude 4 Terbaru + 5 Pilihan Redaksi (biar tidak dobel hero) */}}
+{{ range first 4 ($semua.ByDate.Reverse) }}
+  {{ $shown = $shown | append .RelPermalink }}
+{{ end }}
+{{ $populer := where site.RegularPages "Params.tags" "intersect" (slice "populer") }}
+{{ range first 5 ($populer.ByParam "populer_rank") }}
+  {{ $shown = $shown | append .RelPermalink }}
+{{ end }}
+
+{{/* Filter & shuffle */}}
+{{ $arsip := where $semua "RelPermalink" "not in" $shown }}
+{{ $random := first 3 ($arsip | shuffle) }}
+
+{{ with $random }}
+<section class="dorang-section">
+  <h2 class="dorang-section-title">Dari Arsip</h2>
+  <div class="dorang-grid">
+    {{ range . }}
+      {{ $item := . }}
+      <a href="{{ .RelPermalink }}" class="dorang-card">
+        {{ with .Params.cover.image }}
+        <div class="dorang-card-cover">
+          {{ partial "image.html" (dict "src" . "alt" ($item.Params.cover.alt | default $item.Title) "loading" "lazy" "sizes" "(max-width: 640px) 100vw, (max-width: 1100px) 45vw, 350px" "widths" (slice 200 400 600 800)) }}
+        </div>
+        {{ end }}
+        <h3 class="dorang-card-title">{{ .Title }}</h3>
+        <p class="dorang-card-summary">{{ .Summary | plainify | truncate 100 }}</p>
+        <span class="dorang-card-meta">{{ .Date | time.Format "2 January 2006" }} · {{ .ReadingTime }} menit baca</span>
+      </a>
+    {{ end }}
+  </div>
+</section>
+{{ end }}
