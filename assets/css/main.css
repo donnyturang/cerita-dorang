@@ -3899,3 +3899,28 @@ blockquote {
     margin-top: 5px;
   }
 }
+
+
+/* ============================================================
+   HOMEPAGE — Rapatkan quote ke nav & ke section berikutnya
+   ============================================================ */
+
+/* Khusus homepage: kurangi padding-top site-main */
+.site-main:has(.dorang-home) {
+  padding-top: 16px;
+}
+
+/* Section pertama setelah quote (TERBARU) — rapatkan ke atas */
+.dorang-home .homepage-quote + .dorang-section {
+  margin-top: 24px;
+}
+
+@media (max-width: 640px) {
+  .site-main:has(.dorang-home) {
+    padding-top: 12px;
+  }
+  .dorong-home .homepage-quote + .dorang-section,
+  .dorang-home .homepage-quote + .dorang-section {
+    margin-top: 20px;
+  }
+}
