@@ -3822,8 +3822,11 @@ blockquote {
   padding: 20px 24px 16px;
   text-align: center;
   position: relative;
+  background: transparent;
+  border: none;
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
+  border-radius: 0;
 }
 
 .homepage-quote::before {
@@ -3875,6 +3878,7 @@ blockquote {
 }
 
 [data-theme="dark"] .homepage-quote {
+  background: transparent;
   border-top-color: #3a3a3a;
   border-bottom-color: #3a3a3a;
 }
