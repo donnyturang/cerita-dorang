@@ -1,0 +1,19 @@
+{{/* ============================================================
+     QUOTE — 1 quote aktif dari data/quote.yaml
+     Ganti via: bash scripts/ganti-quote.sh
+     ============================================================ */}}
+
+{{ $quote := site.Data.quote }}
+{{ if $quote }}
+
+  <blockquote class="homepage-quote" aria-label="Kutipan pilihan">
+    <p class="homepage-quote-text">{{ $quote.text }}</p>
+    <footer class="homepage-quote-footer">
+      <cite class="homepage-quote-author">{{ $quote.author }}</cite>
+      {{ with $quote.source }}
+        <span class="homepage-quote-source">{{ . }}</span>
+      {{ end }}
+    </footer>
+  </blockquote>
+
+{{ end }}

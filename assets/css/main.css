@@ -3811,3 +3811,105 @@ blockquote {
     line-height: 1.55;
   }
 }
+
+
+/* ============================================================
+   HOMEPAGE QUOTE — Filsuf pilihan
+   ============================================================ */
+.homepage-quote {
+  max-width: 720px;
+  margin: 56px auto 72px;
+  padding: 48px 40px 40px;
+  text-align: center;
+  position: relative;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.homepage-quote::before {
+  content: "\201C";
+  font-family: Georgia, serif;
+  font-size: 72px;
+  line-height: 0.8;
+  color: var(--accent);
+  opacity: 0.35;
+  position: absolute;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.homepage-quote-text {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 21px;
+  font-style: italic;
+  line-height: 1.65;
+  color: var(--text);
+  margin: 28px 0 24px;
+  letter-spacing: 0.2px;
+}
+
+.homepage-quote-footer {
+  margin: 0;
+}
+
+.homepage-quote-author {
+  display: block;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--accent-dark);
+  font-style: normal;
+}
+
+.homepage-quote-source {
+  display: block;
+  font-family: Georgia, serif;
+  font-size: 12px;
+  font-style: italic;
+  color: var(--muted);
+  margin-top: 8px;
+  opacity: 0.8;
+}
+
+[data-theme="dark"] .homepage-quote {
+  border-top-color: #3a3a3a;
+  border-bottom-color: #3a3a3a;
+}
+
+[data-theme="dark"] .homepage-quote-text {
+  color: #e6e6e6;
+}
+
+[data-theme="dark"] .homepage-quote-author {
+  color: var(--accent);
+}
+
+[data-theme="dark"] .homepage-quote-source {
+  color: #a0a0a0;
+}
+
+@media (max-width: 640px) {
+  .homepage-quote {
+    margin: 40px auto 56px;
+    padding: 36px 22px 32px;
+  }
+  .homepage-quote::before {
+    font-size: 56px;
+    top: 16px;
+  }
+  .homepage-quote-text {
+    font-size: 17px;
+    line-height: 1.6;
+    margin: 24px 0 20px;
+  }
+  .homepage-quote-author {
+    font-size: 11px;
+    letter-spacing: 2px;
+  }
+  .homepage-quote-source {
+    font-size: 11px;
+  }
+}

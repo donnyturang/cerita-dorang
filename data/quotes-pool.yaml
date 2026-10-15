@@ -1,0 +1,38 @@
+# ═══════════════════════════════════════════════════════════════
+#   POOL QUOTE — Cadangan untuk referensi & pilihan cepat
+# ═══════════════════════════════════════════════════════════════
+#
+#   File ini TIDAK dibaca oleh website.
+#   Ini hanya "gudang" quote — tinggal copy-paste ke data/quote.yaml
+#   atau pilih via scripts/ganti-quote.sh
+# ═══════════════════════════════════════════════════════════════
+
+quotes:
+
+  - text: 'Cerita tidak pernah habis. Ia hanya berpindah dari satu orang ke orang lain — dan di setiap tangan, ia tumbuh sedikit berbeda.'
+    author: 'Walter Benjamin'
+    source: 'Terinspirasi dari "The Storyteller", 1936'
+
+  - text: 'Cerita mengungkapkan makna tanpa terpaksa mendefinisikannya.'
+    author: 'Hannah Arendt'
+    source: 'Men in Dark Times, 1968'
+
+  - text: 'Kita bercerita pada diri sendiri agar bisa hidup.'
+    author: 'Joan Didion'
+    source: 'The White Album, 1979'
+
+  - text: 'Cerita lahir dari pertemuan banyak kehidupan yang berbeda.'
+    author: 'Italo Calvino'
+    source: 'The Uses of Literature, 1980'
+
+  - text: 'Ingatan adalah medium sang pencerita.'
+    author: 'Walter Benjamin'
+    source: 'The Storyteller, 1936'
+
+  - text: 'Pencerita yang baik adalah guru dan orang bijak bagi pendengarnya.'
+    author: 'Walter Benjamin'
+    source: 'The Storyteller, 1936'
+
+  - text: 'Yang paling berbahaya dari perjalanan bukanlah bahaya itu sendiri, melainkan tidak berani memulai.'
+    author: 'Anonim'
+    source: 'Pepatah perjalanan'
