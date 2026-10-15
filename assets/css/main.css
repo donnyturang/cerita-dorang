@@ -3818,29 +3818,17 @@ blockquote {
    ============================================================ */
 .homepage-quote {
   max-width: 620px;
-  margin: 28px auto 36px;
-  padding: 20px 24px 16px;
+  margin: 24px auto 32px;
+  padding: 8px 24px 16px;
   text-align: center;
   position: relative;
   background: transparent;
   border: none;
-  border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
   border-radius: 0;
 }
 
-.homepage-quote::before {
-  content: "\201C";
-  font-family: Georgia, serif;
-  font-size: 26px;
-  line-height: 0.8;
-  color: var(--accent);
-  opacity: 0.4;
-  position: absolute;
-  top: 12px;
-  left: 50%;
-  transform: translateX(-50%);
-}
+/* Ornamen ❝ dihapus — minimalist */
 
 .homepage-quote-text {
   font-family: Georgia, "Times New Roman", serif;
@@ -3848,7 +3836,7 @@ blockquote {
   font-style: italic;
   line-height: 1.55;
   color: var(--text);
-  margin: 14px 0 12px;
+  margin: 0 0 12px;
   letter-spacing: 0.1px;
 }
 
@@ -3879,7 +3867,6 @@ blockquote {
 
 [data-theme="dark"] .homepage-quote {
   background: transparent;
-  border-top-color: #3a3a3a;
   border-bottom-color: #3a3a3a;
 }
 
@@ -3897,12 +3884,8 @@ blockquote {
 
 @media (max-width: 640px) {
   .homepage-quote {
-    margin: 24px auto 32px;
-    padding: 20px 20px 16px;
-  }
-  .homepage-quote::before {
-    font-size: 22px;
-    top: 10px;
+    margin: 20px auto 28px;
+    padding: 8px 20px 14px;
   }
   .homepage-quote-text {
     font-size: 10.5px;
