@@ -21,8 +21,8 @@ Dua situs, satu niat: agar cerita tentang Tomohon, Minahasa, dan orang-orang di 
 
 ## Apa yang Akan Anda Temukan di Sini?
 
-**⭐ Sorotan**
-Cerita pilihan yang kami anggap layak dibaca lebih dulu. Satu artikel, satu perhatian penuh.
+**🆕 Terbaru**
+Cerita terbaru yang baru diterbitkan — dibaca lebih dulu, satu perhatian penuh.
 
 **📖 Jendela**
 Feature panjang — catatan mendalam tentang Tomohon, kebijakan kota, dan kehidupan warganya. Ditulis dengan sudut pandang personal, bukan sekadar laporan.
@@ -35,6 +35,9 @@ Profil orang-orang menarik: pemimpin, pemikir, atau figur yang jarang disorot na
 
 **📚 Pilihan Redaksi**
 Kurasi artikel terbaik pilihan editor — dibaca berurutan atau acak, semuanya relevan.
+
+**📦 Dari Arsip**
+Cerita-cerita lama yang tetap layak dibaca ulang — disusun acak, agar tidak pernah tenggelam.
 
 ## Bagaimana Kami Menulis
 
