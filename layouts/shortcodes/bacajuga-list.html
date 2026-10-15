@@ -1,29 +1,29 @@
-{{/* ============================================================
-     Baca Juga List — Multi artikel dalam 1 kotak
-
-     Cara pakai:
-       {{< bacajuga-list >}}
-       https://url-1.com|Judul 1
-       https://url-2.com|Judul 2
-       {{< /bacajuga-list >}}
-     ============================================================ */}}
-{{ $content := trim .Inner " \n\r\t" }}
-{{ $lines := split $content "\n" }}
+{{/* BACA JUGA gabungan: internal:slug atau https://...|Judul */}}
+{{ $lines := split (trim .Inner " \n\r\t") "\n" }}
 <div class="baca-juga-callout">
   <span class="baca-juga-label">BACA JUGA</span>
   <ul class="baca-juga-list">
     {{ range $lines }}
       {{ $line := trim . " \t\r" }}
       {{ if $line }}
-        {{ $parts := split $line "|" }}
-        {{ $url := index $parts 0 | strings.TrimSpace }}
-        {{ $text := "" }}
-        {{ if gt (len $parts) 1 }}
-          {{ $text = index $parts 1 | strings.TrimSpace }}
+        {{ if hasPrefix $line "internal:" }}
+          {{ $slug := strings.TrimPrefix "internal:" $line | strings.TrimSpace }}
+          {{ with site.GetPage (printf "posts/%s" $slug) }}
+            <li><a class="baca-juga-link" href="{{ .RelPermalink }}">{{ .Title }} →</a></li>
+          {{ else }}
+            {{ warnf "BACA JUGA: artikel internal tidak ditemukan: %s" $slug }}
+          {{ end }}
         {{ else }}
-          {{ $text = $url }}
+          {{ $parts := split $line "|" }}
+          {{ $url := index $parts 0 | strings.TrimSpace }}
+          {{ $title := $url }}
+          {{ if gt (len $parts) 1 }}{{ $title = index $parts 1 | strings.TrimSpace }}{{ end }}
+          {{ if or (hasPrefix $url "https://") (hasPrefix $url "http://") }}
+            <li><a class="baca-juga-link" href="{{ $url | safeURL }}" target="_blank" rel="noopener noreferrer">{{ $title }} →</a></li>
+          {{ else }}
+            {{ warnf "BACA JUGA: URL tidak valid: %s" $url }}
+          {{ end }}
         {{ end }}
-        <li><a class="baca-juga-link" href="{{ $url }}" target="_blank" rel="noopener noreferrer">{{ $text }} →</a></li>
       {{ end }}
     {{ end }}
   </ul>

@@ -306,30 +306,8 @@ if [ "$POP" = "y" ] && [ -n "$RANK" ]; then
     POP_TAG_LINE="  - populer"
 fi
 
-BACA_INT_LINES=""
-if [ -n "$BACA_INTERNAL" ]; then
-    IFS=',' read -ra SLUGS <<< "$BACA_INTERNAL"
-    for s in "${SLUGS[@]}"; do
-        s=$(echo "$s" | xargs); s="${s#posts/}"
-        if [ -f "content/posts/$s.md" ]; then
-            BACA_INT_LINES+="{{< bacajuga-internal slug=\"$s\" >}}"$'\n\n'
-            echo -e "   ${GREEN}✓${NC} $s"
-        else
-            echo -e "   ${RED}⚠️  tidak ada: $s${NC}"
-        fi
-    done
-fi
-
-BACA_EKST_LINE=""
-if [ -n "$BACA_EKST_INPUT" ]; then
-    BACA_EKST_LINE="{{< bacajuga-list >}}"
-    IFS=',' read -ra BACA_PAIRS <<< "$BACA_EKST_INPUT"
-    for pair in "${BACA_PAIRS[@]}"; do
-        pair=$(echo "$pair" | xargs)
-        [ -n "$pair" ] && BACA_EKST_LINE+=$'\n'"$pair"
-    done
-    BACA_EKST_LINE+=$'\n'"{{< /bacajuga-list >}}"
-fi
+# Daftar rujukan diproses setelah isi artikel ditulis.
+# Input internal: slug1,slug2; eksternal: URL|Judul; URL|Judul
 
 COVER_LINE=""; GAMBAR_FILE=""
 if [ -n "$GAMBAR" ]; then
@@ -368,7 +346,7 @@ ARTIKEL_EOF
 
 cat "$DRAFT"
 echo ""
-echo "$BACA_INT_LINES$BACA_EKST_LINE"
+
 } > "$FILE"
 
 echo ""
@@ -401,6 +379,14 @@ total = fixed_gap + fixed_nn
 print(f"   ✓ Cleanup: {fixed_gap} baris, {fixed_nn} literal" if total else "   ✓ Format sudah bersih")
 PYCLEANUP
 
+# ═══ BACA JUGA GABUNGAN ═══
+if [ -n "$BACA_INTERNAL" ] || [ -n "$BACA_EKST_INPUT" ]; then
+    BACA_ARGS=()
+    [ -n "$BACA_INTERNAL" ] && BACA_ARGS+=(--internal "$BACA_INTERNAL")
+    [ -n "$BACA_EKST_INPUT" ] && BACA_ARGS+=(--external "$BACA_EKST_INPUT")
+    python3 scripts/bacajuga_merge.py "$FILE" "${BACA_ARGS[@]}" || exit 1
+fi
+
 # ═══ INLINE INTERNAL ═══
 if [ -n "$INLINE_INPUT" ]; then
     echo -e "${BLUE}🔗 Inline internal…${NC}"
@@ -412,31 +398,7 @@ fi
 
 # ═══ INLINE EKSTERNAL ═══
 if [ -n "$INLINE_EXT_INPUT" ]; then
-    python3 - "$FILE" "$INLINE_EXT_INPUT" << 'PYEXT'
-import sys, re
-path, raw = sys.argv[1], sys.argv[2]
-with open(path) as f: c = f.read()
-for pair in [p.strip() for p in raw.split(',') if p.strip()]:
-    if '|' not in pair: continue
-    anchor, url = pair.split('|', 1)
-    anchor, url = anchor.strip(), url.strip()
-    clean = anchor.strip('*').strip()
-    pat_it = re.compile(r'(?<!\[)\*' + re.escape(clean) + r'\*(?!\])')
-    pat_pl = re.compile(r'(?<!\[)(' + re.escape(clean) + r')(?!\])')
-    m = pat_it.search(c)
-    if m:
-        c = c[:m.start()] + f'<a href="{url}"><em>{clean}</em></a>' + c[m.end():]
-        print(f"   ✅ ext: '{clean}' → HTML tag")
-    else:
-        m = pat_pl.search(c)
-        if m:
-            matched = m.group(1)
-            c = c[:m.start()] + f'<a href="{url}"><em>{matched}</em></a>' + c[m.end():]
-            print(f"   ✅ ext: '{matched}' → HTML tag")
-        else:
-            print(f"   ⚠️  tidak ketemu: '{clean}'")
-with open(path, 'w') as f: f.write(c)
-PYEXT
+    python3 scripts/inline_external.py "$FILE" "$INLINE_EXT_INPUT" || exit 1
 fi
 
 # ═══ PREVIEW ═══

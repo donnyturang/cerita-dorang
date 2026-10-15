@@ -359,72 +359,12 @@ with open(path, 'w') as f:
 print("OK")
 PYAPPLY
 
-# ═══ BACA JUGA INTERNAL ═══
-if [ -n "$BACA_INTERNAL" ]; then
-    echo -e "${BLUE}📚 Baca Juga Internal...${NC}"
-    python3 - "$FILE" "$BACA_INTERNAL" << 'PYBACAINT'
-import sys
-path, raw = sys.argv[1], sys.argv[2]
-with open(path, encoding="utf-8") as f:
-    c = f.read()
-
-nl = chr(10)
-slugs = [s.strip().lstrip("/").replace("posts/", "") for s in raw.split(",") if s.strip()]
-blocks = [f'{{{{< bacajuga-internal slug="{s}" >}}}}' for s in slugs]
-new_block = (nl + nl).join(blocks)
-
-start_marker = "{{< bacajuga-internal"
-end_marker = "}}"
-if start_marker in c:
-    start = c.index(start_marker)
-    end = c.index(end_marker, start) + len(end_marker)
-    c = c[:start] + new_block + c[end:]
-    print(f"   ✅ {len(slugs)} bacajuga internal (diganti)")
-else:
-    if "{{< bacajuga-list >}}" in c:
-        c = c.replace("{{< bacajuga-list >}}", new_block + nl + nl + "{{< bacajuga-list >}}", 1)
-    else:
-        c = c.rstrip() + nl + nl + new_block + nl
-    print(f"   ✅ {len(slugs)} bacajuga internal (ditambah)")
-
-with open(path, "w", encoding="utf-8") as f:
-    f.write(c)
-PYBACAINT
-fi
-
-# ═══ BACA JUGA EKSTERNAL ═══
-if [ -n "$BACA_EKST_INPUT" ]; then
-    echo -e "${BLUE}📚 Baca Juga Eksternal...${NC}"
-    python3 - "$FILE" "$BACA_EKST_INPUT" << 'PYBACAEKST'
-import sys
-path, raw = sys.argv[1], sys.argv[2]
-with open(path, encoding="utf-8") as f:
-    c = f.read()
-
-nl = chr(10)
-pairs = [p.strip() for p in raw.split(",") if p.strip()]
-lines = []
-for p in pairs:
-    if "|" in p:
-        url, text = p.split("|", 1)
-        lines.append(f"{url.strip()}|{text.strip()}")
-
-new_block = "{{< bacajuga-list >}}" + nl + nl.join(lines) + nl + "{{< /bacajuga-list >}}"
-
-start_marker = "{{< bacajuga-list >}}"
-end_marker = "{{< /bacajuga-list >}}"
-if start_marker in c and end_marker in c:
-    start = c.index(start_marker)
-    end = c.index(end_marker) + len(end_marker)
-    c = c[:start] + new_block + c[end:]
-    print(f"   ✅ {len(lines)} bacajuga eksternal (diganti)")
-else:
-    c = c.rstrip() + nl + nl + new_block + nl
-    print(f"   ✅ {len(lines)} bacajuga eksternal (ditambah)")
-
-with open(path, "w", encoding="utf-8") as f:
-    f.write(c)
-PYBACAEKST
+# ═══ BACA JUGA GABUNGAN ═══
+if [ -n "$BACA_INTERNAL" ] || [ -n "$BACA_EKST_INPUT" ]; then
+    BACA_ARGS=()
+    [ -n "$BACA_INTERNAL" ] && BACA_ARGS+=(--internal "$BACA_INTERNAL")
+    [ -n "$BACA_EKST_INPUT" ] && BACA_ARGS+=(--external "$BACA_EKST_INPUT")
+    python3 scripts/bacajuga_merge.py "$FILE" "${BACA_ARGS[@]}" || exit 1
 fi
 
 # ═══ INLINE INTERNAL ═══
@@ -438,30 +378,7 @@ fi
 
 # ═══ INLINE EKSTERNAL (HTML tag) ═══
 if [ -n "$INLINE_EXT_INPUT" ]; then
-    echo -e "${BLUE}🔗 Inline eksternal…${NC}"
-    python3 - "$FILE" "$INLINE_EXT_INPUT" << 'PYEXT'
-import sys, re
-path, raw = sys.argv[1], sys.argv[2]
-with open(path) as f: c = f.read()
-for pair in [p.strip() for p in raw.split(',') if p.strip()]:
-    if '|' not in pair: continue
-    anchor, url = pair.split('|', 1)
-    anchor, url = anchor.strip(), url.strip()
-    clean = anchor.strip('*').strip()
-    pat_it = re.compile(r'(?<!\[)\*' + re.escape(clean) + r'\*(?!\])')
-    pat_pl = re.compile(r'(?<!\[)(' + re.escape(clean) + r')(?!\])')
-    m = pat_it.search(c)
-    if m:
-        c = c[:m.start()] + f'<a href="{url}"><em>{clean}</em></a>' + c[m.end():]
-        print(f"   ✅ ext: '{clean}'")
-    else:
-        m = pat_pl.search(c)
-        if m:
-            c = c[:m.start()] + f'<a href="{url}"><em>{m.group(1)}</em></a>' + c[m.end():]
-            print(f"   ✅ ext: '{m.group(1)}'")
-        else: print(f"   ⚠️  tidak ketemu: '{clean}'")
-with open(path, 'w') as f: f.write(c)
-PYEXT
+    python3 scripts/inline_external.py "$FILE" "$INLINE_EXT_INPUT" || exit 1
 fi
 
 # ═══ CLEANUP ═══

@@ -758,10 +758,12 @@ Barangkali pelajaran terpenting justru belum sepenuhnya kita kuasai.
 
 Dan selama masih ada seorang anak yang ingin belajar tetapi belum memperoleh kesempatan yang layak, sejarah pendidikan Indonesia belum selesai ditulis.
 
-**Rujukan**: Sistem Informasi Kurikulum Nasional
+**Rujukan**: [Sistem Informasi Kurikulum Nasional](https://kurikulum.kemendikdasmen.go.id)
 
 {{< bacajuga-list >}}
-
-https://donnyturang.blogspot.com/2026/06/tomohon-tuntas-pratama-strategi-menuju-tuntas-madya.html|Tuntas Pratama dan Ambisi yang Belum Selesai; https://donnyturang.blogspot.com/2026/05/dari-bangku-sekolah-ke-bandara-osaka-taruhan-besar-tomohon-pada-manusia.html|Dari Bangku Sekolah ke Bandara Osaka: Taruhan Besar Tomohon pada Manusia; https://donnyturang.blogspot.com/2026/06/kota-pendidikan-tomohon-spmb-transparan-2026.html|Sekolah di Bawah Asap Lokon
-
+internal:seminari-kakaskasen-dari-sebuah-kehilangan-tumbuh-ribuan-panggilan
+https://donnyturang.blogspot.com/2026/05/dari-volkschool-ke-merdeka-belajar-satu-abad-kurikulum.html|Dari Volkschool ke Merdeka Belajar: Satu Abad Kurikulum yang Terus Bergerak
+https://donnyturang.blogspot.com/2026/06/tomohon-tuntas-pratama-strategi-menuju-tuntas-madya.html|Tuntas Pratama dan Ambisi yang Belum Selesai
+https://donnyturang.blogspot.com/2026/05/dari-bangku-sekolah-ke-bandara-osaka-taruhan-besar-tomohon-pada-manusia.html|Dari Bangku Sekolah ke Bandara Osaka: Taruhan Besar Tomohon pada Manusia
+https://donnyturang.blogspot.com/2026/06/kota-pendidikan-tomohon-spmb-transparan-2026.html|Sekolah di Bawah Asap Lokon
 {{< /bacajuga-list >}}
