@@ -3818,8 +3818,8 @@ blockquote {
    ============================================================ */
 .homepage-quote {
   max-width: 620px;
-  margin: 32px auto 40px;
-  padding: 24px 28px 20px;
+  margin: 28px auto 36px;
+  padding: 20px 24px 16px;
   text-align: center;
   position: relative;
   border-top: 1px solid var(--border);
@@ -3829,19 +3829,19 @@ blockquote {
 .homepage-quote::before {
   content: "\201C";
   font-family: Georgia, serif;
-  font-size: 32px;
+  font-size: 26px;
   line-height: 0.8;
   color: var(--accent);
   opacity: 0.4;
   position: absolute;
-  top: 14px;
+  top: 12px;
   left: 50%;
   transform: translateX(-50%);
 }
 
 .homepage-quote-text {
   font-family: Georgia, "Times New Roman", serif;
-  font-size: 12px;
+  font-size: 11px;
   font-style: italic;
   line-height: 1.55;
   color: var(--text);
@@ -3856,7 +3856,7 @@ blockquote {
 .homepage-quote-author {
   display: block;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 10px;
+  font-size: 9px;
   font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -3867,7 +3867,7 @@ blockquote {
 .homepage-quote-source {
   display: block;
   font-family: Georgia, serif;
-  font-size: 9px;
+  font-size: 8.5px;
   font-style: italic;
   color: var(--muted);
   margin-top: 6px;
@@ -3897,20 +3897,20 @@ blockquote {
     padding: 20px 20px 16px;
   }
   .homepage-quote::before {
-    font-size: 26px;
+    font-size: 22px;
     top: 10px;
   }
   .homepage-quote-text {
-    font-size: 12px;
+    font-size: 10.5px;
     line-height: 1.5;
     margin: 12px 0 10px;
   }
   .homepage-quote-author {
-    font-size: 9.5px;
+    font-size: 8.5px;
     letter-spacing: 1.8px;
   }
   .homepage-quote-source {
-    font-size: 8.5px;
+    font-size: 7.5px;
     margin-top: 5px;
   }
 }
