@@ -10,6 +10,7 @@ RED='\033[0;31m'; NC='\033[0m'
 
 PROJECT="$HOME/Projects/dorang-hugo"
 cd "$PROJECT" || { echo -e "${RED}❌ Project tidak ditemukan${NC}"; exit 1; }
+source "$PROJECT/scripts/image_copy.sh"
 
 clear
 echo ""
@@ -231,10 +232,8 @@ while true; do
         11) edit_field "Inline internal (anchor|slug)" INLINE_INPUT ;;
         12) edit_field "Inline eksternal (anchor|url)" INLINE_EXT_INPUT ;;
         13) edit_field "Cover (nama file di ~/Pictures)" GAMBAR
-            if [ -n "$GAMBAR" ] && [ -f "$HOME/Pictures/$GAMBAR" ]; then
-                mkdir -p "$PROJECT/assets/images"
-                cp "$HOME/Pictures/$GAMBAR" "$PROJECT/assets/images/$GAMBAR"
-                echo -e "   ${GREEN}✓ Disalin ke assets/images/${NC}"
+            if [ -n "$GAMBAR" ]; then
+                dorang_copy_image "$GAMBAR" "$HOME/Pictures" || exit 1
             fi ;;
         14) edit_field "Alt text" ALT ;;
         15) edit_field "Caption" CAPTION ;;
@@ -493,12 +492,24 @@ if hugo --quiet 2>&1; then
     echo -e "${GREEN}✅ Build OK${NC}"
 else
     echo -e "${RED}❌ Build GAGAL${NC}"
-    read -p "   Lanjut push? (y/n): " FORCE
-    [ "$FORCE" != "y" ] && exit 1
+    echo -e "${RED}❌ Publikasi dibatalkan karena build gagal.${NC}"
+    exit 1
 fi
 
-if git diff --quiet "$FILE"; then
-    echo -e "${GOLD}⚠️  Tidak ada perubahan.${NC}"; exit 0
+COVER_PATH=""
+if [ -n "$GAMBAR" ]; then
+    COVER_PATH="assets/images/$GAMBAR"
+    if [ ! -f "$COVER_PATH" ]; then
+        echo -e "${RED}❌ Cover tidak ditemukan: $COVER_PATH${NC}"
+        exit 1
+    fi
+fi
+
+if git diff --quiet -- "$FILE" &&
+   { [ -z "$COVER_PATH" ] || git diff --quiet -- "$COVER_PATH"; } &&
+   { [ -z "$COVER_PATH" ] || [ -z "$(git ls-files --others --exclude-standard -- "$COVER_PATH")" ]; }; then
+    echo -e "${GOLD}⚠️  Tidak ada perubahan.${NC}"
+    exit 0
 fi
 
 echo ""
@@ -512,7 +523,15 @@ if [ "$PUSH_NUM" != "y" ]; then
 fi
 
 git add "$FILE"
-git commit -m "edit: update $(basename $FILE .md)"
+if [ -n "$GAMBAR" ]; then
+    COVER_PATH="assets/images/$GAMBAR"
+    if [ ! -f "$COVER_PATH" ]; then
+        echo -e "${RED}❌ Cover tidak ditemukan: $COVER_PATH${NC}"
+        exit 1
+    fi
+    git add -- "$COVER_PATH" || exit 1
+fi
+git commit -m "edit: update $(basename "$FILE" .md)"
 git push origin main
 
 echo ""

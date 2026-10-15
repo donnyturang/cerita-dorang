@@ -20,6 +20,7 @@ echo -e "${GOLD}═════════════════════�
 echo ""
 
 cd "$PROJECT"
+source "$PROJECT/scripts/image_copy.sh"
 
 # ═══ FUNGSI EDIT FIELD ═══
 edit_field() {
@@ -192,8 +193,7 @@ if [ -n "$GAMBAR" ]; then
         [ "$LANJUT" != "y" ] && exit 0
         GAMBAR=""
     else
-        mkdir -p "$PROJECT/assets/images"
-        cp "$SRC" "$PROJECT/assets/images/$GAMBAR"
+        dorang_copy_image "$GAMBAR" "$HOME/Pictures" || exit 1
         SIZE=$(du -h "$SRC" | cut -f1)
         echo -e "   ✅ Disalin ($SIZE) → assets/images/$GAMBAR"
         echo ""
@@ -269,8 +269,8 @@ while true; do
         12) edit_field "Inline internal" INLINE_INPUT ;;
         13) edit_field "Inline eksternal" INLINE_EXT_INPUT ;;
         14) edit_field "Cover (nama file)" GAMBAR
-            if [ -n "$GAMBAR" ] && [ -f "$HOME/Pictures/$GAMBAR" ]; then
-                cp "$HOME/Pictures/$GAMBAR" "$PROJECT/assets/images/$GAMBAR" 2>/dev/null || true
+            if [ -n "$GAMBAR" ]; then
+                dorang_copy_image "$GAMBAR" "$HOME/Pictures" || exit 1
             fi ;;
         15) edit_field "Alt text" ALT ;;
         16) edit_field "Caption" CAPTION ;;
@@ -472,8 +472,14 @@ if [ "$PUSH_NUM" != "y" ]; then
 fi
 
 git add "$FILE"
-[ -n "$GAMBAR_FILE" ] && git add "assets/images/$GAMBAR_FILE" || true
-git commit -m "publish: $JUDUL (dari draft Desktop)" || true
+if [ -n "$GAMBAR_FILE" ]; then
+    [ -f "assets/images/$GAMBAR_FILE" ] || {
+        echo "❌ Cover tidak ditemukan: $GAMBAR_FILE"
+        exit 1
+    }
+    git add -- "assets/images/$GAMBAR_FILE" || exit 1
+fi
+git commit -m "publish: $JUDUL (dari draft Desktop)" || exit 1
 git push origin main
 
 # ═══ SHARE PREVIEW ═══
