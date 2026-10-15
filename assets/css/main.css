@@ -3857,11 +3857,10 @@ blockquote {
 .homepage-quote-source {
   display: block;
   font-family: Georgia, serif;
-  font-size: 8.5px;
+  font-size: 10px;
   font-style: italic;
   color: var(--muted);
   margin-top: 6px;
-  opacity: 0.8;
 }
 
 [data-theme="dark"] .homepage-quote {
