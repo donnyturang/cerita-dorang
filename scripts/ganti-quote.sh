@@ -140,7 +140,12 @@ PYEOF
     read -p "   Author: " NEW_AUTHOR
     read -p "   Source (opsional): " NEW_SOURCE
 
-    # Escape single quote
+    # ═══ Auto-strip tanda kutip & trim (via helper Python) ═══
+    NEW_TEXT=$(python3 "$PROJECT/scripts/strip-quotes.py" "$NEW_TEXT")
+    NEW_AUTHOR=$(python3 "$PROJECT/scripts/strip-quotes.py" "$NEW_AUTHOR")
+    NEW_SOURCE=$(python3 "$PROJECT/scripts/strip-quotes.py" "$NEW_SOURCE")
+
+    # Escape single quote untuk YAML
     NEW_TEXT="${NEW_TEXT//\'/\'\'}"
     NEW_AUTHOR="${NEW_AUTHOR//\'/\'\'}"
     NEW_SOURCE="${NEW_SOURCE//\'/\'\'}"
