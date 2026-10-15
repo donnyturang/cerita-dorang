@@ -1,0 +1,23 @@
+# ═══════════════════════════════════════════════════════════════
+#   QUOTE AKTIF — Tampil di homepage CERITA DORANG
+# ═══════════════════════════════════════════════════════════════
+#
+#   CARA GANTI:
+#   1. Edit file ini langsung (ubah text/author/source)
+#      — ATAU —
+#   2. Jalankan: bash scripts/ganti-quote.sh
+#
+#   3. Push ke GitHub:
+#      git add data/quote.yaml
+#      git commit -m "quote: ganti bulanan"
+#      git push
+#
+#   CATATAN:
+#   - Gunakan SINGLE QUOTE (') untuk menghindari masalah YAML
+#   - Kalau ada tanda ' di dalam teks, ganti jadi ''
+#   - Quote akan tampil di homepage di bawah nav menu
+# ═══════════════════════════════════════════════════════════════
+
+text: '"Cerita tidak pernah habis. Ia hanya berpindah dari satu orang ke orang lain—dan di setiap tangan, ia tumbuh sedikit berbeda."'
+author: 'Walter Benjamin'
+source: 'Terinspirasi dari "The Storyteller", 1936'
