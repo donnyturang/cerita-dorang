@@ -1,7 +1,7 @@
 ---
 title: "Tentang Penulis"
 date: 2026-10-07T08:00:00+08:00
-lastmod: 2026-10-15T21:00:00+08:00
+lastmod: 2026-10-15T22:00:00+08:00
 layout: "static-page"
 url: "/tentang-penulis/"
 description: "Profil Donny Turang — jurnalis dan penulis di balik CERITA DORANG."
@@ -20,13 +20,11 @@ Lahir di Manado dan besar di Tomohon, Sulawesi Utara — dua tempat yang meningg
 - **Dewan Etik AMSI Sulawesi Utara**
 - Penulis mandiri di platform **Google Play Books** dan **Draft2Digital**
 
-## Mengapa CERITA DORANG?
+## Tentang CERITA DORANG
 
-Blog utama **DORANG** sudah lama menjadi rumah bagi berbagai tulisan — feature, opini, catatan kecil, hingga buku elektronik. Sebagian dari tulisan itu kini disusun ulang di **CERITA DORANG**, dengan pengalaman membaca yang lebih nyaman.
+**CERITA DORANG** lahir dari satu keyakinan sederhana: bahwa cerita tentang Tomohon, Minahasa, dan orang-orang di dalamnya layak dituliskan dengan sungguh-sungguh.
 
-**CERITA DORANG** dibangun sebagai **ruang baca yang lebih cepat dan modern** untuk cerita-cerita terpilih — dengan pengalaman membaca yang lebih nyaman, tanpa gangguan.
-
-Setiap artikel ditulis dengan **waktu** dan **kesabaran** — tanpa dikejar tenggat. Cerita yang tidak diburu viralitas, tapi yang layak untuk matang.
+Di sini, setiap artikel ditulis dengan **waktu** dan **kesabaran** — tanpa dikejar tenggat. Cerita yang tidak diburu viralitas, tapi yang layak untuk matang.
 
 ## Buku
 
@@ -47,4 +45,4 @@ Karya yang sudah terbit:
 
 ---
 
-*Terakhir diperbarui: 7 Oktober 2026*
+*Terakhir diperbarui: 15 Oktober 2026*
