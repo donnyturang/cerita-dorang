@@ -4,7 +4,7 @@ date : "2026-10-15T12:19:05+08:00"
 draft: false
 author : "Donny Turang"
 categories : ["Sosok"]
-tags: ["Sendy Rumajar", "Tomohon", "Wakil Wali Kota", "Kepemimpinan", "Tomohon", "Sulawesiara", "Tokoh Perempuan"]
+tags : ["Sendy Rumajar", "Tomohon", "Wakil Wali Kota", "Kepemimpinan", "Tomohon", "Sulawesiara", "Tokoh Perempuan"]
 description : "Sendy Rumajar tumbuh dalam keluarga politik Tomohon. Dari Paskibraka Nasional hingga wakil wali kota, ia menghadapi ujian membangun warisannya sendiri."
 summary : "Tiga generasi keluarga Rumajar meninggalkan jejak dalam sejarah politik Minahasa dan Tomohon. Kini, Sendy Gladys Adolfina Rumajar menghadapi tantangan berbeda: membuktikan bahwa kepemimpinannya bukan sekadar kelanjutan nama besar keluarga, melainkan perjalanan pengabdian yang memiliki maknanya sendiri."
 ShowToc: true
