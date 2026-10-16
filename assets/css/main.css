@@ -3923,3 +3923,29 @@ blockquote {
     margin-top: 20px;
   }
 }
+
+
+/* ============================================================
+   VIEWALL MINI — CTA kecil per section (Jendela, Tahukah, Sosok)
+   ============================================================ */
+.dorang-viewall-mini {
+  margin: 20px 0 8px;
+  padding-top: 0;
+  border-top: none;
+}
+
+.dorang-viewall-mini .dorang-viewall-link {
+  font-size: 11px;
+  padding: 10px 24px;
+  letter-spacing: 1.5px;
+}
+
+@media (max-width: 640px) {
+  .dorang-viewall-mini {
+    margin: 16px 0 4px;
+  }
+  .dorang-viewall-mini .dorang-viewall-link {
+    font-size: 10.5px;
+    padding: 9px 20px;
+  }
+}
