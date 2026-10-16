@@ -3949,3 +3949,20 @@ blockquote {
     padding: 9px 20px;
   }
 }
+
+
+/* ============================================================
+   BOTTOM LINK — Navigasi bawah kategori
+   ============================================================ */
+.dorang-list-back-sep {
+  margin: 0 14px;
+  color: var(--muted);
+  opacity: 0.5;
+  font-weight: 400;
+}
+
+@media (max-width: 640px) {
+  .dorang-list-back-sep {
+    margin: 0 10px;
+  }
+}
