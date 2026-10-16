@@ -62,19 +62,22 @@
         {{ end }}
       </div>
 
-      {{/* GRID — Sisa artikel (mulai ke-5) */}}
+      {{/* LIST — Sisa artikel (mulai ke-5) — horizontal list, lebih rapi */}}
       {{ if $rest }}
-      <div class="dorang-grid">
+      <div class="dorang-list">
         {{ range $rest }}
         {{ $item := . }}
-        <a href="{{ .RelPermalink }}" class="dorang-card">
+        <a href="{{ .RelPermalink }}" class="dorang-list-item">
           {{ with .Params.cover.image }}
-          <div class="dorang-card-cover">
-            {{ partial "image.html" (dict "src" . "alt" ($item.Params.cover.alt | default $item.Title) "loading" "lazy" "sizes" "(max-width: 640px) 100vw, (max-width: 1100px) 45vw, 350px" "widths" (slice 400 800)) }}
+          <div class="dorang-list-cover">
+            {{ partial "image.html" (dict "src" . "alt" ($item.Params.cover.alt | default $item.Title) "loading" "lazy" "sizes" "(max-width: 640px) 110px, 180px" "widths" (slice 200 400 600 800)) }}
           </div>
           {{ end }}
-          <h3 class="dorang-card-title">{{ .Title }}</h3>
-          <p class="dorang-card-summary">{{ .Summary | plainify | truncate 120 }}</p>
+          <div class="dorang-list-content">
+            <h3 class="dorang-list-title">{{ .Title }}</h3>
+            <p class="dorang-list-summary">{{ .Summary | plainify | truncate 120 }}</p>
+            <span class="dorang-card-meta">{{ .Date | time.Format "2 January 2006" }} · {{ .ReadingTime }} menit baca</span>
+          </div>
         </a>
         {{ end }}
       </div>
@@ -117,6 +120,11 @@
         {{ end }}
       </nav>
     {{ end }}
+
+    {{/* CTA — Lihat Semua Tulisan */}}
+    <div class="dorang-viewall">
+      <a href="/posts/" class="dorang-viewall-link">Lihat Semua Tulisan →</a>
+    </div>
 
   {{ else }}
     <p class="dorang-empty"><em>Belum ada artikel di kategori ini.</em></p>
