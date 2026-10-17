@@ -1,45 +1,110 @@
 {{/* ============================================================
      ARTICLE FEEDBACK — "Apakah artikel ini bermanfaat?"
-     Umpan balik lokal via localStorage (tanpa tracking eksternal)
+     - Zaraz tracking (jika tersedia)
+     - Form komentar opsional untuk jawaban "TIDAK"
+     - Simpan state di localStorage
      ============================================================ */}}
 
 <div class="dorang-feedback" id="article-feedback">
   <h3 class="dorang-feedback-title">Apakah artikel ini bermanfaat?</h3>
-  <div class="dorang-feedback-buttons">
-    <button type="button" class="dorang-btn-yes" onclick="dorangFeedback('yes')">YA</button>
-    <button type="button" class="dorang-btn-no" onclick="dorangFeedback('no')">TIDAK</button>
+  
+  {{/* Tombol utama */}}
+  <div class="dorang-feedback-buttons" id="feedback-buttons">
+    <button type="button" class="dorang-btn-yes" onclick="dorangFeedbackYes()">YA</button>
+    <button type="button" class="dorang-btn-no" onclick="dorangFeedbackNo()">TIDAK</button>
   </div>
-  <p class="dorang-feedback-thanks" id="feedback-thanks" style="display:none;">
+
+  {{/* Area untuk jawaban YA */}}
+  <p class="dorang-feedback-thanks" id="feedback-thanks-yes" style="display:none;">
     ✓ Terima kasih atas masukan Anda!
   </p>
+
+  {{/* Area untuk jawaban TIDAK (form komentar) */}}
+  <div class="dorang-feedback-no-form" id="feedback-no-form" style="display:none;">
+    <p class="dorang-feedback-thanks" style="margin-bottom: 1rem;">
+      ✓ Terima kasih! Boleh tahu apa yang kurang?
+    </p>
+    <form id="feedback-comment-form" class="dorang-feedback-form" onsubmit="dorangSubmitComment(event)">
+      <textarea name="comment" rows="3" placeholder="Tulis masukan Anda di sini (opsional)..." class="dorang-feedback-textarea"></textarea>
+      <button type="submit" class="dorang-btn-submit">Kirim Masukan</button>
+    </form>
+    <p class="dorang-feedback-skip" id="feedback-skip" style="display:none;">
+      ✓ Masukan Anda sudah terkirim. Terima kasih!
+    </p>
+  </div>
 </div>
 
 <script>
 (function() {
   'use strict';
-  var key = 'dorang-feedback-' + window.location.pathname;
+  var pageKey = 'dorang-feedback-' + window.location.pathname;
   
-  // Cek apakah user sudah pernah vote
+  // Cek state saat halaman dimuat
   document.addEventListener('DOMContentLoaded', function() {
-    if (localStorage.getItem(key)) {
-      var buttons = document.querySelector('#article-feedback .dorang-feedback-buttons');
-      var thanks = document.getElementById('feedback-thanks');
-      if (buttons && thanks) {
-        buttons.style.display = 'none';
-        thanks.style.display = 'block';
+    var saved = localStorage.getItem(pageKey);
+    if (saved) {
+      hideButtons();
+      if (saved === 'yes') {
+        document.getElementById('feedback-thanks-yes').style.display = 'block';
+      } else if (saved === 'no') {
+        document.getElementById('feedback-no-form').style.display = 'block';
+        // Sembunyikan form jika sudah pernah submit komentar
+        if (localStorage.getItem(pageKey + '-comment-sent')) {
+          document.getElementById('feedback-comment-form').style.display = 'none';
+          document.getElementById('feedback-skip').style.display = 'block';
+        }
       }
     }
   });
   
-  // Fungsi global untuk handle klik
-  window.dorangFeedback = function(val) {
-    localStorage.setItem(key, val);
-    var buttons = document.querySelector('#article-feedback .dorang-feedback-buttons');
-    var thanks = document.getElementById('feedback-thanks');
-    if (buttons && thanks) {
-      buttons.style.display = 'none';
-      thanks.style.display = 'block';
+  function hideButtons() {
+    var btns = document.getElementById('feedback-buttons');
+    if (btns) btns.style.display = 'none';
+  }
+  
+  // Handler untuk YA
+  window.dorangFeedbackYes = function() {
+    localStorage.setItem(pageKey, 'yes');
+    hideButtons();
+    document.getElementById('feedback-thanks-yes').style.display = 'block';
+    // Kirim event ke Zaraz
+    if (typeof zaraz !== 'undefined' && zaraz.track) {
+      zaraz.track('article_feedback', { value: 'yes', page: window.location.pathname });
     }
+  };
+  
+  // Handler untuk TIDAK
+  window.dorangFeedbackNo = function() {
+    localStorage.setItem(pageKey, 'no');
+    hideButtons();
+    document.getElementById('feedback-no-form').style.display = 'block';
+    // Kirim event ke Zaraz
+    if (typeof zaraz !== 'undefined' && zaraz.track) {
+      zaraz.track('article_feedback', { value: 'no', page: window.location.pathname });
+    }
+  };
+  
+  // Handler submit komentar
+  window.dorangSubmitComment = function(e) {
+    e.preventDefault();
+    var form = e.target;
+    var comment = form.querySelector('textarea[name="comment"]').value.trim();
+    var page = window.location.pathname;
+    
+    // Kirim ke backend (Pages Function)
+    fetch('/api/feedback', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ page: page, value: 'no', comment: comment })
+    }).then(function() {
+      localStorage.setItem(pageKey + '-comment-sent', 'true');
+      form.style.display = 'none';
+      document.getElementById('feedback-skip').style.display = 'block';
+    }).catch(function() {
+      // Tetap sembunyikan form meskipun gagal (user tidak perlu tahu)
+      form.style.display = 'none';
+      document.getElementById('feedback-skip').style.display = 'block';
+    });
   };
 })();
 </script>

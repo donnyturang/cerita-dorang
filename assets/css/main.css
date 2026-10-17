@@ -4079,3 +4079,78 @@ blockquote {
     min-width: 100px;
   }
 }
+
+
+/* ============================================================
+   FEEDBACK FORM — Komentar opsional (untuk jawaban TIDAK)
+   ============================================================ */
+.dorang-feedback-no-form {
+  margin-top: 1rem;
+}
+
+.dorang-feedback-form {
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.dorang-feedback-textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-family: Georgia, serif;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--text);
+  background: var(--bg);
+  resize: vertical;
+  transition: border-color 0.2s ease;
+  box-sizing: border-box;
+}
+
+.dorang-feedback-textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(196, 154, 108, 0.15);
+}
+
+.dorang-btn-submit {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 24px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #fff;
+  background: var(--accent-dark);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.dorang-btn-submit:hover {
+  background: var(--accent);
+}
+
+.dorang-feedback-skip {
+  color: var(--accent-dark);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin: 0;
+  padding: 8px 0;
+}
+
+/* Dark mode */
+[data-theme="dark"] .dorang-feedback-textarea {
+  background: #252525;
+  border-color: #444;
+  color: #e6e6e6;
+}
+
+[data-theme="dark"] .dorang-feedback-skip {
+  color: var(--accent);
+}
