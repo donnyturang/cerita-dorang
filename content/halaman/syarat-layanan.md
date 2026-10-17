@@ -60,7 +60,16 @@ Syarat ini dapat diperbarui sewaktu-waktu. Perubahan berlaku sejak dipublikasika
 
 Syarat ini diatur oleh hukum **Republik Indonesia**.
 
-## 9. Kontak
+## 9. Konten Umpan Balik dan Komentar
+
+Dengan menggunakan fitur umpan balik dan kolom komentar di CERITA DORANG, Anda setuju untuk tidak mengirimkan materi yang bersifat memfitnah, mengancam, spam, atau melanggar hukum.
+Kami berhak, namun tidak berkewajiban, untuk menghapus komentar atau umpan balik yang dianggap melanggar ketentuan ini tanpa pemberitahuan sebelumnya. Komentar yang Anda kirimkan tidak mewakili pandangan CERITA DORANG, dan Anda bertanggung jawab penuh atas isi komentar Anda sendiri.
+
+## 10. Perubahan Layanan
+
+Kami berhak untuk mengubah, menangguhkan, atau menghentikan fitur apa pun di situs ini (termasuk fitur umpan balik) sewaktu-waktu tanpa pemberitahuan sebelumnya.
+
+## 11. Kontak
 
 Untuk pertanyaan tentang penggunaan konten:
 
@@ -68,15 +77,4 @@ Untuk pertanyaan tentang penggunaan konten:
 
 ---
 
-*Terakhir diperbarui: 7 Oktober 2026*
-
----
-
-## Konten Umpan Balik dan Komentar
-
-Dengan menggunakan fitur umpan balik dan kolom komentar di CERITA DORANG, Anda setuju untuk tidak mengirimkan materi yang bersifat memfitnah, mengancam, spam, atau melanggar hukum.
-Kami berhak, namun tidak berkewajiban, untuk menghapus komentar atau umpan balik yang dianggap melanggar ketentuan ini tanpa pemberitahuan sebelumnya. Komentar yang Anda kirimkan tidak mewakili pandangan CERITA DORANG, dan Anda bertanggung jawab penuh atas isi komentar Anda sendiri.
-
-## Perubahan Layanan
-
-Kami berhak untuk mengubah, menangguhkan, atau menghentikan fitur apa pun di situs ini (termasuk fitur umpan balik) sewaktu-waktu tanpa pemberitahuan sebelumnya.
+*Terakhir diperbarui: 17 Oktober 2026*

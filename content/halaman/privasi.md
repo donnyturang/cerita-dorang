@@ -21,20 +21,18 @@ CERITA DORANG tidak menggunakan cookie untuk melacak pembaca. Pengaturan tema (t
 
 Jika Anda berlangganan newsletter, alamat email Anda disimpan secara aman melalui layanan **Buttondown**. Anda dapat berhenti berlangganan kapan saja melalui tautan di setiap email.
 
-## 4. Pertanyaan
+## 4. Umpan Balik Pembaca (Feedback)
+
+CERITA DORANG menyediakan fitur umpan balik (tombol "YA/TIDAK" dan kolom komentar) di akhir artikel. Jika Anda memilih untuk memberikan komentar, data tersebut akan disimpan di database kami (Cloudflare D1) dan digunakan secara internal hanya untuk mengevaluasi dan meningkatkan kualitas artikel. Kami tidak membagikan data umpan balik ini kepada pihak ketiga untuk tujuan pemasaran.
+
+## 5. Analitik dan Keamanan (Cloudflare)
+
+Kami menggunakan layanan Cloudflare untuk menjaga keamanan situs dan memahami statistik kunjungan. Cloudflare (melalui fitur Web Analytics dan Zaraz) memproses data secara agregat dan anonim. Kami **tidak** menggunakan cookie pelacak (tracking cookies) atau mengumpulkan identitas pribadi Anda untuk keperluan analitik dasar maupun iklan.
+
+## 6. Pertanyaan
 
 Jika ada pertanyaan tentang privasi, silakan hubungi:
 
 **Email:** [dorang71@gmail.com](mailto:dorang71@gmail.com)
 
-*Terakhir diperbarui: 15 Oktober 2026*
-
----
-
-## Umpan Balik Pembaca (Feedback)
-
-CERITA DORANG menyediakan fitur umpan balik (tombol "YA/TIDAK" dan kolom komentar) di akhir artikel. Jika Anda memilih untuk memberikan komentar, data tersebut akan disimpan di database kami (Cloudflare D1) dan digunakan secara internal hanya untuk mengevaluasi dan meningkatkan kualitas artikel. Kami tidak membagikan data umpan balik ini kepada pihak ketiga untuk tujuan pemasaran.
-
-## Analitik dan Keamanan (Cloudflare)
-
-Kami menggunakan layanan Cloudflare untuk menjaga keamanan situs dan memahami statistik kunjungan. Cloudflare (melalui fitur Web Analytics dan Zaraz) memproses data secara agregat dan anonim. Kami **tidak** menggunakan cookie pelacak (tracking cookies) atau mengumpulkan identitas pribadi Anda untuk keperluan analitik dasar maupun iklan.
+*Terakhir diperbarui: 17 Oktober 2026*
