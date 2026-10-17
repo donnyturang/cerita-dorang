@@ -27,3 +27,4 @@ _backups/
 # Backup script (pola: script.sh.backup-YYYYMMDD-HHMM)
 *.backup-*
 _backup-*
+.wrangler/
