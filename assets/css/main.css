@@ -3966,3 +3966,116 @@ blockquote {
     margin: 0 10px;
   }
 }
+
+
+/* ============================================================
+   ARTICLE FEEDBACK — "Apakah artikel ini bermanfaat?"
+   ============================================================ */
+.dorang-feedback {
+  margin: 3rem 0 2rem;
+  padding: 2rem 1.5rem;
+  background: var(--soft);
+  border-radius: 10px;
+  text-align: center;
+  border: 1px solid var(--border);
+}
+
+.dorang-feedback-title {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 0 0 1.5rem;
+  letter-spacing: -0.2px;
+}
+
+.dorang-feedback-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.dorang-btn-yes,
+.dorang-btn-no {
+  padding: 12px 32px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 110px;
+}
+
+.dorang-btn-yes {
+  background: var(--accent-dark);
+  color: #fff;
+  border: 2px solid var(--accent-dark);
+}
+
+.dorang-btn-yes:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+
+.dorang-btn-no {
+  background: transparent;
+  color: var(--accent-dark);
+  border: 2px solid var(--accent-dark);
+}
+
+.dorang-btn-no:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.dorang-feedback-thanks {
+  color: var(--accent-dark);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin: 0;
+  padding: 8px 0;
+}
+
+/* Dark mode */
+[data-theme="dark"] .dorang-feedback {
+  background: #252525;
+  border-color: #3a3a3a;
+}
+
+[data-theme="dark"] .dorang-feedback-title {
+  color: #e6e6e6;
+}
+
+[data-theme="dark"] .dorang-btn-no {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+[data-theme="dark"] .dorang-feedback-thanks {
+  color: var(--accent);
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .dorang-feedback {
+    margin: 2rem 0 1.5rem;
+    padding: 1.5rem 1rem;
+  }
+  .dorang-feedback-title {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+  .dorang-btn-yes,
+  .dorang-btn-no {
+    padding: 10px 24px;
+    font-size: 0.85rem;
+    min-width: 100px;
+  }
+}

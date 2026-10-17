@@ -1,0 +1,45 @@
+{{/* ============================================================
+     ARTICLE FEEDBACK — "Apakah artikel ini bermanfaat?"
+     Umpan balik lokal via localStorage (tanpa tracking eksternal)
+     ============================================================ */}}
+
+<div class="dorang-feedback" id="article-feedback">
+  <h3 class="dorang-feedback-title">Apakah artikel ini bermanfaat?</h3>
+  <div class="dorang-feedback-buttons">
+    <button type="button" class="dorang-btn-yes" onclick="dorangFeedback('yes')">YA</button>
+    <button type="button" class="dorang-btn-no" onclick="dorangFeedback('no')">TIDAK</button>
+  </div>
+  <p class="dorang-feedback-thanks" id="feedback-thanks" style="display:none;">
+    ✓ Terima kasih atas masukan Anda!
+  </p>
+</div>
+
+<script>
+(function() {
+  'use strict';
+  var key = 'dorang-feedback-' + window.location.pathname;
+  
+  // Cek apakah user sudah pernah vote
+  document.addEventListener('DOMContentLoaded', function() {
+    if (localStorage.getItem(key)) {
+      var buttons = document.querySelector('#article-feedback .dorang-feedback-buttons');
+      var thanks = document.getElementById('feedback-thanks');
+      if (buttons && thanks) {
+        buttons.style.display = 'none';
+        thanks.style.display = 'block';
+      }
+    }
+  });
+  
+  // Fungsi global untuk handle klik
+  window.dorangFeedback = function(val) {
+    localStorage.setItem(key, val);
+    var buttons = document.querySelector('#article-feedback .dorang-feedback-buttons');
+    var thanks = document.getElementById('feedback-thanks');
+    if (buttons && thanks) {
+      buttons.style.display = 'none';
+      thanks.style.display = 'block';
+    }
+  };
+})();
+</script>
