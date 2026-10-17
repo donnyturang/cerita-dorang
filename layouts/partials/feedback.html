@@ -1,12 +1,15 @@
 {{/* ============================================================
-     ARTICLE FEEDBACK — "Apakah artikel ini bermanfaat?"
-     - Zaraz tracking (jika tersedia)
-     - Form komentar opsional untuk jawaban "TIDAK"
-     - Simpan state di localStorage
+     ARTICLE/PAGE FEEDBACK
+     - Deteksi otomatis: "artikel" untuk posts, "halaman" untuk static page
+     - Zaraz tracking dinamis: article_feedback / page_feedback
      ============================================================ */}}
 
+{{ $isPost := eq .Section "posts" }}
+{{ $title := cond $isPost "Apakah artikel ini bermanfaat?" "Apakah halaman ini bermanfaat?" }}
+{{ $eventName := cond $isPost "article_feedback" "page_feedback" }}
+
 <div class="dorang-feedback" id="article-feedback">
-  <h3 class="dorang-feedback-title">Apakah artikel ini bermanfaat?</h3>
+  <h3 class="dorang-feedback-title">{{ $title }}</h3>
   
   {{/* Tombol utama */}}
   <div class="dorang-feedback-buttons" id="feedback-buttons">
@@ -39,7 +42,6 @@
   'use strict';
   var pageKey = 'dorang-feedback-' + window.location.pathname;
   
-  // Cek state saat halaman dimuat
   document.addEventListener('DOMContentLoaded', function() {
     var saved = localStorage.getItem(pageKey);
     if (saved) {
@@ -48,7 +50,6 @@
         document.getElementById('feedback-thanks-yes').style.display = 'block';
       } else if (saved === 'no') {
         document.getElementById('feedback-no-form').style.display = 'block';
-        // Sembunyikan form jika sudah pernah submit komentar
         if (localStorage.getItem(pageKey + '-comment-sent')) {
           document.getElementById('feedback-comment-form').style.display = 'none';
           document.getElementById('feedback-skip').style.display = 'block';
@@ -62,36 +63,30 @@
     if (btns) btns.style.display = 'none';
   }
   
-  // Handler untuk YA
   window.dorangFeedbackYes = function() {
     localStorage.setItem(pageKey, 'yes');
     hideButtons();
     document.getElementById('feedback-thanks-yes').style.display = 'block';
-    // Kirim event ke Zaraz
     if (typeof zaraz !== 'undefined' && zaraz.track) {
-      zaraz.track('article_feedback', { value: 'yes', page: window.location.pathname });
+      zaraz.track('{{ $eventName }}', { value: 'yes', page: window.location.pathname });
     }
   };
   
-  // Handler untuk TIDAK
   window.dorangFeedbackNo = function() {
     localStorage.setItem(pageKey, 'no');
     hideButtons();
     document.getElementById('feedback-no-form').style.display = 'block';
-    // Kirim event ke Zaraz
     if (typeof zaraz !== 'undefined' && zaraz.track) {
-      zaraz.track('article_feedback', { value: 'no', page: window.location.pathname });
+      zaraz.track('{{ $eventName }}', { value: 'no', page: window.location.pathname });
     }
   };
   
-  // Handler submit komentar
   window.dorangSubmitComment = function(e) {
     e.preventDefault();
     var form = e.target;
     var comment = form.querySelector('textarea[name="comment"]').value.trim();
     var page = window.location.pathname;
     
-    // Kirim ke backend (Pages Function)
     fetch('/api/feedback', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -101,7 +96,6 @@
       form.style.display = 'none';
       document.getElementById('feedback-skip').style.display = 'block';
     }).catch(function() {
-      // Tetap sembunyikan form meskipun gagal (user tidak perlu tahu)
       form.style.display = 'none';
       document.getElementById('feedback-skip').style.display = 'block';
     });
